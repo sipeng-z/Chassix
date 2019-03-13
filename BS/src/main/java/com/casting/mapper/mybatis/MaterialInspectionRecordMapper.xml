@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.casting.mapper.mybatis.MaterialInspectionRecordMapper">
+  <resultMap id="BaseResultMap" type="com.casting.domain.model.output.MaterialInspectionRecordOutput">
+    <id column="Batch_Number" jdbcType="VARCHAR" property="batchNumber" />
+    <result column="Total_Weight" jdbcType="VARCHAR" property="totalWeight" />
+    <result column="Delivery_Date" jdbcType="DATE" property="deliveryDate" />
+    <result column="Material_Name" jdbcType="VARCHAR" property="materialName" />
+    <result column="Inspection_Date" jdbcType="DATE" property="inspectionDate" />
+    <result column="Sample_Number" jdbcType="VARCHAR" property="sampleNumber" />
+    <result column="Inspection_Item" jdbcType="VARCHAR" property="inspectionItem" />
+    <result column="Problem_Description" jdbcType="VARCHAR" property="problemDescription" />
+    <result column="Sampling_Time" jdbcType="DATE" property="samplingTime" />
+    <result column="State" jdbcType="INTEGER" property="state" />
+    <result column="Last_Update_Time" jdbcType="DATE" property="lastUpdateTime" />
+    <result column="Last_Update_User" jdbcType="VARCHAR" property="lastUpdateUser" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Batch_Number, Total_Weight, Delivery_Date, Material_Name, Inspection_Date, Sample_Number, 
+    Inspection_Item, Problem_Description, Sampling_Time, State, Last_Update_Time, Last_Update_User
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from dbo.Material_Inspection_Record
+    where Batch_Number = #{batchNumber,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from dbo.Material_Inspection_Record
+    where Batch_Number = #{batchNumber,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.casting.domain.entity.MaterialInspectionRecord">
+    insert into dbo.Material_Inspection_Record (Batch_Number, Total_Weight, Delivery_Date, 
+      Material_Name, Inspection_Date, Sample_Number, 
+      Inspection_Item, Problem_Description, Sampling_Time, 
+      State, Last_Update_Time, Last_Update_User
+      )
+    values (#{batchNumber,jdbcType=VARCHAR}, #{totalWeight,jdbcType=VARCHAR}, #{deliveryDate,jdbcType=DATE}, 
+      #{materialName,jdbcType=VARCHAR}, #{inspectionDate,jdbcType=DATE}, #{sampleNumber,jdbcType=VARCHAR}, 
+      #{inspectionItem,jdbcType=VARCHAR}, #{problemDescription,jdbcType=VARCHAR}, #{samplingTime,jdbcType=DATE}, 
+      #{state,jdbcType=INTEGER}, #{lastUpdateTime,jdbcType=DATE}, #{lastUpdateUser,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.casting.domain.entity.MaterialInspectionRecord">
+    insert into dbo.Material_Inspection_Record
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="batchNumber != null">
+        Batch_Number,
+      </if>
+      <if test="totalWeight != null">
+        Total_Weight,
+      </if>
+      <if test="deliveryDate != null">
+        Delivery_Date,
+      </if>
+      <if test="materialName != null">
+        Material_Name,
+      </if>
+      <if test="inspectionDate != null">
+        Inspection_Date,
+      </if>
+      <if test="sampleNumber != null">
+        Sample_Number,
+      </if>
+      <if test="inspectionItem != null">
+        Inspection_Item,
+      </if>
+      <if test="problemDescription != null">
+        Problem_Description,
+      </if>
+      <if test="samplingTime != null">
+        Sampling_Time,
+      </if>
+      <if test="state != null">
+        State,
+      </if>
+      <if test="lastUpdateTime != null">
+        Last_Update_Time,
+      </if>
+      <if test="lastUpdateUser != null">
+        Last_Update_User,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="batchNumber != null">
+        #{batchNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="totalWeight != null">
+        #{totalWeight,jdbcType=VARCHAR},
+      </if>
+      <if test="deliveryDate != null">
+        #{deliveryDate,jdbcType=DATE},
+      </if>
+      <if test="materialName != null">
+        #{materialName,jdbcType=VARCHAR},
+      </if>
+      <if test="inspectionDate != null">
+        #{inspectionDate,jdbcType=DATE},
+      </if>
+      <if test="sampleNumber != null">
+        #{sampleNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="inspectionItem != null">
+        #{inspectionItem,jdbcType=VARCHAR},
+      </if>
+      <if test="problemDescription != null">
+        #{problemDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="samplingTime != null">
+        #{samplingTime,jdbcType=DATE},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=DATE},
+      </if>
+      <if test="lastUpdateUser != null">
+        #{lastUpdateUser,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.casting.domain.entity.MaterialInspectionRecord">
+    update dbo.Material_Inspection_Record
+    <set>
+      <if test="totalWeight != null">
+        Total_Weight = #{totalWeight,jdbcType=VARCHAR},
+      </if>
+      <if test="deliveryDate != null">
+        Delivery_Date = #{deliveryDate,jdbcType=DATE},
+      </if>
+      <if test="materialName != null">
+        Material_Name = #{materialName,jdbcType=VARCHAR},
+      </if>
+      <if test="inspectionDate != null">
+        Inspection_Date = #{inspectionDate,jdbcType=DATE},
+      </if>
+      <if test="sampleNumber != null">
+        Sample_Number = #{sampleNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="inspectionItem != null">
+        Inspection_Item = #{inspectionItem,jdbcType=VARCHAR},
+      </if>
+      <if test="problemDescription != null">
+        Problem_Description = #{problemDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="samplingTime != null">
+        Sampling_Time = #{samplingTime,jdbcType=DATE},
+      </if>
+      <if test="state != null">
+        State = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="lastUpdateTime != null">
+        Last_Update_Time = #{lastUpdateTime,jdbcType=DATE},
+      </if>
+      <if test="lastUpdateUser != null">
+        Last_Update_User = #{lastUpdateUser,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Batch_Number = #{batchNumber,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.casting.domain.entity.MaterialInspectionRecord">
+    update dbo.Material_Inspection_Record
+    set Total_Weight = #{totalWeight,jdbcType=VARCHAR},
+      Delivery_Date = #{deliveryDate,jdbcType=DATE},
+      Material_Name = #{materialName,jdbcType=VARCHAR},
+      Inspection_Date = #{inspectionDate,jdbcType=DATE},
+      Sample_Number = #{sampleNumber,jdbcType=VARCHAR},
+      Inspection_Item = #{inspectionItem,jdbcType=VARCHAR},
+      Problem_Description = #{problemDescription,jdbcType=VARCHAR},
+      Sampling_Time = #{samplingTime,jdbcType=DATE},
+      State = #{state,jdbcType=INTEGER},
+      Last_Update_Time = #{lastUpdateTime,jdbcType=DATE},
+      Last_Update_User = #{lastUpdateUser,jdbcType=VARCHAR}
+    where Batch_Number = #{batchNumber,jdbcType=VARCHAR}
+  </update>
+
+
+
+
+  <!-- tableName -->
+  <sql id="tableName">
+   dbo.Material_Inspection_Record
+  </sql>
+  <!-- tableNameOut -->
+  <sql id="tableNameOut">
+    <bind name="tableName" value="'dbo.Material_Inspection_Record'"/>
+  </sql>
+  <!-- pkId -->
+  <sql id="pkId">
+    <bind name="pkName" value="'Batch_Number'"/>
+  </sql>
+
+  <!--list-->
+  <select id="list" resultMap="BaseResultMap" parameterType="com.domain.model.PageData">
+    SELECT
+    <include refid="Base_Column_List"></include>
+    FROM
+    <include refid="tableName"></include>
+    WHERE 1 = 1
+    <include refid="PmBasicMapper.retrieveSql"></include>
+    order by Last_Update_Time DESC
+  </select>
+
+  <!--get one by id-->
+  <select id="findByPkId" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from <include refid="tableName"></include>
+    where Batch_Number = #{batchNumber,jdbcType=VARCHAR}
+  </select>
+
+
+
+
+
+
+  <!-- updateByBatch NUMBER FOR AUDIT-->
+
+  <update id="updateByBatch" parameterType="com.domain.model.PageData">
+    update dbo.Material_Inspection_Record
+    <set>
+      <if test="state != null">
+        State = #{state,jdbcType=INTEGER},
+      </if>
+    </set>
+    where Batch_Number = #{batchNumber,jdbcType=VARCHAR}
+  </update>
+
+
+
+
+
+</mapper>

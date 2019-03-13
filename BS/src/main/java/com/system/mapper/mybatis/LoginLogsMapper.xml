@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.system.mapper.mybatis.LoginLogsMapper">
+    <resultMap id="BaseResultMap" type="com.system.domain.entity.LoginLogs">
+        <id column="login_logs_id" jdbcType="VARCHAR" property="loginLogsId"/>
+        <result column="account" jdbcType="VARCHAR" property="account"/>
+        <result column="client_ip" jdbcType="VARCHAR" property="clientIp"/>
+        <result column="client_device" jdbcType="VARCHAR" property="clientDevice"/>
+        <result column="client_description" jdbcType="VARCHAR" property="clientDescription"/>
+        <result column="description" jdbcType="VARCHAR" property="description"/>
+        <result column="login_time" jdbcType="TIMESTAMP" property="loginTime"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    login_logs_id, account, client_ip, client_device, client_description, description, login_time
+  </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from system_login_logs
+        where login_logs_id = #{loginLogsId,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from system_login_logs
+    where login_logs_id = #{loginLogsId,jdbcType=VARCHAR}
+  </delete>
+    <insert id="insert" parameterType="com.system.domain.entity.LoginLogs">
+    insert into system_login_logs (login_logs_id, account, client_ip,
+      client_device, client_description, description, 
+      login_time)
+    values (#{loginLogsId,jdbcType=VARCHAR}, #{account,jdbcType=VARCHAR}, #{clientIp,jdbcType=VARCHAR},
+      #{clientDevice,jdbcType=VARCHAR}, #{clientDescription,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
+      #{loginTime,jdbcType=TIMESTAMP})
+  </insert>
+    <insert id="insertSelective" parameterType="com.system.domain.entity.LoginLogs">
+        insert into system_login_logs
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="loginLogsId != null">
+                login_logs_id,
+            </if>
+            <if test="account != null">
+                account,
+            </if>
+            <if test="clientIp != null">
+                client_ip,
+            </if>
+            <if test="clientDevice != null">
+                client_device,
+            </if>
+            <if test="clientDescription != null">
+                client_description,
+            </if>
+            <if test="description != null">
+                description,
+            </if>
+            <if test="loginTime != null">
+                login_time,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="loginLogsId != null">
+                #{loginLogsId,jdbcType=VARCHAR},
+            </if>
+            <if test="account != null">
+                #{account,jdbcType=VARCHAR},
+            </if>
+            <if test="clientIp != null">
+                #{clientIp,jdbcType=VARCHAR},
+            </if>
+            <if test="clientDevice != null">
+                #{clientDevice,jdbcType=VARCHAR},
+            </if>
+            <if test="clientDescription != null">
+                #{clientDescription,jdbcType=VARCHAR},
+            </if>
+            <if test="description != null">
+                #{description,jdbcType=VARCHAR},
+            </if>
+            <if test="loginTime != null">
+                #{loginTime,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.system.domain.entity.LoginLogs">
+        update system_login_logs
+        <set>
+            <if test="account != null">
+                account = #{account,jdbcType=VARCHAR},
+            </if>
+            <if test="clientIp != null">
+                client_ip = #{clientIp,jdbcType=VARCHAR},
+            </if>
+            <if test="clientDevice != null">
+                client_device = #{clientDevice,jdbcType=VARCHAR},
+            </if>
+            <if test="clientDescription != null">
+                client_description = #{clientDescription,jdbcType=VARCHAR},
+            </if>
+            <if test="description != null">
+                description = #{description,jdbcType=VARCHAR},
+            </if>
+            <if test="loginTime != null">
+                login_time = #{loginTime,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where login_logs_id = #{loginLogsId,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.system.domain.entity.LoginLogs">
+    update system_login_logs
+    set account = #{account,jdbcType=VARCHAR},
+      client_ip = #{clientIp,jdbcType=VARCHAR},
+      client_device = #{clientDevice,jdbcType=VARCHAR},
+      client_description = #{clientDescription,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR},
+      login_time = #{loginTime,jdbcType=TIMESTAMP}
+    where login_logs_id = #{loginLogsId,jdbcType=INTEGER}
+  </update>
+
+    <!-- 表名 -->
+    <sql id="tableName">
+    system_login_logs
+  </sql>
+    <!-- 表名对外引用 -->
+    <sql id="tableNameOut">
+        <bind name="tableName" value="'system_login_logs'"/>
+    </sql>
+    <!-- 主键 -->
+    <sql id="pkId">
+        <bind name="pkName" value="'login_logs_id'"/>
+    </sql>
+
+    <!--动态sql分页列表-->
+    <select id="list" resultMap="BaseResultMap" parameterType="com.domain.model.PageData">
+        SELECT
+        <include refid="Base_Column_List"></include>
+        FROM
+        <include refid="tableName"></include>
+        WHERE 1 = 1
+
+        <include refid="SystemBasicMapper.retrieveSql"></include>
+        ORDER BY login_time DESC
+    </select>
+
+</mapper>

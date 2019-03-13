@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.system.mapper.mybatis.ActionsMapper">
+    <resultMap id="BaseResultMap" type="com.system.domain.model.output.ActionsOutput">
+        <id column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="menu_no" jdbcType="VARCHAR" property="menuNo"/>
+        <result column="type" jdbcType="INTEGER" property="type"/>
+        <result column="menu_id" jdbcType="VARCHAR" property="menuId"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="icon" jdbcType="VARCHAR" property="icon"/>
+        <result column="tag" jdbcType="VARCHAR" property="tag"/>
+        <result column="description" jdbcType="VARCHAR" property="description"/>
+        <result column="display_order" jdbcType="INTEGER" property="displayOrder"/>
+        <result column="state" jdbcType="INTEGER" property="state"/>
+        <result column="created_user_id" jdbcType="VARCHAR" property="createdUserId"/>
+        <result column="created_user_name" jdbcType="VARCHAR" property="createdUserName"/>
+        <result column="created_date_time" jdbcType="TIMESTAMP" property="createdDateTime"/>
+        <result column="last_updated_user_id" jdbcType="VARCHAR" property="lastUpdatedUserId"/>
+        <result column="last_updated_user_name" jdbcType="VARCHAR" property="lastUpdatedUserName"/>
+        <result column="last_updated_date_time" jdbcType="TIMESTAMP" property="lastUpdatedDateTime"/>
+        <result column="audit_state" jdbcType="INTEGER" property="auditState"/>
+        <result column="audit_user_id" jdbcType="VARCHAR" property="auditUserId"/>
+        <result column="audit_user_name" jdbcType="VARCHAR" property="auditUserName"/>
+        <result column="audit_date_time" jdbcType="TIMESTAMP" property="auditDateTime"/>
+        <result column="is_deleted" jdbcType="INTEGER" property="isDeleted"/>
+        <result column="code" jdbcType="VARCHAR" property="code"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, menu_no, type, name, icon, tag, description, display_order, state, created_user_id, 
+    created_user_name, created_date_time, last_updated_user_id, last_updated_user_name, 
+    last_updated_date_time, audit_state, audit_user_id, audit_user_name, audit_date_time, 
+    is_deleted,menu_id,code
+  </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from system_actions
+        where id = #{id,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from system_actions
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+    <insert id="insert" parameterType="com.system.domain.entity.Actions">
+    insert into system_actions (id, menu_no, type, 
+      name, icon, tag, description, 
+      display_order, state, created_user_id, 
+      created_user_name, created_date_time, last_updated_user_id, 
+      last_updated_user_name, last_updated_date_time, 
+      audit_state, audit_user_id, audit_user_name,menu_id,
+      audit_date_time, is_deleted,code)
+    values (#{id,jdbcType=VARCHAR}, #{menuNo,jdbcType=VARCHAR}, #{type,jdbcType=INTEGER},
+      #{name,jdbcType=VARCHAR}, #{icon,jdbcType=VARCHAR}, #{tag,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
+      #{displayOrder,jdbcType=INTEGER}, #{state,jdbcType=INTEGER}, #{createdUserId,jdbcType=VARCHAR},
+      #{createdUserName,jdbcType=VARCHAR}, #{createdDateTime,jdbcType=TIMESTAMP}, #{lastUpdatedUserId,jdbcType=VARCHAR},
+      #{lastUpdatedUserName,jdbcType=VARCHAR}, #{lastUpdatedDateTime,jdbcType=TIMESTAMP}, 
+      #{auditState,jdbcType=INTEGER}, #{auditUserId,jdbcType=VARCHAR}, #{auditUserName,jdbcType=VARCHAR},
+      #{auditDateTime,jdbcType=TIMESTAMP}, #{isDeleted,jdbcType=INTEGER},#{menuId,jdbcType=VARCHAR},#{code,jdbcType=VARCHAR})
+  </insert>
+    <insert id="insertSelective" parameterType="com.system.domain.entity.Actions">
+        insert into system_actions
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="menuNo != null">
+                menu_no,
+            </if>
+            <if test="type != null">
+                type,
+            </if>
+            <if test="name != null">
+                name,
+            </if>
+            <if test="icon != null">
+                icon,
+            </if>
+            <if test="tag != null">
+                tag,
+            </if>
+            <if test="description != null">
+                description,
+            </if>
+            <if test="displayOrder != null">
+                display_order,
+            </if>
+            <if test="state != null">
+                state,
+            </if>
+            <if test="createdUserId != null">
+                created_user_id,
+            </if>
+            <if test="createdUserName != null">
+                created_user_name,
+            </if>
+            <if test="createdDateTime != null">
+                created_date_time,
+            </if>
+            <if test="lastUpdatedUserId != null">
+                last_updated_user_id,
+            </if>
+            <if test="lastUpdatedUserName != null">
+                last_updated_user_name,
+            </if>
+            <if test="lastUpdatedDateTime != null">
+                last_updated_date_time,
+            </if>
+            <if test="auditState != null">
+                audit_state,
+            </if>
+            <if test="auditUserId != null">
+                audit_user_id,
+            </if>
+            <if test="auditUserName != null">
+                audit_user_name,
+            </if>
+            <if test="auditDateTime != null">
+                audit_date_time,
+            </if>
+            <if test="isDeleted != null">
+                is_deleted,
+            </if>
+            <if test="menuId != null">
+                menu_id,
+            </if>
+            <if test="code != null">
+                code,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="menuNo != null">
+                #{menuNo,jdbcType=VARCHAR},
+            </if>
+            <if test="type != null">
+                #{type,jdbcType=INTEGER},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="icon != null">
+                #{icon,jdbcType=VARCHAR},
+            </if>
+            <if test="tag != null">
+                #{tag,jdbcType=VARCHAR},
+            </if>
+            <if test="description != null">
+                #{description,jdbcType=VARCHAR},
+            </if>
+            <if test="displayOrder != null">
+                #{displayOrder,jdbcType=INTEGER},
+            </if>
+            <if test="state != null">
+                #{state,jdbcType=INTEGER},
+            </if>
+            <if test="createdUserId != null">
+                #{createdUserId,jdbcType=VARCHAR},
+            </if>
+            <if test="createdUserName != null">
+                #{createdUserName,jdbcType=VARCHAR},
+            </if>
+            <if test="createdDateTime != null">
+                #{createdDateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="lastUpdatedUserId != null">
+                #{lastUpdatedUserId,jdbcType=VARCHAR},
+            </if>
+            <if test="lastUpdatedUserName != null">
+                #{lastUpdatedUserName,jdbcType=VARCHAR},
+            </if>
+            <if test="lastUpdatedDateTime != null">
+                #{lastUpdatedDateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="auditState != null">
+                #{auditState,jdbcType=INTEGER},
+            </if>
+            <if test="auditUserId != null">
+                #{auditUserId,jdbcType=VARCHAR},
+            </if>
+            <if test="auditUserName != null">
+                #{auditUserName,jdbcType=VARCHAR},
+            </if>
+            <if test="auditDateTime != null">
+                #{auditDateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="isDeleted != null">
+                #{isDeleted,jdbcType=INTEGER},
+            </if>
+            <if test="menuId != null">
+                #{menuId,jdbcType=VARCHAR},
+            </if>
+            <if test="code != null">
+                #{code,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.system.domain.entity.Actions">
+        update system_actions
+        <set>
+            <if test="menuNo != null">
+                menu_no = #{menuNo,jdbcType=VARCHAR},
+            </if>
+            <if test="type != null">
+                type = #{type,jdbcType=INTEGER},
+            </if>
+            <if test="name != null">
+                name = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="icon != null">
+                icon = #{icon,jdbcType=VARCHAR},
+            </if>
+            <if test="tag != null">
+                tag = #{tag,jdbcType=VARCHAR},
+            </if>
+            <if test="description != null">
+                description = #{description,jdbcType=VARCHAR},
+            </if>
+            <if test="displayOrder != null">
+                display_order = #{displayOrder,jdbcType=INTEGER},
+            </if>
+            <if test="state != null">
+                state = #{state,jdbcType=INTEGER},
+            </if>
+            <if test="createdUserId != null">
+                created_user_id = #{createdUserId,jdbcType=VARCHAR},
+            </if>
+            <if test="createdUserName != null">
+                created_user_name = #{createdUserName,jdbcType=VARCHAR},
+            </if>
+            <if test="createdDateTime != null">
+                created_date_time = #{createdDateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="lastUpdatedUserId != null">
+                last_updated_user_id = #{lastUpdatedUserId,jdbcType=VARCHAR},
+            </if>
+            <if test="lastUpdatedUserName != null">
+                last_updated_user_name = #{lastUpdatedUserName,jdbcType=VARCHAR},
+            </if>
+            <if test="lastUpdatedDateTime != null">
+                last_updated_date_time = #{lastUpdatedDateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="auditState != null">
+                audit_state = #{auditState,jdbcType=INTEGER},
+            </if>
+            <if test="auditUserId != null">
+                audit_user_id = #{auditUserId,jdbcType=VARCHAR},
+            </if>
+            <if test="auditUserName != null">
+                audit_user_name = #{auditUserName,jdbcType=VARCHAR},
+            </if>
+            <if test="auditDateTime != null">
+                audit_date_time = #{auditDateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="isDeleted != null">
+                is_deleted = #{isDeleted,jdbcType=INTEGER},
+            </if>
+            <if test="menuId != null">
+                menu_id = #{menuId,jdbcType=INTEGER},
+            </if>
+            <if test="code != null">
+                code = #{code,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.system.domain.entity.Actions">
+    update system_actions
+    set menu_no = #{menuNo,jdbcType=VARCHAR},
+      type = #{type,jdbcType=INTEGER},
+      name = #{name,jdbcType=VARCHAR},
+      icon = #{icon,jdbcType=VARCHAR},
+      tag = #{tag,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR},
+      display_order = #{displayOrder,jdbcType=INTEGER},
+      state = #{state,jdbcType=INTEGER},
+      created_user_id = #{createdUserId,jdbcType=VARCHAR},
+      created_user_name = #{createdUserName,jdbcType=VARCHAR},
+      created_date_time = #{createdDateTime,jdbcType=TIMESTAMP},
+      last_updated_user_id = #{lastUpdatedUserId,jdbcType=VARCHAR},
+      last_updated_user_name = #{lastUpdatedUserName,jdbcType=VARCHAR},
+      last_updated_date_time = #{lastUpdatedDateTime,jdbcType=TIMESTAMP},
+      audit_state = #{auditState,jdbcType=INTEGER},
+      audit_user_id = #{auditUserId,jdbcType=VARCHAR},
+      audit_user_name = #{auditUserName,jdbcType=VARCHAR},
+      audit_date_time = #{auditDateTime,jdbcType=TIMESTAMP},
+      is_deleted = #{isDeleted,jdbcType=INTEGER},
+      menu_id = #{menuId,jdbcType=VARCHAR},
+      code = #{code,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+
+
+    <!-- 表名 -->
+    <sql id="tableName">
+    system_actions
+  </sql>
+    <!-- 表名对外引用 -->
+    <sql id="tableNameOut">
+        <bind name="tableName" value="'system_actions'"/>
+    </sql>
+    <!-- 主键 -->
+    <sql id="pkId">
+        <bind name="pkName" value="'id'"/>
+    </sql>
+
+    <!-- 批量删除-->
+    <update id="delete" parameterType="String">
+        <include refid="tableNameOut"></include>
+        <include refid="pkId"></include>
+        <include refid="PmBasicMapper.deleteSql"></include>
+    </update>
+    <!-- 批量审核-->
+    <update id="audit" parameterType="Integer">
+        <include refid="tableNameOut"></include>
+        <include refid="pkId"></include>
+        <include refid="PmBasicMapper.updateAuditSql"></include>
+    </update>
+
+    <!--动态sql分页列表-->
+
+    <select id="list" resultMap="BaseResultMap" parameterType="com.domain.model.PageData">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM
+        <include refid="tableName"></include>
+        WHERE 1 = 1 and  is_deleted = 0
+
+        <include refid="SystemBasicMapper.retrieveSql"></include>
+        ORDER BY  last_updated_date_time desc
+    </select>
+
+    <!--根据ID查找-->
+    <select id="findByPkId" parameterType="com.domain.model.PageData" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from
+        <include refid="tableName"></include>
+        where id = #{id,jdbcType=VARCHAR} AND is_deleted = 0
+    </select>
+
+
+    <select id="findByMenuId" resultMap="BaseResultMap" parameterType="com.domain.model.PageData">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM
+        <include refid="tableName"></include>
+        WHERE menu_id = #{menuId,jdbcType=VARCHAR} AND is_deleted = 0
+    </select>
+
+
+    <select id="findAuthorizeActionListByModule" resultMap="BaseResultMap" parameterType="com.domain.model.PageData">
+    select distinct
+    ac.*
+    from   system_actions ac
+    inner join system_menu m
+    on ac.menu_id = m.menu_id
+    where  1 = 1
+    and ac.is_deleted = 0
+	and m.is_deleted = 0
+    and  m.module=#{module,jdbcType=VARCHAR}
+    order by ac.display_order desc
+  </select>
+
+
+    <select id="findAuthorizeActionListByModuleUserId" resultMap="BaseResultMap">
+    select distinct
+    ac.*
+    from   system_role_action ra
+    INNER JOIN system_actions ac
+    on ra.action_id = ac.id
+    inner join system_menu m
+    on ac.menu_id = m.menu_id    and ra.menu_id = m.menu_id
+    where  1 = 1
+    and  m.module=#{module,jdbcType=VARCHAR}
+    and EXISTS (select ur.user_role_id
+    from   system_user_role ur
+    where  1 = 1
+    and ur.role_id = ra.role_id
+    and ur.user_id =#{userId,jdbcType=VARCHAR}
+    and exists (select 1
+    from   system_role r
+    where  1 = 1
+    and r.role_id = ur.role_id
+    and r.is_deleted =0))
+    order by ac.display_order desc
+  </select>
+
+
+</mapper>

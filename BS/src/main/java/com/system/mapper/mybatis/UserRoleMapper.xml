@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.system.mapper.mybatis.UserRoleMapper">
+    <resultMap id="BaseResultMap" type="com.system.domain.model.output.UserRoleOutput">
+        <id column="user_role_id" jdbcType="VARCHAR" property="userRoleId"/>
+        <result column="user_id" jdbcType="VARCHAR" property="userId"/>
+        <result column="role_id" jdbcType="VARCHAR" property="roleId"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    user_role_id, user_id, role_id
+  </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from system_user_role
+        where user_role_id = #{userRoleId,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from system_user_role
+    where user_role_id = #{userRoleId,jdbcType=VARCHAR}
+  </delete>
+    <insert id="insert" parameterType="com.system.domain.entity.UserRole">
+    insert into system_user_role (user_role_id, user_id, role_id
+      )
+    values (#{user_role_id,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{roleId,jdbcType=VARCHAR}
+      )
+  </insert>
+    <insert id="insertSelective" parameterType="com.system.domain.entity.UserRole">
+        insert into system_user_role
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userRoleId != null">
+                user_role_id,
+            </if>
+            <if test="userId != null">
+                user_id,
+            </if>
+            <if test="roleId != null">
+                role_id,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="userRoleId != null">
+                #{userRoleId,jdbcType=VARCHAR},
+            </if>
+            <if test="userId != null">
+                #{userId,jdbcType=VARCHAR},
+            </if>
+            <if test="roleId != null">
+                #{roleId,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.system.domain.entity.UserRole">
+        update system_user_role
+        <set>
+            <if test="userId != null">
+                user_id = #{userId,jdbcType=VARCHAR},
+            </if>
+            <if test="roleId != null">
+                role_id = #{roleId,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where user_role_id = #{userRoleId,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.system.domain.entity.UserRole">
+    update system_user_role
+    set user_id = #{userId,jdbcType=VARCHAR},
+      role_id = #{roleId,jdbcType=VARCHAR}
+    where user_role_id = #{userRoleId,jdbcType=VARCHAR}
+  </update>
+
+
+    <!-- 表名 -->
+    <sql id="tableName">
+    system_user_role
+  </sql>
+    <!-- 表名对外引用 -->
+    <sql id="tableNameOut">
+        <bind name="tableName" value="'system_user_role'"/>
+    </sql>
+    <!-- 主键 -->
+    <sql id="pkId">
+        <bind name="pkName" value="user_role_id"/>
+    </sql>
+
+    <!-- 批量删除-->
+    <update id="delete" parameterType="String">
+        <include refid="tableNameOut"></include>
+        <include refid="pkId"></include>
+        <include refid="SystemBasicMapper.deleteSql"></include>
+    </update>
+    <!-- 批量审核-->
+    <update id="audit" parameterType="String">
+        <include refid="tableNameOut"></include>
+        <include refid="pkId"></include>
+        <include refid="SystemBasicMapper.updateAuditSql"></include>
+    </update>
+
+    <!--动态sql分页列表-->
+    <select id="list" resultMap="BaseResultMap" parameterType="com.domain.model.PageData">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM
+        <include refid="tableName"></include>
+        WHERE 1 = 1 and is_deleted = 0
+
+        <include refid="SystemBasicMapper.retrieveSql"></include>
+    </select>
+
+    <select id="findByPkId" parameterType="com.domain.model.PageData" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from
+        <include refid="tableName"></include>
+        where user_role_id = #{userRoleId,jdbcType=VARCHAR} AND is_deleted = 0
+    </select>
+
+    <select id="findByUserIdThis" resultMap="BaseResultMap" parameterType="com.domain.model.PageData">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM
+        <include refid="tableName"></include>
+        WHERE user_id = #{userId,jdbcType=VARCHAR}
+    </select>
+
+
+    <resultMap type="com.system.domain.model.output.UserroleDataOutput" id="selectBack">
+        <id column="user_role_id" jdbcType="VARCHAR" property="userroleid"/>
+        <result column="user_id" jdbcType="VARCHAR" property="userid"/>
+        <result column="role_id" jdbcType="VARCHAR" property="roleid"/>
+        <result column="CheckedRoleIds" jdbcType="VARCHAR" property="checkedroleids"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="description" jdbcType="VARCHAR" property="description"/>
+    </resultMap>
+
+
+    <select id="findByUserId" resultMap="selectBack" parameterType="com.domain.model.PageData">
+        SELECT r.role_id,r.name,r.description,ur.user_id,ur.role_id AS CheckedRoleIds,ur.user_role_id FROM
+        <include refid="tableName"></include>
+        ur
+        RIGHT JOIN system_role r ON r.role_id = ur.role_id and (ur.user_id = ${userId} or ur.user_id IS null)
+        where r.is_deleted = 0
+        <include refid="SystemBasicMapper.retrieveSql"></include>
+    </select>
+    <delete id="deleteByUserId" parameterType="com.domain.model.PageData">
+        delete from
+        <include refid="tableName"></include>
+        where user_id = #{userId,jdbcType=VARCHAR}
+    </delete>
+
+
+
+
+
+</mapper>

@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.system.mapper.mybatis.SystemUsersMapper">
+  <resultMap id="BaseResultMap" type="com.system.domain.model.output.SystemUsersOutput">
+    <id column="user_id" jdbcType="CHAR" property="userId" />
+    <result column="account" jdbcType="VARCHAR" property="account" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="user_type" jdbcType="CHAR" property="userType" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="nick_name" jdbcType="VARCHAR" property="nickName" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="sex" jdbcType="INTEGER" property="sex" />
+    <result column="avatar" jdbcType="VARCHAR" property="avatar" />
+    <result column="salt" jdbcType="CHAR" property="salt" />
+    <result column="join_date" jdbcType="TIMESTAMP" property="joinDate" />
+    <result column="reg_ip" jdbcType="VARCHAR" property="regIp" />
+    <result column="login_count" jdbcType="INTEGER" property="loginCount" />
+    <result column="last_login_time" jdbcType="TIMESTAMP" property="lastLoginTime" />
+    <result column="last_login_ip" jdbcType="VARCHAR" property="lastLoginIp" />
+    <result column="is_allow_delete" jdbcType="INTEGER" property="isAllowDelete" />
+    <result column="state" jdbcType="INTEGER" property="state" />
+    <result column="created_user_id" jdbcType="CHAR" property="createdUserId" />
+    <result column="created_user_name" jdbcType="VARCHAR" property="createdUserName" />
+    <result column="created_date_time" jdbcType="TIMESTAMP" property="createdDateTime" />
+    <result column="last_updated_user_id" jdbcType="CHAR" property="lastUpdatedUserId" />
+    <result column="last_updated_user_name" jdbcType="VARCHAR" property="lastUpdatedUserName" />
+    <result column="last_updated_date_time" jdbcType="TIMESTAMP" property="lastUpdatedDateTime" />
+    <result column="is_deleted" jdbcType="INTEGER" property="isDeleted" />
+    <result column="openid" jdbcType="VARCHAR" property="openid" />
+    <result column="level" jdbcType="INTEGER" property="level" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    user_id, account, password, user_type, name, nick_name, mobile, email, sex, avatar, 
+    salt, join_date, reg_ip, login_count, last_login_time, last_login_ip, is_allow_delete, 
+    state, created_user_id, created_user_name, created_date_time, last_updated_user_id, 
+    last_updated_user_name, last_updated_date_time, is_deleted, openid, level, type
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from system_users
+    where user_id = #{userId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from system_users
+    where user_id = #{userId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.system.domain.entity.SystemUsers">
+    insert into system_users (user_id, account, password, 
+      user_type, name, nick_name, 
+      mobile, email, sex, 
+      avatar, salt, join_date, 
+      reg_ip, login_count, last_login_time, 
+      last_login_ip, is_allow_delete, state, 
+      created_user_id, created_user_name, created_date_time, 
+      last_updated_user_id, last_updated_user_name, last_updated_date_time, 
+      is_deleted, openid, level,
+      type)
+    values (#{userId,jdbcType=CHAR}, #{account,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{userType,jdbcType=CHAR}, #{name,jdbcType=VARCHAR}, #{nickName,jdbcType=VARCHAR}, 
+      #{mobile,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{sex,jdbcType=INTEGER}, 
+      #{avatar,jdbcType=VARCHAR}, #{salt,jdbcType=CHAR}, #{joinDate,jdbcType=TIMESTAMP}, 
+      #{regIp,jdbcType=VARCHAR}, #{loginCount,jdbcType=INTEGER}, #{lastLoginTime,jdbcType=TIMESTAMP}, 
+      #{lastLoginIp,jdbcType=VARCHAR}, #{isAllowDelete,jdbcType=INTEGER}, #{state,jdbcType=INTEGER}, 
+      #{createdUserId,jdbcType=CHAR}, #{createdUserName,jdbcType=VARCHAR}, #{createdDateTime,jdbcType=TIMESTAMP}, 
+      #{lastUpdatedUserId,jdbcType=CHAR}, #{lastUpdatedUserName,jdbcType=VARCHAR}, #{lastUpdatedDateTime,jdbcType=TIMESTAMP}, 
+      #{isDeleted,jdbcType=INTEGER}, #{openid,jdbcType=VARCHAR}, #{level,jdbcType=INTEGER},
+      #{type,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.system.domain.entity.SystemUsers">
+    insert into system_users
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="account != null">
+        account,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+      <if test="userType != null">
+        user_type,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="nickName != null">
+        nick_name,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="avatar != null">
+        avatar,
+      </if>
+      <if test="salt != null">
+        salt,
+      </if>
+      <if test="joinDate != null">
+        join_date,
+      </if>
+      <if test="regIp != null">
+        reg_ip,
+      </if>
+      <if test="loginCount != null">
+        login_count,
+      </if>
+      <if test="lastLoginTime != null">
+        last_login_time,
+      </if>
+      <if test="lastLoginIp != null">
+        last_login_ip,
+      </if>
+      <if test="isAllowDelete != null">
+        is_allow_delete,
+      </if>
+      <if test="state != null">
+        state,
+      </if>
+      <if test="createdUserId != null">
+        created_user_id,
+      </if>
+      <if test="createdUserName != null">
+        created_user_name,
+      </if>
+      <if test="createdDateTime != null">
+        created_date_time,
+      </if>
+      <if test="lastUpdatedUserId != null">
+        last_updated_user_id,
+      </if>
+      <if test="lastUpdatedUserName != null">
+        last_updated_user_name,
+      </if>
+      <if test="lastUpdatedDateTime != null">
+        last_updated_date_time,
+      </if>
+      <if test="isDeleted != null">
+        is_deleted,
+      </if>
+      <if test="openid != null">
+        openid,
+      </if>
+      <if test="level != null">
+        level,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=CHAR},
+      </if>
+      <if test="account != null">
+        #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="userType != null">
+        #{userType,jdbcType=CHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="nickName != null">
+        #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=INTEGER},
+      </if>
+      <if test="avatar != null">
+        #{avatar,jdbcType=VARCHAR},
+      </if>
+      <if test="salt != null">
+        #{salt,jdbcType=CHAR},
+      </if>
+      <if test="joinDate != null">
+        #{joinDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="regIp != null">
+        #{regIp,jdbcType=VARCHAR},
+      </if>
+      <if test="loginCount != null">
+        #{loginCount,jdbcType=INTEGER},
+      </if>
+      <if test="lastLoginTime != null">
+        #{lastLoginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastLoginIp != null">
+        #{lastLoginIp,jdbcType=VARCHAR},
+      </if>
+      <if test="isAllowDelete != null">
+        #{isAllowDelete,jdbcType=INTEGER},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="createdUserId != null">
+        #{createdUserId,jdbcType=CHAR},
+      </if>
+      <if test="createdUserName != null">
+        #{createdUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="createdDateTime != null">
+        #{createdDateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastUpdatedUserId != null">
+        #{lastUpdatedUserId,jdbcType=CHAR},
+      </if>
+      <if test="lastUpdatedUserName != null">
+        #{lastUpdatedUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdatedDateTime != null">
+        #{lastUpdatedDateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null">
+        #{isDeleted,jdbcType=INTEGER},
+      </if>
+      <if test="openid != null">
+        #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="level != null">
+        #{level,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.system.domain.entity.SystemUsers">
+    update system_users
+    <set>
+      <if test="account != null">
+        account = #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="userType != null">
+        user_type = #{userType,jdbcType=CHAR},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="nickName != null">
+        nick_name = #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=INTEGER},
+      </if>
+      <if test="avatar != null">
+        avatar = #{avatar,jdbcType=VARCHAR},
+      </if>
+      <if test="salt != null">
+        salt = #{salt,jdbcType=CHAR},
+      </if>
+      <if test="joinDate != null">
+        join_date = #{joinDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="regIp != null">
+        reg_ip = #{regIp,jdbcType=VARCHAR},
+      </if>
+      <if test="loginCount != null">
+        login_count = #{loginCount,jdbcType=INTEGER},
+      </if>
+      <if test="lastLoginTime != null">
+        last_login_time = #{lastLoginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastLoginIp != null">
+        last_login_ip = #{lastLoginIp,jdbcType=VARCHAR},
+      </if>
+      <if test="isAllowDelete != null">
+        is_allow_delete = #{isAllowDelete,jdbcType=INTEGER},
+      </if>
+      <if test="state != null">
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="createdUserId != null">
+        created_user_id = #{createdUserId,jdbcType=CHAR},
+      </if>
+      <if test="createdUserName != null">
+        created_user_name = #{createdUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="createdDateTime != null">
+        created_date_time = #{createdDateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastUpdatedUserId != null">
+        last_updated_user_id = #{lastUpdatedUserId,jdbcType=CHAR},
+      </if>
+      <if test="lastUpdatedUserName != null">
+        last_updated_user_name = #{lastUpdatedUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdatedDateTime != null">
+        last_updated_date_time = #{lastUpdatedDateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null">
+        is_deleted = #{isDeleted,jdbcType=INTEGER},
+      </if>
+      <if test="openid != null">
+        openid = #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="level != null">
+        level = #{level,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=INTEGER},
+      </if>
+    </set>
+    where user_id = #{userId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.system.domain.entity.SystemUsers">
+    update system_users
+    set account = #{account,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      user_type = #{userType,jdbcType=CHAR},
+      name = #{name,jdbcType=VARCHAR},
+      nick_name = #{nickName,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=INTEGER},
+      avatar = #{avatar,jdbcType=VARCHAR},
+      salt = #{salt,jdbcType=CHAR},
+      join_date = #{joinDate,jdbcType=TIMESTAMP},
+      reg_ip = #{regIp,jdbcType=VARCHAR},
+      login_count = #{loginCount,jdbcType=INTEGER},
+      last_login_time = #{lastLoginTime,jdbcType=TIMESTAMP},
+      last_login_ip = #{lastLoginIp,jdbcType=VARCHAR},
+      is_allow_delete = #{isAllowDelete,jdbcType=INTEGER},
+      state = #{state,jdbcType=INTEGER},
+      created_user_id = #{createdUserId,jdbcType=CHAR},
+      created_user_name = #{createdUserName,jdbcType=VARCHAR},
+      created_date_time = #{createdDateTime,jdbcType=TIMESTAMP},
+      last_updated_user_id = #{lastUpdatedUserId,jdbcType=CHAR},
+      last_updated_user_name = #{lastUpdatedUserName,jdbcType=VARCHAR},
+      last_updated_date_time = #{lastUpdatedDateTime,jdbcType=TIMESTAMP},
+      is_deleted = #{isDeleted,jdbcType=INTEGER},
+      openid = #{openid,jdbcType=VARCHAR},
+      level = #{level,jdbcType=INTEGER},
+      type = #{type,jdbcType=INTEGER}
+    where user_id = #{userId,jdbcType=CHAR}
+  </update>
+
+
+  <!-- 表名 -->
+  <sql id="tableName">
+     system_users
+  </sql>
+  <!-- 表名对外引用 -->
+  <sql id="tableNameOut">
+    <bind name="tableName" value="'system_users'"/>
+  </sql>
+  <!-- 主键 -->
+  <sql id="pkId">
+    <bind name="pkName" value="'user_id'"/>
+  </sql>
+  <!-- 批量删除-->
+  <update id="delete" parameterType="String">
+    <include refid="tableNameOut"></include>
+    <include refid="pkId"></include>
+    <include refid="PmBasicMapper.deleteSql"></include>
+  </update>
+
+  <!--动态sql分页列表-->
+
+  <select id="list" resultMap="BaseResultMap" parameterType="com.domain.model.PageData">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM
+    <include refid="tableName"></include>
+    WHERE 1 = 1 and is_deleted = 0
+
+    <include refid="PmBasicMapper.retrieveSql"></include>
+    ORDER BY  last_updated_date_time desc
+  </select>
+
+  <!--根据ID查找-->
+  <select id="findByPkId" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from <include refid="tableName"></include>
+    where user_id = #{id,jdbcType=VARCHAR} AND is_deleted = 0
+  </select>
+
+
+  <select id="findByAccount" resultMap="BaseResultMap" parameterType="com.system.domain.model.LoginInfo">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM
+    <include refid="tableName"></include>
+    WHERE account = #{useraccount,jdbcType=VARCHAR}
+  </select>
+
+  <select id="findByOpenId" resultMap="BaseResultMap" parameterType="com.domain.model.PageData">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM
+    <include refid="tableName"></include>
+    WHERE openid = #{openid,jdbcType=VARCHAR}
+  </select>
+
+
+
+
+
+  <update id="audituser" parameterType="com.domain.model.PageData">
+    UPDATE
+    <include refid="tableName"></include>
+    SET state =#{state,jdbcType=INTEGER}
+    WHERE user_id = #{userId,jdbcType=VARCHAR}
+  </update>
+
+
+
+</mapper>
