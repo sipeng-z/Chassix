@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.casting.mapper.mybatis.CastingCPCC2PvFurnaceChamberCurveMapper">
+  <resultMap id="BaseResultMap" type="com.casting.domain.entity.CastingCPCC2PvFurnaceChamberCurve">
+    <id column="ItemNO" jdbcType="INTEGER" property="itemno" />
+    <result column="Time_String" jdbcType="CHAR" property="timeString" />
+    <result column="Furnace_Chamber" jdbcType="CHAR" property="furnaceChamber" />
+    <result column="RecordNO" jdbcType="INTEGER" property="recordno" />
+  </resultMap>
+
+
+  <resultMap id="GeneralResultMap" type="com.casting.domain.entity.CastingCPCGeneralPvFurnaceChamberCurve">
+    <id column="ItemNO" jdbcType="INTEGER" property="itemno" />
+    <result column="Time_String" jdbcType="CHAR" property="timeString" />
+    <result column="Furnace_Chamber" jdbcType="CHAR" property="furnaceChamber" />
+    <result column="RecordNO" jdbcType="INTEGER" property="recordno" />
+  </resultMap>
+
+
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.casting.domain.entity.CastingCPCC2PvFurnaceChamberCurve">
+    <result column="Point_Matrix" jdbcType="VARBINARY" property="pointMatrix" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ItemNO, Time_String, Furnace_Chamber, RecordNO
+  </sql>
+  <sql id="Blob_Column_List">
+    Point_Matrix
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from dbo.Casting_CPC_C2_Pv_Furnace_Chamber_Curve
+    where ItemNO = #{itemno,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from dbo.Casting_CPC_C2_Pv_Furnace_Chamber_Curve
+    where ItemNO = #{itemno,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.casting.domain.entity.CastingCPCC2PvFurnaceChamberCurve">
+    insert into dbo.Casting_CPC_C2_Pv_Furnace_Chamber_Curve (ItemNO, Time_String, Furnace_Chamber, 
+      RecordNO, Point_Matrix)
+    values (#{itemno,jdbcType=INTEGER}, #{timeString,jdbcType=CHAR}, #{furnaceChamber,jdbcType=CHAR}, 
+      #{recordno,jdbcType=INTEGER}, #{pointMatrix,jdbcType=VARBINARY})
+  </insert>
+  <insert id="insertSelective" parameterType="com.casting.domain.entity.CastingCPCC2PvFurnaceChamberCurve">
+    insert into dbo.Casting_CPC_C2_Pv_Furnace_Chamber_Curve
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="itemno != null">
+        ItemNO,
+      </if>
+      <if test="timeString != null">
+        Time_String,
+      </if>
+      <if test="furnaceChamber != null">
+        Furnace_Chamber,
+      </if>
+      <if test="recordno != null">
+        RecordNO,
+      </if>
+      <if test="pointMatrix != null">
+        Point_Matrix,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="itemno != null">
+        #{itemno,jdbcType=INTEGER},
+      </if>
+      <if test="timeString != null">
+        #{timeString,jdbcType=CHAR},
+      </if>
+      <if test="furnaceChamber != null">
+        #{furnaceChamber,jdbcType=CHAR},
+      </if>
+      <if test="recordno != null">
+        #{recordno,jdbcType=INTEGER},
+      </if>
+      <if test="pointMatrix != null">
+        #{pointMatrix,jdbcType=VARBINARY},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.casting.domain.entity.CastingCPCC2PvFurnaceChamberCurve">
+    update dbo.Casting_CPC_C2_Pv_Furnace_Chamber_Curve
+    <set>
+      <if test="timeString != null">
+        Time_String = #{timeString,jdbcType=CHAR},
+      </if>
+      <if test="furnaceChamber != null">
+        Furnace_Chamber = #{furnaceChamber,jdbcType=CHAR},
+      </if>
+      <if test="recordno != null">
+        RecordNO = #{recordno,jdbcType=INTEGER},
+      </if>
+      <if test="pointMatrix != null">
+        Point_Matrix = #{pointMatrix,jdbcType=VARBINARY},
+      </if>
+    </set>
+    where ItemNO = #{itemno,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.casting.domain.entity.CastingCPCC2PvFurnaceChamberCurve">
+    update dbo.Casting_CPC_C2_Pv_Furnace_Chamber_Curve
+    set Time_String = #{timeString,jdbcType=CHAR},
+      Furnace_Chamber = #{furnaceChamber,jdbcType=CHAR},
+      RecordNO = #{recordno,jdbcType=INTEGER},
+      Point_Matrix = #{pointMatrix,jdbcType=VARBINARY}
+    where ItemNO = #{itemno,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.casting.domain.entity.CastingCPCC2PvFurnaceChamberCurve">
+    update dbo.Casting_CPC_C2_Pv_Furnace_Chamber_Curve
+    set Time_String = #{timeString,jdbcType=CHAR},
+      Furnace_Chamber = #{furnaceChamber,jdbcType=CHAR},
+      RecordNO = #{recordno,jdbcType=INTEGER}
+    where ItemNO = #{itemno,jdbcType=INTEGER}
+  </update>
+
+
+  <!-- tableName -->
+  <sql id="tableName">
+    dbo.Casting_CPC_C2_Pv_Furnace_Chamber_Curve
+  </sql>
+  <!-- tableNameOut -->
+  <sql id="tableNameOut">
+    <bind name="tableName" value="'dbo.Casting_CPC_C2_Pv_Furnace_Chamber_Curve'"/>
+  </sql>
+  <!-- pkId -->
+  <sql id="pkId">
+    <bind name="pkName" value="'ItemNO'"/>
+  </sql>
+
+  <!--list-->
+  <select id="list" resultMap="GeneralResultMap" parameterType="com.domain.model.PageData">
+    SELECT
+    <include refid="Base_Column_List"></include>
+    FROM
+    <include refid="tableName"></include>
+    WHERE 1 = 1
+    <include refid="PmBasicMapper.retrieveSql"></include>
+    ORDER BY Time_String desc
+  </select>
+
+
+
+
+
+
+
+</mapper>

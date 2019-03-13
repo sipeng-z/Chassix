@@ -145,36 +145,6 @@ public abstract class GenericController<PI,PO> {
 //        return result;
 //    }
 
-    /**
-     * 审核
-     * @param idList
-     * @param state
-     * @return
-     * @throws Exception
-     */
-    @RequestMapping(value = "audit",method = RequestMethod.GET)
-    public ResponseResult audit(String idList, Integer state) throws Exception {
-        logger.info(this.WorkContext.getUserId()+": 进入audit");
-        ResponseResult result = new ResponseResult();
-        String rtMge = "";
-        if(state == null){
-            return ResponseResult.error("参数错误");
-        }
-        if(idList == null || "".equals(idList)){
-            return ResponseResult.success();
-        }
-
-        boolean flag = getService().audit(idList,state);
-        if(flag){
-            rtMge = "操作成功";
-            result.setSuccess(true);
-        }else {
-            rtMge = "操作失败";
-            result.setSuccess(false);
-        }
-        result.setMessage(rtMge);
-        return result;
-    }
 
     /**
      * 删除

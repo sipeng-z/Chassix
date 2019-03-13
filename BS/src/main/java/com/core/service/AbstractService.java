@@ -189,36 +189,6 @@ public abstract class AbstractService<PI,PO> {
     }
 
 
-    /**
-     * 批量审核
-     * @param mapperName
-     * @param ids
-     * @param state
-     * @return
-     * @throws Exception
-     */
-    public boolean auditByIds(String mapperName,String ids,Integer state) throws Exception {
-        String[] strs = ids.split(",");
-        if(strs.length<=0){
-            return false;
-        }
-        List<AuditModel> list = new ArrayList<AuditModel>();
-        for(String str : strs){
-            AuditModel auditModel = new AuditModel();
-            auditModel.setAuditbyuserid("'"+this.WorkContext.getUserId()+"'");
-            auditModel.setAuditbyusername(this.WorkContext.getAccount());
-            auditModel.setAuditdatetime(DateUtils.getNowDateTime());
-            auditModel.setAuditstate(state);
-
-            auditModel.setLastupdatedbyuserid("'"+this.WorkContext.getUserId()+"'");
-            auditModel.setLastupdatedbyusername(this.WorkContext.getName());
-            auditModel.setLastupdateddatetime(DateUtils.getNowDateTime());
-
-            auditModel.setId("'"+str+"'");
-            list.add(auditModel);
-        }
-        return daoImp.auditByIds(mapperName,list);
-    }
 
     /**
      * 批量删除
@@ -279,17 +249,6 @@ public abstract class AbstractService<PI,PO> {
         return false;
     }
 
-    /**
-     * 审核
-     * @param idList
-     * @param state
-     * @return
-     * @throws Exception
-     */
-    public boolean audit(String idList,Integer state) throws Exception {
-
-        return this.auditByIds(getMapperName()+"audit",idList,state);
-    }
 
     /**
      * 删除

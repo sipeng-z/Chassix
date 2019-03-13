@@ -68,22 +68,6 @@ public class RoleController extends GenericController<RoleInput,RoleOutput> {
         return result.error(CommonConstants.EX.EXCEPTION);
     }
 
-    /**
-     * 审核
-     * @param idList
-     * @param state
-     * @return
-     */
-    @Override
-    @RequestMapping(value = "audit",method = RequestMethod.POST)
-    public ResponseResult audit(String idList, Integer state) {
-        try{
-            return super.audit(idList,state);
-        }catch (Exception e){
-            logger.error("-----------------------audit异常-------"+e);
-        }
-        return ResponseResult.error(CommonConstants.EX.EXCEPTION);
-    }
 
     /**
      * 删除

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.system.mapper.mybatis.RoleMenuMapper">
+  <resultMap id="BaseResultMap" type="com.system.domain.model.output.RoleMenuOutput">
+    <id column="role_menu_id" jdbcType="VARCHAR" property="roleMenuId" />
+    <result column="role_id" jdbcType="VARCHAR" property="roleId" />
+    <result column="menu_id" jdbcType="VARCHAR" property="menuId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    role_menu_id, role_id, menu_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from system_role_menu
+    where role_menu_id = #{roleMenuId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from system_role_menu
+    where role_menu_id = #{roleMenuId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.system.domain.entity.RoleMenu">
+    insert into system_role_menu (role_menu_id, role_id, menu_id
+      )
+    values (#{roleMenuId,jdbcType=VARCHAR}, #{roleId,jdbcType=VARCHAR}, #{menuId,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.system.domain.entity.RoleMenu">
+    insert into system_role_menu
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="roleMenuId != null">
+        role_menu_id,
+      </if>
+      <if test="roleId != null">
+        role_id,
+      </if>
+      <if test="menuId != null">
+        menu_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="roleMenuId != null">
+        #{roleMenuId,jdbcType=VARCHAR},
+      </if>
+      <if test="roleId != null">
+        #{roleId,jdbcType=VARCHAR},
+      </if>
+      <if test="menuId != null">
+        #{menuId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.system.domain.entity.RoleMenu">
+    update system_role_menu
+    <set>
+      <if test="roleId != null">
+        role_id = #{roleId,jdbcType=VARCHAR},
+      </if>
+      <if test="menuId != null">
+        menu_id = #{menuId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where role_menu_id = #{roleMenuId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.system.domain.entity.RoleMenu">
+    update system_role_menu
+    set role_id = #{roleId,jdbcType=VARCHAR},
+      menu_id = #{menuId,jdbcType=VARCHAR}
+    where role_menu_id = #{roleMenuId,jdbcType=VARCHAR}
+  </update>
+
+
+
+
+
+  <!-- 表名 -->
+  <sql id="tableName">
+    system_role_menu
+  </sql>
+  <!-- 表名对外引用 -->
+  <sql id="tableNameOut">
+    <bind name="tableName" value="'system_role_menu'"/>
+  </sql>
+  <!-- 主键 -->
+  <sql id="pkId">
+    <bind name="pkName" value="'role_menu_id'"/>
+  </sql>
+
+  <select id="findListByRoleId" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from system_role_menu
+    where role_id =  #{id,jdbcType=VARCHAR}
+  </select>
+  
+  
+  <delete id="deleteByRoleId" parameterType="com.domain.model.PageData">
+    DELETE FROM
+    <include refid="tableName" />
+    WHERE role_id = #{roleId,jdbcType=VARCHAR}
+  </delete>
+
+  <select id="findMenuListByRoleId" resultMap="BaseResultMap">
+    SELECT m.menu_id,m.parent_id,m.icon,m.link,m.is_show,m.name,m.module from
+    system_menu m LEFT JOIN system_role_menu syr ON m.menu_id = syr.menu_id WHERE syr.role_id = #{roleid,jdbcType=VARCHAR}
+    GROUP BY m.menu_id
+  </select>
+
+</mapper>

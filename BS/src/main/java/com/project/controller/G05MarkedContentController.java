@@ -23,7 +23,7 @@ import javax.servlet.http.HttpServletRequest;
 public class G05MarkedContentController extends GenericController<G05MarkedContentInput,G05MarkedContentOutput> {
 
 
-    private final Logger logger = LoggerFactory.getLogger(G38ASSYShiftController.class);
+    private final Logger logger = LoggerFactory.getLogger(G05MarkedContentController.class);
 
 
 

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.mapper.mybatis.ShipmentItemMapper">
+  <resultMap id="BaseResultMap" type="com.project.domain.entity.ShipmentItem">
+    <id column="shipment_id" jdbcType="NVARCHAR" property="shipmentId" />
+    <result column="plant" jdbcType="NVARCHAR" property="plant" />
+    <result column="warhouse" jdbcType="NVARCHAR" property="warhouse" />
+    <result column="status" jdbcType="NVARCHAR" property="status" />
+    <result column="item" jdbcType="NVARCHAR" property="item" />
+    <result column="name" jdbcType="NVARCHAR" property="name" />
+    <result column="default_status" jdbcType="NVARCHAR" property="defaultStatus" />
+    <result column="recent_situation" jdbcType="NVARCHAR" property="recentSituation" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    shipment_id, plant, warhouse, status, item, name, default_status, recent_situation
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from dbo.Shipment_Item
+    where shipment_id = #{shipmentId,jdbcType=NVARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from dbo.Shipment_Item
+    where shipment_id = #{shipmentId,jdbcType=NVARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.project.domain.entity.ShipmentItem">
+    insert into dbo.Shipment_Item (shipment_id, plant, warhouse, 
+      status, item, name, 
+      default_status, recent_situation)
+    values (#{shipmentId,jdbcType=NVARCHAR}, #{plant,jdbcType=NVARCHAR}, #{warhouse,jdbcType=NVARCHAR}, 
+      #{status,jdbcType=NVARCHAR}, #{item,jdbcType=NVARCHAR}, #{name,jdbcType=NVARCHAR}, 
+      #{defaultStatus,jdbcType=NVARCHAR}, #{recentSituation,jdbcType=NVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.project.domain.entity.ShipmentItem">
+    insert into dbo.Shipment_Item
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="shipmentId != null">
+        shipment_id,
+      </if>
+      <if test="plant != null">
+        plant,
+      </if>
+      <if test="warhouse != null">
+        warhouse,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="item != null">
+        item,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="defaultStatus != null">
+        default_status,
+      </if>
+      <if test="recentSituation != null">
+        recent_situation,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="shipmentId != null">
+        #{shipmentId,jdbcType=NVARCHAR},
+      </if>
+      <if test="plant != null">
+        #{plant,jdbcType=NVARCHAR},
+      </if>
+      <if test="warhouse != null">
+        #{warhouse,jdbcType=NVARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=NVARCHAR},
+      </if>
+      <if test="item != null">
+        #{item,jdbcType=NVARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=NVARCHAR},
+      </if>
+      <if test="defaultStatus != null">
+        #{defaultStatus,jdbcType=NVARCHAR},
+      </if>
+      <if test="recentSituation != null">
+        #{recentSituation,jdbcType=NVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.project.domain.entity.ShipmentItem">
+    update dbo.Shipment_Item
+    <set>
+      <if test="plant != null">
+        plant = #{plant,jdbcType=NVARCHAR},
+      </if>
+      <if test="warhouse != null">
+        warhouse = #{warhouse,jdbcType=NVARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=NVARCHAR},
+      </if>
+      <if test="item != null">
+        item = #{item,jdbcType=NVARCHAR},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=NVARCHAR},
+      </if>
+      <if test="defaultStatus != null">
+        default_status = #{defaultStatus,jdbcType=NVARCHAR},
+      </if>
+      <if test="recentSituation != null">
+        recent_situation = #{recentSituation,jdbcType=NVARCHAR},
+      </if>
+    </set>
+    where shipment_id = #{shipmentId,jdbcType=NVARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.project.domain.entity.ShipmentItem">
+    update dbo.Shipment_Item
+    set plant = #{plant,jdbcType=NVARCHAR},
+      warhouse = #{warhouse,jdbcType=NVARCHAR},
+      status = #{status,jdbcType=NVARCHAR},
+      item = #{item,jdbcType=NVARCHAR},
+      name = #{name,jdbcType=NVARCHAR},
+      default_status = #{defaultStatus,jdbcType=NVARCHAR},
+      recent_situation = #{recentSituation,jdbcType=NVARCHAR}
+    where shipment_id = #{shipmentId,jdbcType=NVARCHAR}
+  </update>
+
+
+
+  <!-- tableName -->
+  <sql id="tableName">
+    dbo.Shipment_Item
+  </sql>
+  <!-- tableNameOut -->
+  <sql id="tableNameOut">
+    <bind name="tableName" value="' dbo.Shipment_Item'"/>
+  </sql>
+  <!-- pkId -->
+  <sql id="pkId">
+    <bind name="pkName" value="'shipment_id'"/>
+  </sql>
+
+  <!--list-->
+  <select id="list" resultMap="BaseResultMap" parameterType="com.domain.model.PageData">
+    SELECT
+    <include refid="Base_Column_List"></include>
+    FROM
+    <include refid="tableName"></include>
+    WHERE 1 = 1 AND
+    <include refid="PmBasicMapper.retrieveSql"></include>
+    ORDER  BY  shipment_id  desc
+  </select>
+
+
+
+
+
+
+
+
+
+
+
+</mapper>

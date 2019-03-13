@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="PmBasicMapper">
+
+
+
+	<sql id="deleteSql">
+		update ${tableName}
+		set is_deleted = 1,
+		last_updated_user_id = ${lastupdatedbyuserid},
+		last_updated_user_name = '${lastupdatedbyusername}',
+		last_updated_date_time = now()
+		where ${pkName} = ${id}
+	</sql>
+
+
+
+	<sql id="updateAuditSql">
+		update ${tableName}
+		set audit_state = ${auditstate},
+		audit_user_id = ${auditbyuserid},
+		audit_user_name = '${auditbyusername}',
+		audit_date_time = now(),
+		last_updated_user_id = ${lastupdatedbyuserid},
+		last_updated_user_name = '${lastupdatedbyusername}',
+		last_updated_date_time = now()
+		where ${pkName} =${id}
+	</sql>
+
+	<sql id="retrieveSql">
+		${retrieveSql}
+	</sql>
+
+
+
+
+
+
+
+</mapper>
