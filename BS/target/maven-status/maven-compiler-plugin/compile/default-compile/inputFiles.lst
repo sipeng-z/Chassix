@@ -15,7 +15,6 @@ C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\casting\domain\mod
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\upload\BarcodeCheck\TxtReaderUtil.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\casting\domain\entity\CastingCPCC3PvFurnaceChamberCurve.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\casting\service\MechanicalPropertiesReportDetailService.java
-C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\project\controller\G05MarkedContentController.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\system\domain\entity\SystemUsers.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\project\service\GeneralOEEDataTemporaryService.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\system\domain\model\output\RoleActionOutput.java
@@ -24,13 +23,11 @@ C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\authorize\oauth2\H
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\casting\domain\model\output\CastingCPCGeneralOEEDataTemporaryOutput.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\casting\domain\model\input\CastingCPCB7OEEDataTemporaryInput.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\project\domain\model\input\G38ASSYShiftInput.java
-C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\upload\controller\FileController.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\project\domain\entity\Shipment.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\system\domain\model\input\AttachmentConfigInput.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\casting\domain\model\input\MechanicalPropertiesReportInput.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\project\domain\model\output\G38ASSYOEEDataTemporaryOutput.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\system\domain\model\output\MenuOutput.java
-C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\upload\controller\DownTimeExcelController.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\project\domain\entity\EMP2ASSYTraceabilityData.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\system\domain\entity\UserRole.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\casting\domain\entity\CastingCPCC1PvFurnaceChamberCurve.java
@@ -71,6 +68,7 @@ C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\casting\domain\ent
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\casting\domain\model\output\MaterialInspectionRecordOutput.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\project\domain\model\input\G38V22PQDataInput.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\casting\domain\entity\CastingValue.java
+C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\project\controller\G05LazerMarking\G05MarkedContentService.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\project\domain\entity\G38V23ProductionTemporary.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\project\domain\entity\GeneralOEEDataTemporary.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\casting\controller\CPCWorkBenchController.java
@@ -117,14 +115,12 @@ C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\project\domain\ent
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\project\domain\model\input\GeneralPQDataInput.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\project\domain\model\output\G38V23PQDataOutput.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\project\domain\model\output\GeneralOEEDataOutput.java
-C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\project\service\G05MarkedContentService.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\casting\domain\entity\CastingOEE.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\project\controller\UploadShiftPlanController.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\project\domain\entity\G38V22ProductionTemporary.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\project\domain\model\input\G38V23PQDataInput.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\project\service\GeneralOEEDataService.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\system\domain\model\input\AttachmentInput.java
-C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\project\controller\G38Timing.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\system\domain\model\input\RoleMenuInput.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\application\RestControllerExceptionTranslator.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\casting\service\MechanicalPropertiesLocationRequirementService.java
@@ -156,7 +152,6 @@ C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\system\controller\
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\project\domain\model\input\G38V21OEEDataInput.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\core\dao\sqlutils\SqlCreate.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\interceptor\SessionInterceptor.java
-C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\project\service\G38StockService.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\casting\domain\model\input\MaterialInspectionRecordDetailInput.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\project\domain\model\output\G38ASSYShiftOutput.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\core\service\AbstractService.java
@@ -263,7 +258,6 @@ C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\project\domain\ent
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\casting\domain\entity\MechanicalPropertiesReport.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\casting\domain\entity\CastingCPCC3OEEData.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\project\domain\entity\G38V23PQData.java
-C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\project\controller\G38TimingImpl.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\casting\domain\model\input\CastingCPCB7PvFurnaceChamberCurveInput.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\upload\controller\SingleFileCheck.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\project\domain\entity\G38V21Shift.java
@@ -271,6 +265,7 @@ C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\casting\domain\ent
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\project\domain\entity\G38V23OEEDataTemporary.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\casting\service\CastingCPCGeneralOEEDataTemporaryService.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\project\domain\model\output\G38V22OEEDataTemporaryOutput.java
+C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\project\controller\timing\InputDownTimeTiming.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\system\domain\model\output\LoginLogsOutput.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\casting\domain\entity\MaterialInspectionRecord.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\project\domain\model\output\GeneralTraceabilityDataOutput.java
@@ -343,6 +338,7 @@ C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\casting\domain\ent
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\project\domain\entity\GeneralOEEData.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\system\domain\entity\Role.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\project\service\MachDeviceWiseSessionService.java
+C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\project\controller\G05LazerMarking\G05MarkedContentController.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\system\domain\entity\AttachmentConfig.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\system\domain\model\output\ZtreeInfo.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\casting\domain\model\output\MechanicalPropertiesReportOutput.java

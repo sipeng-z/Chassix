@@ -74,7 +74,6 @@ com\project\controller\StockController.class
 com\system\service\SystemDataLogsService.class
 com\project\domain\entity\G38Shipment.class
 com\project\domain\entity\G38V23Shift.class
-com\project\service\G38StockService.class
 com\project\domain\entity\Shipment.class
 com\system\domain\model\input\UserroleDataInput.class
 com\project\domain\entity\G38ASSYOEEDataTemporary.class
@@ -197,7 +196,6 @@ com\system\domain\entity\RoleMenu.class
 com\project\domain\entity\G38V23PQData.class
 com\project\domain\entity\G38ASSYTraceabilityData.class
 com\project\domain\entity\G38V22PQData.class
-com\project\controller\G05MarkedContentController.class
 com\project\domain\entity\G38V21PQData.class
 com\project\domain\model\input\GeneralTraceabilityDataInput.class
 com\project\controller\G38WorkBenchController.class
@@ -209,6 +207,7 @@ com\casting\controller\CastingCPCGeneralShiftController.class
 com\casting\service\CastingDeviceWiseSessionService.class
 com\system\service\AttachmentService.class
 com\project\domain\entity\MachOEETime.class
+com\project\controller\G05LazerMarking\G05MarkedContentController.class
 com\system\domain\model\output\AuthorizeActionOutput.class
 com\system\controller\LoginLogsController.class
 com\project\domain\model\output\G38ASSYOEEDataOutput.class
@@ -241,7 +240,6 @@ com\casting\domain\entity\MechanicalPropertiesReportDetail.class
 com\casting\service\MaterialInspectionRecordDetailService.class
 com\system\service\AttachmentConfigService.class
 com\application\SessionConfiguration.class
-com\project\service\G05MarkedContentService.class
 com\project\service\RepeatedNameService.class
 com\casting\domain\model\input\CastingCPCGeneralPvFurnaceChamberCurveInput.class
 com\system\domain\model\input\UserRoleInput.class
@@ -260,6 +258,7 @@ com\project\domain\model\output\G38ASSYTraceabilityDataOutput.class
 com\casting\domain\model\input\MaterialInspectionRecordInput.class
 com\project\domain\entity\G38QT.class
 com\casting\controller\MechanicalPropertiesReportDetailController.class
+com\project\controller\G05LazerMarking\G05MarkedContentService.class
 com\application\RedisConfig.class
 com\casting\domain\model\output\CastingCPCGeneralPvFurnaceChamberCurveOutput.class
 com\application\CorsFilter.class
@@ -321,6 +320,7 @@ com\system\domain\model\output\SystemDataLogsOutput.class
 com\project\service\GeneralProductionTemporaryService.class
 com\system\domain\model\input\ActionsInput.class
 com\project\domain\entity\GeneralImpressive.class
+com\project\controller\timing\InputDownTimeTiming.class
 com\project\controller\timing\ProductionTemporaryTiming.class
 com\upload\domain\model\FunOutput.class
 com\system\service\ActionsService.class

@@ -40,15 +40,14 @@ public class GeneralProductionTemporaryService  extends AbstractService <General
     //sqlserver驱动包名
     private static final String DRIVER_NAME = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
     //用户名
-    @Value("${erp.url}")
+    @Value("${dbo.url}")
     private String URL;
 
-
     //数据库连接地址
-    @Value("${erp.user_name}")
+    @Value("${dbo.user_name}")
     private String USER_NAME;
     //密码
-    @Value("${erp.password}")
+    @Value("${dbo.password}")
     private String PASSWORD;
 
 
@@ -501,21 +500,11 @@ public class GeneralProductionTemporaryService  extends AbstractService <General
 
 
 
-
-
-
-
-
-
-
     @Test
     public  List<String>  getTableName(){
         Connection connection = null;
         try {
 
-            URL="jdbc:sqlserver://10.21.32.2:1433;DatabaseName=SZ_001;";
-            USER_NAME="SZ_user";
-            PASSWORD="SZuser";
             //get driver
             Class.forName(DRIVER_NAME);
             //get connection

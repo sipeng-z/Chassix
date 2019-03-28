@@ -83,18 +83,18 @@ public class StockService extends AbstractService<MachStock,MachStock>{
 
 
 
-
-
             //results
             ResultSet rs1 = prst1.executeQuery();
-            ResultSet rs2 = prst1.executeQuery();
-            ResultSet rs3 = prst1.executeQuery();
-            ResultSet rs4 = prst1.executeQuery();
+            ResultSet rs2 = prst2.executeQuery();
+            ResultSet rs3 = prst3.executeQuery();
+            ResultSet rs4 = prst4.executeQuery();
+
+
 
 
             MachStock machStock = new MachStock();
 
-            String result = "";
+
             while (rs1.next()) {
 
                 String qty =   rs1.getString("qty");
@@ -134,14 +134,17 @@ public class StockService extends AbstractService<MachStock,MachStock>{
             rs4.close();
             prst4.close();
 
-
-
             return machStock;
+
+
+
+
 
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println(e);
             return null;
+
         }finally {
             if (connection != null) {
                 try {

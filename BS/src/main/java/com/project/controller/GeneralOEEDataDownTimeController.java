@@ -1,12 +1,12 @@
 package com.project.controller;
 
-import com.casting.domain.model.input.CastingCPCGeneralOEEDataTemporaryInput;
-import com.casting.domain.model.output.CastingCPCGeneralOEEDataTemporaryOutput;
-import com.casting.service.CastingCPCGeneralOEEDataTemporaryService;
 import com.core.controller.GenericController;
 import com.core.service.AbstractService;
 import com.domain.model.PageData;
 import com.github.pagehelper.PageInfo;
+import com.project.domain.model.input.GeneralOEEDataTemporaryInput;
+import com.project.domain.model.output.GeneralOEEDataTemporaryOutput;
+import com.project.service.GeneralOEEDataTemporaryService;
 import com.response.ResponseResult;
 import com.utils.CommonConstants;
 import org.slf4j.Logger;
@@ -20,24 +20,24 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpServletRequest;
 
 
-@RequestMapping(value = "GeneralOEEDataTemporary")
+@RequestMapping(value = "GeneralDownTime")
 @RestController
-public class GeneralOEEDataDownTimeController extends GenericController<CastingCPCGeneralOEEDataTemporaryInput,CastingCPCGeneralOEEDataTemporaryOutput> {
+public class GeneralOEEDataDownTimeController extends GenericController<GeneralOEEDataTemporaryInput, GeneralOEEDataTemporaryOutput> {
 
     private final Logger logger = LoggerFactory.getLogger(GeneralOEEDataDownTimeController.class);
 
 
     @Autowired
-    private CastingCPCGeneralOEEDataTemporaryService castingCPCGeneralOEEDataTemporaryService;
+    private GeneralOEEDataTemporaryService generalOEEDataTemporaryService;
 
     @Override
     protected void OnActionExecuting() {
-        castingCPCGeneralOEEDataTemporaryService.SetWorkContext(this.WorkContext);
+        generalOEEDataTemporaryService.SetWorkContext(this.WorkContext);
     }
 
 
-    protected AbstractService<CastingCPCGeneralOEEDataTemporaryInput,CastingCPCGeneralOEEDataTemporaryOutput> getService() {
-        return castingCPCGeneralOEEDataTemporaryService;
+    protected AbstractService<GeneralOEEDataTemporaryInput,GeneralOEEDataTemporaryOutput> getService() {
+        return generalOEEDataTemporaryService;
     }
 
 
@@ -45,14 +45,14 @@ public class GeneralOEEDataDownTimeController extends GenericController<CastingC
 
 
     /**
-     * ADD/UPDATE
+     * ADD
      * @param id
      * @param input
      * @return
      */
 
-    @RequestMapping(value = "generalformpost",method = RequestMethod.POST)
-    public ResponseResult generalformPost(String id, @RequestBody CastingCPCGeneralOEEDataTemporaryInput input,String device) {
+    @RequestMapping(value = "addDownTime",method = RequestMethod.POST)
+    public ResponseResult generalFormPost(String id, @RequestBody GeneralOEEDataTemporaryInput input,String line,String device) {
         ResponseResult result = new ResponseResult();
         try{
             if(input==null){
@@ -62,14 +62,14 @@ public class GeneralOEEDataDownTimeController extends GenericController<CastingC
             }
             if(input.getTemporaryId()==null||input.getTemporaryId().equals("")){
 
-                boolean flag = castingCPCGeneralOEEDataTemporaryService.addnewhalt(input,device);
+                boolean flag = generalOEEDataTemporaryService.addnewhalt(input,line, device);
                 if(flag==true){
                     result.setMessage("Success!");
                     result.setSuccess(true);
                     return result;
                 }
             }else {
-                boolean flag = castingCPCGeneralOEEDataTemporaryService.update(input);
+                boolean flag = generalOEEDataTemporaryService.update(input);
                 if(flag==true){
                     result.setMessage("Success!");
                     result.setSuccess(true);
@@ -94,19 +94,15 @@ public class GeneralOEEDataDownTimeController extends GenericController<CastingC
      * @return
      */
 
-    @RequestMapping(value = "generalpagerlist",method = RequestMethod.GET)
-    public ResponseResult generalpagerList(HttpServletRequest request,String device) {
+    @RequestMapping(value = "pageList",method = RequestMethod.GET)
+    public ResponseResult generalPageList(HttpServletRequest request,String line,String device) {
         try{
-            return ResponseResult.success(new PageInfo<>(castingCPCGeneralOEEDataTemporaryService.generallist(true,new PageData(request),device)));
+            return ResponseResult.success(new PageInfo<>(generalOEEDataTemporaryService.generallist(true,new PageData(request),line,device)));
         }catch (Exception e){
             logger.error("-----------------------pagelist异常------"+e);
         }
         return ResponseResult.error(CommonConstants.EX.EXCEPTION);
     }
-
-
-
-
 
 
 

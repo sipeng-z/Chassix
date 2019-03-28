@@ -4,7 +4,7 @@ import com.core.controller.GenericController;
 import com.core.service.AbstractService;
 import com.domain.model.PageData;
 import com.github.pagehelper.PageInfo;
-import com.project.domain.entity.LineDevice;
+
 import com.project.domain.model.input.LineDeviceInput;
 import com.project.domain.model.output.LineDeviceOutput;
 import com.project.service.LineDeviceService;
@@ -18,6 +18,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
+
+
+/**
+ * get line and devices details list
+ */
 
 @RestController
 @RequestMapping(value = "LineDevice")
@@ -68,7 +73,7 @@ public class LineDeviceController extends GenericController<LineDeviceInput,Line
 
 
     /**
-     * PAGERLIST
+     * PAGE LIST
      * @param request
      * @return
      */

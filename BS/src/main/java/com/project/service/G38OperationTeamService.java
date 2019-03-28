@@ -37,7 +37,6 @@ public class G38OperationTeamService extends AbstractService<G38OperationTeamInp
 
     }
 
-
     /**
      * getByTeamId (pkid)
      * @param
@@ -49,9 +48,6 @@ public class G38OperationTeamService extends AbstractService<G38OperationTeamInp
         pageData.put("TeamId",TeamId);
         return (G38OperationTeam) daoImp.findForObject(getMapperName()+"findByPkId",pageData);
     }
-
-
-
 
 
 

@@ -21,6 +21,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+
+/**
+ * for CPC Real time data getting; from device wise  in Telit
+ */
 @RestController
 @RequestMapping(value = "CPCWorkBench")
 public class CPCWorkBenchController {
@@ -67,7 +71,7 @@ public class CPCWorkBenchController {
                 if(device!=null&&!device.equals("")){
                     CPCparameter.setDevice(DeviceName);
                 }else {
-                    result.setMessage("Null device name. ");
+                    result.setMessage("Null device name.");
                     result.setSuccess(false);
                     return result;
                 }
@@ -98,13 +102,12 @@ public class CPCWorkBenchController {
 
                 CPCValue CPCPosition = new CPCValue();
                 CPCPosition.setName("CPCPosition");
-                CPCPosition.setValue(Integer.valueOf(dataList[3]).toString());            //0close 1open 3moving
+                CPCPosition.setValue(Integer.valueOf(dataList[3]).toString());            //0 close 1 open 3 moving
 
                 valueList.add(CPCState);
                 valueList.add(CPCCycleTime);
                 valueList.add(CPCStandBy);
                 valueList.add(CPCPosition);
-
 
                 //update the last activity refresh
                 Date realTimeAfterRequest = new Date();

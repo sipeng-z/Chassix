@@ -387,8 +387,6 @@ public class ScrapService  extends AbstractService<ScrapValue,ScrapValue>{
 
 
 
-
-
     /**
      * for device scrap
      * @return

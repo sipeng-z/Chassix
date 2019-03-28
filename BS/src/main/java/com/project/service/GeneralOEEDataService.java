@@ -1130,12 +1130,6 @@ public class GeneralOEEDataService extends AbstractService<GeneralOEEDataInput,G
 
 
 
-
-
-
-
-
-
         PageData pageData4tra = new PageData();
         pageData4tra.put("DateString",DateString);
         pageData4tra.put("inList",inList);

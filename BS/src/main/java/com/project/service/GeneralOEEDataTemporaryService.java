@@ -7,8 +7,10 @@ import com.core.service.AbstractService;
 import com.domain.model.PageData;
 import com.model.AppConsts;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -30,6 +32,28 @@ public class GeneralOEEDataTemporaryService extends AbstractService<GeneralOEEDa
     public void setMapperName(String mapperName){
         this.mapperName = mapperName;
     }
+
+
+    //sqlserver驱动包名
+    private static final String DRIVER_NAME = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+    //用户名
+    @Value("${dbo.url}")
+    private String URL;
+
+    //数据库连接地址
+    @Value("${dbo.user_name}")
+    private String USER_NAME;
+    //密码
+    @Value("${dbo.password}")
+    private String PASSWORD;
+
+
+
+
+
+
+
+
     /**
      * addall no matter how many days
      *
@@ -442,6 +466,59 @@ public class GeneralOEEDataTemporaryService extends AbstractService<GeneralOEEDa
 
     }
 
+
+
+
+
+    public  List<String>  getTableNameOeeDataTemporary(){
+        Connection connection = null;
+        try {
+
+            //get driver
+            Class.forName(DRIVER_NAME);
+            //get connection
+            connection = DriverManager.getConnection(URL, USER_NAME, PASSWORD);
+            //sql
+            String sql ="";
+
+            String param = "";
+
+            sql ="select name from sys.tables where name like '%oee_data_temporary%'"; //downtime inputs by production
+
+            PreparedStatement prst = connection.prepareStatement(sql);
+
+            ResultSet rs = prst.executeQuery();
+
+            Integer count = 0;
+            List<String> list = new ArrayList<>();
+            while (rs.next()) {
+                count++;
+
+                //GET
+                String tableName = rs.getString("name");
+                list.add(tableName);
+            }
+            rs.close();
+            prst.close();
+
+            return list;
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println(e);
+            return null;
+
+        }finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
 
 
 

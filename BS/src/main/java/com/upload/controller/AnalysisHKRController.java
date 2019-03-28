@@ -25,7 +25,7 @@ public class AnalysisHKRController {
         try{
 
             FileGeter obj = new FileGeter();
-            String datasetpath ="D:/MuilteTest/"; //Folder path;
+            String datasetpath ="C:/Users/yyhuan/Desktop/Training/Example2/"; //Folder path;
             Vector<File> vecFile = new Vector<>();
             Vector<File> vecFileResult = obj.getAllFile(datasetpath,vecFile);
             List<String> pathList = new ArrayList<>();
@@ -103,8 +103,8 @@ public class AnalysisHKRController {
 
 
             String path ="";
-            path += "C:/Users/yyhuan/Desktop/DaFiles/";    //PROPERTIES desktop
-            path += "EMP2Analysis.xls";
+            path += "C:/Users/yyhuan/Desktop/Training/Example2/generate/";    //PROPERTIES desktop
+            path += "SingleEMP2Analysis.xls";
             File f=new File(path);
             OutputStream out =new FileOutputStream(f);
 
