@@ -51,26 +51,7 @@ public class CreateTableService {
             //get connection
             connection = DriverManager.getConnection(URL, USER_NAME, PASSWORD);
             //sql
-            String shiftSql ="create table Casting_CPC_"+deviceName+"_Shift" + "(" +
-                    "  Shift_id               char(36) not null" +
-                    "    primary key," +
-                    "  Mon                    varchar(30)," +
-                    "  Tue                    varchar(30)," +
-                    "  Wed                    varchar(30)," +
-                    "  Thu                    varchar(30)," +
-                    "  Fri                    varchar(30)," +
-                    "  Sat                    varchar(30)," +
-                    "  Sun                    varchar(30)," +
-                    "  Shift_Name             varchar(10)," +
-                    "  created_date_time      datetime," +
-                    "  created_user_id        char(36)," +
-                    "  is_deleted             int," +
-                    "  last_updated_user_id   char(36)," +
-                    "  last_updated_date_time datetime," +
-                    "  displayorder           int," +
-                    "  week_no                int," +
-                    "  mark                   int" +
-                    ")" ;
+
 
             String oeeSql ="create table Casting_CPC_"+deviceName+"_OEE_Data" +
                     "(" +
@@ -112,19 +93,6 @@ public class CreateTableService {
                     "  mark                   int" +
                     ")";
 
-            String pqSql ="create table Casting_CPC_"+deviceName+"_PQ_Data" +
-                    "(" +
-                    "  ItemNO      int identity" +
-                    "    primary key," +
-                    "  SO_Number   char(6)  not null," +
-                    "  PartStatus  int      not null," +
-                    "  VM_Time     datetime not null," +
-                    "  RecordNO    int," +
-                    "  Date_String char(8)," +
-                    "  TotalParts  int," +
-                    "  NgParts     int," +
-                    "  GoodParts   int" +
-                    ")";
 
             String pvSql ="create table Casting_CPC_"+deviceName+"_Pv_Furnace_Chamber_Curve" +
                     "(" +
@@ -138,51 +106,33 @@ public class CreateTableService {
 
 
 
-            //parse and run  for 5 tables
-            PreparedStatement shiftprst = connection.prepareStatement(shiftSql);
+            //parse and run  for 3 tables
+
             PreparedStatement oeeprst = connection.prepareStatement(oeeSql);
             PreparedStatement oeetemprst = connection.prepareStatement(oeeTemSql);
-            PreparedStatement pqprst = connection.prepareStatement(pqSql);
             PreparedStatement pvprst = connection.prepareStatement(pvSql);
 
 
             // result
-            Integer shiftrs = shiftprst.executeUpdate();
+
             Integer oeers = oeeprst. executeUpdate();
             Integer oeetemrs = oeetemprst. executeUpdate();
-            Integer pqrs = pqprst.executeUpdate();
             Integer pvrs = pvprst.executeUpdate();
 
 
             //1
-            if (shiftrs>=0) {
-                System.out.println("shift table created");
-
-            }
-
-
-            //2
             if (oeers>=0) {
                 System.out.println("oee table created");
 
             }
 
-
-            //3
+            //2
             if (oeetemrs>=0) {
                 System.out.println("oee_tem table created");
 
             }
 
-
-            //4
-            if (pqrs>=0) {
-                System.out.println("pq table created");
-
-            }
-
-
-            //5
+            //3
             if (pvrs>=0) {
                 System.out.println("pv table created");
 

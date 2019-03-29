@@ -7,57 +7,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1267efe7-551a-4d5f-8eab-b8c29b05eb44" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/BS/src/main/java/com/project/controller/timing/InputDownTimeTiming.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BS/src/main/java/com/casting/controller/CPCWorkBenchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BS/src/main/java/com/casting/controller/CPCWorkBenchController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BS/src/main/java/com/project/controller/G05MarkedContentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BS/src/main/java/com/project/controller/G05LazerMarking/G05MarkedContentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BS/src/main/java/com/project/controller/GeneralOEEDataDownTimeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BS/src/main/java/com/project/controller/GeneralOEEDataDownTimeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BS/src/main/java/com/project/controller/LineDeviceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BS/src/main/java/com/project/controller/LineDeviceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BS/src/main/java/com/project/service/G05MarkedContentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BS/src/main/java/com/project/controller/G05LazerMarking/G05MarkedContentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BS/src/main/java/com/project/service/G38OperationTeamService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BS/src/main/java/com/project/service/G38OperationTeamService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BS/src/main/java/com/project/service/G38StockService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BS/src/main/java/com/casting/service/CreateTableService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BS/src/main/java/com/casting/service/CreateTableService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BS/src/main/java/com/project/controller/GeneralLineController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BS/src/main/java/com/project/controller/GeneralLineController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BS/src/main/java/com/project/controller/GeneralOEEDataController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BS/src/main/java/com/project/controller/GeneralOEEDataController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BS/src/main/java/com/project/controller/timing/InputDownTimeTiming.java" beforeDir="false" afterPath="$PROJECT_DIR$/BS/src/main/java/com/project/controller/timing/InputDownTimeTiming.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BS/src/main/java/com/project/service/ConversionToolService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BS/src/main/java/com/project/service/ConversionToolService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BS/src/main/java/com/project/service/GeneralOEEDataService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BS/src/main/java/com/project/service/GeneralOEEDataService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BS/src/main/java/com/project/service/GeneralOEEDataTemporaryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BS/src/main/java/com/project/service/GeneralOEEDataTemporaryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BS/src/main/java/com/project/service/GeneralProductionTemporaryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BS/src/main/java/com/project/service/GeneralProductionTemporaryService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BS/src/main/java/com/project/service/ScrapService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BS/src/main/java/com/project/service/ScrapService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BS/src/main/java/com/project/service/StockService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BS/src/main/java/com/project/service/StockService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BS/src/main/java/com/upload/controller/AnalysisHKRController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BS/src/main/java/com/upload/controller/AnalysisHKRController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BS/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/BS/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BS/target/BS-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/BS/target/BS-1.0-SNAPSHOT.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BS/target/BS-1.0-SNAPSHOT/._.DS_Store" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BS/target/BS-1.0-SNAPSHOT/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BS/target/BS-1.0-SNAPSHOT/WEB-INF/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/BS/target/BS-1.0-SNAPSHOT/WEB-INF/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BS/target/BS-1.0-SNAPSHOT/WEB-INF/classes/com/casting/controller/CPCWorkBenchController.class" beforeDir="false" afterPath="$PROJECT_DIR$/BS/target/BS-1.0-SNAPSHOT/WEB-INF/classes/com/casting/controller/CPCWorkBenchController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BS/target/BS-1.0-SNAPSHOT/WEB-INF/classes/com/project/controller/G05MarkedContentController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BS/target/BS-1.0-SNAPSHOT/WEB-INF/classes/com/project/controller/GeneralOEEDataDownTimeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/BS/target/BS-1.0-SNAPSHOT/WEB-INF/classes/com/project/controller/GeneralOEEDataDownTimeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BS/target/BS-1.0-SNAPSHOT/WEB-INF/classes/com/project/controller/LineDeviceController.class" beforeDir="false" afterPath="$PROJECT_DIR$/BS/target/BS-1.0-SNAPSHOT/WEB-INF/classes/com/project/controller/LineDeviceController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BS/target/BS-1.0-SNAPSHOT/WEB-INF/classes/com/project/service/G05MarkedContentService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BS/target/BS-1.0-SNAPSHOT/WEB-INF/classes/com/project/service/G38OperationTeamService.class" beforeDir="false" afterPath="$PROJECT_DIR$/BS/target/BS-1.0-SNAPSHOT/WEB-INF/classes/com/project/service/G38OperationTeamService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BS/target/BS-1.0-SNAPSHOT/WEB-INF/classes/com/project/service/G38StockService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BS/target/BS-1.0-SNAPSHOT/WEB-INF/classes/com/casting/service/CreateTableService.class" beforeDir="false" afterPath="$PROJECT_DIR$/BS/target/BS-1.0-SNAPSHOT/WEB-INF/classes/com/casting/service/CreateTableService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BS/target/BS-1.0-SNAPSHOT/WEB-INF/classes/com/project/controller/GeneralLineController.class" beforeDir="false" afterPath="$PROJECT_DIR$/BS/target/BS-1.0-SNAPSHOT/WEB-INF/classes/com/project/controller/GeneralLineController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BS/target/BS-1.0-SNAPSHOT/WEB-INF/classes/com/project/controller/GeneralOEEDataController.class" beforeDir="false" afterPath="$PROJECT_DIR$/BS/target/BS-1.0-SNAPSHOT/WEB-INF/classes/com/project/controller/GeneralOEEDataController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BS/target/BS-1.0-SNAPSHOT/WEB-INF/classes/com/project/controller/timing/InputDownTimeTiming.class" beforeDir="false" afterPath="$PROJECT_DIR$/BS/target/BS-1.0-SNAPSHOT/WEB-INF/classes/com/project/controller/timing/InputDownTimeTiming.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BS/target/BS-1.0-SNAPSHOT/WEB-INF/classes/com/project/service/ConversionToolService.class" beforeDir="false" afterPath="$PROJECT_DIR$/BS/target/BS-1.0-SNAPSHOT/WEB-INF/classes/com/project/service/ConversionToolService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BS/target/BS-1.0-SNAPSHOT/WEB-INF/classes/com/project/service/GeneralOEEDataService.class" beforeDir="false" afterPath="$PROJECT_DIR$/BS/target/BS-1.0-SNAPSHOT/WEB-INF/classes/com/project/service/GeneralOEEDataService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BS/target/BS-1.0-SNAPSHOT/WEB-INF/classes/com/project/service/GeneralOEEDataTemporaryService.class" beforeDir="false" afterPath="$PROJECT_DIR$/BS/target/BS-1.0-SNAPSHOT/WEB-INF/classes/com/project/service/GeneralOEEDataTemporaryService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BS/target/BS-1.0-SNAPSHOT/WEB-INF/classes/com/project/service/GeneralProductionTemporaryService.class" beforeDir="false" afterPath="$PROJECT_DIR$/BS/target/BS-1.0-SNAPSHOT/WEB-INF/classes/com/project/service/GeneralProductionTemporaryService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BS/target/BS-1.0-SNAPSHOT/WEB-INF/classes/com/project/service/ScrapService.class" beforeDir="false" afterPath="$PROJECT_DIR$/BS/target/BS-1.0-SNAPSHOT/WEB-INF/classes/com/project/service/ScrapService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BS/target/BS-1.0-SNAPSHOT/WEB-INF/classes/com/project/service/StockService.class" beforeDir="false" afterPath="$PROJECT_DIR$/BS/target/BS-1.0-SNAPSHOT/WEB-INF/classes/com/project/service/StockService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BS/target/BS-1.0-SNAPSHOT/WEB-INF/classes/com/upload/controller/AnalysisHKRController.class" beforeDir="false" afterPath="$PROJECT_DIR$/BS/target/BS-1.0-SNAPSHOT/WEB-INF/classes/com/upload/controller/AnalysisHKRController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BS/target/BS-1.0-SNAPSHOT/WEB-INF/lib/core-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/BS/target/BS-1.0-SNAPSHOT/WEB-INF/lib/core-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BS/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/BS/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BS/target/classes/com/casting/controller/CPCWorkBenchController.class" beforeDir="false" afterPath="$PROJECT_DIR$/BS/target/classes/com/casting/controller/CPCWorkBenchController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BS/target/classes/com/project/controller/G05MarkedContentController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BS/target/classes/com/project/controller/GeneralOEEDataDownTimeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/BS/target/classes/com/project/controller/GeneralOEEDataDownTimeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BS/target/classes/com/project/controller/LineDeviceController.class" beforeDir="false" afterPath="$PROJECT_DIR$/BS/target/classes/com/project/controller/LineDeviceController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BS/target/classes/com/project/service/G05MarkedContentService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BS/target/classes/com/project/service/G38OperationTeamService.class" beforeDir="false" afterPath="$PROJECT_DIR$/BS/target/classes/com/project/service/G38OperationTeamService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BS/target/classes/com/project/service/G38StockService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BS/target/classes/com/casting/service/CreateTableService.class" beforeDir="false" afterPath="$PROJECT_DIR$/BS/target/classes/com/casting/service/CreateTableService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BS/target/classes/com/project/controller/GeneralLineController.class" beforeDir="false" afterPath="$PROJECT_DIR$/BS/target/classes/com/project/controller/GeneralLineController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BS/target/classes/com/project/controller/GeneralOEEDataController.class" beforeDir="false" afterPath="$PROJECT_DIR$/BS/target/classes/com/project/controller/GeneralOEEDataController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BS/target/classes/com/project/controller/timing/InputDownTimeTiming.class" beforeDir="false" afterPath="$PROJECT_DIR$/BS/target/classes/com/project/controller/timing/InputDownTimeTiming.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BS/target/classes/com/project/service/ConversionToolService.class" beforeDir="false" afterPath="$PROJECT_DIR$/BS/target/classes/com/project/service/ConversionToolService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BS/target/classes/com/project/service/GeneralOEEDataService.class" beforeDir="false" afterPath="$PROJECT_DIR$/BS/target/classes/com/project/service/GeneralOEEDataService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BS/target/classes/com/project/service/GeneralOEEDataTemporaryService.class" beforeDir="false" afterPath="$PROJECT_DIR$/BS/target/classes/com/project/service/GeneralOEEDataTemporaryService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BS/target/classes/com/project/service/GeneralProductionTemporaryService.class" beforeDir="false" afterPath="$PROJECT_DIR$/BS/target/classes/com/project/service/GeneralProductionTemporaryService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BS/target/classes/com/project/service/ScrapService.class" beforeDir="false" afterPath="$PROJECT_DIR$/BS/target/classes/com/project/service/ScrapService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BS/target/classes/com/project/service/StockService.class" beforeDir="false" afterPath="$PROJECT_DIR$/BS/target/classes/com/project/service/StockService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BS/target/classes/com/upload/controller/AnalysisHKRController.class" beforeDir="false" afterPath="$PROJECT_DIR$/BS/target/classes/com/upload/controller/AnalysisHKRController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BS/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/BS/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BS/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/BS/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BS/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/BS/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/target/core-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/core/target/core-1.0-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/core/target/maven-archiver/pom.properties" afterDir="false" />
     </list>
@@ -100,55 +74,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/controller/LineDeviceController.java">
+        <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/controller/UploadShiftPlanController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="452">
-              <caret line="90" column="78" selection-start-line="90" selection-start-column="78" selection-end-line="90" selection-end-column="78" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/service/LineDeviceService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="149">
-              <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/casting/controller/CPCWorkBenchController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-194">
-              <caret line="26" column="3" selection-start-line="26" selection-start-column="3" selection-end-line="26" selection-end-column="3" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/casting/controller/CastingCPCGeneralShiftController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="37" column="56" selection-start-line="37" selection-start-column="56" selection-end-line="37" selection-end-column="56" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/controller/GeneralOEEDataDownTimeController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="174">
-              <caret line="94" column="7" selection-start-line="94" selection-start-column="7" selection-end-line="94" selection-end-column="7" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="855">
+              <caret line="77" selection-start-line="77" selection-end-line="77" />
             </state>
           </provider>
         </entry>
@@ -156,7 +85,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/controller/timing/ProductionTemporaryTiming.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="548">
+            <state relative-caret-position="442">
               <caret line="53" column="76" selection-start-line="53" selection-start-column="76" selection-end-line="53" selection-end-column="76" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -166,24 +95,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/service/GeneralProductionTemporaryService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="52" selection-start-line="39" selection-start-column="2" selection-end-line="52" />
-              <folding>
-                <element signature="e#1335#1347#1" expanded="true" />
-                <element signature="e#1400#1418#1" expanded="true" />
-                <element signature="e#1470#1487#1" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/controller/timing/InputDownTimeTiming.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-43">
-              <caret line="43" column="58" lean-forward="true" selection-start-line="43" selection-start-column="58" selection-end-line="43" selection-end-column="58" />
+            <state relative-caret-position="211">
+              <caret line="120" selection-start-line="120" selection-end-line="120" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -192,15 +107,71 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/service/GeneralOEEDataTemporaryService.java">
+        <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/service/StockService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="474" column="13" selection-start-line="474" selection-start-column="13" selection-end-line="474" selection-end-column="13" />
+            <state relative-caret-position="445">
+              <caret line="75" selection-start-line="75" selection-end-line="75" />
               <folding>
-                <element signature="e#1172#1184#1" expanded="true" />
-                <element signature="e#1236#1254#1" expanded="true" />
-                <element signature="e#1306#1323#1" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/service/ScrapService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-369">
+              <caret line="339" selection-start-line="339" selection-end-line="339" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/controller/GeneralLineController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2896">
+              <caret line="139" column="85" selection-start-line="139" selection-start-column="85" selection-end-line="139" selection-end-column="85" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/controller/GeneralOEEDataController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2664">
+              <caret line="414" lean-forward="true" selection-start-line="414" selection-end-line="414" />
+              <folding>
+                <element signature="method#generalformPost#0;class#GeneralOEEDataController#0" />
+                <element signature="method#generalpagerList#0;class#GeneralOEEDataController#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/service/GeneralOEEDataService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1019">
+              <caret line="574" column="39" selection-start-line="574" selection-start-column="39" selection-end-line="574" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/service/FileDeleter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" selection-start-line="9" selection-end-line="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/service/FileGeter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -217,7 +188,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>ConversionService</find>
       <find>10.21</find>
       <find>shift</find>
       <find>getqt</find>
@@ -247,6 +217,7 @@
       <find>g38TimingTest</find>
       <find>qt</find>
       <find>g38</find>
+      <find>getDownTimeWeek</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/Data Acquisition/src/main/java/com/project/controller</dir>
@@ -258,12 +229,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/BS/src/main/java/com/upload/controller/SingleFileCheck.java" />
-        <option value="$PROJECT_DIR$/BS/src/main/java/com/casting/controller/CastingCPCGeneralOEEDataController.java" />
         <option value="$PROJECT_DIR$/BS/src/main/java/com/project/controller/G38LineController.java" />
         <option value="$PROJECT_DIR$/BS/src/main/java/com/project/service/MachWorkBenchService.java" />
         <option value="$PROJECT_DIR$/BS/src/main/java/com/project/controller/G05LazerMarking/TelitParamController.java" />
-        <option value="$PROJECT_DIR$/BS/src/main/java/com/project/controller/GeneralLineController.java" />
         <option value="$PROJECT_DIR$/BS/src/main/java/com/core/dao/Dao.java" />
         <option value="$PROJECT_DIR$/BS/src/main/java/com/core/dao/imp/DaoImp.java" />
         <option value="$PROJECT_DIR$/BS/src/main/java/com/domain/model/PageData.java" />
@@ -295,11 +263,8 @@
         <option value="$PROJECT_DIR$/BS/src/main/java/com/core/controller/GenericController.java" />
         <option value="$PROJECT_DIR$/BS/src/main/java/com/system/controller/RoleController.java" />
         <option value="$PROJECT_DIR$/BS/src/main/java/com/upload/controller/AnalysisHKRController.java" />
-        <option value="$PROJECT_DIR$/BS/src/main/java/com/project/service/ScrapService.java" />
         <option value="$PROJECT_DIR$/BS/src/main/java/com/project/service/StockService.java" />
-        <option value="$PROJECT_DIR$/BS/src/main/java/com/project/service/GeneralOEEDataService.java" />
         <option value="$PROJECT_DIR$/BS/src/main/java/com/project/controller/GeneralOEEDataDownTimeController.java" />
-        <option value="$PROJECT_DIR$/BS/src/main/java/com/project/controller/GeneralOEEDataController.java" />
         <option value="$PROJECT_DIR$/BS/src/main/java/com/project/controller/LineDeviceController.java" />
         <option value="$PROJECT_DIR$/BS/src/main/java/com/project/controller/G05LazerMarking/G05MarkedContentController.java" />
         <option value="$PROJECT_DIR$/BS/src/main/java/com/project/controller/G05LazerMarking/G05MarkedContentService.java" />
@@ -309,6 +274,12 @@
         <option value="$PROJECT_DIR$/BS/src/main/java/com/project/service/GeneralProductionTemporaryService.java" />
         <option value="$PROJECT_DIR$/BS/src/main/java/com/project/service/GeneralOEEDataTemporaryService.java" />
         <option value="$PROJECT_DIR$/BS/src/main/java/com/project/controller/timing/InputDownTimeTiming.java" />
+        <option value="$PROJECT_DIR$/BS/src/main/java/com/casting/service/CreateTableService.java" />
+        <option value="$PROJECT_DIR$/BS/src/main/java/com/project/service/ConversionToolService.java" />
+        <option value="$PROJECT_DIR$/BS/src/main/java/com/project/service/ScrapService.java" />
+        <option value="$PROJECT_DIR$/BS/src/main/java/com/project/service/GeneralOEEDataService.java" />
+        <option value="$PROJECT_DIR$/BS/src/main/java/com/project/controller/GeneralLineController.java" />
+        <option value="$PROJECT_DIR$/BS/src/main/java/com/project/controller/GeneralOEEDataController.java" />
       </list>
     </option>
   </component>
@@ -346,7 +317,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-6" />
     <option name="y" value="-723" />
     <option name="width" value="208" />
@@ -464,6 +435,17 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="project" type="462c0819:PsiDirectoryNode" />
+              <item name="mapper" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Data-Acquisition" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Data Acquisition" type="462c0819:PsiDirectoryNode" />
+              <item name="BS" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="project" type="462c0819:PsiDirectoryNode" />
               <item name="service" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -485,7 +467,7 @@
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/yangyuhuan/Desktop/Data Acquisition/BS/src/main/java/com/project/controller/G05LazerMarking/G05WorkBenchController.java" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553734379738" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553829637126" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="SQL Server (Microsoft)" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -787,7 +769,7 @@
       <workItem from="1552443126837" duration="225000" />
       <workItem from="1552443421459" duration="7177000" />
       <workItem from="1552461511429" duration="10168000" />
-      <workItem from="1552883660613" duration="48372000" />
+      <workItem from="1552883660613" duration="65888000" />
     </task>
     <servers />
   </component>
@@ -824,7 +806,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1617790000" />
+    <option name="totallyTimeSpent" value="1635306000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -836,21 +818,21 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-6" y="-723" width="208" height="118" extended-state="1" />
+    <frame x="-899" y="-1088" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7724771" visible="true" weight="1.0" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.8589563" visible="true" weight="0.2675906" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="UI Designer" order="3" />
       <window_info id="Image Layers" order="4" />
-      <window_info id="Web" order="5" side_tool="true" />
+      <window_info id="Web" order="5" sideWeight="0.14104372" side_tool="true" visible="true" weight="0.2675906" />
       <window_info id="Favorites" order="6" sideWeight="0.22752294" side_tool="true" weight="0.31825525" />
       <window_info id="Designer" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.28301886" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.23618636" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.0" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3445287" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.23185265" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.326713" />
@@ -870,11 +852,11 @@
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Palette&#9;" order="4" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="right" id="Bean Validation" order="6" weight="0.32960597" />
+      <window_info anchor="right" id="Bean Validation" order="6" weight="0.32942432" />
       <window_info anchor="right" id="Theme Preview" order="7" />
       <window_info anchor="right" id="Maven Projects" order="8" visible="true" weight="0.18317358" />
       <window_info anchor="right" id="Database" order="9" weight="0.12473348" />
-      <window_info anchor="right" id="Maven" order="10" visible="true" weight="1.0" />
+      <window_info anchor="right" id="Maven" order="10" visible="true" weight="0.13219616" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1102,69 +1084,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/controller/G05LazerMarking/TelitParamController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1605">
-          <caret line="127" selection-start-line="127" selection-end-line="127" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/controller/G05LazerMarking/G05WorkBenchController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3270">
-          <caret line="236" selection-start-line="236" selection-end-line="236" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/upload/controller/DownTimeExcelController.java" />
-    <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/controller/G38Timing.java" />
-    <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/controller/G38TimingImpl.java" />
-    <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/upload/controller/ExcelController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/upload/controller/SingleFileCheck.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/upload/controller/FileController.java" />
-    <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/system/controller/RoleController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="72" column="9" lean-forward="true" selection-start-line="72" selection-start-column="9" selection-end-line="72" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/core/controller/GenericController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="147" selection-start-line="147" selection-end-line="147" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/core/service/AbstractService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="251" selection-start-line="251" selection-end-line="251" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/application/MyBatisMapperScannerConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="18" lean-forward="true" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/upload/controller/AnalysisHKRController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -1190,13 +1109,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="177">
           <caret line="137" column="22" selection-start-line="137" selection-start-column="22" selection-end-line="137" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/service/ScrapService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-272">
-          <caret line="291" column="70" selection-start-line="291" selection-start-column="70" selection-end-line="291" selection-end-column="70" />
         </state>
       </provider>
     </entry>
@@ -1228,13 +1140,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/service/GeneralOEEDataService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="411">
-          <caret line="1053" column="31" selection-start-line="1053" selection-start-column="31" selection-end-line="1053" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/service/ShipmentItemService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -1256,20 +1161,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/controller/GeneralLineController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-151">
-          <caret line="296" column="71" selection-start-line="296" selection-start-column="71" selection-end-line="296" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/controller/G38OperationTeamController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="28" selection-start-line="28" selection-end-line="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/service/G38StockService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="646">
@@ -1283,13 +1174,6 @@
             <element signature="method#getBallJoint#0;class#G38StockService#0" />
             <element signature="method#getAll#0;class#G38StockService#0" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/service/FileDeleter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
         </state>
       </provider>
     </entry>
@@ -1307,13 +1191,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/service/GeneralTraceabilityDataService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1095">
-          <caret line="87" column="24" selection-start-line="87" selection-start-column="24" selection-end-line="87" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/service/G38OperationTeamService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -1325,41 +1202,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-28">
           <caret line="114" selection-start-line="114" selection-end-line="114" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/controller/G38WorkBenchController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-107">
-          <caret line="271" column="53" selection-start-line="271" selection-start-column="53" selection-end-line="271" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/controller/GeneralOEEDataController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5">
-          <caret line="333" column="64" selection-start-line="333" selection-start-column="64" selection-end-line="333" selection-end-column="64" />
-          <folding>
-            <element signature="method#generalformPost#0;class#GeneralOEEDataController#0" />
-            <element signature="method#generalpagerList#0;class#GeneralOEEDataController#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/controller/StockController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="47" column="42" selection-start-line="47" selection-start-column="42" selection-end-line="47" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/service/StockService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="71" selection-start-line="71" selection-end-line="71" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1420,18 +1262,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/controller/GeneralOEEDataDownTimeController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
+        <state relative-caret-position="358">
           <caret line="94" column="7" selection-start-line="94" selection-start-column="7" selection-end-line="94" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/controller/timing/ProductionTemporaryTiming.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="548">
-          <caret line="53" column="76" selection-start-line="53" selection-start-column="76" selection-end-line="53" selection-end-column="76" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1469,12 +1301,175 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/controller/timing/InputDownTimeTiming.java">
+    <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/controller/G38WorkBenchController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-43">
-          <caret line="43" column="58" lean-forward="true" selection-start-line="43" selection-start-column="58" selection-end-line="43" selection-end-column="58" />
+        <state relative-caret-position="-5015">
+          <caret line="34" column="49" selection-start-line="34" selection-start-column="49" selection-end-line="34" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/controller/G38OperationTeamController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="96" column="34" lean-forward="true" selection-start-line="96" selection-start-column="34" selection-end-line="96" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/service/GeneralTraceabilityDataService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="78" column="7" lean-forward="true" selection-start-line="78" selection-start-column="7" selection-end-line="78" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/controller/StockController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="521">
+          <caret line="61" selection-start-line="61" selection-end-line="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/mapper/mybatis/G38V21PQDataMapper.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/mapper/mybatis/G38V21ShiftMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="482">
+          <caret line="290" column="50" selection-start-line="290" selection-start-column="37" selection-end-line="290" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/mapper/mybatis/EMP2ASSYOEEDataMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="14" lean-forward="true" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/mapper/mybatis/EMP2ASSYOEEDataTemporaryMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2969">
+          <caret line="16" column="64" selection-start-line="16" selection-start-column="64" selection-end-line="16" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/mapper/mybatis/G38V21OEEDataMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/mapper/mybatis/G38ASSYOEEDataMapper.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/casting/service/CreateTableService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="884">
+          <caret line="111" column="82" selection-start-line="111" selection-start-column="82" selection-end-line="111" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/casting/controller/CreateTableController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-165">
+          <caret line="6" column="43" selection-start-line="6" selection-start-column="43" selection-end-line="6" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BS/src/main/resources/generatorConfig.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="40" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/service/FileDeleter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/service/FileGeter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/controller/UploadShiftPlanController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="855">
+          <caret line="77" selection-start-line="77" selection-end-line="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/controller/timing/ProductionTemporaryTiming.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="53" column="76" selection-start-line="53" selection-start-column="76" selection-end-line="53" selection-end-column="76" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/controller/timing/InputDownTimeTiming.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="120" selection-start-line="120" selection-end-line="120" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/service/StockService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="445">
+          <caret line="75" selection-start-line="75" selection-end-line="75" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/service/ConversionToolService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="86" lean-forward="true" selection-start-line="86" selection-end-line="86" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/service/GeneralOEEDataService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1019">
+          <caret line="574" column="39" selection-start-line="574" selection-start-column="39" selection-end-line="574" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/controller/GeneralLineController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2896">
+          <caret line="139" column="85" selection-start-line="139" selection-start-column="85" selection-end-line="139" selection-end-column="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/service/ScrapService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-369">
+          <caret line="339" selection-start-line="339" selection-end-line="339" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/controller/GeneralOEEDataController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2664">
+          <caret line="414" lean-forward="true" selection-start-line="414" selection-end-line="414" />
+          <folding>
+            <element signature="method#generalformPost#0;class#GeneralOEEDataController#0" />
+            <element signature="method#generalpagerList#0;class#GeneralOEEDataController#0" />
           </folding>
         </state>
       </provider>

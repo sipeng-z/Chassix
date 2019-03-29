@@ -370,7 +370,7 @@ public class GeneralOEEDataService extends AbstractService<GeneralOEEDataInput,G
      * getDownTimeWeek
      * @return
      */
-    public List<MachValue> getDownTimeWeek(Integer year, Integer weekno,String line,String device) throws Exception{
+    public List<MachValue> getDownTimeWeek(Integer year, Integer weekNo,String line,String device) throws Exception{
         this.setMapperName(AppConsts.GeneralOEEDataName.replace("General",line+device));
 
         Integer StartRecordNO =1;
@@ -383,7 +383,7 @@ public class GeneralOEEDataService extends AbstractService<GeneralOEEDataInput,G
         //weekno , year get monday date
         Calendar cal = Calendar.getInstance();
         cal.set(Calendar.YEAR,year);
-        cal.set(Calendar.WEEK_OF_YEAR, weekno);
+        cal.set(Calendar.WEEK_OF_YEAR, weekNo);
         cal.set(Calendar.DAY_OF_WEEK, 2);
         Date date = cal.getTime();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");

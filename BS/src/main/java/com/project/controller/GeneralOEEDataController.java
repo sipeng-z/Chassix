@@ -164,7 +164,7 @@ public class GeneralOEEDataController extends GenericController<GeneralOEEDataIn
      * @return
      * @throws Exception
      */
-    @RequestMapping(value = "getoee",method = RequestMethod.GET)
+    @RequestMapping(value = "getOee",method = RequestMethod.GET)
     public ResponseResult getOeeAll(String DateString,Integer StartRecordNO,Integer EndRecordNO,String line,String device) throws Exception {
 
         ResponseResult result = new ResponseResult();
@@ -199,19 +199,19 @@ public class GeneralOEEDataController extends GenericController<GeneralOEEDataIn
     }
 
     /**
-     * get oee week
-     * @param weekno
+     * get oee week FOR device
+     * @param weekNo
      * @return
      * @throws Exception
      */
-    @RequestMapping(value = "getweekoee",method = RequestMethod.GET)
-    public ResponseResult getWeekOee(Integer year,Integer weekno,String line,String device) throws Exception {
+    @RequestMapping(value = "getWeekOee",method = RequestMethod.GET)
+    public ResponseResult getWeekOee(Integer year,Integer weekNo,String line,String device) throws Exception {
 
         ResponseResult result = new ResponseResult();
         //weekno , year get monday date
         Calendar cal = Calendar.getInstance();
         cal.set(Calendar.YEAR,year);
-        cal.set(Calendar.WEEK_OF_YEAR, weekno);
+        cal.set(Calendar.WEEK_OF_YEAR, weekNo);
         cal.set(Calendar.DAY_OF_WEEK, 2);
         Date date = cal.getTime();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
@@ -304,7 +304,6 @@ public class GeneralOEEDataController extends GenericController<GeneralOEEDataIn
 
         ResponseResult result = new ResponseResult();
         PageData pageData = new PageData();
-
 
 
         Calendar cal = Calendar.getInstance();
@@ -406,9 +405,7 @@ public class GeneralOEEDataController extends GenericController<GeneralOEEDataIn
 
 
 
-
-
-    @RequestMapping(value = "getdowntime",method = RequestMethod.GET)
+    @RequestMapping(value = "getDownTime",method = RequestMethod.GET)
     public ResponseResult getDownTime(String DateString, Integer StartRecord , Integer EndRecord,String line,String device)  {
 
 
@@ -428,14 +425,14 @@ public class GeneralOEEDataController extends GenericController<GeneralOEEDataIn
 
 
 
-    @RequestMapping(value = "getdowntimeweek",method = RequestMethod.GET)
-    public ResponseResult getDownTimeWeek(Integer year,Integer weekno,String line,String device)  {
+    @RequestMapping(value = "getDownTimeWeek",method = RequestMethod.GET)
+    public ResponseResult getDownTimeWeek(Integer year,Integer weekNo,String line,String device)  {
 
 
         try{
 
 
-            return ResponseResult.success(generalOEEDataService.getDownTimeWeek(year,weekno,line,device));
+            return ResponseResult.success(generalOEEDataService.getDownTimeWeek(year,weekNo,line,device));
 
         }catch (Exception e){
             logger.error("-------------getDownTime Error--------"+e);
@@ -449,31 +446,30 @@ public class GeneralOEEDataController extends GenericController<GeneralOEEDataIn
     /**
      * getqt
      * @param year
-     * @param weekno
+     * @param weekNo
      * @return
      * @throws Exception
      */
     @RequestMapping(value = "getqt",method = RequestMethod.GET)
-    public ResponseResult getQuantityTarget(Integer year,Integer weekno,String line,String device) throws Exception {
+    public ResponseResult getQuantityTarget(Integer year,Integer weekNo,String line,String device) throws Exception {
 
-        ResponseResult result = new ResponseResult();
-        //weekno , year get monday date
+        ResponseResult result = new ResponseResult();            //weekno , year get monday date
         Calendar cal = Calendar.getInstance();
         cal.set(Calendar.YEAR,year);
-        cal.set(Calendar.WEEK_OF_YEAR, weekno);
+        cal.set(Calendar.WEEK_OF_YEAR, weekNo);
         cal.set(Calendar.DAY_OF_WEEK, 2);
         Date date = cal.getTime();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
         String datestring = sdf.format(date);
 
         List<MachQT> outList = new ArrayList<>();
-
+                                                                 // get 7 dates  and use that to loop ,get data
         for(int i=0;i<7;i++){
             Calendar calstart = Calendar.getInstance();
             calstart.setTime(date);
             calstart.add(Calendar.DAY_OF_WEEK, (i));
             String dateStringAdd =sdf.format(calstart.getTime());
-
+                                                                //put shift be full and 96 records per day to get data
             int[] shift1= new int[]{1,32};
             int[] shift2= new int[]{33,64};
             int[] shift3= new int[]{65,96};
@@ -492,7 +488,9 @@ public class GeneralOEEDataController extends GenericController<GeneralOEEDataIn
                 }
 
                 if(device.contains("ASSY")){
+                    //ASSY calculation is different with cnc machines , need to rebuild the logic inside
                     oeeobj = generalOEEDataService.getTargetQuantityAssy(dateStringAdd,record[0],record[1],line,device);
+
 
                 }else {
                     oeeobj = generalOEEDataService.getTargetQuantity(dateStringAdd,record[0],record[1],line,device);
@@ -513,7 +511,7 @@ public class GeneralOEEDataController extends GenericController<GeneralOEEDataIn
 
 
 
-    @RequestMapping(value = "getqt4shift",method = RequestMethod.GET)
+    @RequestMapping(value = "getqtByShift",method = RequestMethod.GET)
     public ResponseResult getQuantityTarget4Shift(String DateString ,Integer shift,String line ,String device) throws Exception {
 
         ResponseResult result = new ResponseResult();

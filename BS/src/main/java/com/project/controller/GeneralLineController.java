@@ -49,11 +49,11 @@ public class GeneralLineController  {
      * @throws Exception
      */
 
-    @RequestMapping(value = "generallineoee",method = RequestMethod.GET)
+    @RequestMapping(value = "lineOee",method = RequestMethod.GET)
     public ResponseResult getLineOee(String line, Integer year,Integer weekNo) throws Exception{
 
         ResponseResult result = new ResponseResult();
-        //weekno , year get monday date
+        //week no , year get monday date
         Calendar cal = Calendar.getInstance();
         cal.set(Calendar.YEAR,year);
         cal.set(Calendar.WEEK_OF_YEAR, weekNo);
@@ -137,7 +137,7 @@ public class GeneralLineController  {
                 Double NumeratorDouble = 0.0;
                 Double DenominatorDouble = 0.0;
 
-                Integer[] Budget ={25,57};  // cnc assy
+                Integer[] Budget ={25,57};  // cnc assy default value of their cycle time
 
                 Iterator<Map.Entry<String, Double>> runningEntries = runningDoubleMap.entrySet().iterator();
                 while (runningEntries.hasNext()) {
@@ -200,7 +200,7 @@ public class GeneralLineController  {
      * @return
      * @throws Exception
      */
-    @RequestMapping(value = "lineoee4shift",method = RequestMethod.GET)
+    @RequestMapping(value = "lineOeeByShift",method = RequestMethod.GET)
 
     public ResponseResult getLineOee4shift(Integer shift,String line) throws Exception{
 

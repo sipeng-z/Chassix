@@ -6,13 +6,12 @@ import com.domain.model.PageData;
 import com.model.AppConsts;
 import com.project.domain.entity.GeneralOEEData;
 import com.project.domain.entity.GeneralOEEDataTemporary;
-import com.project.domain.entity.GeneralProductionTemporary;
-import com.project.domain.model.output.G38ASSYOEEDataOutput;
+
 import com.project.domain.model.output.GeneralOEEDataOutput;
 import com.project.domain.model.output.GeneralOEEDataTemporaryOutput;
-import com.project.domain.model.output.GeneralProductionTemporaryOutput;
+
 import com.project.service.GeneralOEEDataTemporaryService;
-import com.project.service.GeneralProductionTemporaryService;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

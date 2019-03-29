@@ -74,10 +74,6 @@ public class ScrapService  extends AbstractService<ScrapValue,ScrapValue>{
 
         Connection connection = null;
         try {
-
-            URL="jdbc:sqlserver://10.41.32.2:1433;DatabaseName=ERP_MES;";
-            USER_NAME="SZ_user";
-            PASSWORD="SZuser";
             //get driver
             Class.forName(DRIVER_NAME);
             //get connection
@@ -318,10 +314,14 @@ public class ScrapService  extends AbstractService<ScrapValue,ScrapValue>{
             boolean loopSignal = true;
 
 
+
+            if(list.size()>=5){
+                                                                        //put top5 and others reason and quantity of scarp
+                                                                        // need scrap reason and scrap list size bigger than 5
             Integer index = 5;
 
             while (loopSignal){
-                Integer fifth = list.get(index - 1).getValue();
+                Integer fifth = list.get(index - 1).getValue();         //get fifth scrap value
                 Integer others = 0;
                 for(int i = index; i<list.size();i++){
                     others += list.get(i).getValue();
@@ -329,7 +329,7 @@ public class ScrapService  extends AbstractService<ScrapValue,ScrapValue>{
                 if(others > fifth){
                     index++;
                 }else {
-                    loopSignal = false; //break and use index to push outList
+                    loopSignal = false;                             //break and use index to push outList
                 }
 
             }
@@ -343,6 +343,7 @@ public class ScrapService  extends AbstractService<ScrapValue,ScrapValue>{
                 outList.add(scrapValue);
 
             }
+
             Integer indexOthers = 0;
             ScrapValue othersValue = new ScrapValue();
             for(int k = index;k<list.size();k++){
@@ -353,9 +354,18 @@ public class ScrapService  extends AbstractService<ScrapValue,ScrapValue>{
             othersValue.setValue(indexOthers);
             outList.add(othersValue);
 
+            }else {
+                // when scrap list is less than 5,just put all to the list;
+                for(int j = 0; j<list.size();j++){
 
+                    ScrapValue scrapValue = new ScrapValue();
+                    scrapValue.setName(list.get(j).getName());
+                    scrapValue.setValue(list.get(j).getValue());
+                    outList.add(scrapValue);
 
+                }
 
+            }
 
             System.out.println("count............"+count);
             System.out.println(list);
