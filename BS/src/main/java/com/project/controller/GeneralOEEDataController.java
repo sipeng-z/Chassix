@@ -1,11 +1,11 @@
 package com.project.controller;
 
-import com.casting.domain.entity.*;
 import com.core.controller.GenericController;
 import com.core.service.AbstractService;
 import com.domain.model.PageData;
 import com.github.pagehelper.PageInfo;
 import com.project.domain.entity.GeneralProductionTemporary;
+import com.project.domain.entity.MachOEE;
 import com.project.domain.entity.MachQT;
 import com.project.domain.model.input.GeneralOEEDataInput;
 import com.project.domain.model.output.GeneralOEEDataOutput;
@@ -66,11 +66,12 @@ public class GeneralOEEDataController extends GenericController<GeneralOEEDataIn
 
     /**
      * ADD/UPDATE
+     * this api is for insert /update (by pkID) single data rows to database
      * @param id
      * @param input
      * @return
      */
-    @RequestMapping(value = "generalformpost",method = RequestMethod.POST)
+    @RequestMapping(value = "generalFormpost",method = RequestMethod.POST)
     public ResponseResult generalformPost(String id, @RequestBody GeneralOEEDataInput input,String line,String device) {
         ResponseResult result = new ResponseResult();
         try{
@@ -102,8 +103,8 @@ public class GeneralOEEDataController extends GenericController<GeneralOEEDataIn
                 return result;
             }
         }catch (Exception e){
-            logger.error("---------------------add异常-------"+e);
-            result.setMessage("处理过程中发生异常");
+            logger.error("---------------------add/update error-------"+e);
+            result.setMessage("add/update error during process");
             result.setMessage_detail(e.toString());
         }
         return result.error(CommonConstants.EX.EXCEPTION);
@@ -111,44 +112,43 @@ public class GeneralOEEDataController extends GenericController<GeneralOEEDataIn
 
 
     /**
-     * PAGELIST
+     * Get LIST by page by page
      * @param request
      * @return
      */
-    @RequestMapping(value = "generalpagerlist",method = RequestMethod.GET)
-    public ResponseResult generalpagerList(HttpServletRequest request,String line,String device) {
+    @RequestMapping(value = "generalPageList",method = RequestMethod.GET)
+    public ResponseResult generalPagerList(HttpServletRequest request,String line,String device) {
         try{
             return ResponseResult.success(new PageInfo<>(generalOEEDataService.generallist(true,new PageData(request),line,device)));
         }catch (Exception e){
-            logger.error("-----------------------pagelist异常------"+e);
+            logger.error("-----------------------get list error ------"+e);
         }
         return ResponseResult.error(CommonConstants.EX.EXCEPTION);
     }
 
 
 
-
     /**
-     * DEL
+     * delete single row by PkId
      * @param idList
      * @return
      */
-    @RequestMapping(value = "generaldelete",method = RequestMethod.POST)
-    public ResponseResult generaldelete(String idList,String line,String device) {
+    @RequestMapping(value = "generalDelete",method = RequestMethod.POST)
+    public ResponseResult generalDelete(String idList,String line,String device) {
         try{
             return super.delete(idList);
         }catch (Exception e){
-            logger.error("-----------------------delete异常-------"+e);
+            logger.error("-----------------------delete -------"+e);
         }
         return ResponseResult.error(CommonConstants.EX.EXCEPTION);
     }
 
 
     /**
-     * GET
+     * get single row PkId
      */
-    @RequestMapping(value = "generalget",method = RequestMethod.GET)
-    public ResponseResult generalget(Integer ItemNO,String line,String device) {
+    @RequestMapping(value = "generalGet",method = RequestMethod.GET)
+    public ResponseResult generalGet(Integer ItemNO,String line,String device) {
         try{
 
             return ResponseResult.success(generalOEEDataService.getByItemNO(ItemNO,line,device));
@@ -160,7 +160,12 @@ public class GeneralOEEDataController extends GenericController<GeneralOEEDataIn
 
 
     /**
-     * get Oee result
+     * get Oee result ,param = date and record scope
+     *
+     * include A P Q
+     * A = availability ,  cnc and assy calculation  same
+     * P = performance ,  cnc and assy calculation different
+     * Q = quality,   cnc and assy calculation  different
      * @return
      * @throws Exception
      */
@@ -169,9 +174,9 @@ public class GeneralOEEDataController extends GenericController<GeneralOEEDataIn
 
         ResponseResult result = new ResponseResult();
 
-         Double a =  generalOEEDataService.getOeeA(DateString,StartRecordNO,EndRecordNO,line,device);
+        Double a =  generalOEEDataService.getOeeA(DateString,StartRecordNO,EndRecordNO,line,device);
 
-        Double p = 0.0;
+        Double p = 0.0;   // calculation difference between cnc and assy machine;
 
         if(device.contains("ASSY")){
             p  =generalOEEDataService.getOeePAssy(DateString,StartRecordNO,EndRecordNO,line,device);
@@ -179,7 +184,7 @@ public class GeneralOEEDataController extends GenericController<GeneralOEEDataIn
             p  =generalOEEDataService.getOeeP(DateString,StartRecordNO,EndRecordNO,line,device);
         }
 
-        Double q = generalOEEDataService.getOeeQ(DateString,StartRecordNO,EndRecordNO,line,device);
+        Double q = generalOEEDataService.getOeeQ(DateString,StartRecordNO,EndRecordNO,line,device);   //quality according  to
 
         Double oee = a*p*q*100;
 
@@ -187,19 +192,21 @@ public class GeneralOEEDataController extends GenericController<GeneralOEEDataIn
 
         List list = new ArrayList();
 
-
         list.add(a);
         list.add(p);
         list.add(q);
         list.add(oeeString);
-
-
         return ResponseResult.success(list);
-
     }
 
+
     /**
-     * get oee week FOR device
+     *    * get Oee result ,param = date and record scope   for week
+     *      *
+     *      * include A P Q
+     *      * A = availability ,  cnc and assy calculation  same
+     *      * P = performance ,  cnc and assy calculation different
+     *      * Q = quality,   cnc and assy calculation  different
      * @param weekNo
      * @return
      * @throws Exception
@@ -215,11 +222,13 @@ public class GeneralOEEDataController extends GenericController<GeneralOEEDataIn
         cal.set(Calendar.DAY_OF_WEEK, 2);
         Date date = cal.getTime();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
-        String datestring = sdf.format(date);
+        String datestring = sdf.format(date);   // get week Monday date for this week;
 
-        List<CastingOEE> outList = new ArrayList<>();
+        List<MachOEE> outList = new ArrayList<>();
 
         for(int i=0;i<7;i++){
+            // loop from Monday to Sunday
+            //*7
             Calendar calstart = Calendar.getInstance();
             calstart.setTime(date);
             calstart.add(Calendar.DAY_OF_WEEK, (i));
@@ -229,8 +238,10 @@ public class GeneralOEEDataController extends GenericController<GeneralOEEDataIn
             int[] shift2= new int[]{33,64};
             int[] shift3= new int[]{65,96};
 
-
             for(int j= 0; j<3;j++){
+
+                //* 3 shift
+                // according to j value to make shift include;
                 int[] record= null;
                 if(j==0){
                     record=shift1;
@@ -241,13 +252,12 @@ public class GeneralOEEDataController extends GenericController<GeneralOEEDataIn
                 if (j==2){
                     record=shift3;
                 }
-                CastingOEE oeeobj = new CastingOEE();
+
+               MachOEE machOEE = new MachOEE();
 
                 Double a  = generalOEEDataService.getOeeA(dateStringAdd,record[0],record[1],line,device);
 
-
-                Double p  = 0.00;
-
+                Double p  = 0.00;       //different calculation in assy and cnc for Performance
                 if(device.contains("ASSY")){
                     p =  generalOEEDataService.getOeePAssy(dateStringAdd,record[0],record[1],line,device);
 
@@ -256,8 +266,8 @@ public class GeneralOEEDataController extends GenericController<GeneralOEEDataIn
 
                 }
 
-                Double q = 0.00;
 
+                Double q = 0.00;        //different calculation in assy and cnc for quality
                 if(device.contains("ASSY")){
                     q = generalOEEDataService.getOeeQAssy(dateStringAdd,record[0],record[1],line,device);
                 }else {
@@ -265,20 +275,19 @@ public class GeneralOEEDataController extends GenericController<GeneralOEEDataIn
                 }
 
 
-                Double oee = a*p*q*100;
+                Double oee = a*p*q*100;   // oee standard calculation
 
                 if (oee>=100.00){
-                    oee=100.00;
+                    oee=100.00;       //higher than 100, run machine out of plan
                 }
 
-                oeeobj.setA(a);
-                oeeobj.setP(p);
-                oeeobj.setQ(q);
-                oeeobj.setOEE(oee);
+                machOEE.setA(a);
+                machOEE.setP(p);
+                machOEE.setQ(q);
+                machOEE.setOEE(oee);
 
-                outList.add(oeeobj);
+                outList.add(machOEE);
             }
-
 
         }
 
@@ -305,15 +314,14 @@ public class GeneralOEEDataController extends GenericController<GeneralOEEDataIn
         ResponseResult result = new ResponseResult();
         PageData pageData = new PageData();
 
-
         Calendar cal = Calendar.getInstance();
         cal.set(Calendar.YEAR,year);
         cal.set(Calendar.WEEK_OF_YEAR,weekNo);
         cal.set(Calendar.DAY_OF_WEEK, 2);//monday 2
         Date date = cal.getTime();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
-        String datestring = sdf.format(date);
-        String DateStringInList = "";          //in list
+        String datestring = sdf.format(date);   //make date and record as parameters inside
+        String DateStringInList = "";          // 7 days in list
 
         List<String> DateStringList =  new ArrayList<>();
         for(int i =1;i<=7;i++){
@@ -322,14 +330,13 @@ public class GeneralOEEDataController extends GenericController<GeneralOEEDataIn
             calstart.add(Calendar.DAY_OF_WEEK, (i-1));
             String dateStringAdd =sdf.format(calstart.getTime());
             DateStringInList+=dateStringAdd;
-            DateStringList.add(dateStringAdd);
+            DateStringList.add(dateStringAdd); // for comparation
             if(i<7){
-                DateStringInList+=",";
+                DateStringInList+=",";    // 7 days in list , be full , prepare for next step;
             }
-
         }
-        pageData.put("DateStringInList",DateStringInList);
 
+        pageData.put("DateStringInList",DateStringInList);
         List<GeneralProductionTemporary> productionList = (List<GeneralProductionTemporary>) generalProductionTemporaryService.generallist(false,pageData,line,device);
 
 
@@ -343,14 +350,12 @@ public class GeneralOEEDataController extends GenericController<GeneralOEEDataIn
 
             for(int j= 0;j<7;j++){
 
-                String a = productionList.get(i).getDateString();
-                String b = DateStringList.get(j);
+                String a = productionList.get(i).getDateString();    // get date from input production plan list
+                String b = DateStringList.get(j);                   //get order of the week
                 if(a.equals(b)){
-
+                                                                    //compare a and b , if equals, give the target being 85%
                 Integer recordNo =   productionList.get(i).getRecordno();
-
-                Integer shiftAdd = 0;
-
+                Integer shiftAdd = 0;                               // for order in 21 , from 0 to 21
                     if(recordNo<=32){
                         shiftAdd= 0;
                     }else if(recordNo<=64){
@@ -359,9 +364,8 @@ public class GeneralOEEDataController extends GenericController<GeneralOEEDataIn
                         shiftAdd= 2;
                     }
 
-                    Integer order = j*3+shiftAdd;
-                    orders.add(order);
-
+                    Integer order = j*3+shiftAdd;                   // for the order input
+                    orders.add(order);                              //make the order be full
                 }
 
             }
@@ -383,38 +387,35 @@ public class GeneralOEEDataController extends GenericController<GeneralOEEDataIn
            Integer index =  ro;
             outList.set(index,0);
         }
-
-
-
+        // default be full target , no plan no target , make it be 0
 
         result.setMessage("get oee target success");
         result.setData(outList);
         result.setSuccess(true);
         result.setCode(200);
-
         return result;
 
     }
 
 
-
-
-
-
-
-
-
-
+    /**
+     * get machine down time  by code (description code)
+     * @param DateString
+     * @param StartRecord
+     * @param EndRecord
+     * @param line
+     * @param device
+     * @return
+     */
     @RequestMapping(value = "getDownTime",method = RequestMethod.GET)
     public ResponseResult getDownTime(String DateString, Integer StartRecord , Integer EndRecord,String line,String device)  {
-
 
         try{
 
             return ResponseResult.success(generalOEEDataService.getDownTime(DateString,StartRecord,EndRecord,line,device));
 
         }catch (Exception e){
-            logger.error("-------------getDownTime Error--------"+e);
+            logger.error("-------------get down time error--------"+e);
         }
 
 
@@ -422,9 +423,14 @@ public class GeneralOEEDataController extends GenericController<GeneralOEEDataIn
     }
 
 
-
-
-
+    /**
+     * get down time for the week by code (description code)
+     * @param year
+     * @param weekNo
+     * @param line
+     * @param device
+     * @return
+     */
     @RequestMapping(value = "getDownTimeWeek",method = RequestMethod.GET)
     public ResponseResult getDownTimeWeek(Integer year,Integer weekNo,String line,String device)  {
 
@@ -435,7 +441,7 @@ public class GeneralOEEDataController extends GenericController<GeneralOEEDataIn
             return ResponseResult.success(generalOEEDataService.getDownTimeWeek(year,weekNo,line,device));
 
         }catch (Exception e){
-            logger.error("-------------getDownTime Error--------"+e);
+            logger.error("-------------get down time for the week error"+e);
         }
 
 
@@ -444,7 +450,7 @@ public class GeneralOEEDataController extends GenericController<GeneralOEEDataIn
 
 
     /**
-     * getqt
+     * get the quantity of the parts produced for week
      * @param year
      * @param weekNo
      * @return
@@ -510,22 +516,26 @@ public class GeneralOEEDataController extends GenericController<GeneralOEEDataIn
     }
 
 
-
+    /**
+     * get the quantity of the parts produced for date and shift
+     * @param DateString
+     * @param shift
+     * @param line
+     * @param device
+     * @return
+     * @throws Exception
+     */
     @RequestMapping(value = "getqtByShift",method = RequestMethod.GET)
     public ResponseResult getQuantityTarget4Shift(String DateString ,Integer shift,String line ,String device) throws Exception {
 
         ResponseResult result = new ResponseResult();
-
-
         List<MachQT> outList = new ArrayList<>();
-
-
 
             int[] shift1= new int[]{1,32};
             int[] shift2= new int[]{33,64};
             int[] shift3= new int[]{65,96};
 
-            MachQT oeeobj = new MachQT();
+            MachQT machQT = new MachQT();
 
                 int[] record= null;
                 if(shift==1){
@@ -538,8 +548,9 @@ public class GeneralOEEDataController extends GenericController<GeneralOEEDataIn
                     record=shift3;
                 }
 
-                oeeobj = generalOEEDataService.getTargetQuantity(DateString,record[0],record[1],line,device);
+                //put parameter for sql , record scope
 
+        machQT = generalOEEDataService.getTargetQuantity(DateString,record[0],record[1],line,device);
 
         Double a  =  generalOEEDataService.getOeeA(DateString,record[0],record[1],line,device);
 
@@ -548,15 +559,13 @@ public class GeneralOEEDataController extends GenericController<GeneralOEEDataIn
         Double q = generalOEEDataService.getOeeQ(DateString,record[0],record[1],line,device);
 
         Double oee = a*p*q*100;
-
         String oeeString = ""+oee+"";
-
-        outList.add(oeeobj);
+        outList.add(machQT);
 
         result.setData(outList);
         result.setCode(200);
         result.setSuccess(true);
-        result.setMessage(oeeString);
+        result.setMessage(oeeString);   //put the oee value into message
 
         return result;
     }

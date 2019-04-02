@@ -771,16 +771,19 @@ public class GeneralOEEDataService extends AbstractService<GeneralOEEDataInput,G
         this.setMapperName(AppConsts.GeneralOEEDataName.replace("General",line+device));
 
         Double result ;
+        // make sql parameters
         String inList = "";
-        for(int i =0;i<=EndRecordNO-StartRecordNO;i++ ){
-            inList+="'";
 
+        for(int i =0;i<=EndRecordNO-StartRecordNO;i++ ){
+            // records
+            inList+="'";
             inList+=(StartRecordNO+i);
             inList+="'";
             if(i<=(EndRecordNO-StartRecordNO)-1){
                 inList+=",";
             }
         }
+
 
         PageData pageData4tra = new PageData();
         pageData4tra.put("DateString",DateString);

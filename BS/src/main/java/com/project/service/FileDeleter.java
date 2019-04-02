@@ -10,7 +10,6 @@ public class FileDeleter extends Exception {
 
 
 
-
     public static void delFolder(String folderPath) {
         try {
             delAllFile(folderPath); //删除完里面所有内容
