@@ -133,7 +133,7 @@ public class ScrapController extends GenericController<ScrapValue,ScrapValue> {
      * @return
      */
     @RequestMapping(value = "getscraplineweek",method = RequestMethod.GET)
-    public ResponseResult getScrapLineWeek(Integer year,Integer weekno,String linename,String type)  {
+    public ResponseResult getScrapLineWeek(Integer year,Integer weekNo,String linename,String type)  {
 
         try{
             PageData pageData = new PageData();
@@ -144,7 +144,7 @@ public class ScrapController extends GenericController<ScrapValue,ScrapValue> {
             //weekno , year get monday date
             Calendar cal = Calendar.getInstance();
             cal.set(Calendar.YEAR,year);
-            cal.set(Calendar.WEEK_OF_YEAR, weekno);
+            cal.set(Calendar.WEEK_OF_YEAR, weekNo);
             cal.set(Calendar.DAY_OF_WEEK, 2);
             Date date = cal.getTime();
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");

@@ -90,7 +90,7 @@ public class MaterialInspectionRecordController extends GenericController <Mater
             }
             if(flag==true){
 
-                String[] to = new String[]{"huang.guohua@chassix.com","yyhuan@chassix.com"};
+                String[] to = new String[]{"huang.guohua@chassix.com","yyhuan@chassix.com"};   // target email adress , from email adress
                 String subject = "Material Inspection Record Audit";
                 String content = "The LAB operator completed the report, please confirm .</Br> Batch Number : ";
                 content+=input.getBatchNumber();  //batch number from report

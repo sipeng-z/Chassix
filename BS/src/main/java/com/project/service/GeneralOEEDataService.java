@@ -488,11 +488,6 @@ public class GeneralOEEDataService extends AbstractService<GeneralOEEDataInput,G
 
 
 
-
-
-
-
-
     /**
      * getOeeA
      * @return

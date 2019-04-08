@@ -302,6 +302,16 @@ public class GeneralOEEDataController extends GenericController<GeneralOEEDataIn
 
 
 
+
+
+
+
+
+
+
+
+
+
     /**
      * get oee week target
      * @param weekNo
@@ -557,6 +567,7 @@ public class GeneralOEEDataController extends GenericController<GeneralOEEDataIn
         Double p  = generalOEEDataService.getOeeP(DateString,record[0],record[1],line,device);
 
         Double q = generalOEEDataService.getOeeQ(DateString,record[0],record[1],line,device);
+                //  calculation
 
         Double oee = a*p*q*100;
         String oeeString = ""+oee+"";
