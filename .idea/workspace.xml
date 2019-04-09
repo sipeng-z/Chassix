@@ -7,27 +7,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1267efe7-551a-4d5f-8eab-b8c29b05eb44" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e3ed922e-26d6-4602-956b-3820007039f6.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e3ed922e-26d6-4602-956b-3820007039f6.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e3ed922e-26d6-4602-956b-3820007039f6/storage_v2/_src_/database/ERP_MES.vwyP0g/schema/INFORMATION_SCHEMA.NBgcMw.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e3ed922e-26d6-4602-956b-3820007039f6/storage_v2/_src_/database/ERP_MES.vwyP0g/schema/INFORMATION_SCHEMA.NBgcMw.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e3ed922e-26d6-4602-956b-3820007039f6/storage_v2/_src_/database/ERP_MES.vwyP0g/schema/db_accessadmin.KqpDJg.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e3ed922e-26d6-4602-956b-3820007039f6/storage_v2/_src_/database/ERP_MES.vwyP0g/schema/db_accessadmin.KqpDJg.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e3ed922e-26d6-4602-956b-3820007039f6/storage_v2/_src_/database/ERP_MES.vwyP0g/schema/db_backupoperator.R9Ifpg.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e3ed922e-26d6-4602-956b-3820007039f6/storage_v2/_src_/database/ERP_MES.vwyP0g/schema/db_backupoperator.R9Ifpg.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e3ed922e-26d6-4602-956b-3820007039f6/storage_v2/_src_/database/ERP_MES.vwyP0g/schema/db_datareader.To823g.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e3ed922e-26d6-4602-956b-3820007039f6/storage_v2/_src_/database/ERP_MES.vwyP0g/schema/db_datareader.To823g.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e3ed922e-26d6-4602-956b-3820007039f6/storage_v2/_src_/database/ERP_MES.vwyP0g/schema/db_datawriter._tp55w.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e3ed922e-26d6-4602-956b-3820007039f6/storage_v2/_src_/database/ERP_MES.vwyP0g/schema/db_datawriter._tp55w.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e3ed922e-26d6-4602-956b-3820007039f6/storage_v2/_src_/database/ERP_MES.vwyP0g/schema/db_ddladmin.hGWOrg.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e3ed922e-26d6-4602-956b-3820007039f6/storage_v2/_src_/database/ERP_MES.vwyP0g/schema/db_ddladmin.hGWOrg.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e3ed922e-26d6-4602-956b-3820007039f6/storage_v2/_src_/database/ERP_MES.vwyP0g/schema/db_denydatareader.2lWItw.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e3ed922e-26d6-4602-956b-3820007039f6/storage_v2/_src_/database/ERP_MES.vwyP0g/schema/db_denydatareader.2lWItw.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e3ed922e-26d6-4602-956b-3820007039f6/storage_v2/_src_/database/ERP_MES.vwyP0g/schema/db_denydatawriter.iqHLwA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e3ed922e-26d6-4602-956b-3820007039f6/storage_v2/_src_/database/ERP_MES.vwyP0g/schema/db_denydatawriter.iqHLwA.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e3ed922e-26d6-4602-956b-3820007039f6/storage_v2/_src_/database/ERP_MES.vwyP0g/schema/db_owner.souIfA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e3ed922e-26d6-4602-956b-3820007039f6/storage_v2/_src_/database/ERP_MES.vwyP0g/schema/db_owner.souIfA.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e3ed922e-26d6-4602-956b-3820007039f6/storage_v2/_src_/database/ERP_MES.vwyP0g/schema/db_securityadmin.Dj5jKg.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e3ed922e-26d6-4602-956b-3820007039f6/storage_v2/_src_/database/ERP_MES.vwyP0g/schema/db_securityadmin.Dj5jKg.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e3ed922e-26d6-4602-956b-3820007039f6/storage_v2/_src_/database/ERP_MES.vwyP0g/schema/dbo.sYMBAA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e3ed922e-26d6-4602-956b-3820007039f6/storage_v2/_src_/database/ERP_MES.vwyP0g/schema/dbo.sYMBAA.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e3ed922e-26d6-4602-956b-3820007039f6/storage_v2/_src_/database/ERP_MES.vwyP0g/schema/guest.2C3iBQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e3ed922e-26d6-4602-956b-3820007039f6/storage_v2/_src_/database/ERP_MES.vwyP0g/schema/guest.2C3iBQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e3ed922e-26d6-4602-956b-3820007039f6/storage_v2/_src_/database/ERP_MES.vwyP0g/schema/sys.zb4BAA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e3ed922e-26d6-4602-956b-3820007039f6/storage_v2/_src_/database/ERP_MES.vwyP0g/schema/sys.zb4BAA.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e3ed922e-26d6-4602-956b-3820007039f6/storage_v2/_src_/database/SZ_001.WWjCkg/schema/dbo.sYMBAA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e3ed922e-26d6-4602-956b-3820007039f6/storage_v2/_src_/database/SZ_001.WWjCkg/schema/dbo.sYMBAA.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BS/src/main/java/com/casting/controller/MaterialInspectionRecordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BS/src/main/java/com/casting/controller/MaterialInspectionRecordController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BS/src/main/java/com/project/controller/GeneralLineController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BS/src/main/java/com/project/controller/GeneralLineController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BS/src/main/java/com/project/controller/GeneralOEEDataController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BS/src/main/java/com/project/controller/GeneralOEEDataController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BS/src/main/java/com/project/controller/ScrapController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BS/src/main/java/com/project/controller/ScrapController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BS/src/main/java/com/project/service/GeneralOEEDataService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BS/src/main/java/com/project/service/GeneralOEEDataService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BS/target/BS-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/BS/target/BS-1.0-SNAPSHOT.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BS/target/BS-1.0-SNAPSHOT/._.DS_Store" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/BS/target/BS-1.0-SNAPSHOT/META-INF/MANIFEST.MF" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/BS/target/BS-1.0-SNAPSHOT/WEB-INF/classes/com/project/controller/GeneralLineController.class" beforeDir="false" afterPath="$PROJECT_DIR$/BS/target/BS-1.0-SNAPSHOT/WEB-INF/classes/com/project/controller/GeneralLineController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BS/target/BS-1.0-SNAPSHOT/WEB-INF/classes/com/project/controller/GeneralOEEDataController.class" beforeDir="false" afterPath="$PROJECT_DIR$/BS/target/BS-1.0-SNAPSHOT/WEB-INF/classes/com/project/controller/GeneralOEEDataController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BS/target/BS-1.0-SNAPSHOT/WEB-INF/classes/com/project/controller/ScrapController.class" beforeDir="false" afterPath="$PROJECT_DIR$/BS/target/BS-1.0-SNAPSHOT/WEB-INF/classes/com/project/controller/ScrapController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BS/target/BS-1.0-SNAPSHOT/WEB-INF/classes/com/project/domain/entity/MachOEE.class" beforeDir="false" afterPath="$PROJECT_DIR$/BS/target/BS-1.0-SNAPSHOT/WEB-INF/classes/com/project/domain/entity/MachOEE.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BS/target/BS-1.0-SNAPSHOT/WEB-INF/classes/com/project/service/FileDeleter.class" beforeDir="false" afterPath="$PROJECT_DIR$/BS/target/BS-1.0-SNAPSHOT/WEB-INF/classes/com/project/service/FileDeleter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BS/target/BS-1.0-SNAPSHOT/WEB-INF/classes/com/project/service/GeneralOEEDataService.class" beforeDir="false" afterPath="$PROJECT_DIR$/BS/target/BS-1.0-SNAPSHOT/WEB-INF/classes/com/project/service/GeneralOEEDataService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BS/target/BS-1.0-SNAPSHOT/WEB-INF/lib/core-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/BS/target/BS-1.0-SNAPSHOT/WEB-INF/lib/core-1.0-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BS/target/classes/com/project/controller/GeneralLineController.class" beforeDir="false" afterPath="$PROJECT_DIR$/BS/target/classes/com/project/controller/GeneralLineController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BS/target/classes/com/project/controller/GeneralOEEDataController.class" beforeDir="false" afterPath="$PROJECT_DIR$/BS/target/classes/com/project/controller/GeneralOEEDataController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BS/target/classes/com/project/controller/ScrapController.class" beforeDir="false" afterPath="$PROJECT_DIR$/BS/target/classes/com/project/controller/ScrapController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BS/target/classes/com/project/domain/entity/MachOEE.class" beforeDir="false" afterPath="$PROJECT_DIR$/BS/target/classes/com/project/domain/entity/MachOEE.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BS/target/classes/com/project/service/FileDeleter.class" beforeDir="false" afterPath="$PROJECT_DIR$/BS/target/classes/com/project/service/FileDeleter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BS/target/classes/com/project/service/GeneralOEEDataService.class" beforeDir="false" afterPath="$PROJECT_DIR$/BS/target/classes/com/project/service/GeneralOEEDataService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BS/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/BS/target/maven-archiver/pom.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/target/core-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/core/target/core-1.0-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/core/target/maven-archiver/pom.properties" afterDir="false" />
@@ -80,6 +83,28 @@
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="suzhou_new_plant" type="feb32156:DbDataSourceImpl" />
       </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="suzhou_new_plant" type="feb32156:DbDataSourceImpl" />
+        <item name="SZ_001: database" type="ccb7ac2a:MsImplModel$Database" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="suzhou_new_plant" type="feb32156:DbDataSourceImpl" />
+        <item name="SZ_001: database" type="ccb7ac2a:MsImplModel$Database" />
+        <item name="dbo: schema" type="2865ee2e:MsImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="suzhou_new_plant" type="feb32156:DbDataSourceImpl" />
+        <item name="Visitor_System: database" type="ccb7ac2a:MsImplModel$Database" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="suzhou_new_plant" type="feb32156:DbDataSourceImpl" />
+        <item name="Visitor_System: database" type="ccb7ac2a:MsImplModel$Database" />
+        <item name="dbo: schema" type="2865ee2e:MsImplModel$Schema" />
+      </path>
     </expand>
     <select />
   </component>
@@ -89,34 +114,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/domain/entity/MachOEE.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-14">
-              <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/controller/GeneralOEEDataController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-387">
-              <caret line="228" column="28" selection-start-line="228" selection-start-column="28" selection-end-line="228" selection-end-column="28" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#getWeekOeeTarget#0;class#GeneralOEEDataController#0" />
-                <element signature="method#getDownTime#0;class#GeneralOEEDataController#0" />
-                <element signature="method#getDownTimeWeek#0;class#GeneralOEEDataController#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/controller/GeneralLineController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="194" selection-start-line="194" selection-end-line="194" />
+            <state relative-caret-position="-251">
+              <caret line="325" selection-start-line="325" selection-end-line="325" />
               <folding>
                 <element signature="e#8728#8743#0" expanded="true" />
                 <element signature="method#getLineOee4shift#0;class#GeneralLineController#0" />
@@ -126,22 +127,88 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/casting/controller/CPCWorkBenchController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
-              <caret line="54" column="77" selection-start-line="54" selection-start-column="77" selection-end-line="54" selection-end-column="77" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+        <entry file="das://e3ed922e-26d6-4602-956b-3820007039f6/database/SZ_001/schema/dbo/table/Device_Wise_Session">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/controller/ScrapController.java">
+        <entry file="file://$PROJECT_DIR$/BS/src/main/resources/application.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1935">
-              <caret line="151" selection-start-line="151" selection-end-line="151" />
+            <state relative-caret-position="325">
+              <caret line="106" column="55" lean-forward="true" selection-start-line="106" selection-start-column="55" selection-end-line="106" selection-end-column="55" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/service/LineDeviceService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="149">
+              <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="das://e3ed922e-26d6-4602-956b-3820007039f6/database/SZ_001/schema/dbo/table/system_users">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="das://e3ed922e-26d6-4602-956b-3820007039f6/database/Visitor_System/schema/dbo/table/system_users">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+              <column-attributes>
+                <column name="%%physloc%%" enabled="false" />
+              </column-attributes>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="das://e3ed922e-26d6-4602-956b-3820007039f6/database/Visitor_System/schema/dbo/table/system_login_logs">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/e3ed922e-26d6-4602-956b-3820007039f6/console_1.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="31">
+              <caret line="15" column="7" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="das://e3ed922e-26d6-4602-956b-3820007039f6/database/SZ_001/schema/dbo/table/system_login_logs">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="das://e3ed922e-26d6-4602-956b-3820007039f6/database/SZ_001/schema/dbo/table/system_menu_tem">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+              <column-attributes>
+                <column name="%%physloc%%" enabled="false" />
+              </column-attributes>
             </state>
           </provider>
         </entry>
@@ -199,9 +266,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/BS/src/main/java/com/core/dao/Dao.java" />
-        <option value="$PROJECT_DIR$/BS/src/main/java/com/core/dao/imp/DaoImp.java" />
-        <option value="$PROJECT_DIR$/BS/src/main/java/com/domain/model/PageData.java" />
         <option value="$PROJECT_DIR$/core/src/main/java/com/authorize/annotation/Authorize.java" />
         <option value="$PROJECT_DIR$/core/src/main/java/com/authorize/annotation/Permission.java" />
         <option value="$PROJECT_DIR$/core/src/main/java/com/utils/HttpRequestUtil.java" />
@@ -249,6 +313,9 @@
         <option value="$PROJECT_DIR$/BS/src/main/java/com/project/controller/ScrapController.java" />
         <option value="$PROJECT_DIR$/BS/src/main/java/com/project/service/GeneralOEEDataService.java" />
         <option value="$PROJECT_DIR$/BS/src/main/java/com/project/controller/GeneralOEEDataController.java" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/e3ed922e-26d6-4602-956b-3820007039f6/console.sql" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/e3ed922e-26d6-4602-956b-3820007039f6/console_1.sql" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/e3ed922e-26d6-4602-956b-3820007039f6/console_2.sql" />
         <option value="$PROJECT_DIR$/BS/src/main/java/com/project/controller/GeneralLineController.java" />
       </list>
     </option>
@@ -287,11 +354,11 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1021" />
-    <option name="y" value="-1101" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
+    <option name="width" value="1938" />
+    <option name="height" value="1048" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -425,9 +492,9 @@
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/yangyuhuan/Desktop/Data Acquisition/BS/src/main/java/com/project/controller/G05LazerMarking/G05WorkBenchController.java" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554712887274" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554796186127" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="SQL Server (Microsoft)" />
-    <property name="database.console.LAST_STATE" value="true" />
+    <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Data Acquisition-ui" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -731,7 +798,7 @@
       <workItem from="1552883660613" duration="67231000" />
       <workItem from="1554085982792" duration="18388000" />
       <workItem from="1554682978203" duration="2861000" />
-      <workItem from="1554690831426" duration="17507000" />
+      <workItem from="1554690831426" duration="29774000" />
     </task>
     <servers />
   </component>
@@ -768,7 +835,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1675405000" />
+    <option name="totallyTimeSpent" value="1687672000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -780,21 +847,20 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1021" y="-1101" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.8502496" visible="true" weight="0.18763326" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.8951965" visible="true" weight="0.2600536" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="UI Designer" order="3" />
       <window_info id="Image Layers" order="4" />
-      <window_info id="Web" order="5" sideWeight="0.14975041" side_tool="true" visible="true" weight="0.18763326" />
+      <window_info id="Web" order="5" sideWeight="0.104803495" side_tool="true" visible="true" weight="0.2600536" />
       <window_info id="Favorites" order="6" sideWeight="0.22752294" side_tool="true" weight="0.31825525" />
       <window_info id="Designer" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.28301886" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3438178" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.34815618" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3243626" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.3512748" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3264642" />
@@ -804,7 +870,7 @@
       <window_info anchor="bottom" id="Spring" order="10" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.13542795" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.34669557" />
-      <window_info anchor="bottom" id="Database Console" order="13" weight="0.28958786" />
+      <window_info anchor="bottom" id="Database Console" order="13" weight="0.15618221" />
       <window_info anchor="bottom" id="Application Servers" order="14" weight="0.3287483" />
       <window_info anchor="bottom" id="Docker" order="15" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="16" weight="0.32936078" />
@@ -817,8 +883,8 @@
       <window_info anchor="right" id="Bean Validation" order="6" weight="0.32942432" />
       <window_info anchor="right" id="Theme Preview" order="7" />
       <window_info anchor="right" id="Maven Projects" order="8" visible="true" weight="0.18317358" />
-      <window_info anchor="right" id="Database" order="9" weight="0.29423591" />
-      <window_info anchor="right" id="Maven" order="10" visible="true" weight="0.14232409" />
+      <window_info anchor="right" id="Database" order="9" visible="true" weight="0.08176944" />
+      <window_info anchor="right" id="Maven" order="10" weight="0.2627346" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1046,112 +1112,10 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/domain/entity/GeneralOEEDataTemporary.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-544">
-          <caret line="19" column="30" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/service/ShipmentItemService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/service/ShipmentService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-282">
-          <caret line="39" column="30" selection-start-line="39" selection-start-column="30" selection-end-line="39" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/service/SingleSocket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="23" column="32" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/service/G38StockService.java" />
-    <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/controller/G05LazerMarking/G05MarkedContentController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="42" selection-start-line="17" selection-start-column="42" selection-end-line="17" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/controller/G05LazerMarking/G05MarkedContentService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="25" selection-start-line="25" selection-end-line="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/service/G38OperationTeamService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/casting/service/CastingCPCGeneralPvFurnaceChamberCurveService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-28">
-          <caret line="114" selection-start-line="114" selection-end-line="114" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/casting/service/CPCWorkBenchService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/casting/controller/CastingCPCGeneralOEEDataController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="38" column="67" selection-start-line="38" selection-start-column="67" selection-end-line="38" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/casting/controller/CastingCPCGeneralPvFurnaceChamberCurveController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="51" column="7" lean-forward="true" selection-start-line="51" selection-start-column="7" selection-end-line="51" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/controller/LineDeviceController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="452">
-          <caret line="90" column="78" selection-start-line="90" selection-start-column="78" selection-end-line="90" selection-end-column="78" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/service/LineDeviceService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/casting/controller/CastingCPCGeneralShiftController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="37" column="56" selection-start-line="37" selection-start-column="56" selection-end-line="37" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BS/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1377">
-          <caret line="81" lean-forward="true" selection-start-line="81" selection-end-line="81" />
         </state>
       </provider>
     </entry>
@@ -1243,13 +1207,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/service/ConversionToolService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="86" lean-forward="true" selection-start-line="86" selection-end-line="86" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/controller/UploadShiftPlanController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="855">
@@ -1284,16 +1241,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://14f1ccf2-030b-49c1-b9f4-28ed42de1e32/database/SZ_001/schema/dbo/table/Device_Wise_Session">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-          <column-attributes>
-            <column name="%%physloc%%" enabled="false" />
-          </column-attributes>
         </state>
       </provider>
     </entry>
@@ -1351,7 +1298,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/domain/entity/MachOEE.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-14">
+        <state>
           <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
         </state>
       </provider>
@@ -1401,12 +1348,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/service/ConversionToolService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="11" column="8" lean-forward="true" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/controller/GeneralOEEDataController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-387">
-          <caret line="228" column="28" selection-start-line="228" selection-start-column="28" selection-end-line="228" selection-end-column="28" />
+        <state relative-caret-position="-2645">
+          <caret line="228" column="5" selection-start-line="228" selection-start-column="5" selection-end-line="291" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#7778#9932#1" />
             <element signature="method#getWeekOeeTarget#0;class#GeneralOEEDataController#0" />
             <element signature="method#getDownTime#0;class#GeneralOEEDataController#0" />
             <element signature="method#getDownTimeWeek#0;class#GeneralOEEDataController#0" />
@@ -1414,14 +1369,138 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/e3ed922e-26d6-4602-956b-3820007039f6/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="99" column="2" lean-forward="true" selection-start-line="99" selection-start-column="2" selection-end-line="99" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://e3ed922e-26d6-4602-956b-3820007039f6/database/SZ_001/schema/dbo/table/system_users.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/e3ed922e-26d6-4602-956b-3820007039f6/console_1.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="31">
+          <caret line="15" column="7" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/e3ed922e-26d6-4602-956b-3820007039f6/console_2.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="35" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://e3ed922e-26d6-4602-956b-3820007039f6/database/SZ_001/schema/dbo/table/system_login_logs.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://e3ed922e-26d6-4602-956b-3820007039f6/database/Visitor_System/schema/dbo/table/system_users_1">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+          <column-attributes>
+            <column name="%%physloc%%" enabled="false" />
+          </column-attributes>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://e3ed922e-26d6-4602-956b-3820007039f6/database/SZ_001/schema/dbo/table/system_users">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://e3ed922e-26d6-4602-956b-3820007039f6/database/Visitor_System/schema/dbo/table/system_users">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+          <column-attributes>
+            <column name="%%physloc%%" enabled="false" />
+          </column-attributes>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://e3ed922e-26d6-4602-956b-3820007039f6/database/Visitor_System/schema/dbo/table/system_login_logs">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://e3ed922e-26d6-4602-956b-3820007039f6/database/SZ_001/schema/dbo/table/system_menu">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://e3ed922e-26d6-4602-956b-3820007039f6/database/SZ_001/schema/dbo/table/system_menu_tem">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+          <column-attributes>
+            <column name="%%physloc%%" enabled="false" />
+          </column-attributes>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://e3ed922e-26d6-4602-956b-3820007039f6/database/SZ_001/schema/dbo/table/system_login_logs">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/controller/GeneralLineController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="194" selection-start-line="194" selection-end-line="194" />
+        <state relative-caret-position="-251">
+          <caret line="325" selection-start-line="325" selection-end-line="325" />
           <folding>
             <element signature="e#8728#8743#0" expanded="true" />
             <element signature="method#getLineOee4shift#0;class#GeneralLineController#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://e3ed922e-26d6-4602-956b-3820007039f6/database/SZ_001/schema/dbo/table/Device_Wise_Session">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://14f1ccf2-030b-49c1-b9f4-28ed42de1e32/database/SZ_001/schema/dbo/table/Device_Wise_Session">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+          <column-attributes>
+            <column name="%%physloc%%" enabled="false" />
+          </column-attributes>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BS/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="106" column="55" lean-forward="true" selection-start-line="106" selection-start-column="55" selection-end-line="106" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BS/src/main/java/com/project/service/LineDeviceService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
         </state>
       </provider>
     </entry>

@@ -4,10 +4,7 @@ package com.project.controller;
 import com.domain.model.PageData;
 import com.project.domain.entity.*;
 import com.project.domain.model.output.LineDeviceOutput;
-import com.project.service.GeneralOEEDataService;
-import com.project.service.GeneralProductionTemporaryService;
-import com.project.service.GeneralTraceabilityDataService;
-import com.project.service.LineDeviceService;
+import com.project.service.*;
 import com.response.ResponseResult;
 import com.sun.javafx.image.impl.General;
 import com.utils.CommonConstants;
@@ -38,6 +35,9 @@ public class GeneralLineController  {
 
     @Autowired
     private GeneralTraceabilityDataService generalTraceabilityDataService;
+
+    @Autowired
+    private ConversionToolService conversionToolService;
 
 
     /**
@@ -230,6 +230,10 @@ public class GeneralLineController  {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
         String datestring = sdf.format(date);
 
+        Date today = new Date();
+        String todayDate = conversionToolService.dateToString(today);
+
+
         List<GeneralValue> outList = new ArrayList<>();
 
         for(int i=0;i<7;i++){
@@ -237,6 +241,10 @@ public class GeneralLineController  {
             calstart.setTime(date);
             calstart.add(Calendar.DAY_OF_WEEK, (i));
             String dateStringAdd =sdf.format(calstart.getTime());
+
+            if(Integer.parseInt(dateStringAdd)>Integer.parseInt(todayDate)){
+                break;                                                           // until now date , except future
+            }
 
             int[] shift1= new int[]{1,32};
             int[] shift2= new int[]{33,64};
@@ -312,7 +320,9 @@ public class GeneralLineController  {
 
 
         }
-        averageUtilization  =   averageUtilization/availabilityDays;
+
+        averageUtilization  = new BigDecimal((Double)   averageUtilization/availabilityDays).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+
         result.setData(averageUtilization);
         result.setCode(200);
         result.setSuccess(true);
@@ -335,7 +345,7 @@ public class GeneralLineController  {
      * @return
      * @throws Exception
      */
-    @RequestMapping(value = "lineAll",method = RequestMethod.GET)
+    @RequestMapping(value = "lineAssyDetail",method = RequestMethod.GET)
     public ResponseResult getAll(String line, Integer year,Integer weekNo) throws Exception{
 
         ResponseResult result = new ResponseResult();
@@ -348,43 +358,118 @@ public class GeneralLineController  {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
         String datestring = sdf.format(date);
         List<GeneralValue> outList = new ArrayList<>();
-        List<String> dates = new ArrayList<>();
-
-        for(int i =0;i<7;i++){
-            // loop 7 for date
-            Calendar calstart = Calendar.getInstance();
-            calstart.setTime(date);
-            calstart.add(Calendar.DAY_OF_WEEK, (i));
-            String dateStringAdd =sdf.format(calstart.getTime());
-            dates.add(dateStringAdd);
-        }
-
+        List<MachOEE> oeeList = new ArrayList<>();
 
 
         PageData pageData4line = new PageData();
         pageData4line.put("lineName",line);
         List<LineDeviceOutput> lineDevices = lineDeviceService.list(false,pageData4line);
 
+        String assyName = "";
+        for(LineDevice lineDevice : lineDevices){
+             if (lineDevice.getName().contains("ASSY")){
+                 assyName = lineDevice.getName();
+             }
+        }
+        if (assyName.equals("")){
+            result.setSuccess(false);
+            result.setMessage("NO ASSY INFORMATION");
+            return result;
+        }
+
+
+        for(int i=0;i<7;i++){
+            // loop from Monday to Sunday
+            //*7
+            Calendar calstart = Calendar.getInstance();
+            calstart.setTime(date);
+            calstart.add(Calendar.DAY_OF_WEEK, (i));
+            String dateStringAdd =sdf.format(calstart.getTime());
+
+            int[] shift1= new int[]{1,32};
+            int[] shift2= new int[]{33,64};
+            int[] shift3= new int[]{65,96};
+
+            for(int j= 0; j<3;j++){
+
+                //* 3 shift
+                // according to j value to make shift include;
+                int[] record= null;
+                if(j==0){
+                    record=shift1;
+                }
+                if(j==1){
+                    record=shift2;
+                }
+                if (j==2){
+                    record=shift3;
+                }
+
+                MachOEE machOEE = new MachOEE();
+
+                Double a  = generalOEEDataService.getOeeA(dateStringAdd,record[0],record[1],line,assyName);
+
+                Double p  = 0.00;       //different calculation in assy and cnc for Performance
+                if(assyName.contains("ASSY")){
+                    p =  generalOEEDataService.getOeePAssy(dateStringAdd,record[0],record[1],line,assyName);
+
+                }else {
+                    p =  generalOEEDataService.getOeeP(dateStringAdd,record[0],record[1],line,assyName);
+
+                }
+
+
+                Double q = 0.00;        //different calculation in assy and cnc for quality
+                if(assyName.contains("ASSY")){
+                    q = generalOEEDataService.getOeeQAssy(dateStringAdd,record[0],record[1],line,assyName);
+                }else {
+                    q = generalOEEDataService.getOeeQ(dateStringAdd,record[0],record[1],line,assyName);
+                }
+
+
+                Double oee = a*p*q*100;   // oee standard calculation
+
+                if (oee>=100.00){
+                    oee=100.00;       //higher than 100, run machine out of plan
+                }
+
+                machOEE.setA(a);
+                machOEE.setP(p);
+                machOEE.setQ(q);
+                machOEE.setOEE(oee);
+
+                oeeList.add(machOEE);
+            }
+
+        }
+
+            Double aSum = 0.0;
+            Double pSum = 0.0;
+            Double qSum = 0.0;
+            Double oeeSum = 0.0;
+            Integer listSize = oeeList.size();
+
+            for (MachOEE machOEE : oeeList ){
+                aSum+=machOEE.getA();
+                pSum+=machOEE.getP();
+                qSum+=machOEE.getQ();
+                oeeSum+=machOEE.getOEE();
+            }
+
+            MachOEE detailResult = new MachOEE();
+
+            detailResult.setA( new BigDecimal((Double)  aSum/listSize).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue());
+            detailResult.setP( new BigDecimal((Double)  pSum/listSize).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue());
+            detailResult.setQ( new BigDecimal((Double)  qSum/listSize).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue());
+            detailResult.setOEE( new BigDecimal((Double)  oeeSum/listSize).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue());
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-        result.setData(outList);
+        result.setData(detailResult);
         result.setCode(200);
         result.setSuccess(true);
-        result.setMessage("get line all information");
+        result.setMessage("get line ASSY average information for the week");
 
         return result;
 
