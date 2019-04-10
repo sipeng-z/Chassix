@@ -52,7 +52,7 @@ public class ScrapService  extends AbstractService<ScrapValue,ScrapValue>{
     //sqlserver驱动包名
     private static final String DRIVER_NAME = "com.microsoft.sqlserver.jdbc.SQLServerDriver" ;
     //用户名
-    @Value("${erp.url}")
+    @Value("${new.erp.url}")
     private  String URL;
 
 
@@ -165,9 +165,9 @@ public class ScrapService  extends AbstractService<ScrapValue,ScrapValue>{
         Connection connection = null;
         try {
 
-            URL="jdbc:sqlserver://10.41.32.2:1433;DatabaseName=ERP_MES;";
-            USER_NAME="SZ_user";
-            PASSWORD="SZuser";
+//            URL="jdbc:sqlserver://10.41.32.2:1433;DatabaseName=ERP_MES;";
+//            USER_NAME="SZ_user";
+//            PASSWORD="SZuser";
             //get driver
             Class.forName(DRIVER_NAME);
             //get connection
@@ -367,7 +367,7 @@ public class ScrapService  extends AbstractService<ScrapValue,ScrapValue>{
 
             }
 
-            System.out.println("count............"+count);
+            System.out.println("count:"+count);
             System.out.println(list);
             rs.close();
             prst.close();

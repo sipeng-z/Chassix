@@ -90,10 +90,7 @@ public class StockService extends AbstractService<MachStock,MachStock>{
             ResultSet rs4 = prst4.executeQuery();
 
 
-
-
             MachStock machStock = new MachStock();
-
 
             while (rs1.next()) {
 
@@ -123,7 +120,6 @@ public class StockService extends AbstractService<MachStock,MachStock>{
                 machStock.setRhCast(qty);
 
             }
-
 
             rs1.close();
             prst1.close();
