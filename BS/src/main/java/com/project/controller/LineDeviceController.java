@@ -77,7 +77,7 @@ public class LineDeviceController extends GenericController<LineDeviceInput,Line
      * @param request
      * @return
      */
-    @RequestMapping(value = "castingPagerlist",method = RequestMethod.GET)
+    @RequestMapping(value = "castingPageList",method = RequestMethod.GET)
     public ResponseResult castingPagerList(HttpServletRequest request) {
         try{
 

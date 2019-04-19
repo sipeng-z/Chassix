@@ -63,7 +63,7 @@ public class GeneralOEEDataService extends AbstractService<GeneralOEEDataInput,G
      * @return
      * @throws Exception
      */
-    public boolean generaladd(GeneralOEEDataInput input,String line,String device)throws  Exception{
+    public boolean generalAdd(GeneralOEEDataInput input,String line,String device)throws  Exception{
 
 
         this.setMapperName(AppConsts.GeneralOEEDataName.replace("General",line+device));
@@ -110,8 +110,7 @@ public class GeneralOEEDataService extends AbstractService<GeneralOEEDataInput,G
      * @return
      * @throws Exception
      */
-
-    public boolean generalupdate(GeneralOEEDataInput input,String line,String device) throws Exception{
+    public boolean generalUpdate(GeneralOEEDataInput input,String line,String device) throws Exception{
 
         this.setMapperName(AppConsts.GeneralOEEDataName.replace("General",line+device));
 
@@ -125,7 +124,7 @@ public class GeneralOEEDataService extends AbstractService<GeneralOEEDataInput,G
         if(input.getPlannedRunTime()!=null&&!input.getPlannedRunTime().equals("")){
 
             Integer plantime = input.getPlannedRunTime();
-            plantime = 900-lunchtime-breaktime-preventionMaintenance-setupPreparation-changeOvers-unplannedDowntime;
+            plantime = 900-lunchtime-breaktime-preventionMaintenance-setupPreparation-changeOvers;
             input.setPlannedRunTime(plantime);
 
         }else {
@@ -145,17 +144,25 @@ public class GeneralOEEDataService extends AbstractService<GeneralOEEDataInput,G
     }
 
 
+
+
+
+
+
+
+
+
     /**
      * use different device name to get correct xml to operate db
      *  get list
      * @param isPager
      * @param pageData
      * @param device
+     * @param line (line name)
      * @return
      * @throws Exception
      */
-
-    public List<GeneralOEEDataOutput> generallist(boolean isPager, PageData pageData,String line,String device) throws Exception {
+    public List<GeneralOEEDataOutput> generalList(boolean isPager, PageData pageData,String line,String device) throws Exception {
 
         this.setMapperName(AppConsts.GeneralOEEDataName.replace("General",line+device));
 
@@ -164,7 +171,6 @@ public class GeneralOEEDataService extends AbstractService<GeneralOEEDataInput,G
         if(pageData.containsKey("inList")){
             sb.append("AND RecordNO in ("+pageData.getMap().get("inList")+")");  //inList is for recordNO
         }
-
 
         if(pageData.containsKey("DateStringInList")){
             sb.append("AND Date_String in ("+pageData.getMap().get("DateStringInList")+")");
@@ -184,7 +190,7 @@ public class GeneralOEEDataService extends AbstractService<GeneralOEEDataInput,G
             sb.append(" AND mark = "  + pageData.getMap().get("mark"));
         }
         if (pageData.containsKey("nomark")) {
-            sb.append(" AND( mark is null or mark = 0 )" ); //to judge mark is null or mark is 0;
+            sb.append(" AND( mark is null or mark = 0 )" );        //to judge mark is null or mark is 0;
         }
 
         sb.append(new PageData().where(pageData));
@@ -217,19 +223,22 @@ public class GeneralOEEDataService extends AbstractService<GeneralOEEDataInput,G
 
 
     /**
-     * itemno
-     * @param itemno
+     * updateByItem
+     * @param itemNo
      * @return
      * @throws Exception
      */
-    public boolean updatePlannedTimeByItemno (Integer itemno,String line,String device) throws Exception{
+    public boolean updateExplanationByItem (Integer itemNo,String descriptionCode, String line,String device) throws Exception{
 
         this.setMapperName(AppConsts.GeneralOEEDataName.replace("General",line+device));
 
         PageData pageData = new PageData();
-        pageData.put("mark","1");
-        pageData.put("plannedRunTime","900");
-        pageData.put("itemno",itemno.toString());
+
+        pageData.put("itemno",itemNo.toString());
+        pageData.put("description",descriptionCode);
+        pageData.put("mark","5");
+
+
 
         if(daoImp.update(mapperName+"updateByItemno",pageData)>0){
             return true;
@@ -240,20 +249,28 @@ public class GeneralOEEDataService extends AbstractService<GeneralOEEDataInput,G
 
 
 
+
+
+
+
+
     /**
      * itemno
      * @param input
      * @return
      * @throws Exception
      */
-    public boolean updatePlannedTime (GeneralOEEData input,String line,String device) throws Exception{
+    public boolean updateDownTime (GeneralOEEData input,String line,String device) throws Exception{
 
         this.setMapperName(AppConsts.GeneralOEEDataName.replace("General",line+device));
 
         PageData pageData = new PageData();
         pageData.put("itemno",input.getItemno().toString());
-        pageData.put("mark","1");
-        pageData.put("plannedRunTime","0");
+
+
+        if(input.getMark()!=null&&!input.getMark().equals("")){
+            pageData.put("mark",input.getMark().toString());
+        }
 
         if(input.getPreventionMaintenance()!=null&&!input.getPreventionMaintenance().equals("")){
             pageData.put("preventionMaintenance",input.getPreventionMaintenance().toString());
@@ -278,6 +295,9 @@ public class GeneralOEEDataService extends AbstractService<GeneralOEEDataInput,G
             pageData.put("breakTime",input.getBreakTime().toString());
         }
 
+        if(input.getDescription()!=null&&!input.getDescription().equals("")){
+            pageData.put("description",input.getDescription());
+        }
 
 
         if(daoImp.update(mapperName+"updateByItemno",pageData)>0){
@@ -315,7 +335,7 @@ public class GeneralOEEDataService extends AbstractService<GeneralOEEDataInput,G
         PageData pageData = new PageData();
         pageData.put("DateString",DateString);
         pageData.put("inList",inList);
-        list4oee = this.generallist(false,pageData,line,device);
+        list4oee = this.generalList(false,pageData,line,device);
 
 
         Integer plannedRunningTime = 0;
@@ -417,7 +437,7 @@ public class GeneralOEEDataService extends AbstractService<GeneralOEEDataInput,G
         PageData pageData4tra = new PageData();
         pageData4tra.put("DateStringInList",DateStringInList);
         pageData4tra.put("inList",inList);
-        List<GeneralOEEDataOutput>  list4oee = this.generallist(false,pageData4tra,line,device);
+        List<GeneralOEEDataOutput>  list4oee = this.generalList(false,pageData4tra,line,device);
 
 
 
@@ -517,7 +537,7 @@ public class GeneralOEEDataService extends AbstractService<GeneralOEEDataInput,G
         pageData.put("inList",inList);
 
 
-        list4oee = this.generallist(false,pageData,line,device);
+        list4oee = this.generalList(false,pageData,line,device);
         Integer plannedRunningTime = 0;
         Integer actuallyRunningTime = 0;
 
@@ -563,7 +583,7 @@ public class GeneralOEEDataService extends AbstractService<GeneralOEEDataInput,G
         pageData.put("inList",inList);
 
 
-        list4oee = this.generallist(false,pageData,line,device);
+        list4oee = this.generalList(false,pageData,line,device);
 
         Integer actuallyRunningTime = 0;
 
@@ -614,7 +634,7 @@ public class GeneralOEEDataService extends AbstractService<GeneralOEEDataInput,G
         pageData.put("inList",inList);
 
 
-        list4oee = this.generallist(false,pageData,line,device);
+        list4oee = this.generalList(false,pageData,line,device);
 
         Integer palnnedRunningTime = 0;
 
@@ -660,7 +680,7 @@ public class GeneralOEEDataService extends AbstractService<GeneralOEEDataInput,G
         PageData pageData = new PageData();
         pageData.put("DateString",DateString);
         pageData.put("inList",inList);
-        list4oee = this.generallist(false,pageData,line,device);
+        list4oee = this.generalList(false,pageData,line,device);
         Integer plannedRunningTime = 0;
         for(GeneralOEEData g:list4oee){
             plannedRunningTime+=g.getPlannedRunTime();
@@ -728,7 +748,7 @@ public class GeneralOEEDataService extends AbstractService<GeneralOEEDataInput,G
         PageData pageData = new PageData();
         pageData.put("DateString",DateString);
         pageData.put("inList",inList);
-        list4oee = this.generallist(false,pageData,line,device);
+        list4oee = this.generalList(false,pageData,line,device);
         Integer plannedRunningTime = 0;
         for(GeneralOEEData g:list4oee){
             plannedRunningTime+=g.getPlannedRunTime();
@@ -919,7 +939,7 @@ public class GeneralOEEDataService extends AbstractService<GeneralOEEDataInput,G
         PageData pageData = new PageData();
         pageData.put("DateString",DateString);
         pageData.put("inList",inList);
-        list4oee = this.generallist(false,pageData,line,device);
+        list4oee = this.generalList(false,pageData,line,device);
 
 
         Integer lunchTimeSum = 0;
@@ -1039,7 +1059,7 @@ public class GeneralOEEDataService extends AbstractService<GeneralOEEDataInput,G
         PageData pageData = new PageData();
         pageData.put("DateString",DateString);
         pageData.put("inList",inList);
-        list4oee = this.generallist(false,pageData,line,device);
+        list4oee = this.generalList(false,pageData,line,device);
         Integer plannedRunningTime = 0;
         for(GeneralOEEData g:list4oee){
             plannedRunningTime+=g.getPlannedRunTime();
@@ -1113,7 +1133,7 @@ public class GeneralOEEDataService extends AbstractService<GeneralOEEDataInput,G
         PageData pageData = new PageData();
         pageData.put("DateString",DateString);
         pageData.put("inList",inList);
-        list4oee = this.generallist(false,pageData,line,device);
+        list4oee = this.generalList(false,pageData,line,device);
         Integer plannedRunningTime = 0;
         for(GeneralOEEData g:list4oee){
             plannedRunningTime+=g.getPlannedRunTime();

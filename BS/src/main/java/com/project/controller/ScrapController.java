@@ -51,12 +51,11 @@ public class ScrapController extends GenericController<ScrapValue,ScrapValue> {
      * @return
      */
 
-    @RequestMapping(value = "getscrap",method = RequestMethod.GET)
+    @RequestMapping(value = "getScrap",method = RequestMethod.GET)
     public ResponseResult getScrap(Integer days, String line,String cf)  {
 
 
         try{
-
 
             PageData pageData = new PageData();
 
@@ -94,10 +93,10 @@ public class ScrapController extends GenericController<ScrapValue,ScrapValue> {
 
     /**
      * days for how many days before query date
-     * @param days
+     * @param days from ago
      * @return
      */
-    @RequestMapping(value = "getscrapwithname",method = RequestMethod.GET)
+    @RequestMapping(value = "getScrapWithName",method = RequestMethod.GET)
     public ResponseResult getScrapWithName(Integer days)  {
 
         try{
@@ -129,11 +128,11 @@ public class ScrapController extends GenericController<ScrapValue,ScrapValue> {
 
     /**
      * days for how many days before query date
-
+     * parameter : lineName , weekNo , type : casting/machining (c/f)
      * @return
      */
-    @RequestMapping(value = "getscraplineweek",method = RequestMethod.GET)
-    public ResponseResult getScrapLineWeek(Integer year,Integer weekNo,String linename,String type)  {
+    @RequestMapping(value = "getScrapLineWeek",method = RequestMethod.GET)
+    public ResponseResult getScrapLineWeek(Integer year,Integer weekNo,String lineName,String type)  {
 
         try{
             PageData pageData = new PageData();
@@ -160,7 +159,8 @@ public class ScrapController extends GenericController<ScrapValue,ScrapValue> {
             }
 
 
-            return ResponseResult.success(scrapService.getScrapLine(DateStringInList.get(0),DateStringInList.get(6),linename,type));
+            //date list 0 : start date ; list 6 : end date
+            return ResponseResult.success(scrapService.getScrapLine(DateStringInList.get(0),DateStringInList.get(6),lineName,type));
 
         }catch (Exception e){
             logger.error("-------------getDownTime Error--------"+e);
@@ -176,12 +176,12 @@ public class ScrapController extends GenericController<ScrapValue,ScrapValue> {
      *
      *Scrap Week Device
      */
-    @RequestMapping(value = "getscrapweek",method = RequestMethod.GET)
-    public ResponseResult getScrapWeek(Integer year,Integer weekno,String line,String device)  {
+    @RequestMapping(value = "getScrapWeek",method = RequestMethod.GET)
+    public ResponseResult getScrapWeek(Integer year,Integer weekNo,String line,String device)  {
 
         try{
 
-            return ResponseResult.success(scrapService.getScrapWeek(year,weekno,line,device));
+            return ResponseResult.success(scrapService.getScrapWeek(year,weekNo,line,device));
 
         }catch (Exception e){
             logger.error("-------------getDownTime Error--------"+e);

@@ -176,6 +176,7 @@ C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\project\domain\mod
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\casting\domain\entity\CastingQT.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\casting\service\FloatParse\NumberFormatException.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\system\service\LoginLogsService.java
+C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\casting\controller\CastingConsumptionController.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\authorize\AuthorizeValidator.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\system\controller\UserRoleController.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\casting\domain\model\output\MechanicalPropertiesLocationRequirementOutput.java
@@ -246,8 +247,10 @@ C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\casting\domain\ent
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\project\controller\LineDeviceController.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\system\domain\entity\Attachment.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\system\domain\model\output\SystemDataLogsOutput.java
+C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\project\controller\GeneralOEEDataExplanationController.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\project\domain\entity\G38Value.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\project\domain\model\input\G38V23OEEDataTemporaryInput.java
+C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\casting\service\CastingConsumptionService.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\project\domain\entity\G38V22OEEDataTemporary.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\project\domain\model\output\G38V21OEEDataOutput.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\casting\domain\model\input\MechanicalPropertiesLocationRequirementInput.java
@@ -327,6 +330,7 @@ C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\project\controller
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\system\domain\model\output\AuthorizeActionOutput.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\system\domain\model\output\SystemUsersOutput.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\project\domain\model\output\GeneralOEEDataTemporaryOutput.java
+C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\project\controller\timing\UnplannedDownTimeTiming.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\project\domain\entity\G38V21ProductionTemporary.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\system\controller\RoleController.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\project\domain\entity\G38ASSYTraceabilityData.java

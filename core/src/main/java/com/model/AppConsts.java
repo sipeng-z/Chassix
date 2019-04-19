@@ -165,12 +165,18 @@ public class AppConsts {
 		CODEEXPLANATION.put("TW","Wrong set up");
 		CODEEXPLANATION.put("TN","No back up");
 		CODEEXPLANATION.put("TM","Miscellaneous");
+		CODEEXPLANATION.put("NO EXPLANATION","NE");
+
 	}
 
 
 
 
+	public final static Integer beforeDownTimeCalculation = 1;
 
+	public final static Integer afterDownTimeCalculation = 3;
+
+	public final static Integer explainedDownTimeCalculation = 5;
 
 
 

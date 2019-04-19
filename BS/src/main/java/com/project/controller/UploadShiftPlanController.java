@@ -24,7 +24,7 @@ import java.util.Map;
 
 
 @RestController
-@RequestMapping(value = "g38shiftplan")
+@RequestMapping(value = "uploadShiftPlan")
 public class UploadShiftPlanController {
 
     private static final Logger logger = LoggerFactory.getLogger(UploadShiftPlanController.class);
@@ -55,8 +55,6 @@ public class UploadShiftPlanController {
                 returnList.add(fileOutput);
 
                 String  filePath = fileOutput.getFilePath();
-
-
 
 
             } catch (IllegalStateException e) {

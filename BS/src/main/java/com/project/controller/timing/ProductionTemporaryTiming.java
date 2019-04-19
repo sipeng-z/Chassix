@@ -6,9 +6,7 @@ import com.domain.model.PageData;
 import com.model.AppConsts;
 import com.project.domain.entity.GeneralOEEData;
 import com.project.domain.entity.GeneralProductionTemporary;
-import com.project.domain.model.output.G38ASSYOEEDataOutput;
 import com.project.domain.model.output.GeneralOEEDataOutput;
-import com.project.domain.model.output.GeneralProductionTemporaryOutput;
 import com.project.service.GeneralProductionTemporaryService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,14 +29,7 @@ public class ProductionTemporaryTiming {
     @Autowired
     protected DaoImp daoImp;
 
-
-
-
-
-
     private final Logger logger = LoggerFactory.getLogger(ProductionTemporaryTiming.class);
-
-
 
     public final static long ONE_Minute =  60 * 1000;
     public final static long FIFTEEN_Minute =  900 * 1000;
@@ -50,7 +41,7 @@ public class ProductionTemporaryTiming {
     public void fixedRateJob() {
         System.out.println((new Date())+" >>Production_temporary  ....");
         try{
-//sync content
+            //sync content
             List<String> tableNames = generalProductionTemporaryService.getTableName();
             for(String s : tableNames){
                 PageData pageData = new PageData();
@@ -64,7 +55,6 @@ public class ProductionTemporaryTiming {
                 String ProductionMapperName  = AppConsts.GeneralProductionTemporaryName.replace("General",lineAndDevice);
 
                 List<GeneralProductionTemporary>  queryList = (List<GeneralProductionTemporary>)generalProductionTemporaryService.generallist(false,pageData,lineDevice[0],lineDevice[1]);
-
 
                 for(GeneralProductionTemporary q :queryList ){
 
@@ -86,7 +76,7 @@ public class ProductionTemporaryTiming {
                         PageData inputPageData = new PageData();
                         inputPageData.put("itemno",itemno.toString());
                         inputPageData.put("plannedRunTime","900");
-                        inputPageData.put("mark","1");
+                        inputPageData.put("mark","1");    // production sync 0  --> 1 ; downtime calculation sync 1 --> 3
                        Integer updateResult =  daoImp.update(MapperName+"updateByItemno",inputPageData); //update oee data
                         if (updateResult>=0){
 

@@ -43,7 +43,7 @@ public class InputDownTimeTiming {
     public final static long SIXTEEN_Minute =  960 * 1000;
 
 //    @Scheduled(fixedRate=SIXTEEN_Minute)
-    @RequestMapping(value = "ProductionTemporary",method = RequestMethod.GET)
+    @RequestMapping(value = "InputDownTimeTemporary",method = RequestMethod.GET)
     public void fixedRateJob() {
         System.out.println((new Date())+" >>inputs down time temporary  ....");
         try{

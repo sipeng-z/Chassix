@@ -128,7 +128,7 @@ public class MachDeviceWiseSessionService extends AbstractService <DeviceWiseSes
             Long delta = (requestTime.getTime()-recordTime.getTime())/(1000*60);    //ms --> 60000 ms per min
             Integer deltaInt = delta.intValue();
 
-            if(deltaInt>=15){                                       // sessionId from Telit life cycle is over
+            if(deltaInt>=10){                                       // sessionId from Telit life cycle is over 10 mins
                 String username = input.getUsername();
                 String password = input.getPassword();
 

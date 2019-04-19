@@ -56,11 +56,13 @@ com\casting\domain\entity\CastingCPCGeneralOEEDataTemporary.class
 com\project\service\MachWorkBenchService.class
 com\casting\domain\entity\CastingCPCGeneralPvFurnaceChamberCurve.class
 com\project\domain\entity\G38V21OEEDataTemporary.class
+com\project\controller\GeneralOEEDataExplanationController.class
 com\project\domain\entity\G38OEETime.class
 com\casting\domain\entity\CastingCPCC3OEEData.class
 com\project\domain\entity\EMP2ASSYOEEDataTemporary.class
 com\project\controller\GeneralOEEDataDownTimeController.class
 com\application\RestControllerExceptionTranslator.class
+com\project\controller\timing\UnplannedDownTimeTiming.class
 com\system\controller\SystemDataLogsController.class
 com\casting\domain\entity\MechanicalPropertiesReport.class
 com\authorize\AuthorizeValidatorConfig.class
@@ -283,6 +285,7 @@ com\system\controller\WechatLoginController.class
 com\project\domain\model\input\GeneralOEEDataTemporaryInput.class
 com\system\domain\entity\Attachment.class
 com\casting\service\CastingCPCGeneralPvFurnaceChamberCurveService.class
+com\casting\controller\CastingConsumptionController.class
 com\project\domain\model\input\G38ASSYOEEDataTemporaryInput.class
 com\application\MyBatisConfig.class
 com\project\domain\workbench\params.class
@@ -305,6 +308,7 @@ com\casting\domain\entity\CastingQT.class
 com\system\controller\SystemUsersController.class
 com\casting\domain\entity\CPCValue.class
 com\casting\domain\model\input\CastingCPCB7OEEDataInput.class
+com\casting\service\CastingConsumptionService.class
 com\project\service\GeneralPQDataService.class
 com\system\domain\entity\Users.class
 com\project\domain\entity\GeneralTraceabilityData.class

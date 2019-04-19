@@ -59,7 +59,7 @@ public class ResponseResult  implements Serializable {
     
     public ResponseResult(boolean success, Object data) {
         this.code = success ? 200 : 500;
-        this.message = success ? "请求成功" : "请求失败";
+        this.message = success ? "Success" : "Failure";
         this.data = data;
         this.success = success;
     }

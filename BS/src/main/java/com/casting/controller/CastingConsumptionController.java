@@ -52,7 +52,7 @@ public class CastingConsumptionController extends GenericController<CastingValue
      * get  Aluminum usage
      * until now , latest records
      * primary in stock ; scrap in stock ; sprue in stock
-     * primary in wis ; scrap in wis; sprue in wis
+     * primary in wis ; scrap in wis; sprue in wip
      * @paramF
      * @return
      */
@@ -77,6 +77,7 @@ public class CastingConsumptionController extends GenericController<CastingValue
 
 
     /**
+     * line consumption
      *
      * get  Aluminum consumption
      * until now , latest records

@@ -185,21 +185,21 @@ public class GeneralLineController  {
                 availabilityDays++;
             }
         }
+        if(availabilityDays!=0){
+            //
+            oeeAverage =  new BigDecimal((Double)  oeeSum/availabilityDays).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+        }
 
-
-        oeeAverage =  new BigDecimal((Double)  oeeSum/availabilityDays).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
         result.setData(outList);
         result.setCode(200);
         result.setSuccess(true);
-        result.setMessage("OEE AVERAGE :"+oeeAverage*100+"%");
+        result.setMessage( new Double(oeeAverage*100).intValue()+"%");
 
         return result;
 
 
 
     }
-
-
 
 
 
@@ -321,7 +321,9 @@ public class GeneralLineController  {
 
         }
 
-        averageUtilization  = new BigDecimal((Double)   averageUtilization/availabilityDays).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+        if (availabilityDays!=0){
+            averageUtilization  = new BigDecimal((Double)   averageUtilization/availabilityDays).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+        }
 
         result.setData(averageUtilization);
         result.setCode(200);

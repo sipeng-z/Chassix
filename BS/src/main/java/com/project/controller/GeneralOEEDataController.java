@@ -88,10 +88,10 @@ public class GeneralOEEDataController extends GenericController<GeneralOEEDataIn
 
             Boolean flag = null;
             if(id==null||id.equals("")){
-                flag =  generalOEEDataService.generaladd (input,line,device);
+                flag =  generalOEEDataService.generalAdd( input,line,device);
 
             }else {
-                flag =  generalOEEDataService.generalupdate(input,line,device);
+                flag =  generalOEEDataService.generalUpdate(input,line,device);
             }
             if(flag==true){
                 result.setMessage("Success!");
@@ -119,7 +119,7 @@ public class GeneralOEEDataController extends GenericController<GeneralOEEDataIn
     @RequestMapping(value = "generalPageList",method = RequestMethod.GET)
     public ResponseResult generalPagerList(HttpServletRequest request,String line,String device) {
         try{
-            return ResponseResult.success(new PageInfo<>(generalOEEDataService.generallist(true,new PageData(request),line,device)));
+            return ResponseResult.success(new PageInfo<>(generalOEEDataService.generalList(true,new PageData(request),line,device)));
         }catch (Exception e){
             logger.error("-----------------------get list error ------"+e);
         }
@@ -435,6 +435,7 @@ public class GeneralOEEDataController extends GenericController<GeneralOEEDataIn
 
     /**
      * get down time for the week by code (description code)
+     * dashboard charts NO.2
      * @param year
      * @param weekNo
      * @param line
@@ -446,7 +447,6 @@ public class GeneralOEEDataController extends GenericController<GeneralOEEDataIn
 
 
         try{
-
 
             return ResponseResult.success(generalOEEDataService.getDownTimeWeek(year,weekNo,line,device));
 
@@ -479,8 +479,9 @@ public class GeneralOEEDataController extends GenericController<GeneralOEEDataIn
         String datestring = sdf.format(date);
 
         List<MachQT> outList = new ArrayList<>();
-                                                                 // get 7 dates  and use that to loop ,get data
-        for(int i=0;i<7;i++){
+        Double quantitySum = 0.0;
+
+        for(int i=0;i<7;i++){ // get 7 dates  and use that to loop ,get data
             Calendar calstart = Calendar.getInstance();
             calstart.setTime(date);
             calstart.add(Calendar.DAY_OF_WEEK, (i));
@@ -490,7 +491,7 @@ public class GeneralOEEDataController extends GenericController<GeneralOEEDataIn
             int[] shift2= new int[]{33,64};
             int[] shift3= new int[]{65,96};
 
-            MachQT oeeobj = new MachQT();
+            MachQT machQT = new MachQT();
             for(int j= 0; j<3;j++){
                 int[] record= null;
                 if(j==0){
@@ -505,14 +506,14 @@ public class GeneralOEEDataController extends GenericController<GeneralOEEDataIn
 
                 if(device.contains("ASSY")){
                     //ASSY calculation is different with cnc machines , need to rebuild the logic inside
-                    oeeobj = generalOEEDataService.getTargetQuantityAssy(dateStringAdd,record[0],record[1],line,device);
+                    machQT = generalOEEDataService.getTargetQuantityAssy(dateStringAdd,record[0],record[1],line,device);
 
 
                 }else {
-                    oeeobj = generalOEEDataService.getTargetQuantity(dateStringAdd,record[0],record[1],line,device);
+                    machQT = generalOEEDataService.getTargetQuantity(dateStringAdd,record[0],record[1],line,device);
                 }
-
-                outList.add(oeeobj);
+                quantitySum+= machQT.getQuantity();
+                outList.add(machQT);
             }
 
         }
@@ -520,7 +521,7 @@ public class GeneralOEEDataController extends GenericController<GeneralOEEDataIn
         result.setData(outList);
         result.setCode(200);
         result.setSuccess(true);
-        result.setMessage("[day(1-7):{shift1,shift2,shift3}]");
+        result.setMessage(new Double(quantitySum).intValue()+" Sets");      //sum of quantity ,number
 
         return result;
     }
