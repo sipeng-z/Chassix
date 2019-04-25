@@ -37,6 +37,30 @@ public class GeneralOEEData {
 
     private String device;
 
+    private String time;
+
+    private Integer unplannedDowntimeMin;
+
+    public Integer getUnplannedDowntimeMin() {
+        return unplannedDowntimeMin;
+    }
+
+    public void setUnplannedDowntimeMin(Integer unplannedDowntimeMin) {
+        this.unplannedDowntimeMin = unplannedDowntimeMin;
+    }
+
+
+
+
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
     public String getLine() {
         return line;
     }

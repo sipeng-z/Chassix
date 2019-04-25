@@ -258,7 +258,7 @@
     <include refid="tableName"></include>
     WHERE 1 = 1
     <include refid="PmBasicMapper.retrieveSql"></include>
-    order by Date_String DESC
+    order by Date_String DESC, RecordNO
   </select>
 
 

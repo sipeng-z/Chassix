@@ -302,16 +302,6 @@ public class GeneralOEEDataController extends GenericController<GeneralOEEDataIn
 
 
 
-
-
-
-
-
-
-
-
-
-
     /**
      * get oee week target
      * @param weekNo
@@ -445,7 +435,6 @@ public class GeneralOEEDataController extends GenericController<GeneralOEEDataIn
     @RequestMapping(value = "getDownTimeWeek",method = RequestMethod.GET)
     public ResponseResult getDownTimeWeek(Integer year,Integer weekNo,String line,String device)  {
 
-
         try{
 
             return ResponseResult.success(generalOEEDataService.getDownTimeWeek(year,weekNo,line,device));
@@ -457,6 +446,10 @@ public class GeneralOEEDataController extends GenericController<GeneralOEEDataIn
 
         return ResponseResult.error(CommonConstants.EX.EXCEPTION);
     }
+
+
+
+
 
 
     /**

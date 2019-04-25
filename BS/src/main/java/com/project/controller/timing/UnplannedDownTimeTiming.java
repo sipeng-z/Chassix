@@ -60,8 +60,9 @@ public class UnplannedDownTimeTiming {
             //sync content
             List<String> oeeDataTableName = this.getOeeDataTableName();     //G38 already
 
-            Integer beforeCalculation = AppConsts.beforeDownTimeCalculation;
-            Integer afterCalculation = AppConsts.afterDownTimeCalculation;
+            Integer beforeCalculation = AppConsts.beforeDownTimeCalculation;    // mark = 1
+            Integer afterCalculation = AppConsts.afterDownTimeCalculation;      //mark = 3
+            Integer explainedDownTimeCalculation = AppConsts.explainedDownTimeCalculation;  //mark = 5   ; running normally no need to explain
             for (String s : oeeDataTableName) {
                 PageData pageData = new PageData();
 
@@ -91,6 +92,12 @@ public class UnplannedDownTimeTiming {
                     if (runningTime <= (plannedRunningTime - 60)) {
                         generalOEEData.setMark(afterCalculation);      // production sync 0  --> 1 ; downtime calculation sync 1 --> 3
                         generalOEEData.setDescription("NO EXPLANATION");
+                        generalOEEData.setUnplannedDowntime(plannedRunningTime - runningTime);
+                        flagForUpdating = generalOEEDataService.updateDownTime( generalOEEData, line, device);     //itemNO is included
+
+                    }else {
+                        //running normally
+                        generalOEEData.setMark(explainedDownTimeCalculation);      // production sync 0  --> 1 ; downtime calculation sync 1 --> 3 ; if running time ok, mark =5
                         generalOEEData.setUnplannedDowntime(plannedRunningTime - runningTime);
                         flagForUpdating = generalOEEDataService.updateDownTime( generalOEEData, line, device);     //itemNO is included
 

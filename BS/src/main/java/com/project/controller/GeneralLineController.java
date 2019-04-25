@@ -216,7 +216,6 @@ public class GeneralLineController  {
      * @return
      * @throws Exception
      */
-
     @RequestMapping(value = "lineUtilization",method = RequestMethod.GET)
     public ResponseResult getLineUtilization(String line, Integer year,Integer weekNo) throws Exception{
 
@@ -333,6 +332,62 @@ public class GeneralLineController  {
         return result;
 
 
+
+    }
+
+
+
+
+
+
+
+    /**
+     * get line Utilization  by week no
+     * return 21  :  3 shifts * 7 days
+     * @param line
+     * @param year
+     * @param weekNo
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "lineDownTime",method = RequestMethod.GET)
+    public ResponseResult getLineDownTime(String line, Integer year,Integer weekNo) throws Exception{
+
+        ResponseResult result = new ResponseResult();
+        //week no , year get monday date
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.YEAR,year);
+        cal.set(Calendar.WEEK_OF_YEAR, weekNo);
+        cal.set(Calendar.DAY_OF_WEEK, 2);
+        Date date = cal.getTime();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+        String datestring = sdf.format(date);
+
+        Date today = new Date();
+        String todayDate = conversionToolService.dateToString(today);
+
+
+        PageData pageData4line = new PageData();
+        pageData4line.put("lineName",line);
+        List<LineDeviceOutput> lineDevices = lineDeviceService.list(false,pageData4line);
+
+        List<MachValue>  outList = new ArrayList<>();
+
+        for(LineDevice lineDevice : lineDevices){
+            String lineDeviceName = lineDevice.getName();
+            List<MachValue>  deviceDownTime =  generalOEEDataService.getDownTimeWeek(year,weekNo,line,lineDeviceName);
+            outList.addAll(deviceDownTime);      // add all the data into one list
+        }
+
+        // all the same type (different devices) need to be calculated in one code or just add name released to  device
+
+
+        result.setData(outList);
+        result.setCode(200);
+        result.setSuccess(true);
+        result.setMessage("Utilization Average of Week");
+
+        return result;
 
     }
 
@@ -489,7 +544,6 @@ public class GeneralLineController  {
 
 
 
-
     /**
      * line oee by shift
      * for  real time page
@@ -502,6 +556,7 @@ public class GeneralLineController  {
     @RequestMapping(value = "lineOeeByShift",method = RequestMethod.GET)
 
     public ResponseResult getLineOee4shift(Integer shift,String line) throws Exception{
+
 
         ResponseResult result = new ResponseResult();
         List<GeneralValue> outList = new ArrayList<>();

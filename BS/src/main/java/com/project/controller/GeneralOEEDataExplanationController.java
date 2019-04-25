@@ -44,8 +44,6 @@ public class GeneralOEEDataExplanationController {
 
 
 
-
-
     /**
      * Line and device  OEE Data record
      * @param request
@@ -86,8 +84,14 @@ public class GeneralOEEDataExplanationController {
 
                 //loop for push into outList , give  line and device information
                 for(GeneralOEEData generalOEEData : outputList){
+                    Integer recordNo = generalOEEData.getRecordno();
+                    List<String> times = conversionToolService.parseRecord(recordNo-1,recordNo);
+                    generalOEEData.setTime(times.get(0)+"--"+times.get(1));
+                    generalOEEData.setUnplannedDowntimeMin(generalOEEData.getUnplannedDowntime()/60);   // downtime seconds to mins
                     generalOEEData.setLine(lineName);
                     generalOEEData.setDevice(deviceName);
+
+
                     outList.add(generalOEEData);
                 }
 

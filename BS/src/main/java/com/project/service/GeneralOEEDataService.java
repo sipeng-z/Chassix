@@ -232,11 +232,12 @@ public class GeneralOEEDataService extends AbstractService<GeneralOEEDataInput,G
 
         this.setMapperName(AppConsts.GeneralOEEDataName.replace("General",line+device));
 
+        Integer explainedDownTimeCalculation = AppConsts.explainedDownTimeCalculation;  // mark = 5 ;
         PageData pageData = new PageData();
 
         pageData.put("itemno",itemNo.toString());
         pageData.put("description",descriptionCode);
-        pageData.put("mark","5");
+        pageData.put("mark",explainedDownTimeCalculation.toString());
 
 
 
@@ -422,7 +423,7 @@ public class GeneralOEEDataService extends AbstractService<GeneralOEEDataInput,G
                 DateStringInList+=",";
             }
 
-        }
+        }                                                       //put all dates in the week
 
         for(int i =0;i<=EndRecordNO-StartRecordNO;i++ ){
             inList+="'";
@@ -432,14 +433,12 @@ public class GeneralOEEDataService extends AbstractService<GeneralOEEDataInput,G
             if(i<=(EndRecordNO-StartRecordNO)-1){
                 inList+=",";
             }
-        }
+        }                                                       //put all records no in the shift
 
         PageData pageData4tra = new PageData();
         pageData4tra.put("DateStringInList",DateStringInList);
         pageData4tra.put("inList",inList);
         List<GeneralOEEDataOutput>  list4oee = this.generalList(false,pageData4tra,line,device);
-
-
 
 
         Integer unplannedDownTime;
@@ -459,16 +458,16 @@ public class GeneralOEEDataService extends AbstractService<GeneralOEEDataInput,G
             actuallyRunningTime+=g.getRunningtime();
 
                 String  description = g.getDescription();      //get code explanation form description column name
-
+                Integer  unPlannedDownTime = g.getUnplannedDowntime();
 
                 if(description!=null&&!description.equals("")){
-
+                                                                                //have description means have unplanned downtime inside
                     if(CN.containsKey(description)==false){
-                        CN.put(description,900);
+                        CN.put(description,unPlannedDownTime);               //first push description and its value
                     }else {
                         Integer before =  CN.get(description);
-                        Integer after = before+900;
-                        CN.put(description,after);
+                        Integer after = before+unPlannedDownTime;
+                        CN.put(description,after);              // add the value if the same description
                     }
                 }
 
@@ -476,24 +475,14 @@ public class GeneralOEEDataService extends AbstractService<GeneralOEEDataInput,G
 
 
         List<MachValue> listByCode = new ArrayList<>();
-        for (Integer value : CN.values()) {
-            plannedDownTimeByCode += value; //get total of code down time
-        }
-        unplannedDownTime = plannedRunningTime-(actuallyRunningTime+plannedDownTimeByCode);
-        if(unplannedDownTime<=0){
-            unplannedDownTime=0;
-        }
-        MachValue  unplannedValue  = new MachValue();
-        unplannedValue.setName("UD:unplannedDownTime");
-        unplannedValue.setValue(unplannedDownTime);
-        listByCode.add(unplannedValue); //push to out list
 
+            //loop for calculation ,put in into the outPut list
         Iterator<Map.Entry<String, Integer>> entries = CN.entrySet().iterator();
         while (entries.hasNext()) {
 
             Map.Entry<String, Integer> entry = entries.next();
             MachValue codeValue = new MachValue(); //output for code explanation for downtime
-            codeValue.setName(entry.getKey()+":"+CE.get(entry.getKey()));
+            codeValue.setName(entry.getKey()+":"+CE.get(entry.getKey())+"_"+device);
             codeValue.setValue(entry.getValue());
             listByCode.add(codeValue);
         }
