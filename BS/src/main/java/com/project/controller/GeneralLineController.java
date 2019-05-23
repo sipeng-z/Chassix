@@ -6,10 +6,6 @@ import com.project.domain.entity.*;
 import com.project.domain.model.output.LineDeviceOutput;
 import com.project.service.*;
 import com.response.ResponseResult;
-import com.sun.javafx.image.impl.General;
-import com.utils.CommonConstants;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -533,9 +529,6 @@ public class GeneralLineController  {
 
 
     }
-
-
-
 
 
 

@@ -32,6 +32,7 @@ public class MechanicalPropertiesLocationRequirementService extends AbstractServ
 
 
 
+
         if(input.getRequirementId()==null||input.getRequirementId().equals("")){
             input.setRequirementId(super.getGUID());
         }

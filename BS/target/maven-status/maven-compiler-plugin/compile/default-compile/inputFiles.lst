@@ -73,6 +73,7 @@ C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\project\domain\ent
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\project\domain\entity\GeneralOEEDataTemporary.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\casting\controller\CPCWorkBenchController.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\casting\domain\model\output\CastingCPCGeneralOEEDataOutput.java
+C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\project\domain\entity\MachineOverviewValue.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\project\controller\GeneralOEEDataController.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\project\domain\model\output\G38V23ShiftOutput.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\casting\service\CastingCPCGeneralOEEDataService.java
@@ -107,6 +108,7 @@ C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\application\CorsFi
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\system\controller\AttachmentController.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\casting\service\FloatParse\SixteenToFloat.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\system\domain\model\input\SystemDataLogsInput.java
+C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\project\controller\MachineOverviewController.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\system\domain\model\LoginInfo.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\project\domain\workbench\workbench.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\system\controller\RoleMenuController.java

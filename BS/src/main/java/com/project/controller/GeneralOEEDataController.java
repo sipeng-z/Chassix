@@ -161,7 +161,7 @@ public class GeneralOEEDataController extends GenericController<GeneralOEEDataIn
 
     /**
      * get Oee result ,param = date and record scope
-     *
+     * result for shift  , for device ;
      * include A P Q
      * A = availability ,  cnc and assy calculation  same
      * P = performance ,  cnc and assy calculation different
@@ -170,21 +170,38 @@ public class GeneralOEEDataController extends GenericController<GeneralOEEDataIn
      * @throws Exception
      */
     @RequestMapping(value = "getOee",method = RequestMethod.GET)
-    public ResponseResult getOeeAll(String DateString,Integer StartRecordNO,Integer EndRecordNO,String line,String device) throws Exception {
+    public ResponseResult getOeeAll(String DateString,Integer shift,String line,String device) throws Exception {
 
         ResponseResult result = new ResponseResult();
 
-        Double a =  generalOEEDataService.getOeeA(DateString,StartRecordNO,EndRecordNO,line,device);
+        int[] shift1= new int[]{1,32};
+        int[] shift2= new int[]{33,64};
+        int[] shift3= new int[]{65,96};
+
+        MachQT machQT = new MachQT();
+
+        int[] record= null;
+        if(shift==1){
+            record=shift1;
+        }
+        if(shift==2){
+            record=shift2;
+        }
+        if (shift==3){
+            record=shift3;
+        }
+
+        Double a =  generalOEEDataService.getOeeA(DateString,record[0],record[1],line,device);
 
         Double p = 0.0;   // calculation difference between cnc and assy machine;
 
         if(device.contains("ASSY")){
-            p  =generalOEEDataService.getOeePAssy(DateString,StartRecordNO,EndRecordNO,line,device);
+            p  =generalOEEDataService.getOeePAssy(DateString,record[0],record[1],line,device);
         }else {
-            p  =generalOEEDataService.getOeeP(DateString,StartRecordNO,EndRecordNO,line,device);
+            p  =generalOEEDataService.getOeeP(DateString,record[0],record[1],line,device);
         }
 
-        Double q = generalOEEDataService.getOeeQ(DateString,StartRecordNO,EndRecordNO,line,device);   //quality according  to
+        Double q = generalOEEDataService.getOeeQ(DateString,record[0],record[1],line,device);   //quality according  to
 
         Double oee = a*p*q*100;
 

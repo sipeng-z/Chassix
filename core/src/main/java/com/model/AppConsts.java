@@ -180,7 +180,9 @@ public class AppConsts {
 
 
 
-
+	public final static String[] monitoringLines = new  String[]{
+			"G38"
+	};
 
 
 

@@ -125,7 +125,7 @@ public class ConversionToolService {
      *parse Integer  to time
      *  recordNO to time
      * exam,33-->>08:00
-     * @return
+     * @
      */
     public List<String> parseRecord(Integer startRecord, Integer endRecord) {
         List<String> list = new ArrayList<>();

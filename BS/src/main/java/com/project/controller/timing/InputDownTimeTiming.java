@@ -36,9 +36,7 @@ public class InputDownTimeTiming {
     protected DaoImp daoImp;
 
 
-
     private final Logger logger = LoggerFactory.getLogger(InputDownTimeTiming.class);
-
 
     public final static long SIXTEEN_Minute =  960 * 1000;
 

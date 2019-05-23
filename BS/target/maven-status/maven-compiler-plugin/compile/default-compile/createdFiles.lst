@@ -203,6 +203,7 @@ com\project\domain\model\input\GeneralTraceabilityDataInput.class
 com\project\controller\G38WorkBenchController.class
 com\system\service\LoginLogsService.class
 com\system\domain\model\input\SystemUsersDetailInput.class
+com\project\controller\MachineOverviewController.class
 com\project\domain\entity\G38V21ProductionTemporary.class
 com\project\domain\entity\G38V23OEEData.class
 com\casting\controller\CastingCPCGeneralShiftController.class
@@ -260,6 +261,7 @@ com\project\domain\model\output\G38ASSYTraceabilityDataOutput.class
 com\casting\domain\model\input\MaterialInspectionRecordInput.class
 com\project\domain\entity\G38QT.class
 com\casting\controller\MechanicalPropertiesReportDetailController.class
+com\project\domain\entity\MachineOverviewValue.class
 com\project\controller\G05LazerMarking\G05MarkedContentService.class
 com\application\RedisConfig.class
 com\casting\domain\model\output\CastingCPCGeneralPvFurnaceChamberCurveOutput.class

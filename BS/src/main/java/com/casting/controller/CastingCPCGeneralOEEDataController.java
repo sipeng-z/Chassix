@@ -30,7 +30,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping(value = "CPCGeneralOEEData")
+@RequestMapping(value = "CPCGeneralOEEDat a")
 public class CastingCPCGeneralOEEDataController extends GenericController<CastingCPCGeneralOEEDataInput,CastingCPCGeneralOEEDataOutput> {
 
 

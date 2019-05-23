@@ -4,12 +4,10 @@ import com.authorize.CurrentUserInfo;
 import com.authorize.oauth2.OAuth2Manager;
 import com.core.dao.imp.DaoImp;
 import com.core.service.AbstractService;
-//import com.leans.domain.model.input.LeanReviewersInput;
 import com.model.AppConsts;
 import com.response.ResponseResult;
 import com.system.domain.entity.SystemUsers;
 import com.utils.MapperName;
-import com.utils.ValidateUtils;
 import com.utils.WebUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -45,7 +43,7 @@ public abstract class GenericController<PI,PO> {
     }
 
     /**
-     * 将当前登陆的userid存入WorContext中
+     * 将当前登陆的userid存入WorkContext中
      */
     private void SetCurrentUserId() {
         try {
@@ -64,7 +62,7 @@ public abstract class GenericController<PI,PO> {
     }
 
     /**
-     * 根据userid查找到userinfo，并存入WorContext中
+     * 根据userid查找到userinfo，并存入WorkContext中
      */
     private void SetCurrentUserInfo() {
         try {
@@ -120,30 +118,6 @@ public abstract class GenericController<PI,PO> {
         result.setMessage(rtMge);
         return result;
     }
-
-//    public ResponseResult formPost(Integer id,PI pi) throws Exception {
-//        logger.info(this.WorkContext.getUserId()+": 进入frompost");
-//        ResponseResult result = new ResponseResult();
-//        String  rtMge = "";
-//        if(pi == null){
-//            return ResponseResult.error("参数错误");
-//        }
-//        boolean flag = false;
-//        if(id == null || id.equals("")){
-//            flag = getService().add(pi);
-//        }else {
-//            flag = getService().update(pi);
-//        }
-//        if(flag){
-//            rtMge = "操作成功";
-//            result.setSuccess(flag);
-//        }else {
-//            rtMge = "操作失败";
-//            result.setSuccess(flag);
-//        }
-//        result.setMessage(rtMge);
-//        return result;
-//    }
 
 
     /**
