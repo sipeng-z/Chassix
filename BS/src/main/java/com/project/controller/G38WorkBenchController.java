@@ -394,7 +394,7 @@ public class G38WorkBenchController  {
 
 
             if(sessionId!=null&&!sessionId.equals("")){
- 
+
                 List<G38Value> valueList = new ArrayList<>();
 
                 //prepare api domain  V21

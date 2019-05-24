@@ -59,21 +59,16 @@ public class MachineOverviewController extends GenericController<GeneralOEEDataI
      */
 
     @RequestMapping(value = "allDevicesOEE",method = RequestMethod.GET)
-    public ResponseResult getLineOee(String DateString,Integer shift) throws Exception{
+    public ResponseResult getLineOee(String DateString) throws Exception{
         ResponseResult result = new ResponseResult();
         List<MachineOverviewValue> outList = new ArrayList<>();
         String[] lines = AppConsts.monitoringLines;
 
         Integer[]  record= null;
-        if(shift==1){
-            record= AppConsts.shift1;
-        }
-        if(shift==2){
-            record= AppConsts.shift2;
-        }
-        if (shift==3){
-            record= AppConsts.shift3;
-        }
+        Integer[] shift1= new Integer[]{1,32};
+        Integer[] shift2= new Integer[]{33,64};
+        Integer[] shift3= new Integer[]{65,96};
+
 
         List<String> lineDeviceNames = new ArrayList<>();
         for(String lineName : lines){
@@ -98,17 +93,35 @@ public class MachineOverviewController extends GenericController<GeneralOEEDataI
 
             for(int j=0;j<3;j++){
 
-                Double a =  generalOEEDataService.getOeeA(DateString,record[j],record[j+1],"",lineDeviceName);
+                if (j==0){
+                    record = shift1;
+                }else if (j==1){
+                    record = shift2;
+                }else {
+                    record = shift3;
+                }
+                // loop for shift => record
+
+                Double a =  generalOEEDataService.getOeeA(DateString,record[0],record[1],"",lineDeviceName);
 
                 Double p = 0.0;   // calculation difference between cnc and assy machine;
 
+
+                Double q = 0.0;
+
                 if(lineDeviceName.contains("ASSY")){
-                    p  =generalOEEDataService.getOeePAssy(DateString,record[j],record[j+1],"",lineDeviceName);
+                    p  =generalOEEDataService.getOeePAssy(DateString,record[0],record[1],"",lineDeviceName);
                 }else {
-                    p  =generalOEEDataService.getOeeP(DateString,record[j],record[j+1],"",lineDeviceName);
+                    p  =generalOEEDataService.getOeeP(DateString,record[0],record[1],"",lineDeviceName);
                 }
 
-                Double q = generalOEEDataService.getOeeQ(DateString,record[j],record[j+1],"",lineDeviceName);   //quality according  to
+                if(lineDeviceName.contains("ASSY")){
+                    q = generalOEEDataService.getOeeQAssy(DateString,record[0],record[1],"",lineDeviceName);   //quality for ASSY machine
+
+                }else {
+                    q = generalOEEDataService.getOeeQ(DateString,record[0],record[1],"",lineDeviceName);   //quality according  to
+
+                }
 
                 Double oee = a*p*q*100;
 
