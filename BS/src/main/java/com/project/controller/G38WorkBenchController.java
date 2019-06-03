@@ -39,7 +39,8 @@ public class G38WorkBenchController  {
         try {
 
 
-            //orderAndSession -- orderId, sessionId
+            //orderAndSession -- orderId, sessionId   ;
+            //orderId = sessionId its pkId
             List<String>  orderAndSession = machDeviceWiseSessionService.getSessionIdAndUpdate(input); //get sessionId and logic inside is ready for updating
 
             String  orderId = orderAndSession.get(0);
@@ -132,8 +133,6 @@ public class G38WorkBenchController  {
                 }
                 valueList.add(V23);
 
-
-
                 //prepare api domain Assy
                 forapi Assyobj = new forapi();
                 params Assyparameter = new params();
@@ -196,13 +195,12 @@ public class G38WorkBenchController  {
 
         ResponseResult result = new ResponseResult();
         try {
-
-            //orderAndSession -- orderId, sessionId
+            //orderAndSession -- orderId, sessionId   ;
+            //orderId = sessionId its pkId
             List<String>  orderAndSession = machDeviceWiseSessionService.getSessionIdAndUpdate(input); //get sessionId and logic inside is ready for updating
 
             String  orderId = orderAndSession.get(0);
             sessionId = orderAndSession.get(1);
-
 
             if(sessionId!=null&&!sessionId.equals("")){
 
@@ -380,13 +378,14 @@ public class G38WorkBenchController  {
 
 
 
+
     @RequestMapping(value = "G38DeviceDataAirDetection",method = RequestMethod.POST)
     public ResponseResult getG38DeviceDataAirDetection(String sessionId,@RequestBody auth input){
 
         ResponseResult result = new ResponseResult();
         try {
-
-            //orderAndSession -- orderId, sessionId
+            //orderAndSession -- orderId, sessionId   ;
+            //orderId = sessionId its pkId
             List<String>  orderAndSession = machDeviceWiseSessionService.getSessionIdAndUpdate(input); //get sessionId and logic inside is ready for updating
 
             String  orderId = orderAndSession.get(0);
@@ -469,9 +468,6 @@ public class G38WorkBenchController  {
                 valueList.add(V23AirDetection);
 
 
-
-
-
                 //update the last activity refresh
                 Date realTimeAfterRequest = new Date();
                 DeviceWiseSession deviceWiseSession = new DeviceWiseSession();
@@ -479,8 +475,6 @@ public class G38WorkBenchController  {
                 deviceWiseSession.setSessionid(sessionId);
                 deviceWiseSession.setLastActivityTime(realTimeAfterRequest);
                 Boolean updateFlag = machDeviceWiseSessionService.update(deviceWiseSession); //call service.super.update
-
-
 
                 result.setSuccess(true);
                 result.setMessage(sessionId);

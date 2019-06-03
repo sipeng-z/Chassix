@@ -5,9 +5,11 @@ import com.casting.domain.model.output.MechanicalPropertiesLocationRequirementOu
 import com.core.service.AbstractService;
 import com.domain.model.PageData;
 import com.utils.MapperName;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class MechanicalPropertiesLocationRequirementService extends AbstractService <MechanicalPropertiesLocationRequirementInput,MechanicalPropertiesLocationRequirementOutput> {
 
 
@@ -68,7 +70,8 @@ public class MechanicalPropertiesLocationRequirementService extends AbstractServ
         StringBuilder sb = new StringBuilder();
 
         if (pageData.containsKey("PartName")) {
-            sb.append(" AND  Part_Name  = "  + pageData.getMap().get("PartName"));
+            sb.append(" AND  Part_Name  like " +"'%" + pageData.getMap().get("PartName")+"%'");
+
         }
 
         sb.append(new PageData().where(pageData));
@@ -83,18 +86,33 @@ public class MechanicalPropertiesLocationRequirementService extends AbstractServ
 
 
     /**
-     *  get by detailId
+     *  get by requirement_Id
      * @param
      * @return
      * @throws Exception
      */
     @Override
-    public MechanicalPropertiesLocationRequirementOutput get(String detailId) throws Exception {
+    public MechanicalPropertiesLocationRequirementOutput get(String requirementId) throws Exception {
 
         PageData pageData = new PageData();
-        pageData.put("requirementId",detailId);
+        pageData.put("requirementId",requirementId);
         return (MechanicalPropertiesLocationRequirementOutput) daoImp.findForObject(mapperName+"findByPkId",pageData);
     }
+
+
+    /**
+     *  get by part name
+     * @param
+     * @return
+     * @throws Exception
+     */
+    public MechanicalPropertiesLocationRequirementOutput getByName(String partName) throws Exception {
+
+        PageData pageData = new PageData();
+        pageData.put("partName",partName);
+        return (MechanicalPropertiesLocationRequirementOutput) daoImp.findForObject(mapperName+"findByName",pageData);
+    }
+
 
 
 

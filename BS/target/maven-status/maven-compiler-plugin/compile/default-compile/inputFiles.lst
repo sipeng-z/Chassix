@@ -283,6 +283,7 @@ C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\project\domain\mod
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\system\controller\SystemDataLogsController.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\system\service\AttachmentService.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\project\domain\model\input\G38V21ShiftInput.java
+C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\project\service\MachineOverviewService.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\casting\domain\entity\CastingCPCGeneralShift.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\casting\domain\model\output\CastingCPCB7OEEDataTemporaryOutput.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\system\domain\entity\Actions.java

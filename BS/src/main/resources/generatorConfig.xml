@@ -5,7 +5,7 @@
 
 <generatorConfiguration>
     <!--  驱动jar包路径.用了绝对路径 -->
-    <classPathEntry location="/Users/yangyuhuan/Desktop/sqljdbc_6.0/chs/jre8/sqljdbc42.jar" />
+    <classPathEntry location="C:\Users\yyhuan\Desktop\sqljdbc_2.0\chs\sqljdbc4.jar" />
 
     <context id="wangyongzhi_mysql_tables" targetRuntime="MyBatis3">
         <!-- 防止生成的代码中有很多注释，加入下面的配置控制 -->
@@ -16,7 +16,7 @@
 
         <!-- 数据库连接 -->
         <jdbcConnection
-                connectionURL="jdbc:sqlserver://10.41.32.2:1433;DatabaseName=SZ_001"
+                connectionURL="jdbc:sqlserver://10.21.32.2:1433;DatabaseName=SZ_001"
                 driverClass="com.microsoft.sqlserver.jdbc.SQLServerDriver" password="SZuser" userId="SZ_user" />
 
         <javaTypeResolver >
@@ -40,7 +40,7 @@
         <!--</javaClientGenerator>-->
 
         <!-- 数据表进行生成操作 schema:相当于库名; tableName:表名; domainObjectName:对应的DO -->
-        <table schema="dbo" tableName="Device_Wise_Session" domainObjectName="DeviceWiseSession"
+        <table schema="dbo" tableName="Mechanical_Properties_Location_Requirement" domainObjectName="MechanicalPropertiesLocationRequirement"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">

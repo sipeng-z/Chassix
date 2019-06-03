@@ -328,6 +328,7 @@ com\system\domain\model\input\ActionsInput.class
 com\project\domain\entity\GeneralImpressive.class
 com\project\controller\timing\InputDownTimeTiming.class
 com\project\controller\timing\ProductionTemporaryTiming.class
+com\project\service\MachineOverviewService.class
 com\upload\domain\model\FunOutput.class
 com\system\service\ActionsService.class
 com\core\service\AbstractService.class

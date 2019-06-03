@@ -67,7 +67,7 @@ public class MechanicalPropertiesReportDetailController extends GenericControlle
             }
             Boolean flag = true;
 
-            List<MechanicalPropertiesReportDetailInput> contents = input.getContents();
+            List<MechanicalPropertiesReportDetailInput> contents = input.getContents();     //front-end obj json array
 
             for(MechanicalPropertiesReportDetailInput detail : contents){
                 if(detail.getBatchNumber()==null||detail.getBatchNumber().equals("")){

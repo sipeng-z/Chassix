@@ -43,6 +43,12 @@ public class MechanicalPropertiesReportDetail {
 
     private String remark;
 
+    private String yse;
+
+    private String utse;
+
+    private String elongatione;
+
     public String getDetailId() {
         return detailId;
     }
@@ -201,5 +207,29 @@ public class MechanicalPropertiesReportDetail {
 
     public void setRemark(String remark) {
         this.remark = remark == null ? null : remark.trim();
+    }
+
+    public String getYse() {
+        return yse;
+    }
+
+    public void setYse(String yse) {
+        this.yse = yse == null ? null : yse.trim();
+    }
+
+    public String getUtse() {
+        return utse;
+    }
+
+    public void setUtse(String utse) {
+        this.utse = utse == null ? null : utse.trim();
+    }
+
+    public String getElongatione() {
+        return elongatione;
+    }
+
+    public void setElongatione(String elongatione) {
+        this.elongatione = elongatione == null ? null : elongatione.trim();
     }
 }

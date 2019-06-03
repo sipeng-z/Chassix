@@ -133,10 +133,10 @@ public class ConversionToolService {
         String endTime = "";
 
         String startBase = Integer.valueOf(startRecord/4).toString();
-        String startAdd = String.valueOf(Integer.valueOf(startRecord%8)*15);
+        String startAdd = String.valueOf(Integer.valueOf(startRecord%4)*15);
 
         String endBase = Integer.valueOf(endRecord/4).toString();
-        String endAdd = String.valueOf(Integer.valueOf(endRecord%8)*15);
+        String endAdd = String.valueOf(Integer.valueOf(endRecord%4)*15);
 
 
         if(startBase.length()<2){
@@ -160,6 +160,14 @@ public class ConversionToolService {
 
         return list;
     }
+
+
+
+
+
+
+
+
 
 
     /**
