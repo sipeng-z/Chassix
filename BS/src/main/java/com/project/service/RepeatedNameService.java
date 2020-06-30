@@ -79,11 +79,6 @@ public class RepeatedNameService {
         }
 
 
-
-
-
-
-
         System.out.println("Process finished;");
 
     }

@@ -1,14 +1,15 @@
-package com.project.service;
+package com.casting.service;
 
+import com.casting.domain.entity.CastingCPCGeneralPQData;
+import com.casting.domain.model.input.CastingCPCGeneralPQDataInput;
+import com.casting.domain.model.output.CastingCPCGeneralPQDataOutput;
 import com.core.service.AbstractService;
 import com.domain.model.PageData;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.model.AppConsts;
-import com.project.domain.entity.GeneralPQData;
 import com.project.domain.entity.GeneralTraceabilityData;
-import com.project.domain.model.input.GeneralPQDataInput;
-import com.project.domain.model.output.GeneralPQDataOutput;
+import com.project.service.ConversionToolService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,12 +17,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class GeneralPQDataService extends AbstractService<GeneralPQDataInput,GeneralPQDataOutput> {
+public class CastingCPCGeneralPQDataService extends AbstractService<CastingCPCGeneralPQDataInput,CastingCPCGeneralPQDataOutput> {
 
 
 
 
-    private String mapperName = AppConsts.GeneralPQDataName;
+    private String mapperName = AppConsts.CastingCPCGeneralPQDataName;
 
     @Autowired
     private ConversionToolService conversionToolService;
@@ -40,14 +41,13 @@ public class GeneralPQDataService extends AbstractService<GeneralPQDataInput,Gen
      * get data
      * @param isPager
      * @param pageData
-     * @param line
      * @param device
      * @return
      * @throws Exception
      */
-    public List<GeneralPQDataOutput> generallist(boolean isPager, PageData pageData, String line, String device) throws Exception {
+    public List<CastingCPCGeneralPQDataOutput> generallist(boolean isPager, PageData pageData, String device) throws Exception {
 
-        this.setMapperName(AppConsts.GeneralPQDataName.replace("General",line+device));
+        this.setMapperName(AppConsts.CastingCPCGeneralPQDataName.replace("General",device));
 
         StringBuilder sb = new StringBuilder();
 
@@ -70,12 +70,9 @@ public class GeneralPQDataService extends AbstractService<GeneralPQDataInput,Gen
         }
         PageData sqlModel = new PageData();
         sqlModel.put("retrieveSql", sb.toString());
-        return (List<GeneralPQDataOutput> )daoImp.findForListSql(mapperName+"generallist",sqlModel);
+        return (List<CastingCPCGeneralPQDataOutput> )daoImp.findForListSql(mapperName+"generallist",sqlModel);
 
     }
-
-
-
 
     /**
      * get data
@@ -86,9 +83,9 @@ public class GeneralPQDataService extends AbstractService<GeneralPQDataInput,Gen
      * @return
      * @throws Exception
      */
-    public List<GeneralPQData> listForCycle(boolean isPager, PageData pageData, String line, String device) throws Exception {
+    public List<CastingCPCGeneralPQData> listForCycle(boolean isPager, PageData pageData, String line, String device) throws Exception {
 
-        this.setMapperName(AppConsts.GeneralPQDataName.replace("General",line+device));
+        this.setMapperName(AppConsts.CastingCPCGeneralPQDataName.replace("General",line+device));
 
         StringBuilder sb = new StringBuilder();
 
@@ -111,12 +108,12 @@ public class GeneralPQDataService extends AbstractService<GeneralPQDataInput,Gen
             PageHelper.startPage(page, pagesize);
             PageData sqlModel = new PageData();
             sqlModel.put("retrieveSql",sb.toString());
-            Page<GeneralPQData> dataList = (Page<GeneralPQData>) daoImp.findForListSql(mapperName,sqlModel);
+            Page<CastingCPCGeneralPQData> dataList = (Page<CastingCPCGeneralPQData>) daoImp.findForListSql(mapperName,sqlModel);
             return dataList;
         }
         PageData sqlModel = new PageData();
         sqlModel.put("retrieveSql", sb.toString());
-        return (List<GeneralPQData> )daoImp.findForListSql(mapperName+"listForCycle",sqlModel);
+        return (List<CastingCPCGeneralPQData> )daoImp.findForListSql(mapperName+"listForCycle",sqlModel);
 
     }
 
@@ -132,17 +129,14 @@ public class GeneralPQDataService extends AbstractService<GeneralPQDataInput,Gen
     public List<GeneralTraceabilityData> listForCycle1(boolean isPager, PageData pageData, String line, String device) throws Exception {
 
         this.setMapperName(AppConsts.GeneralTraceabilityDataName.replace("General",line+device));
-
         StringBuilder sb = new StringBuilder();
 
         if(pageData.containsKey("inList")){
             sb.append("AND RecordNO in ("+pageData.getMap().get("inList")+")");
         }
-
         if (pageData.containsKey("DateString")) {
             sb.append(" AND Date_String = " + "'" + pageData.getMap().get("DateString") + "'");
         }
-
         if (pageData.containsKey("RecordNO")) {
             sb.append(" AND RecordNO = " + "'" + pageData.getMap().get("RecordNO") + "'");
         }
@@ -178,7 +172,7 @@ public class GeneralPQDataService extends AbstractService<GeneralPQDataInput,Gen
 
         PageData pageData = new PageData();
         pageData.put("DateString",dateString);
-        List<GeneralPQData> listForCycle = (List<GeneralPQData>) this.listForCycle(false,pageData,line,device);
+        List<CastingCPCGeneralPQData> listForCycle = (List<CastingCPCGeneralPQData>) this.listForCycle(false,pageData,line,device);
 
         List<Integer> resultList = new ArrayList<>();
         for(int i =0;i<6;i++){
@@ -189,29 +183,6 @@ public class GeneralPQDataService extends AbstractService<GeneralPQDataInput,Gen
         return resultList;
     }
 
-    /**
-     * according to pq record , get cycle time and calculate the average and based on average values
-     * latest 7 cycle time
-     * @param dateString
-     * @param line
-     * @param device
-     * @return
-     * @throws Exception
-     */
-    public List<Integer> cycleTimeAverageASSY(String dateString ,String line,String device) throws Exception{
-
-        PageData pageData = new PageData();
-        pageData.put("DateString",dateString);
-        List<GeneralTraceabilityData> listForCycle = (List<GeneralTraceabilityData>) this.listForCycle1(false,pageData,line,device);
-
-        List<Integer> resultList = new ArrayList<>();
-        for(int i =0;i<6;i++){
-            Integer cycleTime = conversionToolService.DateMinus(listForCycle.get(i+1).getVmTime(),listForCycle.get(i).getVmTime());
-            resultList.add(cycleTime);
-        }
-
-        return resultList;
-    }
 
 
 

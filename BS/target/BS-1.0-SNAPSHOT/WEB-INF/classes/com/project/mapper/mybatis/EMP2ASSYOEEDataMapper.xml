@@ -17,6 +17,24 @@
     <result column="Description" jdbcType="VARCHAR" property="description" />
     <result column="mark" jdbcType="INTEGER" property="mark" />
   </resultMap>
+
+  <resultMap id="GeneralMap" type="com.project.domain.entity.GeneralOEEData">
+    <id column="ItemNO" jdbcType="INTEGER" property="itemno" />
+    <result column="Date_String" jdbcType="CHAR" property="dateString" />
+    <result column="RecordNO" jdbcType="INTEGER" property="recordno" />
+    <result column="RunningTime" jdbcType="INTEGER" property="runningtime" />
+    <result column="Planned_Run_Time" jdbcType="INTEGER" property="plannedRunTime" />
+    <result column="Lunch_time" jdbcType="INTEGER" property="lunchTime" />
+    <result column="Break_Time" jdbcType="INTEGER" property="breakTime" />
+    <result column="Preventive_Maintenance" jdbcType="INTEGER" property="preventionMaintenance" />
+    <result column="Setup_Preparation" jdbcType="INTEGER" property="setupPreparation" />
+    <result column="Change_Overs" jdbcType="INTEGER" property="changeOvers" />
+    <result column="Unplanned_Downtime" jdbcType="INTEGER" property="unplannedDowntime" />
+    <result column="VM_Time_INS" jdbcType="TIMESTAMP" property="vmTimeIns" />
+    <result column="Description" jdbcType="VARCHAR" property="description" />
+    <result column="mark" jdbcType="INTEGER" property="mark" />
+  </resultMap>
+  
   <sql id="Base_Column_List">
     ItemNO, Date_String, RecordNO, RunningTime, Planned_Run_Time, Lunch_time, Break_Time, 
     Prevention_Maintenance, Setup_Preparation, Change_Overs, Unplanned_Downtime, VM_Time_INS, 
@@ -197,4 +215,94 @@
       mark = #{mark,jdbcType=INTEGER}
     where ItemNO = #{itemno,jdbcType=INTEGER}
   </update>
+
+  <!-- tableName -->
+  <sql id="tableName">
+    dbo.EMP2_ASSY_OEE_Data
+  </sql>
+  <!-- tableNameOut -->
+  <sql id="tableNameOut">
+    <bind name="tableName" value="'EMP2_ASSY_OEE_Data'"/>
+  </sql>
+  <!-- pkId -->
+  <sql id="pkId">
+    <bind name="pkName" value="'ItemNO'"/>
+  </sql>
+
+  <!--list-->
+  <select id="list" resultMap="GeneralMap" parameterType="com.domain.model.PageData">
+    SELECT
+    <include refid="Base_Column_List"></include>
+    FROM
+    <include refid="tableName"></include>
+    WHERE 1 = 1
+    <include refid="PmBasicMapper.retrieveSql"></include>
+    order by Date_String DESC, RecordNO
+  </select>
+
+
+
+  <!--list-->
+  <select id="generallist" resultMap="GeneralMap" parameterType="com.domain.model.PageData">
+    SELECT
+    <include refid="Base_Column_List"></include>
+    FROM
+    <include refid="tableName"></include>
+    WHERE 1 = 1
+    <include refid="PmBasicMapper.retrieveSql"></include>
+    order by Date_String DESC
+  </select>
+
+
+
+
+
+  <!--get one by id-->
+  <select id="findByPkId" parameterType="java.lang.String" resultMap="GeneralMap">
+    select
+    <include refid="Base_Column_List" />
+    from <include refid="tableName"></include>
+    where ItemNO = #{ItemNO,jdbcType=INTEGER}
+  </select>
+
+
+
+  <!-- updateByItemno mark  plannedRunTime -->
+
+  <update id="updateByItemno" parameterType="com.domain.model.PageData">
+    update dbo.EMP2_ASSY_OEE_Data
+    <set>
+      <if test="plannedRunTime != null">
+        Planned_Run_Time = #{plannedRunTime,jdbcType=INTEGER},
+      </if>
+      <if test="lunchTime != null">
+        Lunch_time = #{lunchTime,jdbcType=INTEGER},
+      </if>
+      <if test="breakTime != null">
+        Break_Time = #{breakTime,jdbcType=INTEGER},
+      </if>
+      <if test="preventiveMaintenance != null">
+        Preventive_Maintenance = #{preventiveMaintenance,jdbcType=INTEGER},
+      </if>
+      <if test="setupPreparation != null">
+        Setup_Preparation = #{setupPreparation,jdbcType=INTEGER},
+      </if>
+      <if test="changeOvers != null">
+        Change_Overs = #{changeOvers,jdbcType=INTEGER},
+      </if>
+      <if test="unplannedDowntime != null">
+        Unplanned_Downtime = #{unplannedDowntime,jdbcType=INTEGER},
+      </if>
+      <if test="mark != null">
+        mark = #{mark,jdbcType=INTEGER},
+      </if>
+      <if test="description != null">
+        Description = #{description,jdbcType=VARCHAR},
+      </if>
+
+    </set>
+    where ItemNO = #{itemno,jdbcType=INTEGER}
+  </update>
+
+
 </mapper>

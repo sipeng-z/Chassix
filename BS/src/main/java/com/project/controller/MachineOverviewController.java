@@ -32,14 +32,23 @@ public class MachineOverviewController extends GenericController<GeneralOEEDataI
 
     private final Logger logger = LoggerFactory.getLogger(MachineOverviewController.class);
 
-
     @Autowired
     private GeneralOEEDataService generalOEEDataService;
 
+    @Autowired
+    private EMP2ASSYOEEDataService emp2ASSYOEEDataService;
+
+    @Autowired
+    private EMP2ASSYPQDataService emp2ASSYPQDataService;
+
+    @Autowired
+    private GeneralPQDataService generalPQDataService;
 
     @Autowired
     private LineDeviceService lineDeviceService;
 
+    @Autowired
+    private ConversionToolService conversionToolService;
 
     @Autowired
     private MachineOverviewService machineOverviewService;
@@ -47,17 +56,14 @@ public class MachineOverviewController extends GenericController<GeneralOEEDataI
     @Autowired
     private MachDeviceWiseSessionService machDeviceWiseSessionService;
 
-
     @Override
     protected void OnActionExecuting() {
         generalOEEDataService.SetWorkContext(this.WorkContext);
     }
 
-
     protected AbstractService<GeneralOEEDataInput,GeneralOEEDataOutput> getService() {
         return generalOEEDataService;
     }
-
 
     /**
      * get all devices oee by dateString and shift number
@@ -81,75 +87,290 @@ public class MachineOverviewController extends GenericController<GeneralOEEDataI
 
 
         List<String> lineDeviceNames = new ArrayList<>();
+        List<LineDeviceOutput> lineDevices = new ArrayList<>();
         for(String lineName : lines){
 
             PageData pageData4line = new PageData();
             pageData4line.put("lineName",lineName);
-            List<LineDeviceOutput> lineDevices = lineDeviceService.list(false,pageData4line);  //get device name from line name
-
-            for(LineDevice lineDevice : lineDevices){
-                lineDeviceNames.add(lineName+lineDevice.getName());   //push all device names into the String List
+            lineDevices = lineDeviceService.list(false,pageData4line);//get device name from line name
+            if (lineDevices.size() == 0){
+                lineDeviceNames.add(lineName);
             }
+            for(LineDevice lineDevice : lineDevices){
+                lineDeviceNames.add(lineName+" "+lineDevice.getName());   //push all device names into the String List
+            }
+
         }
+
 
         //loop for  Oee data of each device from the list
         // device1  shift1 shift2 shift3
         //device2 shift1 shift2 shift3
         //...
-        for(String lineDeviceName : lineDeviceNames ){
+        for(String lineDeviceName1 : lineDeviceNames ){
+            String lineDeviceName = lineDeviceName1.replaceAll(" ", "");
             MachineOverviewValue machineOverviewValue = new MachineOverviewValue();
-            for(int j=0;j<3;j++){
+            if (lineDeviceName.contains("G38")) {
+                for (int j = 0; j < 3; j++) {
+                    if (j == 0) {
+                        record = shift1;
+                    } else if (j == 1) {
+                        record = shift2;
+                    } else {
+                        record = shift3;
+                    }
+                    int qt;
+                    if (lineDeviceName.contains("ASSY")) {
+                        qt = generalOEEDataService.getTargetQuantityAssy(DateString, record[0], record[1], "", lineDeviceName).getQuantity().intValue();
+                    } else {
+                        qt = generalOEEDataService.getQuantitySum(DateString,record[0],record[1],"", lineDeviceName);
+                    }
+                    // loop for shift => record
 
-                if (j==0){
-                    record = shift1;
-                }else if (j==1){
-                    record = shift2;
-                }else {
-                    record = shift3;
+                    Double a = generalOEEDataService.getOeeA(DateString, record[0], record[1], "", lineDeviceName);
+
+                    Double p = 0.0;   // calculation difference between cnc and assy machine;
+
+
+                    Double q = 0.0;
+
+                    if (lineDeviceName.contains("ASSY")) {
+                        p = generalOEEDataService.getOeePAssy(DateString, record[0], record[1], "", lineDeviceName);
+                    } else {
+                        p = generalOEEDataService.getOeeP(DateString, record[0], record[1], "", lineDeviceName);
+                    }
+
+                    if (lineDeviceName.contains("ASSY")) {
+                        q = generalOEEDataService.getOeeQAssy(DateString, record[0], record[1], "", lineDeviceName);   //quality for ASSY machine
+
+                    } else {
+                        q = generalOEEDataService.getOeeQ(DateString, record[0], record[1], "", lineDeviceName);   //quality according  to
+
+                    }
+
+                    Double oee = new BigDecimal((Double) a * p * q * 100).setScale(1, BigDecimal.ROUND_HALF_UP).doubleValue();
+
+                    if (oee > 100.0) {
+                        oee = 100.0;   //max value avoid sync delay
+                    }
+
+                    machineOverviewValue.setName(lineDeviceName1);
+                    if (j == 0) {
+                        machineOverviewValue.setShift1OEE(oee.toString());
+                        machineOverviewValue.setShift1QT(qt);
+                    }
+                    if (j == 1) {
+                        machineOverviewValue.setShift2OEE(oee.toString());
+                        machineOverviewValue.setShift2QT(qt);
+
+                    }
+                    if (j == 2) {
+                        machineOverviewValue.setShift3OEE(oee.toString());
+                        machineOverviewValue.setShift3QT(qt);
+
+                    }
                 }
-                // loop for shift => record
-
-                Double a =  generalOEEDataService.getOeeA(DateString,record[0],record[1],"",lineDeviceName);
-
-                Double p = 0.0;   // calculation difference between cnc and assy machine;
-
-
-                Double q = 0.0;
-
-                if(lineDeviceName.contains("ASSY")){
-                    p  =generalOEEDataService.getOeePAssy(DateString,record[0],record[1],"",lineDeviceName);
-                }else {
-                    p  =generalOEEDataService.getOeeP(DateString,record[0],record[1],"",lineDeviceName);
-                }
-
-                if(lineDeviceName.contains("ASSY")){
-                    q = generalOEEDataService.getOeeQAssy(DateString,record[0],record[1],"",lineDeviceName);   //quality for ASSY machine
-
-                }else {
-                    q = generalOEEDataService.getOeeQ(DateString,record[0],record[1],"",lineDeviceName);   //quality according  to
-
-                }
-
-                Double oee =new BigDecimal((Double)  a*p*q*100).setScale(1, BigDecimal.ROUND_HALF_UP).doubleValue();
-
-                if(oee>100.0){
-                    oee = 100.0;   //max value avoid sync delay
-                }
-
-                machineOverviewValue.setName(lineDeviceName);
-                if(j==0){
-                    machineOverviewValue.setShift1OEE(oee.toString());
-
-                }
-                if(j==1){
-                    machineOverviewValue.setShift2OEE(oee.toString());
-
-                }
-                if(j==2){
-                    machineOverviewValue.setShift3OEE(oee.toString());
+                if (lineDeviceName.contains("ASSY")){
+                    List<Integer> cycleTimeList = generalPQDataService.cycleTimeAverageASSY(DateString,"",lineDeviceName);
+                    Integer AverageSum = 0; //sum of latest 6 value;
+                    for (int i = 0; i < 6; i++) {
+                        AverageSum += cycleTimeList.get(i);  //for the normal latest 6 cycle time sum , divided by  / 6
+                    }
+                    Integer resultAverage = AverageSum / 6;
+                    if (resultAverage!=null){
+                        machineOverviewValue.setCycleTime(resultAverage.toString());
+                    }
+                    else{
+                        machineOverviewValue.setCycleTime("0");
+                    }
+                }else{
+                    List<Integer> cycleTime =generalPQDataService.cycleTimeAverage(DateString,"",lineDeviceName);
+                    Integer AverageSum = 0; //sum of latest 6 value;
+                    for (int i = 0; i < 6; i++) {
+                        AverageSum += cycleTime.get(i);  //for the normal latest 6 cycle time sum , divided by  / 6
+                    }
+                    Integer resultAverage = AverageSum / 6;
+                    if (resultAverage!=null){
+                        machineOverviewValue.setCycleTime(resultAverage.toString());
+                    }
+                    else{
+                        machineOverviewValue.setCycleTime("0");
+                    }
+                    /*List<Integer> cycleTimeList = generalPQDataService.cycleTimeAverage(DateString, "", lineDeviceName);
+                    Integer AverageSum = 0; //sum of latest 6 value;
+                    for (int i = 0; i < 6; i++) {
+                        AverageSum += cycleTimeList.get(i);  //for the normal latest 6 cycle time sum , divided by  / 6
+                    }
+                    Integer resultAverage = AverageSum / 6;
+                    machineOverviewValue.setCycleTime(resultAverage.toString());*/
 
                 }
 
+            }/* else if (lineDeviceName.contains("EMP2ASSY")){
+                for (int j = 0; j < 3; j++) {
+                    if (j == 0) {
+                        record = shift1;
+                    } else if (j == 1) {
+                        record = shift2;
+                    } else {
+                        record = shift3;
+                    }
+                    int qt = 0;
+                    if (lineDeviceName.contains("ASSY")) {
+                        qt = emp2ASSYOEEDataService.getTargetQuantityAssy(DateString, record[0], record[1], "", lineDeviceName).getQuantity().intValue();
+                    }
+                    // loop for shift => record
+                    Double a = emp2ASSYOEEDataService.getOeeA(DateString, record[0], record[1], "", lineDeviceName);
+                    Double p = 0.0;   // calculation difference between cnc and assy machine;
+                    Double q = 0.0;
+
+                    if (lineDeviceName.contains("ASSY")) {
+                        p = emp2ASSYOEEDataService.getOeePAssy(DateString, record[0], record[1], "", lineDeviceName);
+                    }
+                    if (lineDeviceName.contains("ASSY")) {
+                        q = emp2ASSYOEEDataService.getOeeQAssy(DateString, record[0], record[1], "", lineDeviceName);   //quality for ASSY machine
+                    }
+                    Double oee = new BigDecimal((Double) a * p * q * 100).setScale(1, BigDecimal.ROUND_HALF_UP).doubleValue();
+                    if (oee > 100.0) {
+                        oee = 100.0;   //max value avoid sync delay
+                    }
+                    machineOverviewValue.setName(lineDeviceName1);
+                    if (j == 0) {
+                        machineOverviewValue.setShift1OEE(oee.toString());
+                        machineOverviewValue.setShift1QT(qt);
+                    }
+                    if (j == 1) {
+                        machineOverviewValue.setShift2OEE(oee.toString());
+                        machineOverviewValue.setShift2QT(qt);
+
+                    }
+                    if (j == 2) {
+                        machineOverviewValue.setShift3OEE(oee.toString());
+                        machineOverviewValue.setShift3QT(qt);
+
+                    }
+                }
+                if (lineDeviceName.contains("ASSY")){
+                    List<Integer> cycleTimeList = emp2ASSYPQDataService.cycleTimeAverageASSY(DateString,"",lineDeviceName);
+                    Integer AverageSum = 0; //sum of latest 6 value;
+                    for (int i = 0; i < 6; i++) {
+                        AverageSum += cycleTimeList.get(i);  //for the normal latest 6 cycle time sum , divided by  / 6
+                    }
+                    Integer resultAverage = AverageSum / 6;
+                    machineOverviewValue.setCycleTime(resultAverage.toString());
+
+                }else{
+                    machineOverviewValue.setCycleTime("0");
+                }
+            }*/
+            else{
+                machineOverviewValue.setName(lineDeviceName1);
+            }
+            outList.add(machineOverviewValue); // push data into the list
+        }
+        System.out.println(outList);
+
+        result.setData(outList);
+        result.setCode(200);
+        result.setSuccess(true);
+        result.setMessage("devices oee data ");
+        return result;
+    }
+    @RequestMapping(value = "allDevicesOEE1",method = RequestMethod.GET)
+    public ResponseResult getAllDeviceOee1(String DateString) throws Exception{
+        ResponseResult result = new ResponseResult();
+        List<MachineOverviewValue> outList = new ArrayList<>();
+        String[] lines = AppConsts.monitoringLines1;
+
+        Integer[]  record= null;
+        Integer[] shift1= new Integer[]{1,32};
+        Integer[] shift2= new Integer[]{33,64};
+        Integer[] shift3= new Integer[]{65,96};
+
+
+        List<String> lineDeviceNames = new ArrayList<>();
+        List<LineDeviceOutput> lineDevices = new ArrayList<>();
+        for(String lineName : lines){
+
+            PageData pageData4line = new PageData();
+            pageData4line.put("lineName",lineName);
+            lineDevices = lineDeviceService.list(false,pageData4line);//get device name from line name
+            if (lineDevices.size() == 0){
+                lineDeviceNames.add(lineName);
+            }
+            for(LineDevice lineDevice : lineDevices){
+                lineDeviceNames.add(lineName+" "+lineDevice.getName());   //push all device names into the String List
+            }
+        }
+
+
+        //loop for  Oee data of each device from the list
+        // device1  shift1 shift2 shift3
+        //device2 shift1 shift2 shift3
+        //...
+        for(String lineDeviceName1 : lineDeviceNames ){
+            String lineDeviceName = lineDeviceName1.replaceAll(" ", "");
+            MachineOverviewValue machineOverviewValue = new MachineOverviewValue();
+            if (lineDeviceName.contains("G38")) {
+                for (int j = 0; j < 3; j++) {
+                    if (j == 0) {
+                        record = shift1;
+                    } else if (j == 1) {
+                        record = shift2;
+                    } else {
+                        record = shift3;
+                    }
+                    // loop for shift => record
+                    int qt;
+                    if (lineDeviceName.contains("ASSY")) {
+                        qt = generalOEEDataService.getTargetQuantityAssy(DateString, record[0], record[1], "", lineDeviceName).getQuantity().intValue();
+                    } else {
+                        qt = generalOEEDataService.getQuantitySum(DateString,record[0],record[1],"", lineDeviceName);
+                    }
+
+                    Double a = generalOEEDataService.getOeeA(DateString, record[0], record[1], "", lineDeviceName);
+
+                    Double p = 0.0;   // calculation difference between cnc and assy machine;
+
+
+                    Double q = 0.0;
+
+                    if (lineDeviceName.contains("ASSY")) {
+                        p = generalOEEDataService.getOeePAssy(DateString, record[0], record[1], "", lineDeviceName);
+                    } else {
+                        p = generalOEEDataService.getOeeP(DateString, record[0], record[1], "", lineDeviceName);
+                    }
+
+                    if (lineDeviceName.contains("ASSY")) {
+                        q = generalOEEDataService.getOeeQAssy(DateString, record[0], record[1], "", lineDeviceName);   //quality for ASSY machine
+
+                    } else {
+                        q = generalOEEDataService.getOeeQ(DateString, record[0], record[1], "", lineDeviceName);   //quality according  to
+
+                    }
+
+                    Double oee = new BigDecimal((Double) a * p * q * 100).setScale(1, BigDecimal.ROUND_HALF_UP).doubleValue();
+
+                    if (oee > 100.0) {
+                        oee = 100.0;   //max value avoid sync delay
+                    }
+
+                    machineOverviewValue.setName(lineDeviceName1);
+                    if (j == 0) {
+                        machineOverviewValue.setShift1OEE(oee.toString());
+                        machineOverviewValue.setShift1QT(qt);
+                    }
+                    if (j == 1) {
+                        machineOverviewValue.setShift2OEE(oee.toString());
+                        machineOverviewValue.setShift2QT(qt);
+                    }
+                    if (j == 2) {
+                        machineOverviewValue.setShift3OEE(oee.toString());
+                        machineOverviewValue.setShift3QT(qt);
+                    }
+                }
+            }else{
+                machineOverviewValue.setName(lineDeviceName1);
             }
             outList.add(machineOverviewValue); // push data into the list
         }
@@ -160,7 +381,6 @@ public class MachineOverviewController extends GenericController<GeneralOEEDataI
         result.setMessage("devices oee data ");
         return result;
     }
-
 
     /**
      * get all devices air detection by real time
@@ -219,7 +439,6 @@ public class MachineOverviewController extends GenericController<GeneralOEEDataI
 
     }
 
-
     /**
      * get all devices running status by real time
      * @param input
@@ -277,11 +496,4 @@ public class MachineOverviewController extends GenericController<GeneralOEEDataI
         }
 
     }
-
-
-
-
 }
-
-
-

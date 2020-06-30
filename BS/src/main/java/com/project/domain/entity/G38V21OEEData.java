@@ -17,7 +17,7 @@ public class G38V21OEEData {
 
     private Integer breakTime;
 
-    private Integer preventionMaintenance;
+    private Integer preventiveMaintenance;
 
     private Integer setupPreparation;
 
@@ -87,12 +87,12 @@ public class G38V21OEEData {
         this.breakTime = breakTime;
     }
 
-    public Integer getPreventionMaintenance() {
-        return preventionMaintenance;
+    public Integer getPreventiveMaintenance() {
+        return preventiveMaintenance;
     }
 
-    public void setPreventionMaintenance(Integer preventionMaintenance) {
-        this.preventionMaintenance = preventionMaintenance;
+    public void setPreventiveMaintenance(Integer preventiveMaintenance) {
+        this.preventiveMaintenance = preventiveMaintenance;
     }
 
     public Integer getSetupPreparation() {

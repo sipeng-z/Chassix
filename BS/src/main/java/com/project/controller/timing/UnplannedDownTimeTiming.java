@@ -38,7 +38,7 @@ public class UnplannedDownTimeTiming {
     //sqlserver驱动包名
     private static final String DRIVER_NAME = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
     //用户名
-    @Value("${dbo.url}")
+    @Value("${new.dbo.url}")
     private String URL;
 
     //数据库连接地址

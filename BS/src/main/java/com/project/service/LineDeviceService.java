@@ -29,38 +29,22 @@ public class LineDeviceService extends AbstractService<LineDeviceInput,LineDevic
         if (pageData.containsKey("layer")) {
             sb.append(" and layer = " + "'" + pageData.getMap().get("layer") + "'");
         }
-
-
         if (pageData.containsKey("parentId")) {
             sb.append(" and parent_id = " + "'" + pageData.getMap().get("parentId") + "'");
         }
-
-
         if (pageData.containsKey("lineName")) {
-            sb.append(" and parent_id in (select Line_Device_id from Line_Device where name like " + "'" + pageData.getMap().get("lineName") + "')");
+            sb.append(" and parent_id in (select Line_Device_id from Line_Device where name like " + "'%" + pageData.getMap().get("lineName") + "%')");
         }
-
         if (pageData.containsKey("module")) {
             sb.append(" and module = " + "'" + pageData.getMap().get("module") + "'");
         }
-
-
         sb.append(new PageData().where(pageData));
-
         if(isPager){
             return pageList(pageData,getMapperName()+"list",sb.toString());
         }
         PageData sqlModel = new PageData();
         sqlModel.put("retrieveSql",new PageData().where(pageData));
         sqlModel.put("retrieveSql", sb.toString());
-
         return (List<LineDeviceOutput>) daoImp.findForListSql(getMapperName()+"list",sqlModel);
-
     }
-
-
-
-
-
-
 }

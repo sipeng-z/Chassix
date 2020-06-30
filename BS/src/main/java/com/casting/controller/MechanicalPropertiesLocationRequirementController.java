@@ -25,12 +25,11 @@ import java.util.List;
 @RequestMapping(value = "MechanicalPropertiesLocationRequirement")
 public class MechanicalPropertiesLocationRequirementController extends GenericController<MechanicalPropertiesLocationRequirementInput, MechanicalPropertiesLocationRequirementOutput>{
 
-
     private final Logger logger = LoggerFactory.getLogger(MechanicalPropertiesLocationRequirementController.class);
 
+    // IOC function to get
     @Autowired
     private MechanicalPropertiesLocationRequirementService mechanicalPropertiesLocationRequirementService;
-
 
 
     @Override

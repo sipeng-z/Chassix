@@ -2,13 +2,10 @@ package com.project.service;
 
 import com.project.domain.entity.*;
 import com.project.domain.model.input.GeneralOEEDataInput;
-import com.project.domain.model.output.GeneralOEEDataOutput;
+import com.project.domain.model.output.*;
 import com.core.service.AbstractService;
 import com.domain.model.PageData;
 import com.model.AppConsts;
-import com.project.domain.model.output.GeneralPQDataOutput;
-import com.project.domain.model.output.GeneralTraceabilityDataOutput;
-import com.project.domain.model.output.LineDeviceOutput;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -202,8 +199,6 @@ public class GeneralOEEDataService extends AbstractService<GeneralOEEDataInput,G
         return (List<GeneralOEEDataOutput>) daoImp.findForListSql(mapperName+"list",sqlModel);
     }
 
-
-
     /**
      * get by ItemNO
      * @param ItemNO
@@ -218,9 +213,6 @@ public class GeneralOEEDataService extends AbstractService<GeneralOEEDataInput,G
         pageData.put("ItemNO",ItemNO.toString());
         return (GeneralOEEData) daoImp.findForObject(mapperName+"findByPkId",pageData);
     }
-
-
-
 
     /**
      * updateByItem
@@ -247,13 +239,6 @@ public class GeneralOEEDataService extends AbstractService<GeneralOEEDataInput,G
         return false;
 
     }
-
-
-
-
-
-
-
 
     /**
      * itemno
@@ -603,8 +588,6 @@ public class GeneralOEEDataService extends AbstractService<GeneralOEEDataInput,G
 
     public Integer getPlannedRunningTimeSum(String DateString,Integer StartRecordNO,Integer EndRecordNO,String line,String device) throws Exception{
         this.setMapperName(AppConsts.GeneralOEEDataName.replace("General",line+device));
-
-
         Double result ;
         String inList = "";
         for(int i =0;i<=EndRecordNO-StartRecordNO;i++ ){
@@ -628,10 +611,8 @@ public class GeneralOEEDataService extends AbstractService<GeneralOEEDataInput,G
         Integer palnnedRunningTime = 0;
 
         for(GeneralOEEData g:list4oee){
-
             palnnedRunningTime+=g.getPlannedRunTime();
         }
-
         return palnnedRunningTime;
 
     }
@@ -651,65 +632,54 @@ public class GeneralOEEDataService extends AbstractService<GeneralOEEDataInput,G
      * @return
      * @throws Exception
      */
-    public Double getOeeP(String DateString,Integer StartRecordNO,Integer EndRecordNO,String line,String device) throws Exception{
-        this.setMapperName(AppConsts.GeneralOEEDataName.replace("General",line+device));
+    public Double getOeeP(String DateString,Integer StartRecordNO,Integer EndRecordNO,String line,String device) throws Exception {
+        this.setMapperName(AppConsts.GeneralOEEDataName.replace("General", line + device));
 
-        Double result ;
+        Double result;
         String inList = "";
-        for(int i =0;i<=EndRecordNO-StartRecordNO;i++ ){
-            inList+="'";
+        for (int i = 0; i <= EndRecordNO - StartRecordNO; i++) {
+            inList += "'";
 
-            inList+=(StartRecordNO+i);
-            inList+="'";
-            if(i<=(EndRecordNO-StartRecordNO)-1){
-                inList+=",";
+            inList += (StartRecordNO + i);
+            inList += "'";
+            if (i <= (EndRecordNO - StartRecordNO) - 1) {
+                inList += ",";
             }
         }
         List<GeneralOEEDataOutput> list4oee = new ArrayList<>();
         PageData pageData = new PageData();
-        pageData.put("DateString",DateString);
-        pageData.put("inList",inList);
-        list4oee = this.generalList(false,pageData,line,device);
+        pageData.put("DateString", DateString);
+        pageData.put("inList", inList);
+        list4oee = this.generalList(false, pageData, line, device);
         Integer plannedRunningTime = 0;
-        for(GeneralOEEData g:list4oee){
-            plannedRunningTime+=g.getPlannedRunTime();
+        for (GeneralOEEData g : list4oee) {
+            plannedRunningTime += g.getPlannedRunTime();
 
         }
 
-            //denominator from production  and it is not cycle time in PLC (G38 CNC =  195 sets per shift)
-        Double targetpieces = new BigDecimal((float)  plannedRunningTime/150).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+        //denominator from production  and it is not cycle time in PLC (G38 CNC =  195 sets per shift)
+        Double targetpieces = new BigDecimal((float) plannedRunningTime / 150).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
         //per part costs time
-        if(targetpieces==0.00){
+        if (targetpieces == 0.00) {
             return 0.00;
         }
         PageData pageData4tra = new PageData();
-        pageData4tra.put("DateString",DateString);
-        pageData4tra.put("inList",inList);
-
-
-
-        List<GeneralPQDataOutput>  tralist = generalPQDataService.generallist(false,pageData4tra,line,device);
-
-
+        pageData4tra.put("DateString", DateString);
+        pageData4tra.put("inList", inList);
+        List<GeneralPQDataOutput> tralist = generalPQDataService.generallist(false, pageData4tra, line, device);
         Integer totalPer = 0;
-
-        for(GeneralPQData pq : tralist){
-            if(pq.getTotalparts()!=null){
+        for (GeneralPQData pq : tralist) {
+            if (pq.getTotalparts() != null) {
                 totalPer = pq.getTotalparts();
             }
-            if(totalPer!=0){
+            if (totalPer != 0) {
                 break;
             }
         }
 
-
-        Integer actuallypieces = tralist.size()*totalPer;
-
-        result = new BigDecimal((float)  actuallypieces/targetpieces).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
-
+        Integer actuallypieces = tralist.size() * totalPer;
+        result = new BigDecimal((float) actuallypieces / targetpieces).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
         return result;
-
-
     }
 
 
@@ -744,23 +714,23 @@ public class GeneralOEEDataService extends AbstractService<GeneralOEEDataInput,G
 
         }
         //denominator from production  and it is not cycle time in PLC ()
-        Double targetpieces = new BigDecimal((float)  plannedRunningTime/60).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
-        //per part costs time
-        if(targetpieces==0.00){
-            return 0.00;
-        }
-        PageData pageData4tra = new PageData();
-        pageData4tra.put("DateString",DateString);
-        pageData4tra.put("inList",inList);
+        Double targetpieces = 0.0;
 
-            List<GeneralTraceabilityDataOutput>  tralist = generalTraceabilityDataService.generallist(false,pageData4tra,line,device);
+            targetpieces = new BigDecimal((float) plannedRunningTime / 59).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
 
-
-        Integer actuallypieces = tralist.size();
-
-        result = new BigDecimal((float)  actuallypieces/targetpieces).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+            //per part costs time
+            if (targetpieces == 0.00) {
+                return 0.00;
+            }
+            PageData pageData4tra = new PageData();
+            pageData4tra.put("DateString", DateString);
+            pageData4tra.put("inList", inList);
+            List<GeneralTraceabilityDataOutput> tralist = generalTraceabilityDataService.generallist(false, pageData4tra, line, device);
+            Integer actuallypieces = tralist.size();
+            result = new BigDecimal((float) actuallypieces / targetpieces).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
 
         return result;
+
 
 
     }
@@ -835,23 +805,22 @@ public class GeneralOEEDataService extends AbstractService<GeneralOEEDataInput,G
         PageData pageData4tra = new PageData();
         pageData4tra.put("DateString",DateString);
         pageData4tra.put("inList",inList);
-        List<GeneralTraceabilityDataOutput>  tralist = generalTraceabilityDataService.generallist(false,pageData4tra,line,device);
-        Integer actuallypieces = tralist.size();
+        Integer actuallypieces = null;
+        Integer goodpieces = null;
+            List<GeneralTraceabilityDataOutput> tralist = generalTraceabilityDataService.generallist(false, pageData4tra, line, device);
+            actuallypieces = tralist.size();
 
-        Integer goodpieces = tralist.size();
-        for (GeneralTraceabilityData gtra : tralist ){
-            if(gtra.getPartstatus()!=0){
-                goodpieces--;
+
+            goodpieces = tralist.size();
+            for (GeneralTraceabilityData gtra : tralist) {
+                if (gtra.getPartstatus() != 0) {
+                    goodpieces--;
+                }
             }
-        }
-        if(actuallypieces==0.00){
-            return 0.00;
-        }
-
-        result = new BigDecimal((float)  goodpieces/actuallypieces).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
-
-        return result;
-
+            if (actuallypieces == 0.00) {
+                return 0.00;
+            }
+        return result = new BigDecimal((float)  goodpieces/actuallypieces).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
     }
 
 
@@ -868,22 +837,18 @@ public class GeneralOEEDataService extends AbstractService<GeneralOEEDataInput,G
         String inList = "";
         for(int i =0;i<=EndRecordNO-StartRecordNO;i++ ){
             inList+="'";
-
             inList+=(StartRecordNO+i);
             inList+="'";
             if(i<=(EndRecordNO-StartRecordNO)-1){
                 inList+=",";
             }
         }
-
         PageData pageData4tra = new PageData();
         pageData4tra.put("DateString",DateString);
         pageData4tra.put("inList",inList);
         List<GeneralPQDataOutput>  tralist = generalPQDataService.generallist(false,pageData4tra,line,device);
         Integer actuallypieces = tralist.size();
-
         Integer totalPer = 0;
-
         for(GeneralPQData pq : tralist){
             if(pq.getTotalparts()!=null){
                 totalPer = pq.getTotalparts();
@@ -892,19 +857,12 @@ public class GeneralOEEDataService extends AbstractService<GeneralOEEDataInput,G
                 break;
             }
         }
-
-
         Integer goodpieces = tralist.size()*totalPer;
-
         if(actuallypieces==0){
             return 0;
         }
-
         return goodpieces;
-
     }
-
-
 
     /**
      * get ALL downtime
@@ -1010,19 +968,9 @@ public class GeneralOEEDataService extends AbstractService<GeneralOEEDataInput,G
 
             list.add(v1);
         }
-
-
-
-
-
         return list;
 
     }
-
-
-
-
-
 
     /**
      * getTarget Quantity
@@ -1051,6 +999,9 @@ public class GeneralOEEDataService extends AbstractService<GeneralOEEDataInput,G
         list4oee = this.generalList(false,pageData,line,device);
         Integer plannedRunningTime = 0;
         for(GeneralOEEData g:list4oee){
+            if(g.getRunningtime()>=1){
+                g.setPlannedRunTime(900);  //default calculation of no plan input
+            }
             plannedRunningTime+=g.getPlannedRunTime();
 
         }
@@ -1078,10 +1029,7 @@ public class GeneralOEEDataService extends AbstractService<GeneralOEEDataInput,G
                 break;
             }
         }
-
-
         Integer actuallypieces = tralist.size()*totalPer;
-
         Lh=actuallypieces/2;
         Rh= actuallypieces-Lh;
 
@@ -1093,13 +1041,8 @@ public class GeneralOEEDataService extends AbstractService<GeneralOEEDataInput,G
 
     }
 
-
-
-
-
-
     /**
-     * getTarget Quantity
+     * getTarget Quantity ASSY
      * @return
      */
     public MachQT getTargetQuantityAssy(String DateString, Integer StartRecordNO, Integer EndRecordNO, String line, String device) throws Exception{
@@ -1118,92 +1061,46 @@ public class GeneralOEEDataService extends AbstractService<GeneralOEEDataInput,G
                 inList+=",";
             }
         }
-        List<GeneralOEEDataOutput> list4oee = new ArrayList<>();
-        PageData pageData = new PageData();
-        pageData.put("DateString",DateString);
-        pageData.put("inList",inList);
-        list4oee = this.generalList(false,pageData,line,device);
-        Integer plannedRunningTime = 0;
-        for(GeneralOEEData g:list4oee){
-            plannedRunningTime+=g.getPlannedRunTime();
+            List<GeneralOEEDataOutput> list4oee = new ArrayList<>();
+            PageData pageData = new PageData();
+            pageData.put("DateString",DateString);
+            pageData.put("inList",inList);
+            list4oee = this.generalList(false,pageData,line,device);
+            Integer plannedRunningTime = 0;
+            for(GeneralOEEData g:list4oee){
+                if(g.getRunningtime()>=1){
+                    g.setPlannedRunTime(900);  //default calculation of no plan input
+                }
+                plannedRunningTime+=g.getPlannedRunTime();
 
-        }
-
-        Double targetpieces = new BigDecimal((float)  plannedRunningTime/(59)).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
-        //for per part costs  expect value
-        if(targetpieces==0.00){
-            qt.setTarget(0.00);
-        }
-
-
-
-        PageData pageData4tra = new PageData();
-        pageData4tra.put("DateString",DateString);
-        pageData4tra.put("inList",inList);
-        List<GeneralTraceabilityDataOutput>  tralist = generalTraceabilityDataService.generallist(false,pageData4tra,line,device);
-
-
-        Integer Lh = 0;
-        Integer Rh = 0;
-
-        for (GeneralTraceabilityData gt:tralist){
-            if (gt.getPartstatus()!=0){
-                continue;                                //remove the scrap
             }
-            if(gt.getSoNumber().equals("SO0488")){
-                Lh++;
-            }else{
-                Rh++;
+            Double targetpieces = new BigDecimal((float) plannedRunningTime / (59)).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+            //for per part costs  expect value
+            if (targetpieces == 0.00) {
+                qt.setTarget(0.00);
             }
-        }
+            PageData pageData4tra = new PageData();
+            pageData4tra.put("DateString", DateString);
+            pageData4tra.put("inList", inList);
+            List<GeneralTraceabilityDataOutput> tralist = generalTraceabilityDataService.generallist(false, pageData4tra, line, device);
+            Integer Lh = 0;
+            Integer Rh = 0;
+            for (GeneralTraceabilityData gt : tralist) {
+                if (gt.getPartstatus() != 0) {
+                    continue;                                //remove the scrap
+                }
+                if (gt.getSoNumber().equals("SO0488")) {
+                    Lh++;
+                } else {
+                    Rh++;
+                }
+            }
+            Integer actuallypieces = tralist.size();
+            qt.setQuantity(actuallypieces.doubleValue());
+            qt.setLh(Lh);
+            qt.setRh(Rh);
+            qt.setTarget(targetpieces);
 
-
-        Integer actuallypieces = tralist.size();
-        qt.setQuantity(actuallypieces.doubleValue());
-        qt.setLh(Lh);
-        qt.setRh(Rh);
-        qt.setTarget(targetpieces);
-        return qt;
-
-
-
-
-
-
+            return qt;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

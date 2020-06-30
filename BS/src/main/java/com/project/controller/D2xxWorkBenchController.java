@@ -32,11 +32,11 @@ public class D2xxWorkBenchController {
     @Autowired
     private MachDeviceWiseSessionService machDeviceWiseSessionService;
 
-    private final Logger logger = LoggerFactory.getLogger(com.project.controller.C1xxWorkBenchController.class);
+    private final Logger logger = LoggerFactory.getLogger(com.project.controller.D2xxWorkBenchController.class);
 
 
-    @RequestMapping(value = "C1xxDeviceData", method = RequestMethod.POST)
-    public ResponseResult getC1xxDeviceData(String sessionId, @RequestBody auth input) {
+    @RequestMapping(value = "D2xxDeviceData", method = RequestMethod.POST)
+    public ResponseResult getD2xxDeviceData(String sessionId, @RequestBody auth input) {
 
         ResponseResult result = new ResponseResult();
         try {
@@ -49,110 +49,110 @@ public class D2xxWorkBenchController {
             if (sessionId != null && !sessionId.equals("")) {
 
                 List<LineValue> valueList = new ArrayList<>();
-                //prepare api domain  V02
-                forapi V02obj = new forapi();
-                params V02parameter = new params();
-                V02parameter.setDevice("Machining_V02_G");
-                V02parameter.setVariable("DataToDataBaseRunningStatus.Status");
-                V02parameter.setType("2");
-                V02parameter.setCount("1");
-                V02parameter.setLength("1");
+                //prepare api domain  V18
+                forapi V18obj = new forapi();
+                params V18parameter = new params();
+                V18parameter.setDevice("Machining_V18_G");
+                V18parameter.setVariable("DataToDataBaseRunningStatus.Status");
+                V18parameter.setType("2");
+                V18parameter.setCount("1");
+                V18parameter.setLength("1");
 
-                V02obj.setParams(V02parameter);
-                V02obj.setCommand("variable.read");
-                String SZV02MCycle = machWorkBenchService.getApiData(sessionId, V02obj);
-                LineValue V02 = new LineValue();
-                V02.setName("V02");
-                if (SZV02MCycle == null || SZV02MCycle.equals("[1]")) {
-                    V02.setValue(1);
+                V18obj.setParams(V18parameter);
+                V18obj.setCommand("variable.read");
+                String SZV18MCycle = machWorkBenchService.getApiData(sessionId, V18obj);
+                LineValue V18 = new LineValue();
+                V18.setName("V18");
+                if (SZV18MCycle == null || SZV18MCycle.equals("[1]")) {
+                    V18.setValue(1);
                 } else {
 
-                    String res1v02 = SZV02MCycle.replace("[", "");
-                    String res2v02 = res1v02.replace("]", "");
-                    V02.setValue(Integer.valueOf(res2v02).intValue());
+                    String res1V18 = SZV18MCycle.replace("[", "");
+                    String res2V18 = res1V18.replace("]", "");
+                    V18.setValue(Integer.valueOf(res2V18).intValue());
 
                 }
-                valueList.add(V02);
-                //prepare api domain V03
-                forapi V03obj = new forapi();
-                params V03parameter = new params();
-                V03parameter.setDevice("Machining_V03_G");
-                V03parameter.setVariable("DataToDataBaseRunningStatus.Status");
-                V03parameter.setType("2");
-                V03parameter.setCount("1");
-                V03parameter.setLength("1");
+                valueList.add(V18);
+                //prepare api domain V20
+                forapi V20obj = new forapi();
+                params V20parameter = new params();
+                V20parameter.setDevice("Machining_V20_G");
+                V20parameter.setVariable("DataToDataBaseRunningStatus.Status");
+                V20parameter.setType("2");
+                V20parameter.setCount("1");
+                V20parameter.setLength("1");
 
-                V03obj.setParams(V03parameter);
-                V03obj.setCommand("variable.read");
-                String SZV03MCycle = machWorkBenchService.getApiData(sessionId, V03obj);
-                LineValue V03 = new LineValue();
-                V03.setName("V03");
-                if (SZV03MCycle == null || SZV03MCycle.equals("[1]")) {
-                    V03.setValue(1);
+                V20obj.setParams(V20parameter);
+                V20obj.setCommand("variable.read");
+                String SZV20MCycle = machWorkBenchService.getApiData(sessionId, V20obj);
+                LineValue V20 = new LineValue();
+                V20.setName("V20");
+                if (SZV20MCycle == null || SZV20MCycle.equals("[1]")) {
+                    V20.setValue(1);
                 } else {
 
 
-                    String res1V03 = SZV03MCycle.replace("[", "");
-                    String res2V03 = res1V03.replace("]", "");
-                    V03.setValue(Integer.valueOf(res2V03).intValue());
-
-
-                }
-                valueList.add(V03);
-
-
-                //prepare api domain V31
-                forapi V31obj = new forapi();
-                params V31parameter = new params();
-                V31parameter.setDevice("Machining_V31_G");
-                V31parameter.setVariable("DataToDataBaseRunningStatus.Status");
-                V31parameter.setType("2");
-                V31parameter.setCount("1");
-                V31parameter.setLength("1");
-
-                V31obj.setParams(V31parameter);
-                V31obj.setCommand("variable.read");
-                String SZV31MCycle = machWorkBenchService.getApiData(sessionId, V31obj);
-                LineValue V31 = new LineValue();
-                V31.setName("V31");
-                if (SZV31MCycle == null || SZV31MCycle.equals("[1]")) {
-                    V31.setValue(1);
-                } else {
-
-                    String res1V31 = SZV31MCycle.replace("[", "");
-                    String res2V31 = res1V31.replace("]", "");
-                    V31.setValue(Integer.valueOf(res2V31).intValue());
+                    String res1V20 = SZV20MCycle.replace("[", "");
+                    String res2V20 = res1V20.replace("]", "");
+                    V20.setValue(Integer.valueOf(res2V20).intValue());
 
 
                 }
-                valueList.add(V31);
+                valueList.add(V20);
 
 
-                //prepare api domain V32
-                forapi V32obj = new forapi();
-                params V32parameter = new params();
-                V32parameter.setDevice("Machining_V32_G");
-                V32parameter.setVariable("DataToDataBaseRunningStatus.Status");
-                V32parameter.setType("2");
-                V32parameter.setCount("1");
-                V32parameter.setLength("1");
+                //prepare api domain V15
+                forapi V15obj = new forapi();
+                params V15parameter = new params();
+                V15parameter.setDevice("Machining_V15_G");
+                V15parameter.setVariable("DataToDataBaseRunningStatus.Status");
+                V15parameter.setType("2");
+                V15parameter.setCount("1");
+                V15parameter.setLength("1");
 
-                V32obj.setParams(V32parameter);
-                V32obj.setCommand("variable.read");
-                String SZV32MCycle = machWorkBenchService.getApiData(sessionId, V32obj);
-                LineValue V32 = new LineValue();
-                V32.setName("V32");
-                if (SZV32MCycle == null || SZV32MCycle.equals("[1]")) {
-                    V32.setValue(1);
+                V15obj.setParams(V15parameter);
+                V15obj.setCommand("variable.read");
+                String SZV15MCycle = machWorkBenchService.getApiData(sessionId, V15obj);
+                LineValue V15 = new LineValue();
+                V15.setName("V15");
+                if (SZV15MCycle == null || SZV15MCycle.equals("[1]")) {
+                    V15.setValue(1);
                 } else {
 
-                    String res1V32 = SZV32MCycle.replace("[", "");
-                    String res2V32 = res1V32.replace("]", "");
-                    V32.setValue(Integer.valueOf(res2V32).intValue());
+                    String res1V15 = SZV15MCycle.replace("[", "");
+                    String res2V15 = res1V15.replace("]", "");
+                    V15.setValue(Integer.valueOf(res2V15).intValue());
 
 
                 }
-                valueList.add(V32);
+                valueList.add(V15);
+
+
+                //prepare api domain V17
+                forapi V17obj = new forapi();
+                params V17parameter = new params();
+                V17parameter.setDevice("Machining_V17_G");
+                V17parameter.setVariable("DataToDataBaseRunningStatus.Status");
+                V17parameter.setType("2");
+                V17parameter.setCount("1");
+                V17parameter.setLength("1");
+
+                V17obj.setParams(V17parameter);
+                V17obj.setCommand("variable.read");
+                String SZV17MCycle = machWorkBenchService.getApiData(sessionId, V17obj);
+                LineValue V17 = new LineValue();
+                V17.setName("V17");
+                if (SZV17MCycle == null || SZV17MCycle.equals("[1]")) {
+                    V17.setValue(1);
+                } else {
+
+                    String res1V17 = SZV17MCycle.replace("[", "");
+                    String res2V17 = res1V17.replace("]", "");
+                    V17.setValue(Integer.valueOf(res2V17).intValue());
+
+
+                }
+                valueList.add(V17);
                 //update the last activity refresh
                 Date realTimeAfterRequest = new Date();
                 DeviceWiseSession deviceWiseSession = new DeviceWiseSession();
@@ -169,7 +169,7 @@ public class D2xxWorkBenchController {
             result.setMessage("sessionId error");
             return result;
         } catch (Exception e) {
-            logger.error("Exception____C1xxDeviceData:" + e);
+            logger.error("Exception____D2xxDeviceData:" + e);
             result.setMessage("error");
             result.setSuccess(false);
             return result;
@@ -177,8 +177,8 @@ public class D2xxWorkBenchController {
     }
 
 
-    @RequestMapping(value = "C1xxDeviceDataWithCycle", method = RequestMethod.POST)
-    public ResponseResult getC1xxDeviceDataWithCycle(String sessionId, @RequestBody auth input) {
+    @RequestMapping(value = "D2xxDeviceDataWithCycle", method = RequestMethod.POST)
+    public ResponseResult getD2xxDeviceDataWithCycle(String sessionId, @RequestBody auth input) {
 
         ResponseResult result = new ResponseResult();
         try {
@@ -189,135 +189,135 @@ public class D2xxWorkBenchController {
             sessionId = orderAndSession.get(1);
             if (sessionId != null && !sessionId.equals("")) {
                 List<LineValue> valueList = new ArrayList<>();
-                //prepare api domain V02
-                forapi V02obj = new forapi();
-                params V02parameter = new params();
-                V02parameter.setDevice("Machining_V02_G");
-                V02parameter.setVariable("responseToWeb");
-                V02parameter.setType("3");
-                V02parameter.setCount("3");
-                V02parameter.setLength("-1");
-                V02obj.setParams(V02parameter);
-                V02obj.setCommand("variable.read");
-                String SZV02MCycle = machWorkBenchService.getApiData(sessionId, V02obj);//GET data from api
-                String res1V02 = SZV02MCycle.replace("[", "");
-                String res2V02 = res1V02.replace("]", "");
-                String[] datalist02 = res2V02.split(",");     // parse data
+                //prepare api domain V18
+                forapi V18obj = new forapi();
+                params V18parameter = new params();
+                V18parameter.setDevice("Machining_V18_G");
+                V18parameter.setVariable("responseToWeb");
+                V18parameter.setType("3");
+                V18parameter.setCount("3");
+                V18parameter.setLength("-1");
+                V18obj.setParams(V18parameter);
+                V18obj.setCommand("variable.read");
+                String SZV18MCycle = machWorkBenchService.getApiData(sessionId, V18obj);//GET data from api
+                String res1V18 = SZV18MCycle.replace("[", "");
+                String res2V18 = res1V18.replace("]", "");
+                String[] datalist02 = res2V18.split(",");     // parse data
 
-                LineValue V02State = new LineValue();
-                V02State.setName("V02State");
-                V02State.setValue(Integer.valueOf(datalist02[0]));
+                LineValue V18State = new LineValue();
+                V18State.setName("V18State");
+                V18State.setValue(Integer.valueOf(datalist02[0]));
 
-                LineValue V02CycleTime = new LineValue();
-                V02CycleTime.setName("CycleTime");
-                V02CycleTime.setValue(Integer.valueOf(datalist02[1]));
+                LineValue V18CycleTime = new LineValue();
+                V18CycleTime.setName("CycleTime");
+                V18CycleTime.setValue(Integer.valueOf(datalist02[1]));
 
-                LineValue V02StandBy = new LineValue();
-                V02StandBy.setName("V02StandBy");
-                V02StandBy.setValue(Integer.valueOf(datalist02[2]));
+                LineValue V18StandBy = new LineValue();
+                V18StandBy.setName("V18StandBy");
+                V18StandBy.setValue(Integer.valueOf(datalist02[2]));
 
-                valueList.add(V02State);
-                valueList.add(V02CycleTime);
-                valueList.add(V02StandBy);
+                valueList.add(V18State);
+                valueList.add(V18CycleTime);
+                valueList.add(V18StandBy);
 
-                //prepare api domain  V03
-                forapi V03obj = new forapi();
-                params V03parameter = new params();
-                V03parameter.setDevice("Machining_V03_G");
-                V03parameter.setVariable("responseToWeb");
-                V03parameter.setType("3");
-                V03parameter.setCount("3");
-                V03parameter.setLength("-1");
+                //prepare api domain  V20
+                forapi V20obj = new forapi();
+                params V20parameter = new params();
+                V20parameter.setDevice("Machining_V20_G");
+                V20parameter.setVariable("responseToWeb");
+                V20parameter.setType("3");
+                V20parameter.setCount("3");
+                V20parameter.setLength("-1");
 
-                V03obj.setParams(V03parameter);
-                V03obj.setCommand("variable.read");
-                String SZV03MCycle = machWorkBenchService.getApiData(sessionId, V03obj);//GET data from api
+                V20obj.setParams(V20parameter);
+                V20obj.setCommand("variable.read");
+                String SZV20MCycle = machWorkBenchService.getApiData(sessionId, V20obj);//GET data from api
 
-                String res1V03 = SZV03MCycle.replace("[", "");
-                String res2V03 = res1V03.replace("]", "");
-                String[] datalist03 = res2V03.split(",");     // parse data
+                String res1V20 = SZV20MCycle.replace("[", "");
+                String res2V20 = res1V20.replace("]", "");
+                String[] datalist03 = res2V20.split(",");     // parse data
 
-                LineValue V03State = new LineValue();
-                V03State.setName("V03State");
-                V03State.setValue(Integer.valueOf(datalist03[0]));
+                LineValue V20State = new LineValue();
+                V20State.setName("V20State");
+                V20State.setValue(Integer.valueOf(datalist03[0]));
 
-                LineValue V03CycleTime = new LineValue();
-                V03CycleTime.setName("CycleTime");
-                V03CycleTime.setValue(Integer.valueOf(datalist03[1]));
+                LineValue V20CycleTime = new LineValue();
+                V20CycleTime.setName("CycleTime");
+                V20CycleTime.setValue(Integer.valueOf(datalist03[1]));
 
-                LineValue V03StandBy = new LineValue();
-                V03StandBy.setName("V03StandBy");
-                V03StandBy.setValue(Integer.valueOf(datalist03[2]));
+                LineValue V20StandBy = new LineValue();
+                V20StandBy.setName("V20StandBy");
+                V20StandBy.setValue(Integer.valueOf(datalist03[2]));
 
-                valueList.add(V03State);
-                valueList.add(V03CycleTime);
-                valueList.add(V03StandBy);
+                valueList.add(V20State);
+                valueList.add(V20CycleTime);
+                valueList.add(V20StandBy);
 
 
-                //prepare api domain  V31
-                forapi V31obj = new forapi();
-                params V31parameter = new params();
-                V31parameter.setDevice("Machining_V31_G");
-                V31parameter.setVariable("responseToWeb");
-                V31parameter.setType("3");
-                V31parameter.setCount("3");
-                V31parameter.setLength("-1");
+                //prepare api domain  V15
+                forapi V15obj = new forapi();
+                params V15parameter = new params();
+                V15parameter.setDevice("Machining_V15_G");
+                V15parameter.setVariable("responseToWeb");
+                V15parameter.setType("3");
+                V15parameter.setCount("3");
+                V15parameter.setLength("-1");
 
-                V31obj.setParams(V31parameter);
-                V31obj.setCommand("variable.read");
-                String SZV31MCycle = machWorkBenchService.getApiData(sessionId, V31obj);//GET data from api
+                V15obj.setParams(V15parameter);
+                V15obj.setCommand("variable.read");
+                String SZV15MCycle = machWorkBenchService.getApiData(sessionId, V15obj);//GET data from api
 
-                String res1V31 = SZV31MCycle.replace("[", "");
-                String res2V31 = res1V31.replace("]", "");
-                String[] datalist31 = res2V31.split(",");     // parse data
+                String res1V15 = SZV15MCycle.replace("[", "");
+                String res2V15 = res1V15.replace("]", "");
+                String[] datalist31 = res2V15.split(",");     // parse data
 
-                LineValue V31State = new LineValue();
-                V31State.setName("V31State");
-                V31State.setValue(Integer.valueOf(datalist31[0]));
+                LineValue V15State = new LineValue();
+                V15State.setName("V15State");
+                V15State.setValue(Integer.valueOf(datalist31[0]));
 
-                LineValue V31CycleTime = new LineValue();
-                V31CycleTime.setName("CycleTime");
-                V31CycleTime.setValue(Integer.valueOf(datalist31[1]));
+                LineValue V15CycleTime = new LineValue();
+                V15CycleTime.setName("CycleTime");
+                V15CycleTime.setValue(Integer.valueOf(datalist31[1]));
 
-                LineValue V31StandBy = new LineValue();
-                V31StandBy.setName("V31StandBy");
-                V31StandBy.setValue(Integer.valueOf(datalist31[2]));
+                LineValue V15StandBy = new LineValue();
+                V15StandBy.setName("V15StandBy");
+                V15StandBy.setValue(Integer.valueOf(datalist31[2]));
 
-                valueList.add(V31State);
-                valueList.add(V31CycleTime);
-                valueList.add(V31StandBy);
+                valueList.add(V15State);
+                valueList.add(V15CycleTime);
+                valueList.add(V15StandBy);
 
-                //prepare api domain  V32
-                forapi V32obj = new forapi();
-                params V32parameter = new params();
-                V32parameter.setDevice("Machining_V32_G");
-                V32parameter.setVariable("responseToWeb");
-                V32parameter.setType("3");
-                V32parameter.setCount("3");
-                V32parameter.setLength("-1");
+                //prepare api domain  V17
+                forapi V17obj = new forapi();
+                params V17parameter = new params();
+                V17parameter.setDevice("Machining_V17_G");
+                V17parameter.setVariable("responseToWeb");
+                V17parameter.setType("3");
+                V17parameter.setCount("3");
+                V17parameter.setLength("-1");
 
-                V32obj.setParams(V32parameter);
-                V32obj.setCommand("variable.read");
-                String SZV32MCycle = machWorkBenchService.getApiData(sessionId, V32obj);//GET data from api
+                V17obj.setParams(V17parameter);
+                V17obj.setCommand("variable.read");
+                String SZV17MCycle = machWorkBenchService.getApiData(sessionId, V17obj);//GET data from api
 
-                String res1V32 = SZV32MCycle.replace("[", "");
-                String res2V32 = res1V32.replace("]", "");
-                String[] datalist32 = res2V32.split(",");     // parse data
+                String res1V17 = SZV17MCycle.replace("[", "");
+                String res2V17 = res1V17.replace("]", "");
+                String[] datalist32 = res2V17.split(",");     // parse data
 
-                LineValue V32State = new LineValue();
-                V32State.setName("V32State");
-                V32State.setValue(Integer.valueOf(datalist32[0]));
+                LineValue V17State = new LineValue();
+                V17State.setName("V17State");
+                V17State.setValue(Integer.valueOf(datalist32[0]));
 
-                LineValue V32CycleTime = new LineValue();
-                V32CycleTime.setName("CycleTime");
-                V32CycleTime.setValue(Integer.valueOf(datalist32[1]));
+                LineValue V17CycleTime = new LineValue();
+                V17CycleTime.setName("CycleTime");
+                V17CycleTime.setValue(Integer.valueOf(datalist32[1]));
 
-                LineValue V32StandBy = new LineValue();
-                V32StandBy.setName("V32StandBy");
-                V32StandBy.setValue(Integer.valueOf(datalist32[2]));
-                valueList.add(V32State);
-                valueList.add(V32CycleTime);
-                valueList.add(V32StandBy);
+                LineValue V17StandBy = new LineValue();
+                V17StandBy.setName("V17StandBy");
+                V17StandBy.setValue(Integer.valueOf(datalist32[2]));
+                valueList.add(V17State);
+                valueList.add(V17CycleTime);
+                valueList.add(V17StandBy);
                 //update the last activity refresh
                 Date realTimeAfterRequest = new Date();
                 DeviceWiseSession deviceWiseSession = new DeviceWiseSession();
@@ -338,7 +338,7 @@ public class D2xxWorkBenchController {
             return result;
 
         } catch (Exception e) {
-            logger.error("Exception____C1xxDeviceData:" + e);
+            logger.error("Exception____D2xxDeviceData:" + e);
             result.setMessage("error");
             result.setSuccess(false);
             return result;
@@ -347,8 +347,8 @@ public class D2xxWorkBenchController {
     }
 
 
-    @RequestMapping(value = "C1xxDeviceDataAirDetection", method = RequestMethod.POST)
-    public ResponseResult getC1xxDeviceDataAirDetection(String sessionId, @RequestBody auth input) {
+    @RequestMapping(value = "D2xxDeviceDataAirDetection", method = RequestMethod.POST)
+    public ResponseResult getD2xxDeviceDataAirDetection(String sessionId, @RequestBody auth input) {
 
         ResponseResult result = new ResponseResult();
         try {
@@ -364,92 +364,92 @@ public class D2xxWorkBenchController {
 
                 List<LineValue> valueList = new ArrayList<>();
 
-                //prepare api domain  V02
-                forapi V02obj = new forapi();
-                params V02parameter = new params();
-                V02parameter.setDevice("Machining_V02_G");
-                V02parameter.setVariable("AirDetection");
-                V02parameter.setType("11");
-                V02parameter.setCount("1");
-                V02parameter.setLength("-1");
+                //prepare api domain  V18
+                forapi V18obj = new forapi();
+                params V18parameter = new params();
+                V18parameter.setDevice("Machining_V18_G");
+                V18parameter.setVariable("AirDetection");
+                V18parameter.setType("11");
+                V18parameter.setCount("1");
+                V18parameter.setLength("-1");
 
-                V02obj.setParams(V02parameter);
-                V02obj.setCommand("variable.read");
-                String V02AirDetectionResult = machWorkBenchService.getApiData(sessionId, V02obj);//GET data from api
-                String res1V02 = V02AirDetectionResult.replace("[", "");
-                String res2V02 = res1V02.replace("]", "");
+                V18obj.setParams(V18parameter);
+                V18obj.setCommand("variable.read");
+                String V18AirDetectionResult = machWorkBenchService.getApiData(sessionId, V18obj);//GET data from api
+                String res1V18 = V18AirDetectionResult.replace("[", "");
+                String res2V18 = res1V18.replace("]", "");
 
-                LineValue V02AirDetection = new LineValue();
-                V02AirDetection.setName("V02AirDetection");
-                V02AirDetection.setValue(Integer.valueOf(res2V02.trim()));
+                LineValue V18AirDetection = new LineValue();
+                V18AirDetection.setName("V18AirDetection");
+                V18AirDetection.setValue(Integer.valueOf(res2V18.trim()));
 
-                valueList.add(V02AirDetection);
+                valueList.add(V18AirDetection);
 
-                //prepare api domain  V03
-                forapi V03obj = new forapi();
-                params V03parameter = new params();
-                V03parameter.setDevice("Machining_V03_G");
-                V03parameter.setVariable("AirDetection");
-                V03parameter.setType("11");
-                V03parameter.setCount("1");
-                V03parameter.setLength("-1");
+                //prepare api domain  V20
+                forapi V20obj = new forapi();
+                params V20parameter = new params();
+                V20parameter.setDevice("Machining_V20_G");
+                V20parameter.setVariable("AirDetection");
+                V20parameter.setType("11");
+                V20parameter.setCount("1");
+                V20parameter.setLength("-1");
 
-                V03obj.setParams(V03parameter);
-                V03obj.setCommand("variable.read");
-                String V03AirDetectionResult = machWorkBenchService.getApiData(sessionId, V03obj);//GET data from api
+                V20obj.setParams(V20parameter);
+                V20obj.setCommand("variable.read");
+                String V20AirDetectionResult = machWorkBenchService.getApiData(sessionId, V20obj);//GET data from api
 
 
-                String res1V03 = V03AirDetectionResult.replace("[", "");
-                String res2V03 = res1V03.replace("]", "");
+                String res1V20 = V20AirDetectionResult.replace("[", "");
+                String res2V20 = res1V20.replace("]", "");
 
-                LineValue V03AirDetection = new LineValue();
-                V03AirDetection.setName("V03AirDetection");
-                V03AirDetection.setValue(Integer.valueOf(res2V03.trim()));
+                LineValue V20AirDetection = new LineValue();
+                V20AirDetection.setName("V20AirDetection");
+                V20AirDetection.setValue(Integer.valueOf(res2V20.trim()));
 
-                valueList.add(V03AirDetection);
+                valueList.add(V20AirDetection);
 
-                //prepare api domain  V31
-                forapi V31obj = new forapi();
-                params V31parameter = new params();
-                V31parameter.setDevice("Machining_V31_G");
-                V31parameter.setVariable("AirDetection");
-                V31parameter.setType("11");
-                V31parameter.setCount("1");
-                V31parameter.setLength("-1");
+                //prepare api domain  V15
+                forapi V15obj = new forapi();
+                params V15parameter = new params();
+                V15parameter.setDevice("Machining_V15_G");
+                V15parameter.setVariable("AirDetection");
+                V15parameter.setType("11");
+                V15parameter.setCount("1");
+                V15parameter.setLength("-1");
 
-                V31obj.setParams(V31parameter);
-                V31obj.setCommand("variable.read");
-                String V31AirDetectionResult = machWorkBenchService.getApiData(sessionId, V31obj);//GET data from api
+                V15obj.setParams(V15parameter);
+                V15obj.setCommand("variable.read");
+                String V15AirDetectionResult = machWorkBenchService.getApiData(sessionId, V15obj);//GET data from api
 
-                String res1V31 = V31AirDetectionResult.replace("[", "");
-                String res2V31 = res1V31.replace("]", "");
+                String res1V15 = V15AirDetectionResult.replace("[", "");
+                String res2V15 = res1V15.replace("]", "");
 
-                LineValue V31AirDetection = new LineValue();
-                V31AirDetection.setName("V31AirDetection");
-                V31AirDetection.setValue(Integer.valueOf(res2V31.trim()));
+                LineValue V15AirDetection = new LineValue();
+                V15AirDetection.setName("V15AirDetection");
+                V15AirDetection.setValue(Integer.valueOf(res2V15.trim()));
 
-                valueList.add(V31AirDetection);
+                valueList.add(V15AirDetection);
 
-                //prepare api domain  V32
-                forapi V32obj = new forapi();
-                params V32parameter = new params();
-                V32parameter.setDevice("Machining_V32_G");
-                V32parameter.setVariable("AirDetection");
-                V32parameter.setType("11");
-                V32parameter.setCount("1");
-                V32parameter.setLength("-1");
+                //prepare api domain  V17
+                forapi V17obj = new forapi();
+                params V17parameter = new params();
+                V17parameter.setDevice("Machining_V17_G");
+                V17parameter.setVariable("AirDetection");
+                V17parameter.setType("11");
+                V17parameter.setCount("1");
+                V17parameter.setLength("-1");
 
-                V32obj.setParams(V32parameter);
-                V32obj.setCommand("variable.read");
-                String V32AirDetectionResult = machWorkBenchService.getApiData(sessionId, V32obj);//GET data from api
+                V17obj.setParams(V17parameter);
+                V17obj.setCommand("variable.read");
+                String V17AirDetectionResult = machWorkBenchService.getApiData(sessionId, V17obj);//GET data from api
 
-                String res1V32 = V32AirDetectionResult.replace("[", "");
-                String res2V32 = res1V32.replace("]", "");
+                String res1V17 = V17AirDetectionResult.replace("[", "");
+                String res2V17 = res1V17.replace("]", "");
 
-                LineValue V32AirDetection = new LineValue();
-                V32AirDetection.setName("V32AirDetection");
-                V32AirDetection.setValue(Integer.valueOf(res2V32.trim()));
-                valueList.add(V32AirDetection);
+                LineValue V17AirDetection = new LineValue();
+                V17AirDetection.setName("V17AirDetection");
+                V17AirDetection.setValue(Integer.valueOf(res2V17.trim()));
+                valueList.add(V17AirDetection);
 
                 //update the last activity refresh
                 Date realTimeAfterRequest = new Date();
@@ -463,7 +463,6 @@ public class D2xxWorkBenchController {
                 result.setData(valueList);
                 return result;
             }
-
             result.setSuccess(false);
             result.setMessage("sessionId error");
             return result;
@@ -474,6 +473,5 @@ public class D2xxWorkBenchController {
             result.setSuccess(false);
             return result;
         }
-
     }
 }

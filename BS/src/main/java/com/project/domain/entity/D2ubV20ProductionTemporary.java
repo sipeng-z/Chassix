@@ -2,7 +2,7 @@ package com.project.domain.entity;
 
 import java.util.Date;
 
-public class D2ubV18ProductionTemporary {
+public class D2ubV20ProductionTemporary {
 
     private String temporaryId;
 

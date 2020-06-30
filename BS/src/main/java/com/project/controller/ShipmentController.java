@@ -46,12 +46,10 @@ public class ShipmentController extends GenericController <Shipment,Shipment> {
      * @throws Exception
      */
     @RequestMapping(value = "getShipment",method = RequestMethod.GET)
-    public ResponseResult getShipment(String partName) throws Exception{
+    public ResponseResult getShipment(String partName) {
 
         try{
-
             return ResponseResult.success(shipmentService.getAllShipment(partName));
-
         }catch (Exception e){
             logger.error("-----------------------pagelist异常------"+e);
         }

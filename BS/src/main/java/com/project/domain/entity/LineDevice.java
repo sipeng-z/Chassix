@@ -222,4 +222,32 @@ public class LineDevice {
     public void setIsDeleted(Integer isDeleted) {
         this.isDeleted = isDeleted;
     }
+
+    @Override
+    public String toString() {
+        return "LineDevice{" +
+                "lineDeviceId='" + lineDeviceId + '\'' +
+                ", parentId='" + parentId + '\'' +
+                ", name='" + name + '\'' +
+                ", link='" + link + '\'' +
+                ", module='" + module + '\'' +
+                ", style='" + style + '\'' +
+                ", icon='" + icon + '\'' +
+                ", isShow=" + isShow +
+                ", type=" + type +
+                ", target='" + target + '\'' +
+                ", haschild=" + haschild +
+                ", layer=" + layer +
+                ", path='" + path + '\'' +
+                ", displayOrder=" + displayOrder +
+                ", state=" + state +
+                ", createdUserId='" + createdUserId + '\'' +
+                ", createdUserName='" + createdUserName + '\'' +
+                ", createdDateTime=" + createdDateTime +
+                ", lastUpdatedUserId='" + lastUpdatedUserId + '\'' +
+                ", lastUpdatedUserName='" + lastUpdatedUserName + '\'' +
+                ", lastUpdatedDateTime=" + lastUpdatedDateTime +
+                ", isDeleted=" + isDeleted +
+                '}';
+    }
 }

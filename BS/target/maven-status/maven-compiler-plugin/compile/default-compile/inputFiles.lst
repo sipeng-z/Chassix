@@ -140,6 +140,7 @@ C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\system\domain\mode
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\casting\service\CastingDeviceWiseSessionService.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\system\domain\model\input\RoleInput.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\system\controller\ActionsController.java
+C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\casting\controller\MechanicalPropertiesLocationRequirementController.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\system\domain\entity\SystemDataLogs.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\core\dao\Dao.java
 C:\Users\yyhuan\Desktop\Data Acquisition\BS\src\main\java\com\casting\controller\CastingCPCGeneralPvFurnaceChamberCurveController.java

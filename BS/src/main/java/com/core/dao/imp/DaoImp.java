@@ -22,10 +22,6 @@ public class DaoImp implements Dao {
     @Autowired
     private SqlSessionTemplate sqlSessionTemplate;
 
-
-
-
-
     /**
      * 保存对象
      * @param str
@@ -134,9 +130,6 @@ public class DaoImp implements Dao {
     public Object findForListSql(String str, PageData pageData) throws Exception{
         return sqlSessionTemplate.selectList(str,pageData);
     }
-
-
-
 
     /**
      * 根据ids批量删除（逻辑删除，更改is deleted字段）

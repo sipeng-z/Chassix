@@ -9,7 +9,7 @@
     <result column="Planned_Run_Time" jdbcType="INTEGER" property="plannedRunTime" />
     <result column="Lunch_time" jdbcType="INTEGER" property="lunchTime" />
     <result column="Break_Time" jdbcType="INTEGER" property="breakTime" />
-    <result column="Prevention_Maintenance" jdbcType="INTEGER" property="preventionMaintenance" />
+    <result column="Preventive_Maintenance" jdbcType="INTEGER" property="preventiveMaintenance" />
     <result column="Setup_Preparation" jdbcType="INTEGER" property="setupPreparation" />
     <result column="Change_Overs" jdbcType="INTEGER" property="changeOvers" />
     <result column="Unplanned_Downtime" jdbcType="INTEGER" property="unplannedDowntime" />
@@ -27,7 +27,7 @@
     <result column="Planned_Run_Time" jdbcType="INTEGER" property="plannedRunTime" />
     <result column="Lunch_time" jdbcType="INTEGER" property="lunchTime" />
     <result column="Break_Time" jdbcType="INTEGER" property="breakTime" />
-    <result column="Prevention_Maintenance" jdbcType="INTEGER" property="preventionMaintenance" />
+    <result column="Preventive_Maintenance" jdbcType="INTEGER" property="preventiveMaintenance" />
     <result column="Setup_Preparation" jdbcType="INTEGER" property="setupPreparation" />
     <result column="Change_Overs" jdbcType="INTEGER" property="changeOvers" />
     <result column="Unplanned_Downtime" jdbcType="INTEGER" property="unplannedDowntime" />
@@ -40,36 +40,35 @@
 
 
 
-
   <sql id="Base_Column_List">
     ItemNO, Date_String, RecordNO, RunningTime, Planned_Run_Time, Lunch_time, Break_Time, 
-    Prevention_Maintenance, Setup_Preparation, Change_Overs, Unplanned_Downtime, VM_Time_INS, 
+    Preventive_Maintenance, Setup_Preparation, Change_Overs, Unplanned_Downtime, VM_Time_INS, 
     Description, mark
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
-    from dbo.G38_V21_OEE_Data
+    from dbo.Machining_V21_OEE_Data
     where ItemNO = #{itemno,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from dbo.G38_V21_OEE_Data
+    delete from dbo.Machining_V21_OEE_Data
     where ItemNO = #{itemno,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.project.domain.entity.G38V21OEEData">
-    insert into dbo.G38_V21_OEE_Data (ItemNO, Date_String, RecordNO, 
+    insert into dbo.Machining_V21_OEE_Data (ItemNO, Date_String, RecordNO,
       RunningTime, Planned_Run_Time, Lunch_time, 
-      Break_Time, Prevention_Maintenance, Setup_Preparation, 
+      Break_Time, Preventive_Maintenance, Setup_Preparation, 
       Change_Overs, Unplanned_Downtime, VM_Time_INS, 
       Description, mark)
     values (#{itemno,jdbcType=INTEGER}, #{dateString,jdbcType=CHAR}, #{recordno,jdbcType=INTEGER}, 
       #{runningtime,jdbcType=INTEGER}, #{plannedRunTime,jdbcType=INTEGER}, #{lunchTime,jdbcType=INTEGER}, 
-      #{breakTime,jdbcType=INTEGER}, #{preventionMaintenance,jdbcType=INTEGER}, #{setupPreparation,jdbcType=INTEGER}, 
+      #{breakTime,jdbcType=INTEGER}, #{preventiveMaintenance,jdbcType=INTEGER}, #{setupPreparation,jdbcType=INTEGER}, 
       #{changeOvers,jdbcType=INTEGER}, #{unplannedDowntime,jdbcType=INTEGER}, #{vmTimeIns,jdbcType=TIMESTAMP}, 
       #{description,jdbcType=VARCHAR}, #{mark,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.project.domain.entity.G38V21OEEData">
-    insert into dbo.G38_V21_OEE_Data
+    insert into dbo.Machining_V21_OEE_Data
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="itemno != null">
         ItemNO,
@@ -92,8 +91,8 @@
       <if test="breakTime != null">
         Break_Time,
       </if>
-      <if test="preventionMaintenance != null">
-        Prevention_Maintenance,
+      <if test="preventiveMaintenance != null">
+        Preventive_Maintenance,
       </if>
       <if test="setupPreparation != null">
         Setup_Preparation,
@@ -136,8 +135,8 @@
       <if test="breakTime != null">
         #{breakTime,jdbcType=INTEGER},
       </if>
-      <if test="preventionMaintenance != null">
-        #{preventionMaintenance,jdbcType=INTEGER},
+      <if test="preventiveMaintenance != null">
+        #{preventiveMaintenance,jdbcType=INTEGER},
       </if>
       <if test="setupPreparation != null">
         #{setupPreparation,jdbcType=INTEGER},
@@ -160,7 +159,7 @@
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.project.domain.entity.G38V21OEEData">
-    update dbo.G38_V21_OEE_Data
+    update dbo.Machining_V21_OEE_Data
     <set>
       <if test="dateString != null">
         Date_String = #{dateString,jdbcType=CHAR},
@@ -180,8 +179,8 @@
       <if test="breakTime != null">
         Break_Time = #{breakTime,jdbcType=INTEGER},
       </if>
-      <if test="preventionMaintenance != null">
-        Prevention_Maintenance = #{preventionMaintenance,jdbcType=INTEGER},
+      <if test="preventiveMaintenance != null">
+        Preventive_Maintenance = #{preventiveMaintenance,jdbcType=INTEGER},
       </if>
       <if test="setupPreparation != null">
         Setup_Preparation = #{setupPreparation,jdbcType=INTEGER},
@@ -205,14 +204,14 @@
     where ItemNO = #{itemno,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.project.domain.entity.G38V21OEEData">
-    update dbo.G38_V21_OEE_Data
+    update dbo.Machining_V21_OEE_Data
     set Date_String = #{dateString,jdbcType=CHAR},
       RecordNO = #{recordno,jdbcType=INTEGER},
       RunningTime = #{runningtime,jdbcType=INTEGER},
       Planned_Run_Time = #{plannedRunTime,jdbcType=INTEGER},
       Lunch_time = #{lunchTime,jdbcType=INTEGER},
       Break_Time = #{breakTime,jdbcType=INTEGER},
-      Prevention_Maintenance = #{preventionMaintenance,jdbcType=INTEGER},
+      Preventive_Maintenance = #{preventiveMaintenance,jdbcType=INTEGER},
       Setup_Preparation = #{setupPreparation,jdbcType=INTEGER},
       Change_Overs = #{changeOvers,jdbcType=INTEGER},
       Unplanned_Downtime = #{unplannedDowntime,jdbcType=INTEGER},
@@ -225,13 +224,16 @@
 
 
 
+
+
+
   <!-- tableName -->
   <sql id="tableName">
-    dbo.G38_V21_OEE_Data
+    dbo.Machining_V21_OEE_Data
   </sql>
   <!-- tableNameOut -->
   <sql id="tableNameOut">
-    <bind name="tableName" value="'G38_V21_OEE_Data'"/>
+    <bind name="tableName" value="'Machining_V21_OEE_Data'"/>
   </sql>
   <!-- pkId -->
   <sql id="pkId">
@@ -246,8 +248,10 @@
     <include refid="tableName"></include>
     WHERE 1 = 1
     <include refid="PmBasicMapper.retrieveSql"></include>
-    order by Date_String DESC
+    order by Date_String DESC, RecordNO
   </select>
+
+
 
 
   <!--list-->
@@ -258,9 +262,8 @@
     <include refid="tableName"></include>
     WHERE 1 = 1
     <include refid="PmBasicMapper.retrieveSql"></include>
-    order by Date_String DESC, RecordNO
+    order by Date_String DESC
   </select>
-
 
 
 
@@ -278,7 +281,7 @@
   <!-- updateByItemno mark  plannedRunTime -->
 
   <update id="updateByItemno" parameterType="com.domain.model.PageData">
-    update dbo.G38_V21_OEE_Data
+    update dbo.Machining_V21_OEE_Data
     <set>
       <if test="plannedRunTime != null">
         Planned_Run_Time = #{plannedRunTime,jdbcType=INTEGER},
@@ -289,9 +292,9 @@
       <if test="breakTime != null">
         Break_Time = #{breakTime,jdbcType=INTEGER},
       </if>
-        <if test="preventionMaintenance != null">
-            Prevention_Maintenance = #{preventionMaintenance,jdbcType=INTEGER},
-        </if>
+      <if test="preventiveMaintenance != null">
+        Preventive_Maintenance = #{preventiveMaintenance,jdbcType=INTEGER},
+      </if>
       <if test="setupPreparation != null">
         Setup_Preparation = #{setupPreparation,jdbcType=INTEGER},
       </if>
@@ -304,13 +307,17 @@
       <if test="mark != null">
         mark = #{mark,jdbcType=INTEGER},
       </if>
-
       <if test="description != null">
         Description = #{description,jdbcType=VARCHAR},
       </if>
     </set>
     where ItemNO = #{itemno,jdbcType=INTEGER}
   </update>
+
+
+
+
+
 
 
 </mapper>

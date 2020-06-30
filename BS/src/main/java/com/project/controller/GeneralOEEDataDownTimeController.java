@@ -40,10 +40,6 @@ public class GeneralOEEDataDownTimeController extends GenericController<GeneralO
         return generalOEEDataTemporaryService;
     }
 
-
-
-
-
     /**
      * ADD
      * @param id

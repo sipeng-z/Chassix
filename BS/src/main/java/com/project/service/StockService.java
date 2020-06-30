@@ -39,14 +39,14 @@ public class StockService extends AbstractService<MachStock,MachStock>{
     //sql driver
     private static final String DRIVER_NAME = "com.microsoft.sqlserver.jdbc.SQLServerDriver" ;
     //url
-    @Value("${erp.url}")
+    @Value("${new.erp.url}")
     private  String URL;
 
     //user
-    @Value("${erp.user_name}")
+    @Value("${new.erp.user_name}")
     private  String USER_NAME;
     //pw
-    @Value("${erp.password}")
+    @Value("${new.erp.password}")
     private  String PASSWORD;
 
 
@@ -54,6 +54,7 @@ public class StockService extends AbstractService<MachStock,MachStock>{
      * get stock data from avenger_840  that was not static refresh every time
      * @return
      */
+
     public MachStock getStockG38(){
         Connection connection = null;
         try {
@@ -62,13 +63,13 @@ public class StockService extends AbstractService<MachStock,MachStock>{
 
             connection = DriverManager.getConnection(URL, USER_NAME, PASSWORD);
 
-            String sql1 = "select sum(quantity)as   qty  from inventory_static_avenger  where ITEM = '00487.10'"; //Mach
+            String sql1 = "select sum(quantity)as   qty  from inventory_static_avenger  where ITEM = '00487.11'"; //Mach
 
-            String sql2 = "select sum(quantity)as   qty  from inventory_static_avenger  where ITEM = '00488.10'";
+            String sql2 = "select sum(quantity)as   qty  from inventory_static_avenger  where ITEM = '00488.11'";
 
-            String sql3 = "select sum(quantity)as  qty  from inventory_static_avenger   where ITEM = '00487.05F'"; //Casting
+            String sql3 = "select sum(quantity)as  qty  from inventory_static_avenger   where ITEM = '00487.11F'"; //Casting
 
-            String sql4 = "select sum(quantity)as  qty  from inventory_static_avenger  where ITEM = '00488.05F'";
+            String sql4 = "select sum(quantity)as  qty  from inventory_static_avenger  where ITEM = '00488.11F'";
 
 
 

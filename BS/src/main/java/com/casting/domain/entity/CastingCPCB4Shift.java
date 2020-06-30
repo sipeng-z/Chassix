@@ -2,7 +2,7 @@ package com.casting.domain.entity;
 
 import java.util.Date;
 
-public class CastingCPCB7Shift {
+public class CastingCPCB4Shift {
     private String shiftId;
 
     private String mon;

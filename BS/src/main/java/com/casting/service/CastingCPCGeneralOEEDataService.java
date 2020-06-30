@@ -3,6 +3,7 @@ package com.casting.service;
 import com.casting.domain.entity.*;
 import com.casting.domain.model.input.CastingCPCGeneralOEEDataInput;
 import com.casting.domain.model.output.CastingCPCGeneralOEEDataOutput;
+import com.casting.domain.model.output.CastingCPCGeneralPQDataOutput;
 import com.casting.domain.model.output.CastingCPCGeneralPvFurnaceChamberCurveOutput;
 import com.core.service.AbstractService;
 import com.domain.model.PageData;
@@ -38,6 +39,9 @@ public class CastingCPCGeneralOEEDataService extends AbstractService<CastingCPCG
 
     @Autowired
     private CastingCPCGeneralPvFurnaceChamberCurveService castingCPCGeneralPvFurnaceChamberCurveService;
+
+    @Autowired
+    private CastingCPCGeneralPQDataService castingCPCGeneralPQDataService;
 
 
     /**
@@ -82,11 +86,6 @@ public class CastingCPCGeneralOEEDataService extends AbstractService<CastingCPCG
 
     }
 
-
-
-
-
-
     /**
      * use different device name to get correct xml to operate db
      * update
@@ -128,7 +127,6 @@ public class CastingCPCGeneralOEEDataService extends AbstractService<CastingCPCG
 
 
     }
-
 
     /**
      * use different device name to get correct xml to operate db
@@ -475,7 +473,6 @@ public class CastingCPCGeneralOEEDataService extends AbstractService<CastingCPCG
         String inList = "";
         for(int i =0;i<=EndRecordNO-StartRecordNO;i++ ){
             inList+="'";
-
             inList+=(StartRecordNO+i);
             inList+="'";
             if(i<=(EndRecordNO-StartRecordNO)-1){
@@ -696,21 +693,8 @@ public class CastingCPCGeneralOEEDataService extends AbstractService<CastingCPCG
         if(actuallypieces==0){
             return 0;
         }
-
-
         return goodpieces;
-
-
     }
-
-
-
-
-
-
-
-
-
 
     /**
      * get ALL downtime by specific time scope
@@ -759,14 +743,11 @@ public class CastingCPCGeneralOEEDataService extends AbstractService<CastingCPCG
 
             plannedRunningTime+=g.getPlannedRunTime();
             actuallyRunningTime+=g.getRunningtime();
-
             Integer breakTime = g.getBreakTime();
             Integer lunchTime = g.getLunchTime();
             Integer preventionMaintenance = g.getPreventionMaintenance();
             Integer setupPreparation = g.getSetupPreparation();
             Integer changeOvers = g.getChangeOvers();
-
-
             if(breakTime!=null){
                 breakTimeSum+=breakTime;
             }
@@ -783,19 +764,10 @@ public class CastingCPCGeneralOEEDataService extends AbstractService<CastingCPCG
                 coSum+=changeOvers;
             }
         }
-
         plannedDownTime= lunchTimeSum+breakTimeSum+pmSum+spSum+coSum;
         unplannedDownTime = plannedRunningTime-(actuallyRunningTime+plannedDownTime);
-
-
-
         List<CastingValue> list = new ArrayList<>();
-
-
-
         Integer[] a = {lunchTimeSum,breakTimeSum,pmSum,spSum,coSum,unplannedDownTime};
-
-
         for(int i =0;i<6;i++){
             CastingValue v1 = new CastingValue();
             if(i==0){
@@ -810,7 +782,6 @@ public class CastingCPCGeneralOEEDataService extends AbstractService<CastingCPCG
                 v1.setName("pm");
                 v1.setValue(a[i]);
             }
-
             if(i==3){
                 v1.setName("sp");
                 v1.setValue(a[i]);
@@ -826,13 +797,7 @@ public class CastingCPCGeneralOEEDataService extends AbstractService<CastingCPCG
 
             list.add(v1);
         }
-
-
-
-
-
         return list;
-
     }
 
 
@@ -848,11 +813,9 @@ public class CastingCPCGeneralOEEDataService extends AbstractService<CastingCPCG
         this.setMapperName(AppConsts.CastingCPCGeneralOEEDataName.replace("General",device));
 
         CastingQT qt = new CastingQT();
-
         String inList = "";
         for(int i =0;i<=EndRecordNO-StartRecordNO;i++ ){
             inList+="'";
-
             inList+=(StartRecordNO+i);
             inList+="'";
             if(i<=(EndRecordNO-StartRecordNO)-1){
@@ -866,15 +829,10 @@ public class CastingCPCGeneralOEEDataService extends AbstractService<CastingCPCG
         list4oee = this.generallist(false,pageData,device);
         Integer plannedRunningTime = 0;
         for(CastingCPCGeneralOEEData g:list4oee){
-
-
-
             if(g.getRunningtime()>=1){
                 g.setPlannedRunTime(900);  //default calculation of no plan input
             }
-
             plannedRunningTime+=g.getPlannedRunTime();
-
         }
 
         Double targetpieces = new BigDecimal((float)  plannedRunningTime/(20)).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
@@ -882,42 +840,19 @@ public class CastingCPCGeneralOEEDataService extends AbstractService<CastingCPCG
         if(targetpieces==0.00){
             qt.setTarget(0.00);
         }
-
         PageData pageData4tra = new PageData();
         pageData4tra.put("DateString",DateString);
         pageData4tra.put("inList",inList);
-        List<CastingCPCGeneralPvFurnaceChamberCurveOutput>  tralist = castingCPCGeneralPvFurnaceChamberCurveService.generallist(false,pageData4tra,device);
-
+        List<CastingCPCGeneralPQDataOutput>  tralist = castingCPCGeneralPQDataService.generallist(false,pageData4tra,device);
         Integer Lh = 0;
         Integer Rh = 0;
-
-        Integer actuallypieces = tralist.size()/2*6;
-
+        Integer actuallypieces = tralist.size();
         Lh=actuallypieces/2;
         Rh= actuallypieces-Lh;
-
         qt.setQuantity(actuallypieces.doubleValue());
         qt.setLh(Lh);
         qt.setRh(Rh);
         qt.setTarget(targetpieces);
         return qt;
-
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

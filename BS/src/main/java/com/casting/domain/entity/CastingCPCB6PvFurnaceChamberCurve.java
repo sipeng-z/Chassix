@@ -1,6 +1,6 @@
 package com.casting.domain.entity;
 
-public class CastingCPCB7PvFurnaceChamberCurve {
+public class CastingCPCB6PvFurnaceChamberCurve {
     private Integer itemno;
 
     private String timeString;

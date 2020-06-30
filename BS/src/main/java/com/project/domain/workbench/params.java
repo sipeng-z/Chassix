@@ -6,18 +6,11 @@ public class params {
     private String device;
     private String variable;
     private String type;
-
-    public String getLength() {
-        return length;
-    }
-
-    public void setLength(String length) {
-        this.length = length;
-    }
-
     private String count;
     private String length;
     private String data;
+
+
 
 
     public String getVariable() {
@@ -51,6 +44,14 @@ public class params {
 
     public void setDevice(String device) {
         this.device = device;
+    }
+
+    public String getLength() {
+        return length;
+    }
+
+    public void setLength(String length) {
+        this.length = length;
     }
 
 

@@ -6,9 +6,12 @@ public class MachineOverviewValue {
     private String name;
     private Integer status;
     private String shift1OEE;
+    private Integer shift1QT;
     private String shift2OEE;
+    private Integer shift2QT;
     private String shift3OEE;
-    private String remark;
+    private Integer shift3QT;
+    private String cycleTime;
 
     public String getName() {
         return name;
@@ -34,12 +37,28 @@ public class MachineOverviewValue {
         this.shift1OEE = shift1OEE;
     }
 
+    public Integer getShift1QT() {
+        return shift1QT;
+    }
+
+    public void setShift1QT(Integer shift1QT) {
+        this.shift1QT = shift1QT;
+    }
+
     public String getShift2OEE() {
         return shift2OEE;
     }
 
     public void setShift2OEE(String shift2OEE) {
         this.shift2OEE = shift2OEE;
+    }
+
+    public Integer getShift2QT() {
+        return shift2QT;
+    }
+
+    public void setShift2QT(Integer shift2QT) {
+        this.shift2QT = shift2QT;
     }
 
     public String getShift3OEE() {
@@ -50,11 +69,19 @@ public class MachineOverviewValue {
         this.shift3OEE = shift3OEE;
     }
 
-    public String getRemark() {
-        return remark;
+    public Integer getShift3QT() {
+        return shift3QT;
     }
 
-    public void setRemark(String remark) {
-        this.remark = remark;
+    public void setShift3QT(Integer shift3QT) {
+        this.shift3QT = shift3QT;
+    }
+
+    public String getCycleTime() {
+        return cycleTime;
+    }
+
+    public void setCycleTime(String cycleTime) {
+        this.cycleTime = cycleTime;
     }
 }

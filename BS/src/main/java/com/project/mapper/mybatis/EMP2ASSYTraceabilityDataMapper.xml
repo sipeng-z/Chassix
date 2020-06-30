@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.project.mapper.mybatis.EMP2ASSYProductionDataMapper">
-    <resultMap id="BaseResultMap" type="com.project.domain.entity.EMP2ASSYProductionData">
+<mapper namespace="com.project.mapper.mybatis.EMP2ASSYTraceabilityData">
+    <resultMap id="BaseResultMap" type="com.project.domain.entity.EMP2ASSYTraceabilityData">
         <id column="ItemNO" jdbcType="INTEGER" property="itemno" />
+        <result column="Part_Type_NO" jdbcType="INTEGER" property="partTypeNo"/>
+        <result column="MachineNO" jdbcType="CHAR" property="machineNo" />
         <result column="SO_Number" jdbcType="CHAR" property="soNumber" />
-        <result column="PartNO" jdbcType="NCHAR" property="partno" />
-        <result column="LabelNO" jdbcType="NCHAR" property="labelno" />
+        <result column="Part_Type" jdbcType="CHAR" property="partType" />
+        <result column="PartNO" jdbcType="CHAR" property="partno" />
+        <result column="PartNO_Abbr" jdbcType="CHAR" property="partnoAbbr" />
         <result column="PartStatus" jdbcType="INTEGER" property="partstatus" />
         <result column="E1_Press_Force" jdbcType="REAL" property="e1PressForce" />
         <result column="E1_End_Position" jdbcType="REAL" property="e1EndPosition" />
@@ -22,7 +25,424 @@
         <result column="Stud3_Press_Force" jdbcType="REAL" property="stud3PressForce" />
         <result column="Stud3_End_Position" jdbcType="REAL" property="stud3EndPosition" />
         <result column="Stud3_Final_Force" jdbcType="REAL" property="stud3FinalForce" />
-        <result column="Part_Completed_Time" jdbcType="TIMESTAMP" property="partCompletedTime" />
         <result column="E1_E2_Completed_Time" jdbcType="TIMESTAMP" property="e1e2CompletedTime" />
+        <result column="Label_Stick_Time" jdbcType="TIMESTAMP" property="labelStickTime" />
+        <result column="Stud_Assemble_Status" jdbcType="INTEGER" property="studAssembleStatus" />
+        <result column="Part_Completed_Time" jdbcType="TIMESTAMP" property="partCompletedTime" />
         <result column="Last_Cycle_Spent_Time" jdbcType="INTEGER" property="lastCycleSpentTime" />
+        <result column="RecordNO" jdbcType="INTEGER" property="recordNo"/>
+        <result column="Date_String" jdbcType="CHAR" property="dateString"/>
     </resultMap>
+
+    <resultMap id="GeneralMap" type="com.project.domain.entity.EMP2ASSYTraceabilityData">
+        <id column="ItemNO" jdbcType="INTEGER" property="itemno" />
+        <result column="Part_Type_NO" jdbcType="INTEGER" property="partTypeNo"/>
+        <result column="MachineNO" jdbcType="CHAR" property="machineNo" />
+        <result column="SO_Number" jdbcType="CHAR" property="soNumber" />
+        <result column="Part_Type" jdbcType="CHAR" property="partType" />
+        <result column="PartNO" jdbcType="CHAR" property="partno" />
+        <result column="PartNO_Abbr" jdbcType="CHAR" property="partnoAbbr" />
+        <result column="PartStatus" jdbcType="INTEGER" property="partstatus" />
+        <result column="E1_Press_Force" jdbcType="REAL" property="e1PressForce" />
+        <result column="E1_End_Position" jdbcType="REAL" property="e1EndPosition" />
+        <result column="E1_Final_Force" jdbcType="REAL" property="e1FinalForce" />
+        <result column="E2_Press_Force" jdbcType="REAL" property="e2PressForce" />
+        <result column="E2_End_Position" jdbcType="REAL" property="e2EndPosition" />
+        <result column="E2_Final_Force" jdbcType="REAL" property="e2FinalForce" />
+        <result column="Stud1_Press_Force" jdbcType="REAL" property="stud1PressForce" />
+        <result column="Stud1_End_Position" jdbcType="REAL" property="stud1EndPosition" />
+        <result column="Stud1_Final_Force" jdbcType="REAL" property="stud1FinalForce" />
+        <result column="Stud2_Press_Force" jdbcType="REAL" property="stud2PressForce" />
+        <result column="Stud2_End_Position" jdbcType="REAL" property="stud2EndPosition" />
+        <result column="Stud2_Final_Force" jdbcType="REAL" property="stud2FinalForce" />
+        <result column="Stud3_Press_Force" jdbcType="REAL" property="stud3PressForce" />
+        <result column="Stud3_End_Position" jdbcType="REAL" property="stud3EndPosition" />
+        <result column="Stud3_Final_Force" jdbcType="REAL" property="stud3FinalForce" />
+        <result column="E1_E2_Completed_Time" jdbcType="TIMESTAMP" property="e1e2CompletedTime" />
+        <result column="Label_Stick_Time" jdbcType="TIMESTAMP" property="labelStickTime" />
+        <result column="Stud_Assemble_Status" jdbcType="INTEGER" property="studAssembleStatus" />
+        <result column="Part_Completed_Time" jdbcType="TIMESTAMP" property="partCompletedTime" />
+        <result column="Last_Cycle_Spent_Time" jdbcType="INTEGER" property="lastCycleSpentTime" />
+        <result column="RecordNO" jdbcType="INTEGER" property="recordNo"/>
+        <result column="Date_String" jdbcType="CHAR" property="dateString"/>
+    </resultMap>
+
+
+
+    <sql id="Base_Column_List">
+    ItemNO,Part_Type_NO,MachineNO,SO_Number,Part_Type,PartNO,
+    PartNO_Abbr,PartStatus,E1_Press_Force,E1_End_Position,E1_Final_Force,
+    E2_Press_Force,E2_End_Position,E2_Final_Force,Stud1_Press_Force,
+    Stud1_End_Position,Stud1_Final_Force,Stud2_Press_Force,
+    Stud2_End_Position,Stud2_Final_Force,Stud3_Press_Force,
+    Stud3_End_Position,Stud3_Final_Force,E1_E2_Completed_Time,
+    Label_Stick_Time,Stud_Assemble_Status,Part_Completed_Time,
+    Last_Cycle_Spent_Time,RecordNO,Date_String
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from dbo.EMP2_ASSY_Traceability_Data
+        where ItemNO = #{itemno,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from dbo.EMP2_ASSY_Traceability_Data
+    where ItemNO = #{itemno,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="com.project.domain.entity.EMP2ASSYTraceabilityData">
+    insert into dbo.EMP2_ASSY_Traceability_Data(ItemNO,Part_Type_NO,MachineN0,SO_Number,Part_Type,
+    PartNO,PartNO_Abbr,PartStatus,E1_Press_Force,E1_End_Position,E1_Final_Force,E2_Press_Force,
+    E2_End_Position,E2_Final_Force,Stud1_Press_Force,Stud1_End_Position,Stud1_Final_Force,Stud2_Press_Force,
+    Stud2_End_Position,Stud2_Final_Force,Stud3_Press_Force,Stud3_End_Position,Stud3_Final_Force,E1_E2_Completed_Time,
+    Label_Stick_Time,Stud_Assemble_Status,Part_Completed_Time,Last_Cycle_Spent_Time,RecordNO,Date_String)
+    values (#{itemno,jdbcType=INTEGER},#{partTypeNo,jdbcType=INTEGER},#{machineNo,jdbcType=CHAR},
+    #{soNumber,jdbcType=CHAR},#{partType,jdbcType=CHAR},#{partno,jdbcType=CHAR},#{partnoAbbr,jdbcType=CHAR},
+    #{partstatus,jdbcType=INTEGER},#{e1PressForce,jdbcType=REAL},#{e1EndPosition,jdbcType=REAL},
+    #{e1FinalForce,jdbcType=REAL},#{e2PressForce,jdbcType=REAL},#{e2EndPosition,jdbcType=REAL},
+    #{e2FinalForce,jdbcType=REAL},#{stud1PressForce,jdbcType=REAL},#{stud1EndPosition,jdbcType=REAL},
+    #{stud1FinalForce,jdbcType=REAL},#{stud2PressForce,jdbcType=REAL},#{stud2EndPosition,jdbcType=REAL},
+    #{stud2FinalForce,jdbcType=REAL},#{stud3PressForce,jdbcType=REAL},#{stud3EndPosition,jdbcType=REAL},
+    #{stud3FinalForce,jdbcType=REAL},#{e1e2CompletedTime,jdbcType=TIMESTAMP},#{labelStickTime,jdbcType=TIMESTAMP},
+    #{studAssembleStatus,jdbcType=INTEGER},#{partCompletedTime,jdbcType=TIMESTAMP},
+    #{lastCycleSpentTime,jdbcType=INTEGER},#{recordNo,jdbcType=INTEGER},#{dateString,jdbcType=CHAR})
+    </insert>
+    <insert id="insertSelective" parameterType="com.project.domain.entity.EMP2ASSYTraceabilityData">
+        insert into dbo.EMP2_ASSY_Traceability_Data
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="itemno != null">
+                ItemNO,
+            </if>
+            <if test="partTypeNo != null">
+                Part_Type_NO,
+            </if>
+            <if test="machineNo != null">
+                MachineNO,
+            </if>
+            <if test="soNumber != null">
+                SO_Number,
+            </if>
+            <if test="partType != null">
+                Part_Type,
+            </if>
+            <if test="partno != null">
+                PartNO,
+            </if>
+            <if test="partnoAbbr!= null">
+                PartNO_Abbr,
+            </if>
+            <if test="partstatus != null">
+                PartStatus,
+            </if>
+            <if test="e1PressForce != null">
+                E1_Press_Force,
+            </if>
+            <if test="e1EndPosition != null">
+                E1_End_Position,
+            </if>
+            <if test="e1FinalForce != null">
+                E1_Final_Force,
+            </if>
+            <if test="e2PressForce != null">
+                E2_Press_Force,
+            </if>
+            <if test="e2EndPosition != null">
+                E2_End_Position,
+            </if>
+            <if test="e2FinalForce != null">
+                E2_Final_Force,
+            </if>
+            <if test="stud1PressForce != null">
+                Stud1_Press_Force,
+            </if>
+            <if test="stud1EndPosition != null">
+                Stud1_End_Position,
+            </if>
+            <if test="stud1FinalForce != null">
+                Stud1_Final_Force,
+            </if>
+            <if test="stud2PressForce != null">
+                Stud2_Press_Force,
+            </if>
+            <if test="stud2EndPosition != null">
+                Stud2_End_Position,
+            </if>
+            <if test="stud2FinalForce != null">
+                Stud2_Final_Force,
+            </if>
+            <if test="stud3PressForce != null">
+                Stud3_Press_Force,
+            </if>
+            <if test="stud3EndPosition != null">
+                Stud3_End_Position,
+            </if>
+            <if test="stud3FinalForce != null">
+                Stud3_Final_Force,
+            </if>
+            <if test="e1e2CompletedTime != null">
+                E1_E2_Completed_Time,
+            </if>
+            <if test="labelStickTime != null">
+                Label_Stick_Time,
+            </if>
+            <if test="studAssembleStatus != null">
+                Stud_Assemble_Status,
+            </if>
+            <if test="partCompletedTime != null">
+                Part_Completed_Time,
+            </if>
+            <if test="lastCycleSpentTime != null">
+                Last_Cycle_Spent_Time,
+            </if>
+            <if test="recordNo != null">
+                RecordNO,
+            </if>
+            <if test="dateString != null">
+                Date_String,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="itemno != null">
+                #{itemno,jdbcType=INTEGER},
+            </if>
+            <if test="partTypeNo != null">
+                #{partTypeNo,jdbcType=INTEGER},
+            </if>
+            <if test="machineNo != null">
+                #{machineNo,jdbcType=CHAR},
+            </if>
+            <if test="soNumber != null">
+                #{soNumber,jdbcType=CHAR},
+            </if>
+            <if test="partType != null">
+                #{partType,jdbcType=CHAR},
+            </if>
+            <if test="partno != null">
+                #{partno,jdbcType=CHAR},
+            </if>
+            <if test="partnoAbbr!= null">
+                #{partnoAbbr,jdbcType=CHAR},
+            </if>
+            <if test="partstatus != null">
+                #{partstatus,jdbcType=INTEGER},
+            </if>
+            <if test="e1PressForce != null">
+                #{e1PressForce,jdbcType=REAL},
+            </if>
+            <if test="e1EndPosition != null">
+                #{e1EndPosition,jdbcType=REAL},
+            </if>
+            <if test="e1FinalForce != null">
+                #{e1FinalForce,jdbcType=REAL},
+            </if>
+            <if test="e2PressForce != null">
+                #{e2PressForce,jdbcType=REAL},
+            </if>
+            <if test="e2EndPosition != null">
+                #{e2EndPosition,jdbcType=REAL},
+            </if>
+            <if test="e2FinalForce != null">
+                #{e2FinalForce,jdbcType=REAL},
+            </if>
+            <if test="stud1PressForce != null">
+                #{stud1PressForce,jdbcType=REAL},
+            </if>
+            <if test="stud1EndPosition != null">
+                #{stud1EndPosition,jdbcType=REAL},
+            </if>
+            <if test="stud1FinalForce != null">
+                #{stud1FinalForce,jdbcType=REAL},
+            </if>
+            <if test="stud2PressForce != null">
+                #{stud2PressForce,jdbcType=REAL},
+            </if>
+            <if test="stud2EndPosition != null">
+                #{stud2EndPosition,jdbcType=REAL},
+            </if>
+            <if test="stud2FinalForce != null">
+                #{stud2FinalForce,jdbcType=REAL},
+            </if>
+            <if test="stud3PressForce != null">
+                #{stud3PressForce,jdbcType=REAL},
+            </if>
+            <if test="stud3EndPosition != null">
+                #{stud3EndPosition,jdbcType=REAL},
+            </if>
+            <if test="stud3FinalForce != null">
+                #{stud3FinalForce,jdbcType=REAL},
+            </if>
+            <if test="e1e2CompletedTime != null">
+                #{e1e2CompletedTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="labelStickTime != null">
+                #{labelStickTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="studAssembleStatus != null">
+                #{studAssembleStatus,jdbcType=INTEGER},
+            </if>
+            <if test="partCompletedTime != null">
+                #{partCompletedTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="lastCycleSpentTime != null">
+                #{lastCycleSpentTime,jdbcType=INTEGER},
+            </if>
+            <if test="recordNo != null">
+                #{recordNo,jdbcType=INTEGER},
+            </if>
+            <if test="dateString != null">
+                #{dateString,jdbcType=CHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.project.domain.entity.EMP2ASSYTraceabilityData">
+        update dbo.EMP2_ASSY_Traceability_Data
+        <set>
+            <if test="partTypeNo != null">
+                Part_Type_NO = #{partTypeNo,jdbcType=INTEGER},
+            </if>
+            <if test="machineNo != null">
+                MachineNO = #{machineNo,jdbcType=CHAR},
+            </if>
+            <if test="soNumber != null">
+                SO_Number = #{soNumber,jdbcType=CHAR},
+            </if>
+            <if test="partType != null">
+                Part_Type = #{partType,jdbcType=CHAR},
+            </if>
+            <if test="partno != null">
+                PartNO = #{partno,jdbcType=CHAR},
+            </if>
+            <if test="partnoAbbr!= null">
+                PartNO_Abbr = #{partnoAbbr,jdbcType=CHAR},
+            </if>
+            <if test="partstatus != null">
+                PartStatus = #{partstatus,jdbcType=INTEGER},
+            </if>
+            <if test="e1PressForce != null">
+                E1_Press_Force = #{e1PressForce,jdbcType=REAL},
+            </if>
+            <if test="e1EndPosition != null">
+                E1_End_Position = #{e1EndPosition,jdbcType=REAL},
+            </if>
+            <if test="e1FinalForce != null">
+                E1_Final_Force = #{e1FinalForce,jdbcType=REAL},
+            </if>
+            <if test="e2PressForce != null">
+                E2_Press_Force = #{e2PressForce,jdbcType=REAL},
+            </if>
+            <if test="e2EndPosition != null">
+                E2_End_Position = #{e2EndPosition,jdbcType=REAL},
+            </if>
+            <if test="e2FinalForce != null">
+                E2_Final_Force = #{e2FinalForce,jdbcType=REAL},
+            </if>
+            <if test="stud1PressForce != null">
+                Stud1_Press_Force = #{stud1PressForce,jdbcType=REAL},
+            </if>
+            <if test="stud1EndPosition != null">
+                Stud1_End_Position = #{stud1EndPosition,jdbcType=REAL},
+            </if>
+            <if test="stud1FinalForce != null">
+                Stud1_Final_Force = #{stud1FinalForce,jdbcType=REAL},
+            </if>
+            <if test="stud2PressForce != null">
+                Stud2_Press_Force = #{stud2PressForce,jdbcType=REAL},
+            </if>
+            <if test="stud2EndPosition != null">
+                Stud2_End_Position = #{stud2EndPosition,jdbcType=REAL},
+            </if>
+            <if test="stud2FinalForce != null">
+                Stud2_Final_Force = #{stud2FinalForce,jdbcType=REAL},
+            </if>
+            <if test="stud3PressForce != null">
+                Stud3_Press_Force = #{stud3PressForce,jdbcType=REAL},
+            </if>
+            <if test="stud3EndPosition != null">
+                Stud3_End_Position = #{stud3EndPosition,jdbcType=REAL},
+            </if>
+            <if test="stud3FinalForce != null">
+                Stud3_Final_Force = #{stud3FinalForce,jdbcType=REAL},
+            </if>
+            <if test="e1e2CompletedTime != null">
+                E1_E2_Completed_Time = #{e1e2CompletedTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="labelStickTime != null">
+                Label_Stick_Time = #{labelStickTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="studAssembleStatus != null">
+                Stud_Assemble_Status = #{studAssembleStatus,jdbcType=INTEGER},
+            </if>
+            <if test="partCompletedTime != null">
+                Part_Completed_Time = #{partCompletedTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="lastCycleSpentTime != null">
+                Last_Cycle_Spent_Time = #{lastCycleSpentTime,jdbcType=INTEGER},
+            </if>
+            <if test="recordNo != null">
+                RecordNO = #{recordNo,jdbcType=INTEGER},
+            </if>
+            <if test="dateString != null">
+                Date_String = #{dateString,jdbcType=CHAR},
+            </if>
+        </set>
+        where ItemNO = #{itemno,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.project.domain.entity.EMP2ASSYTraceabilityData">
+    update dbo.EMP2_ASSY_Traceability_Data
+    set Part_Type_NO = #{partTypeNo,jdbcType=INTEGER},
+      MachineNO = #{machineNo,jdbcType=CHAR},
+      SO_Number = #{soNumber,jdbcType=CHAR},
+      Part_Type = #{partType,jdbcType=CHAR},
+      PartNO = #{partno,jdbcType=CHAR},
+      PartNO_Abbr = #{partnoAbbr,jdbcType=CHAR},
+      PartStatus = #{partstatus,jdbcType=INTEGER},
+      E1_Press_Force = #{e1PressForce,jdbcType=REAL},
+      E1_End_Position = #{e1EndPosition,jdbcType=REAL},
+      E1_Final_Force = #{e1FinalForce,jdbcType=REAL},
+      E2_Press_Force = #{e2PressForce,jdbcType=REAL},
+      E2_End_Position = #{e2EndPosition,jdbcType=REAL},
+      E2_Final_Force = #{e2FinalForce,jdbcType=REAL},
+      Stud1_Press_Force = #{stud1PressForce,jdbcType=REAL},
+      Stud1_End_Position = #{stud1EndPosition,jdbcType=REAL},
+      Stud1_Final_Force = #{stud1FinalForce,jdbcType=REAL},
+      Stud2_Press_Force = #{stud2PressForce,jdbcType=REAL},
+      Stud2_End_Position = #{stud2EndPosition,jdbcType=REAL},
+      Stud2_Final_Force = #{stud2FinalForce,jdbcType=REAL},
+      Stud3_Press_Force = #{stud3PressForce,jdbcType=REAL},
+      Stud3_End_Position = #{stud3EndPosition,jdbcType=REAL},
+      Stud3_Final_Force = #{stud3FinalForce,jdbcType=REAL},
+      E1_E2_Completed_Time = #{e1e2CompletedTime,jdbcType=TIMESTAMP},
+      Label_Stick_Time = #{labelStickTime,jdbcType=TIMESTAMP},
+      Stud_Assemble_Status = #{studAssembleStatus,jdbcType=INTEGER},
+      Part_Completed_Time = #{partCompletedTime,jdbcType=TIMESTAMP},
+      Last_Cycle_Spent_Time = #{lastCycleSpentTime,jdbcType=INTEGER},
+      RecordNO = #{recordNo,jdbcType=INTEGER},
+      Date_String = #{dateString,jdbcType=CHAR}
+    where ItemNO = #{itemno,jdbcType=INTEGER}
+  </update>
+
+
+    <!-- tableName -->
+    <sql id="tableName">
+    dbo.EMP2_ASSY_Traceability_Data
+  </sql>
+    <!-- tableNameOut -->
+    <sql id="tableNameOut">
+        <bind name="tableName" value="'EMP2_ASSY_Traceability_Data'"/>
+    </sql>
+    <!-- pkId -->
+    <sql id="pkId">
+        <bind name="pkName" value="'ItemNO'"/>
+    </sql>
+
+    <!--list-->
+    <select id="list" resultMap="BaseResultMap" parameterType="com.domain.model.PageData">
+        SELECT
+        <include refid="Base_Column_List"></include>
+        FROM
+        <include refid="tableName"></include>
+        WHERE 1 = 1
+        <include refid="PmBasicMapper.retrieveSql"></include>
+        order by Date_String DESC
+    </select>
+
+</mapper>

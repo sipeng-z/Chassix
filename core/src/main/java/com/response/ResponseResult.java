@@ -99,8 +99,6 @@ public class ResponseResult  implements Serializable {
     public String toString() {
        return JSON.toJSONStringWithDateFormat(this, "yyyy-MM-dd HH:mm:ss");
     }
-    
-    
 	public boolean isSuccess() {
 		return success;
 	}

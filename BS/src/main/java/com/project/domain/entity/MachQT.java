@@ -6,7 +6,13 @@ package com.project.domain.entity;
  */
 public class MachQT {
 
+    private Double Quantity;
 
+    private Double Target;
+
+    private Integer Lh;
+
+    private Integer Rh;
 
     public Integer getLh() {
         return Lh;
@@ -23,13 +29,6 @@ public class MachQT {
     public void setRh(Integer rh) {
         Rh = rh;
     }
-
-    private Double Quantity;
-    private Double Target;
-    private Integer Lh;
-    private Integer Rh;
-
-
 
     public Double getQuantity() {
         return Quantity;

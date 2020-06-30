@@ -57,13 +57,10 @@ public class ProductionTemporaryTiming {
                 List<GeneralProductionTemporary>  queryList = (List<GeneralProductionTemporary>)generalProductionTemporaryService.generallist(false,pageData,lineDevice[0],lineDevice[1]);
 
                 for(GeneralProductionTemporary q :queryList ){
-
                     String DateString = q.getDateString();
                     Integer Record = q.getRecordno();
                     String temporaryId = q.getTemporaryId();
-
                     StringBuilder sb = new StringBuilder();
-
                     sb.append(" AND Date_String = "  + DateString);
                     sb.append(" AND RecordNO = "  + Record.toString());
                     PageData sqlModel = new PageData();
@@ -91,18 +88,9 @@ public class ProductionTemporaryTiming {
                             logger.error("  RATE FOR PRODUCTION TEMPORARY  ERROR OEE SYNC "+lineAndDevice);
                         }
                     }
-
                 }
-
-
             }
-
-
             logger.info("RATE FOR PRODUCTION SUCCESS");
-
-
-
-
         }catch (Exception e){
             logger.error("  RATE FOR PRODUCTION TEMPORARY  ERROR  ");
         }

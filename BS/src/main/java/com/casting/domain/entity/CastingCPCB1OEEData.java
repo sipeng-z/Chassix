@@ -2,7 +2,7 @@ package com.casting.domain.entity;
 
 import java.util.Date;
 
-public class CastingCPCA1OEEData {
+public class CastingCPCB1OEEData {
     private Integer itemno;
 
     private String dateString;
@@ -17,7 +17,7 @@ public class CastingCPCA1OEEData {
 
     private Integer breakTime;
 
-    private Integer preventiveMaintenance;
+    private Integer preventionMaintenance;
 
     private Integer setupPreparation;
 
@@ -87,12 +87,12 @@ public class CastingCPCA1OEEData {
         this.breakTime = breakTime;
     }
 
-    public Integer getPreventiveMaintenance() {
-        return preventiveMaintenance;
+    public Integer getPreventionMaintenance() {
+        return preventionMaintenance;
     }
 
-    public void setPreventiveMaintenance(Integer preventiveMaintenance) {
-        this.preventiveMaintenance = preventiveMaintenance;
+    public void setPreventionMaintenance(Integer preventionMaintenance) {
+        this.preventionMaintenance = preventionMaintenance;
     }
 
     public Integer getSetupPreparation() {

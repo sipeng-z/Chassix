@@ -2,9 +2,9 @@ package com.project.domain.entity;
 
 public class GeneralValue {
 
-
-
     private  String Name;
+
+    private  String value;
 
     public String getName() {
         return Name;
@@ -21,7 +21,5 @@ public class GeneralValue {
     public void setValue(String value) {
         this.value = value;
     }
-
-    private  String value;
 
 }

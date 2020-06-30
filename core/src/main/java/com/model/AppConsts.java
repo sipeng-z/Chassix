@@ -69,17 +69,10 @@ public class AppConsts {
 
 
 	//WORKBENCH JS API -- machine real time data
-	public final static String workBenchUrl ="http://10.21.32.2:8081/api";
-
-	public final static String workBenchLoginUrl ="http://10.21.32.2:8081/api/login";
-
+	public final static String workBenchUrl ="http://10.41.32.2:8081/api";
+	public final static String workBenchLoginUrl ="http://10.41.32.2:8081/api/login";
 	public final static String workBenchUrlCPC ="http://10.41.32.2:8081/api";
-
 	public final static String workBenchLoginUrlCPC ="http://10.41.32.2:8081/api/login";
-
-
-
-
 
 
 	public final static Integer workBenchDataTypeBool = 11;
@@ -94,13 +87,15 @@ public class AppConsts {
 //	public final static String folderServer =  "/Users/yangyuhuan/Desktop/DADownload/";	//download
 
 
-	public final static String filePathServer =  "C:/Users/wjin/Desktop/DAUpload/";  //upload server
+	public final static String filePathServer =  "C:/Users/speng/Desktop/DAUpload/";  //upload server
 
-	public final static String folderServer =  "C:/Users/wjin/Desktop/DADownload/";	//download server
+	public final static String folderServer =  "C:/Users/speng/Desktop/DADownload/";	//download server
 
 
 	//FOR GENERAL MAPPER NAME FINAL STRING
-	public  final static   String  CastingCPCGeneralPvFurnaceChamberCurveName ="com.casting.mapper.mybatis.CastingCPCGeneralPvFurnaceChamberCurveMapper.";
+	public final static   String  CastingCPCGeneralPvFurnaceChamberCurveName ="com.casting.mapper.mybatis.CastingCPCGeneralPvFurnaceChamberCurveMapper.";
+
+	public final static   String  CastingCPCGeneralPQDataName ="com.casting.mapper.mybatis.CastingCPCGeneralPQDataMapper.";
 
 	public final static   String  CastingCPCGeneralShiftName ="com.casting.mapper.mybatis.CastingCPCGeneralShiftMapper.";
 
@@ -113,20 +108,13 @@ public class AppConsts {
 	//FOR GENERAL MAPPER NAME FINAL STRING  PRODUCTION TEM
 	public  final static   String  GeneralProductionTemporaryName ="com.project.mapper.mybatis.GeneralProductionTemporaryMapper.";
 
-
-
-
-
 	public static  final  String  GeneralOEEDataName ="com.project.mapper.mybatis.GeneralOEEDataMapper.";
 
 	public static  final  String  GeneralPQDataName ="com.project.mapper.mybatis.GeneralPQDataMapper.";
 
-
 	public static  final  String  GeneralShiftName ="com.project.mapper.mybatis.GeneralShiftMapper.";
 
-
 	public static  final  String  GeneralOEEDataTemporaryName ="com.project.mapper.mybatis.GeneralOEEDataTemporaryMapper.";
-
 
 	public static  final  String   GeneralTraceabilityDataName ="com.project.mapper.mybatis.GeneralTraceabilityDataMapper.";
 
@@ -181,13 +169,11 @@ public class AppConsts {
 
 
 	public final static String[] monitoringLines = new  String[]{
-			"G38"
+			"G38","EMP2","C1xx"
 	};
-
-
-
-
-
+	public final static String[] monitoringLines1 = new  String[]{
+			"A2XX RB","A2XX FK","D2UB","D2uc","D2XX","E2XX","AiwaysFK","AiwaysRK"
+	};
 
 
 }

@@ -2,7 +2,7 @@ package com.project.domain.entity;
 
 import java.util.Date;
 
-public class D2xxV15PQData {
+public class D2xxV17PQData {
 
     private Integer itemno;
 

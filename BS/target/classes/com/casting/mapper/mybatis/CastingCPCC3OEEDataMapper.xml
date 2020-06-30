@@ -9,7 +9,7 @@
     <result column="Planned_Run_Time" jdbcType="INTEGER" property="plannedRunTime" />
     <result column="Lunch_time" jdbcType="INTEGER" property="lunchTime" />
     <result column="Break_Time" jdbcType="INTEGER" property="breakTime" />
-    <result column="Prevention_Maintenance" jdbcType="INTEGER" property="preventionMaintenance" />
+    <result column="Preventive_Maintenance" jdbcType="INTEGER" property="preventionMaintenance" />
     <result column="Setup_Preparation" jdbcType="INTEGER" property="setupPreparation" />
     <result column="Change_Overs" jdbcType="INTEGER" property="changeOvers" />
     <result column="Unplanned_Downtime" jdbcType="INTEGER" property="unplannedDowntime" />
@@ -27,7 +27,7 @@
     <result column="Planned_Run_Time" jdbcType="INTEGER" property="plannedRunTime" />
     <result column="Lunch_time" jdbcType="INTEGER" property="lunchTime" />
     <result column="Break_Time" jdbcType="INTEGER" property="breakTime" />
-    <result column="Prevention_Maintenance" jdbcType="INTEGER" property="preventionMaintenance" />
+    <result column="Preventive_Maintenance" jdbcType="INTEGER" property="preventionMaintenance" />
     <result column="Setup_Preparation" jdbcType="INTEGER" property="setupPreparation" />
     <result column="Change_Overs" jdbcType="INTEGER" property="changeOvers" />
     <result column="Unplanned_Downtime" jdbcType="INTEGER" property="unplannedDowntime" />
@@ -42,7 +42,7 @@
 
   <sql id="Base_Column_List">
     ItemNO, Date_String, RecordNO, RunningTime, Planned_Run_Time, Lunch_time, Break_Time, 
-    Prevention_Maintenance, Setup_Preparation, Change_Overs, Unplanned_Downtime, VM_Time_INS, 
+    Preventive_Maintenance, Setup_Preparation, Change_Overs, Unplanned_Downtime, VM_Time_INS, 
     Description, mark
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
@@ -58,7 +58,7 @@
   <insert id="insert" parameterType="com.casting.domain.entity.CastingCPCC3OEEData">
     insert into dbo.Casting_CPC_C3_OEE_Data (ItemNO, Date_String, RecordNO, 
       RunningTime, Planned_Run_Time, Lunch_time, 
-      Break_Time, Prevention_Maintenance, Setup_Preparation, 
+      Break_Time, Preventive_Maintenance, Setup_Preparation, 
       Change_Overs, Unplanned_Downtime, VM_Time_INS, 
       Description, mark)
     values (#{itemno,jdbcType=INTEGER}, #{dateString,jdbcType=CHAR}, #{recordno,jdbcType=INTEGER}, 
@@ -92,7 +92,7 @@
         Break_Time,
       </if>
       <if test="preventionMaintenance != null">
-        Prevention_Maintenance,
+        Preventive_Maintenance,
       </if>
       <if test="setupPreparation != null">
         Setup_Preparation,
@@ -180,7 +180,7 @@
         Break_Time = #{breakTime,jdbcType=INTEGER},
       </if>
       <if test="preventionMaintenance != null">
-        Prevention_Maintenance = #{preventionMaintenance,jdbcType=INTEGER},
+        Preventive_Maintenance = #{preventionMaintenance,jdbcType=INTEGER},
       </if>
       <if test="setupPreparation != null">
         Setup_Preparation = #{setupPreparation,jdbcType=INTEGER},
@@ -211,7 +211,7 @@
       Planned_Run_Time = #{plannedRunTime,jdbcType=INTEGER},
       Lunch_time = #{lunchTime,jdbcType=INTEGER},
       Break_Time = #{breakTime,jdbcType=INTEGER},
-      Prevention_Maintenance = #{preventionMaintenance,jdbcType=INTEGER},
+      Preventive_Maintenance = #{preventionMaintenance,jdbcType=INTEGER},
       Setup_Preparation = #{setupPreparation,jdbcType=INTEGER},
       Change_Overs = #{changeOvers,jdbcType=INTEGER},
       Unplanned_Downtime = #{unplannedDowntime,jdbcType=INTEGER},
@@ -273,7 +273,7 @@
         Break_Time = #{breakTime,jdbcType=INTEGER},
       </if>
       <if test="preventionMaintenance != null">
-        Prevention_Maintenance = #{preventionMaintenance,jdbcType=INTEGER},
+        Preventive_Maintenance = #{preventionMaintenance,jdbcType=INTEGER},
       </if>
       <if test="setupPreparation != null">
         Setup_Preparation = #{setupPreparation,jdbcType=INTEGER},

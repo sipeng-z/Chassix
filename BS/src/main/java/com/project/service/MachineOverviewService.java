@@ -38,7 +38,7 @@ public class MachineOverviewService  {
 
         forapi forApiObj = new forapi();
         params parameter = new params();
-        String deviceNameG = "SZ_"+deviceName+"_G";
+        String deviceNameG = "Machining_"+deviceName+"_G";
         parameter.setDevice(deviceNameG);
         parameter.setVariable("AirDetection");
         parameter.setType("1");
@@ -82,7 +82,7 @@ public class MachineOverviewService  {
 
         forapi forApiObj = new forapi();
         params parameter = new params();
-        String deviceNameG = "SZ_"+deviceName+"_G";
+        String deviceNameG = "Machining_"+deviceName+"_G";
 
         parameter.setDevice(deviceNameG);
         parameter.setVariable("responseToWeb");
@@ -92,7 +92,7 @@ public class MachineOverviewService  {
 
         forApiObj.setParams(parameter);
         forApiObj.setCommand("variable.read");
-        String resultGroup =   machWorkBenchService.getApiData(sessionId,forApiObj);//GET data from telit api
+        String resultGroup = machWorkBenchService.getApiData(sessionId,forApiObj);//GET data from telit api
 
         String res1 = resultGroup.replace("[","");
         String res2 = res1.replace("]","");

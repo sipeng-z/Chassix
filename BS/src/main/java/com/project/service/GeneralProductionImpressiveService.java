@@ -94,12 +94,4 @@ public class GeneralProductionImpressiveService extends AbstractService<GeneralI
         sqlModel.put("retrieveSql", sb.toString());
         return (List<GeneralImpressive>) daoImp.findForListSql(mapperName+"impressive",sqlModel);
     }
-
-
-
-
-
-
-
-
 }

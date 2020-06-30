@@ -1,6 +1,11 @@
 package com.project.domain.entity;
 
 public class G38Value {
+
+    private  String Name;
+
+    private  Integer value;
+
     public String getName() {
         return Name;
     }
@@ -16,7 +21,4 @@ public class G38Value {
     public void setValue(Integer value) {
         this.value = value;
     }
-
-    private  String Name;
-    private  Integer value;
 }

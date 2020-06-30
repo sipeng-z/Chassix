@@ -44,8 +44,6 @@ public class LineDeviceController extends GenericController<LineDeviceInput,Line
         return lineDeviceService;
     }
 
-
-
     /**
      * PAGERLIST
      * @param request
@@ -66,11 +64,6 @@ public class LineDeviceController extends GenericController<LineDeviceInput,Line
         }
         return ResponseResult.error(CommonConstants.EX.EXCEPTION);
     }
-
-
-
-
-
 
     /**
      * PAGE LIST
@@ -95,16 +88,9 @@ public class LineDeviceController extends GenericController<LineDeviceInput,Line
         return ResponseResult.error(CommonConstants.EX.EXCEPTION);
     }
 
-
-
-
-
-
-
     /**
      * GET
      */
-
     @RequestMapping(value = "get",method = RequestMethod.GET)
     public ResponseResult get(String LineDeviceId) {
         try{
@@ -115,13 +101,4 @@ public class LineDeviceController extends GenericController<LineDeviceInput,Line
         }
         return ResponseResult.error(CommonConstants.EX.EXCEPTION);
     }
-
-
-
-
-
-
-
-
-
 }

@@ -14,7 +14,7 @@ import java.net.Socket;
 public class SingleSocket {
 
 
-
+    // no use it
     public  void plcSingleSocket(String[] args) throws IOException {
         ServerSocket server = new ServerSocket(2828);
         Socket client = server.accept();

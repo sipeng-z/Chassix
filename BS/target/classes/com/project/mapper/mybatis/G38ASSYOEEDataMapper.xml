@@ -55,8 +55,8 @@
     where ItemNO = #{itemno,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.project.domain.entity.G38ASSYOEEData">
-    insert into dbo.G38_ASSY_OEE_Data (ItemNO, Date_String, RecordNO, 
-      RunningTime, Planned_Run_Time, Lunch_time, 
+    insert into dbo.G38_ASSY_OEE_Data (ItemNO, Date_String, RecordNO,
+    RunningTime, Planned_Run_Time, Lunch_time,
       Break_Time, Preventive_Maintenance, Setup_Preparation, 
       Change_Overs, Unplanned_Downtime, VM_Time_INS, 
       Description, mark)
@@ -308,11 +308,6 @@
     </set>
     where ItemNO = #{itemno,jdbcType=INTEGER}
   </update>
-
-
-
-
-
 
 
 </mapper>

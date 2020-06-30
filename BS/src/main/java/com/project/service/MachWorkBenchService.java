@@ -6,6 +6,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.model.AppConsts;
 import com.project.domain.workbench.auth;
 import com.project.domain.workbench.logindomain;
+import org.junit.Test;
 import org.springframework.stereotype.Service;
 import com.project.domain.workbench.params;
 import com.project.domain.workbench.forapi;
@@ -26,6 +27,7 @@ public class MachWorkBenchService {
      * get WORKBENCH jsapi login
      * @return
      */
+
     public String getApiLogin(String username,String password)throws Exception{
 
         String url = AppConsts.workBenchLoginUrl; //machining process
@@ -62,6 +64,8 @@ public class MachWorkBenchService {
      *
      * @return 成功:返回json字符串<br/>
      */
+
+
     public static String jsonPostobj(String strURL,String params,String sessionId) throws Exception {
         try {
             URL url = new URL(strURL);// open
@@ -87,6 +91,7 @@ public class MachWorkBenchService {
             out.flush();
             out.close();
 
+
             int code = connection.getResponseCode();
             InputStream is = null;
             if (code == 200) {
@@ -110,6 +115,7 @@ public class MachWorkBenchService {
                 return result;
             }
 
+
         } catch (IOException e) {
             System.out.print("Exception occur when send http post request!"+ e);
         }
@@ -123,34 +129,25 @@ public class MachWorkBenchService {
      * get WORKBENCH jsapi  get data
      *
      */
+
     public String getApiData(String sessionId,forapi forjpi) throws Exception{
 
-
         String url = AppConsts.workBenchUrl;
-
-
-        String info = JSON.toJSONString(forjpi);
+        String info = JSON.toJSONString(forjpi);//将forjpi对象转换为json对象
         String result = jsonPostobj(url,info,sessionId);
 
         JSONObject jsonObject = null;
-        jsonObject =JSON.parseObject(result);
+        jsonObject =JSON.parseObject(result);//将json对象转换为result字符串
 
         String resultparams  = jsonObject.getString("params");
         if (resultparams==null){
             return null;
         }else{
-             String resultdata = JSON.parseObject(resultparams).getString("data");
+            String resultdata = JSON.parseObject(resultparams).getString("data");
             System.out.print("Device Data__________"+resultdata);
             return resultdata;
         }
 
-
-
     }
-
-
-
-
-
 
 }

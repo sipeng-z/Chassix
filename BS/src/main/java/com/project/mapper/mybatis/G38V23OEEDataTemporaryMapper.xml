@@ -50,15 +50,15 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from dbo.G38_V23_OEE_Data_Temporary
+    from dbo.Machining_V23_OEE_Data_Temporary
     where Temporary_id = #{temporaryId,jdbcType=CHAR}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from dbo.G38_V23_OEE_Data_Temporary
+    delete from dbo.Machining_V23_OEE_Data_Temporary
     where Temporary_id = #{temporaryId,jdbcType=CHAR}
   </delete>
   <insert id="insert" parameterType="com.project.domain.entity.G38V23OEEDataTemporary">
-    insert into dbo.G38_V23_OEE_Data_Temporary (Temporary_id, Date_String, RecordNO, 
+    insert into dbo.Machining_V23_OEE_Data_Temporary (Temporary_id, Date_String, RecordNO,
       Running_Time, Planned_Run_Time, Lunch_Time, 
       Break_Time, Preventive_Maintenance, Setup_Preoaration, 
       Change_Overs, Unplanned_Downtime, Created_User_Id, 
@@ -72,7 +72,7 @@
       #{mark,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.project.domain.entity.G38V23OEEDataTemporary">
-    insert into dbo.G38_V23_OEE_Data_Temporary
+    insert into dbo.Machining_V23_OEE_Data_Temporary
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="temporaryId != null">
         Temporary_id,
@@ -175,7 +175,7 @@
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.project.domain.entity.G38V23OEEDataTemporary">
-    update dbo.G38_V23_OEE_Data_Temporary
+    update dbo.Machining_V23_OEE_Data_Temporary
     <set>
       <if test="dateString != null">
         Date_String = #{dateString,jdbcType=VARCHAR},
@@ -226,7 +226,7 @@
     where Temporary_id = #{temporaryId,jdbcType=CHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.project.domain.entity.G38V23OEEDataTemporary">
-    update dbo.G38_V23_OEE_Data_Temporary
+    update dbo.Machining_V23_OEE_Data_Temporary
     set Date_String = #{dateString,jdbcType=VARCHAR},
       RecordNO = #{recordno,jdbcType=INTEGER},
       Running_Time = #{runningTime,jdbcType=INTEGER},
@@ -250,11 +250,11 @@
 
   <!-- tableName -->
   <sql id="tableName">
-    dbo.G38_V23_OEE_Data_Temporary
+    dbo.Machining_V23_OEE_Data_Temporary
   </sql>
   <!-- tableNameOut -->
   <sql id="tableNameOut">
-    <bind name="tableName" value="'G38_V23_OEE_Data_Temporary'"/>
+    <bind name="tableName" value="'Machining_V23_OEE_Data_Temporary'"/>
   </sql>
   <!-- pkId -->
   <sql id="pkId">
@@ -285,7 +285,7 @@
 
 
   <update id="updateMark" parameterType="com.domain.model.PageData">
-    update dbo.G38_V23_OEE_Data_Temporary
+    update dbo.Machining_V23_OEE_Data_Temporary
     <set>
       <if test="mark != null">
         mark = #{mark,jdbcType=INTEGER},

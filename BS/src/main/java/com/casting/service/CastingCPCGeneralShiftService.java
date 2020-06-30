@@ -176,9 +176,6 @@ public class CastingCPCGeneralShiftService extends AbstractService<CastingCPCGen
 
 
 
-
-
-
     /**
      * LIST
      * @param isPager

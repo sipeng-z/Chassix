@@ -37,7 +37,7 @@ public class GeneralOEEDataTemporaryService extends AbstractService<GeneralOEEDa
     //sqlserver驱动包名
     private static final String DRIVER_NAME = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
     //用户名
-    @Value("${dbo.url}")
+    @Value("${new.dbo.url}")
     private String URL;
 
     //数据库连接地址
@@ -271,14 +271,6 @@ public class GeneralOEEDataTemporaryService extends AbstractService<GeneralOEEDa
         return flag;
     }
 
-
-
-
-
-
-
-
-
     /**
      * make break and lunch time be fixed in a week ;
      * @param yearNo
@@ -362,23 +354,9 @@ public class GeneralOEEDataTemporaryService extends AbstractService<GeneralOEEDa
             }else {
                 flagB = false;
             }
-
-
         }
-
         return true;
-
     }
-
-
-
-
-
-
-
-
-
-
 
     /**
      * LIST
@@ -422,9 +400,6 @@ public class GeneralOEEDataTemporaryService extends AbstractService<GeneralOEEDa
         return (List<GeneralOEEDataTemporaryOutput>) daoImp.findForListSql(mapperName+"list",sqlModel);
     }
 
-
-
-
     /**
      * After syn update mark
      * @param mark
@@ -445,8 +420,6 @@ public class GeneralOEEDataTemporaryService extends AbstractService<GeneralOEEDa
 
     }
 
-
-
     /**
      * get one by date / record
      * @param
@@ -459,56 +432,37 @@ public class GeneralOEEDataTemporaryService extends AbstractService<GeneralOEEDa
         PageData pageData = new PageData();
         pageData.put("DateString",DateString);
         pageData.put("RecordNO",recordNO.toString());
-
         return (GeneralOEEDataTemporary) daoImp.findForObject(mapperName+"findByDateRecord",pageData);
-
-
-
     }
-
-
-
-
-
     public  List<String>  getTableNameOeeDataTemporary(){
         Connection connection = null;
         try {
-
             //get driver
             Class.forName(DRIVER_NAME);
             //get connection
             connection = DriverManager.getConnection(URL, USER_NAME, PASSWORD);
             //sql
             String sql ="";
-
             String param = "";
-
             sql ="select name from sys.tables where name like '%oee_data_temporary%'"; //downtime inputs by production
-
             PreparedStatement prst = connection.prepareStatement(sql);
-
             ResultSet rs = prst.executeQuery();
 
             Integer count = 0;
             List<String> list = new ArrayList<>();
             while (rs.next()) {
                 count++;
-
                 //GET
                 String tableName = rs.getString("name");
                 list.add(tableName);
             }
             rs.close();
             prst.close();
-
             return list;
-
-
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println(e);
             return null;
-
         }finally {
             if (connection != null) {
                 try {
@@ -519,11 +473,4 @@ public class GeneralOEEDataTemporaryService extends AbstractService<GeneralOEEDa
             }
         }
     }
-
-
-
-
-
-
-
 }

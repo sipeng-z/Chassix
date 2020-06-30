@@ -1,4 +1,6 @@
 package com.project.domain.model.output;
 
-public class EMP2ASSYOEEDataOutput {
+import com.project.domain.entity.EMP2ASSYOEEData;
+
+public class EMP2ASSYOEEDataOutput extends EMP2ASSYOEEData {
 }

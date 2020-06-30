@@ -30,11 +30,8 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping(value = "CPCGeneralOEEDat a")
+@RequestMapping(value = "CPCGeneralOEEData")
 public class CastingCPCGeneralOEEDataController extends GenericController<CastingCPCGeneralOEEDataInput,CastingCPCGeneralOEEDataOutput> {
-
-
-
 
     private final Logger logger = LoggerFactory.getLogger(CastingCPCGeneralOEEDataController.class);
 
@@ -52,10 +49,10 @@ public class CastingCPCGeneralOEEDataController extends GenericController<Castin
     @Autowired
     private ConversionToolService conversionToolService;
 
+    // declare sub services,
     protected AbstractService<CastingCPCGeneralOEEDataInput,CastingCPCGeneralOEEDataOutput> getService() {
         return castingCPCGeneralOEEDataService;
     }
-
 
     /**
      * ADD/UPDATE
@@ -79,6 +76,7 @@ public class CastingCPCGeneralOEEDataController extends GenericController<Castin
             }
 
             Boolean flag = null;
+            // if id not null, then considered as update
             if(id==null||id.equals("")){
                 flag =  castingCPCGeneralOEEDataService.generaladd (input,device);   //add the domain
 
@@ -303,9 +301,9 @@ public class CastingCPCGeneralOEEDataController extends GenericController<Castin
 
                 CastingOEE castingOEE = new CastingOEE();
 
-                Double a  =  castingCPCGeneralOEEDataService.getOeeA(dateString,record[0],record[1],device);
+                Double a = castingCPCGeneralOEEDataService.getOeeA(dateString,record[0],record[1],device);
 
-                Double p  = castingCPCGeneralOEEDataService.getOeeP(dateString,record[0],record[1],device);
+                Double p = castingCPCGeneralOEEDataService.getOeeP(dateString,record[0],record[1],device);
 
                 Double q = castingCPCGeneralOEEDataService.getOeeQ(dateString,record[0],record[1],device);
 
@@ -324,7 +322,7 @@ public class CastingCPCGeneralOEEDataController extends GenericController<Castin
         castingOEE.setOEE(oeeLimit2);
 
                 // param to get quantity and  target , getTargetQuantity();
-                CastingQT   qt = castingCPCGeneralOEEDataService.getTargetQuantity(dateString,record[0],record[1],device);
+        CastingQT qt = castingCPCGeneralOEEDataService.getTargetQuantity(dateString,record[0],record[1],device);
 
         castingOEE.setTarget(qt.getTarget().intValue());
         castingOEE.setProduced(qt.getLh()+qt.getRh()); //the sum of (left hand and right hand )
@@ -339,22 +337,6 @@ public class CastingCPCGeneralOEEDataController extends GenericController<Castin
 
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     /**
      * get oee week target
@@ -568,16 +550,10 @@ public class CastingCPCGeneralOEEDataController extends GenericController<Castin
                 if (j==2){
                     record=shift3;
                 }
-
                 oeeobj = castingCPCGeneralOEEDataService.getTargetQuantity(dateStringAdd,record[0],record[1],device);
-
-
                 outList.add(oeeobj);
             }
-
-
         }
-
         result.setData(outList);
         result.setCode(200);
         result.setSuccess(true);
@@ -618,11 +594,14 @@ public class CastingCPCGeneralOEEDataController extends GenericController<Castin
                 oeeobj = castingCPCGeneralOEEDataService.getTargetQuantity(DateString,record[0],record[1],device);
 
 
-        Double a  =  castingCPCGeneralOEEDataService.getOeeA(DateString,record[0],record[1],device);
+        Double a = castingCPCGeneralOEEDataService.getOeeA(DateString,record[0],record[1],device);
+        System.out.println(a);
 
-        Double p  = castingCPCGeneralOEEDataService.getOeeP(DateString,record[0],record[1],device);
+        Double p = castingCPCGeneralOEEDataService.getOeeP(DateString,record[0],record[1],device);
+        System.out.println(p);
 
         Double q = castingCPCGeneralOEEDataService.getOeeQ(DateString,record[0],record[1],device);
+        System.out.println(q);
 
         Double oee = a*p*q*100;
 

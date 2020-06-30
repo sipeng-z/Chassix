@@ -2,7 +2,7 @@ package com.casting.domain.entity;
 
 import java.util.Date;
 
-public class CastingCPCB1PQData {
+public class CastingCPCB2PQData {
 
     private Integer itemno;
 

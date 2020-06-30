@@ -40,7 +40,7 @@ public class CastingCPCGeneralPvFurnaceChamberCurveService extends AbstractServi
     @Value("${new.dbo.user_name}")
     private  String USER_NAME;
     //密码
-    @Value("${new.dbo.password}")
+    @Value("/${new.dbo.password}")
     private  String PASSWORD;
 
 
@@ -64,23 +64,15 @@ public class CastingCPCGeneralPvFurnaceChamberCurveService extends AbstractServi
         if(pageData.containsKey("DateString")){
             sb.append("AND Time_String like "+"'%"+pageData.getMap().get("DateString")+"%'");
         }
-
-
         if(pageData.containsKey("TimeString")){
             sb.append("AND Time_String like "+"'%"+pageData.getMap().get("TimeString")+"%'");
         }
-
-
         if(pageData.containsKey("inList")){
             sb.append("AND RecordNo in ("+pageData.getMap().get("inList")+")");
         }
-
-
         sb.append(new PageData().where(pageData));
         if (isPager) {
-
             return  super.pageList(pageData, mapperName + "list", sb.toString());
-
         }
         PageData sqlModel = new PageData();
         sqlModel.put("retrieveSql", sb.toString());

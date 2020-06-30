@@ -818,6 +818,17 @@
     order by Date_String DESC
   </select>
 
+  <!--list-->
+  <select id="listForCycle" resultMap="GeneralMap" parameterType="com.domain.model.PageData">
+    SELECT
+    <include refid="Base_Column_List"></include>
+    FROM
+    <include refid="tableName"></include>
+    WHERE 1 = 1
+    <include refid="PmBasicMapper.retrieveSql"></include>
+    order by Date_String DESC
+  </select>
+
 
 
 </mapper>

@@ -45,11 +45,4 @@ public class ShipmentItemService extends AbstractService <ShipmentItem,ShipmentI
         return (List<ShipmentItem>) daoImp.findForListSql(getMapperName()+"list",sqlModel);
 
     }
-
-
-
-
-
-
-
 }

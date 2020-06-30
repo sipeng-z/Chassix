@@ -434,8 +434,6 @@ public class GeneralOEEDataController extends GenericController<GeneralOEEDataIn
         }catch (Exception e){
             logger.error("-------------get down time error--------"+e);
         }
-
-
         return ResponseResult.error(CommonConstants.EX.EXCEPTION);
     }
 
@@ -453,20 +451,12 @@ public class GeneralOEEDataController extends GenericController<GeneralOEEDataIn
     public ResponseResult getDownTimeWeek(Integer year,Integer weekNo,String line,String device)  {
 
         try{
-
             return ResponseResult.success(generalOEEDataService.getDownTimeWeek(year,weekNo,line,device));
-
         }catch (Exception e){
             logger.error("-------------get down time for the week error"+e);
         }
-
-
         return ResponseResult.error(CommonConstants.EX.EXCEPTION);
     }
-
-
-
-
 
 
     /**

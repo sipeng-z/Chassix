@@ -6,8 +6,6 @@ import com.model.AppConsts;
 import com.project.domain.entity.GeneralTraceabilityData;
 import com.project.domain.model.input.GeneralTraceabilityDataInput;
 import com.project.domain.model.output.GeneralTraceabilityDataOutput;
-import com.project.domain.model.output.GeneralTraceabilityDataOutput;
-import com.utils.MapperName;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -43,13 +41,9 @@ public class GeneralTraceabilityDataService extends AbstractService<GeneralTrace
             sb.append("AND RecordNO in ("+pageData.getMap().get("inList")+")");
         }
 
-
-
         if(pageData.containsKey("DateStringInList")){
             sb.append("AND Date_String in ("+pageData.getMap().get("DateStringInList")+")");
         }
-
-
         if (pageData.containsKey("DateString")) {
             sb.append(" AND Date_String = " + "'" + pageData.getMap().get("DateString") + "'");
         }
@@ -57,20 +51,17 @@ public class GeneralTraceabilityDataService extends AbstractService<GeneralTrace
         if (pageData.containsKey("RecordNO")) {
             sb.append(" AND RecordNO = " + "'" + pageData.getMap().get("RecordNO") + "'");
         }
-
-
         sb.append(new PageData().where(pageData));
         if (isPager) {
             return super.pageList(pageData, mapperName + "list", sb.toString());
         }
         PageData sqlModel = new PageData();
         sqlModel.put("retrieveSql", sb.toString());
-        return (List<GeneralTraceabilityDataOutput> )daoImp.findForListSql(mapperName +"list",sqlModel);
+
+        return (List<GeneralTraceabilityDataOutput>) daoImp.findForListSql(mapperName + "list", sqlModel);
+
 
     }
-
-
-
 
     /**
      * get Quantity
@@ -97,7 +88,9 @@ public class GeneralTraceabilityDataService extends AbstractService<GeneralTrace
         List<GeneralTraceabilityDataOutput>  tralist = this.generallist(false,pageData4tra,line,device);
         Integer actuallypieces = tralist.size();
 
-        Integer goodpieces = tralist.size();
+        //计算合格品的数量 quality
+
+      Integer goodpieces = tralist.size();
         for (GeneralTraceabilityData gtra : tralist ){
             if(gtra.getPartstatus()!=0){
                 goodpieces--;
@@ -106,15 +99,8 @@ public class GeneralTraceabilityDataService extends AbstractService<GeneralTrace
         if(actuallypieces==0){
             return 0;
         }
-
         return goodpieces;
 
     }
-
-
-
-
-
-
 
 }

@@ -1,4 +1,6 @@
 package com.casting.domain.model.output;
 
-public class CastingCPCGeneralPQDataOutput {
+import com.casting.domain.entity.CastingCPCGeneralPQData;
+
+public class CastingCPCGeneralPQDataOutput extends CastingCPCGeneralPQData {
 }

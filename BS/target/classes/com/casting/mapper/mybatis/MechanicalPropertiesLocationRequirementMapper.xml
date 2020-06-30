@@ -18,10 +18,13 @@
     <result column="ELONGATIONC" jdbcType="VARCHAR" property="elongationc" />
     <result column="ELONGATIOND" jdbcType="VARCHAR" property="elongationd" />
     <result column="HB" jdbcType="INTEGER" property="hb" />
+    <result column="YSE" jdbcType="VARCHAR" property="yse" />
+    <result column="UTSE" jdbcType="VARCHAR" property="utse" />
+    <result column="ELONGATIONE" jdbcType="VARCHAR" property="elongatione" />
   </resultMap>
   <sql id="Base_Column_List">
     Requirement_Id, Part_Name, Require_Quantity, YSA, YSB, YSC, YSD, UTSA, UTSB, UTSC, 
-    UTSD, ELONGATIONA, ELONGATIONB, ELONGATIONC, ELONGATIOND, HB
+    UTSD, ELONGATIONA, ELONGATIONB, ELONGATIONC, ELONGATIOND, HB, YSE, UTSE, ELONGATIONE
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
@@ -38,12 +41,14 @@
       YSA, YSB, YSC, YSD, 
       UTSA, UTSB, UTSC, UTSD, 
       ELONGATIONA, ELONGATIONB, ELONGATIONC, 
-      ELONGATIOND, HB)
+      ELONGATIOND, HB, YSE, 
+      UTSE, ELONGATIONE)
     values (#{requirementId,jdbcType=VARCHAR}, #{partName,jdbcType=VARCHAR}, #{requireQuantity,jdbcType=INTEGER}, 
       #{ysa,jdbcType=VARCHAR}, #{ysb,jdbcType=VARCHAR}, #{ysc,jdbcType=VARCHAR}, #{ysd,jdbcType=VARCHAR}, 
       #{utsa,jdbcType=VARCHAR}, #{utsb,jdbcType=VARCHAR}, #{utsc,jdbcType=VARCHAR}, #{utsd,jdbcType=VARCHAR}, 
       #{elongationa,jdbcType=VARCHAR}, #{elongationb,jdbcType=VARCHAR}, #{elongationc,jdbcType=VARCHAR}, 
-      #{elongationd,jdbcType=VARCHAR}, #{hb,jdbcType=INTEGER})
+      #{elongationd,jdbcType=VARCHAR}, #{hb,jdbcType=INTEGER}, #{yse,jdbcType=VARCHAR}, 
+      #{utse,jdbcType=VARCHAR}, #{elongatione,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.casting.domain.entity.MechanicalPropertiesLocationRequirement">
     insert into dbo.Mechanical_Properties_Location_Requirement
@@ -96,6 +101,15 @@
       <if test="hb != null">
         HB,
       </if>
+      <if test="yse != null">
+        YSE,
+      </if>
+      <if test="utse != null">
+        UTSE,
+      </if>
+      <if test="elongatione != null">
+        ELONGATIONE,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="requirementId != null">
@@ -145,6 +159,15 @@
       </if>
       <if test="hb != null">
         #{hb,jdbcType=INTEGER},
+      </if>
+      <if test="yse != null">
+        #{yse,jdbcType=VARCHAR},
+      </if>
+      <if test="utse != null">
+        #{utse,jdbcType=VARCHAR},
+      </if>
+      <if test="elongatione != null">
+        #{elongatione,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -196,6 +219,15 @@
       <if test="hb != null">
         HB = #{hb,jdbcType=INTEGER},
       </if>
+      <if test="yse != null">
+        YSE = #{yse,jdbcType=VARCHAR},
+      </if>
+      <if test="utse != null">
+        UTSE = #{utse,jdbcType=VARCHAR},
+      </if>
+      <if test="elongatione != null">
+        ELONGATIONE = #{elongatione,jdbcType=VARCHAR},
+      </if>
     </set>
     where Requirement_Id = #{requirementId,jdbcType=VARCHAR}
   </update>
@@ -215,13 +247,12 @@
       ELONGATIONB = #{elongationb,jdbcType=VARCHAR},
       ELONGATIONC = #{elongationc,jdbcType=VARCHAR},
       ELONGATIOND = #{elongationd,jdbcType=VARCHAR},
-      HB = #{hb,jdbcType=INTEGER}
+      HB = #{hb,jdbcType=INTEGER},
+      YSE = #{yse,jdbcType=VARCHAR},
+      UTSE = #{utse,jdbcType=VARCHAR},
+      ELONGATIONE = #{elongatione,jdbcType=VARCHAR}
     where Requirement_Id = #{requirementId,jdbcType=VARCHAR}
   </update>
-
-
-
-
 
 
 
@@ -247,7 +278,7 @@
     <include refid="tableName"></include>
     WHERE 1 = 1
     <include refid="PmBasicMapper.retrieveSql"></include>
-    order by Last_Update_Time DESC
+    order by Part_Name  DESC
   </select>
 
   <!--get one by id-->
@@ -258,6 +289,15 @@
     where Requirement_Id = #{requirementId,jdbcType=VARCHAR}
   </select>
 
+
+  <!--get one by id-->
+  <select id="findByName" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from <include refid="tableName"></include>
+    where Part_Name = #{partName,jdbcType=VARCHAR}
+
+  </select>
 
 
 

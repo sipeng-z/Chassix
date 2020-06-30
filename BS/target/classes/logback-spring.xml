@@ -53,7 +53,7 @@
         </triggeringPolicy>
     </appender>
 
-    <!-- 日志输出级别 -->
+    <!-- 日志输出级别 if level is changed to debug, then will be very specific-->
     <root level="INFO">
         <appender-ref ref="STDOUT" />
         <appender-ref ref="FILE" />

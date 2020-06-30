@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 @RestController
@@ -49,13 +50,13 @@ public class G38WorkBenchController  {
 
             if(sessionId!=null&&!sessionId.equals("")){
 
-        List<G38Value> valueList = new ArrayList<>();
+                List<G38Value> valueList = new ArrayList<>();
 
 
                 //prepare api domain  V21
                 forapi V21obj = new forapi();
                 params V21parameter = new params();
-                V21parameter.setDevice("SZ_V21_G");
+                V21parameter.setDevice("Machining_V21_G");
                 V21parameter.setVariable("DataToDataBaseRunningStatus.Status");
                 V21parameter.setType("2");
                 V21parameter.setCount("1");
@@ -81,7 +82,7 @@ public class G38WorkBenchController  {
                 //prepare api domain V22
                 forapi V22obj = new forapi();
                 params V22parameter = new params();
-                V22parameter.setDevice("SZ_V22_G");
+                V22parameter.setDevice("Machining_V22_G");
                 V22parameter.setVariable("DataToDataBaseRunningStatus.Status");
                 V22parameter.setType("2");
                 V22parameter.setCount("1");
@@ -108,9 +109,9 @@ public class G38WorkBenchController  {
 
 
                 //prepare api domain V23
-        forapi V23obj = new forapi();
-        params V23parameter = new params();
-                V23parameter.setDevice("SZ_V23_G");
+                forapi V23obj = new forapi();
+                params V23parameter = new params();
+                V23parameter.setDevice("Machining_V23_G");
                 V23parameter.setVariable("DataToDataBaseRunningStatus.Status");
                 V23parameter.setType("2");
                 V23parameter.setCount("1");
@@ -118,7 +119,7 @@ public class G38WorkBenchController  {
 
                 V23obj.setParams(V23parameter);
                 V23obj.setCommand("variable.read");
-              String SZV23MCycle =   machWorkBenchService.getApiData(sessionId,V23obj);
+                String SZV23MCycle =   machWorkBenchService.getApiData(sessionId,V23obj);
                 G38Value V23 = new G38Value();
                 V23.setName("V23");
                 if (SZV23MCycle==null||SZV23MCycle.equals("[1]")){
@@ -206,10 +207,10 @@ public class G38WorkBenchController  {
 
                 List<G38Value> valueList = new ArrayList<>();
 
-                //prepare api domain  V21
+                //prepare api domain V21
                 forapi V21obj = new forapi();
                 params V21parameter = new params();
-                V21parameter.setDevice("SZ_V21_G");
+                V21parameter.setDevice("Machining_V21_G");
                 V21parameter.setVariable("responseToWeb");
                 V21parameter.setType("3");
                 V21parameter.setCount("3");
@@ -217,7 +218,7 @@ public class G38WorkBenchController  {
 
                 V21obj.setParams(V21parameter);
                 V21obj.setCommand("variable.read");
-                String SZV21MCycle =   machWorkBenchService.getApiData(sessionId,V21obj);//GET data from api
+                String SZV21MCycle =machWorkBenchService.getApiData(sessionId,V21obj);//GET data from api
 
                 String res1v21 = SZV21MCycle.replace("[","");
                 String res2v21 = res1v21.replace("]","");
@@ -243,10 +244,11 @@ public class G38WorkBenchController  {
 
 
 
+
                 //prepare api domain  V22
                 forapi V22obj = new forapi();
                 params V22parameter = new params();
-                V22parameter.setDevice("SZ_V22_G");
+                V22parameter.setDevice("Machining_V22_G");
                 V22parameter.setVariable("responseToWeb");
                 V22parameter.setType("3");
                 V22parameter.setCount("3");
@@ -282,7 +284,7 @@ public class G38WorkBenchController  {
                 //prepare api domain  V23
                 forapi V23obj = new forapi();
                 params V23parameter = new params();
-                V23parameter.setDevice("SZ_V23_G");
+                V23parameter.setDevice("Machining_V23_G");
                 V23parameter.setVariable("responseToWeb");
                 V23parameter.setType("3");
                 V23parameter.setCount("3");
@@ -313,7 +315,6 @@ public class G38WorkBenchController  {
                 valueList.add(V23State);
                 valueList.add(V23CycleTime);
                 valueList.add(V23StandBy);
-
 
 
 
@@ -399,17 +400,17 @@ public class G38WorkBenchController  {
                 //prepare api domain  V21
                 forapi V21obj = new forapi();
                 params V21parameter = new params();
-                V21parameter.setDevice("SZ_V21_G");
+                V21parameter.setDevice("Machining_V21_G");
                 V21parameter.setVariable("AirDetection");
-                V21parameter.setType("1");
+                V21parameter.setType("11");
                 V21parameter.setCount("1");
                 V21parameter.setLength("-1");
 
                 V21obj.setParams(V21parameter);
                 V21obj.setCommand("variable.read");
                 String V21AirDetectionResult =   machWorkBenchService.getApiData(sessionId,V21obj);//GET data from api
-              String res1V21 =   V21AirDetectionResult.replace("[","");
-              String res2V21 =   res1V21.replace("]","");
+                String res1V21 =   V21AirDetectionResult.replace("[","");
+                String res2V21 =   res1V21.replace("]","");
 
                 G38Value V21AirDetection = new G38Value();
                 V21AirDetection.setName("V21AirDetection");
@@ -417,15 +418,12 @@ public class G38WorkBenchController  {
 
                 valueList.add(V21AirDetection);
 
-
-
-
                 //prepare api domain  V22
                 forapi V22obj = new forapi();
                 params V22parameter = new params();
-                V22parameter.setDevice("SZ_V22_G");
+                V22parameter.setDevice("Machining_V22_G");
                 V22parameter.setVariable("AirDetection");
-                V22parameter.setType("1");
+                V22parameter.setType("11");
                 V22parameter.setCount("1");
                 V22parameter.setLength("-1");
 
@@ -443,14 +441,12 @@ public class G38WorkBenchController  {
 
                 valueList.add(V22AirDetection);
 
-
-
                 //prepare api domain  V23
                 forapi V23obj = new forapi();
                 params V23parameter = new params();
-                V23parameter.setDevice("SZ_V23_G");
+                V23parameter.setDevice("Machining_V23_G");
                 V23parameter.setVariable("AirDetection");
-                V23parameter.setType("1");
+                V23parameter.setType("11");
                 V23parameter.setCount("1");
                 V23parameter.setLength("-1");
 

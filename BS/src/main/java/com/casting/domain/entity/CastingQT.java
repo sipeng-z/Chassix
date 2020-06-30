@@ -7,29 +7,13 @@ package com.casting.domain.entity;
 public class CastingQT {
 
 
-
-    public Integer getLh() {
-        return Lh;
-    }
-
-    public void setLh(Integer lh) {
-        Lh = lh;
-    }
-
-    public Integer getRh() {
-        return Rh;
-    }
-
-    public void setRh(Integer rh) {
-        Rh = rh;
-    }
-
     private Double Quantity;
+
     private Double Target;
+
     private Integer Lh;
+
     private Integer Rh;
-
-
 
     public Double getQuantity() {
         return Quantity;
@@ -45,5 +29,21 @@ public class CastingQT {
 
     public void setTarget(Double target) {
         Target = target;
+    }
+
+    public Integer getLh() {
+        return Lh;
+    }
+
+    public void setLh(Integer lh) {
+        Lh = lh;
+    }
+
+    public Integer getRh() {
+        return Rh;
+    }
+
+    public void setRh(Integer rh) {
+        Rh = rh;
     }
 }

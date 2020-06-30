@@ -49,7 +49,6 @@ public class PageData extends HashMap implements Map {
 						System.out.println("key为：" + obj + "值为：" + str);
 					}
 				}
-
 			}
 			Object valueObj = entry.getValue(); 
 			if(null == valueObj){ 

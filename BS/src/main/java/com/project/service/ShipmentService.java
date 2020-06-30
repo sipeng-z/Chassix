@@ -21,7 +21,9 @@ import java.util.List;
 public class ShipmentService extends AbstractService<Shipment,Shipment> {
 
 
-    private String mapperName = MapperName.Name.ShipmentName;
+//    private String mapperName = MapperName.Name.ShipmentName;
+    private final String generalName = "";
+    private String mapperName = generalName;
 
     @Override
     public String getMapperName() {
@@ -32,15 +34,15 @@ public class ShipmentService extends AbstractService<Shipment,Shipment> {
     //sql driver
     private static final String DRIVER_NAME = "com.microsoft.sqlserver.jdbc.SQLServerDriver" ;
     //url
-    @Value("${erp.url}")
+    @Value("${new.erp.url}")
     private static  String URL;
 
 
     //user
-    @Value("${erp.user_name}")
+    @Value("${new.erp.user_name}")
     private static String USER_NAME;
     //pw
-    @Value("${erp.password}")
+    @Value("${new.erp.password}")
     private  String PASSWORD;
 
 
@@ -48,21 +50,20 @@ public class ShipmentService extends AbstractService<Shipment,Shipment> {
      * get SHIPMENT （customer requirement ）AFTER TODAY
      * @return
      */
-    @Test
+
+
     public List<Shipment> getAllShipment(String itmdesc){
         Connection connection = null;
         try {
-
-            URL = "jdbc:sqlserver://10.41.32.2:1433;DatabaseName=ERP_MES;";
-            USER_NAME = "SZ_user";
-            PASSWORD = "SZuser";
+            URL="jdbc:sqlserver://10.41.32.2:1433;DatabaseName=ERP_MES;";
+            USER_NAME="SZ_user";
+            PASSWORD="SZuser";
 
             Class.forName(DRIVER_NAME);
             connection = DriverManager.getConnection(URL, USER_NAME, PASSWORD);
             Date today = new Date();
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             String datestring = sdf.format(today);
-
 
             //GET SHIPMENT
             //ALL  = LH OR RH TIMES 2

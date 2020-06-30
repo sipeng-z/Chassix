@@ -40,7 +40,7 @@ public class GeneralProductionTemporaryService  extends AbstractService <General
     //sqlserver驱动包名
     private static final String DRIVER_NAME = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
     //用户名
-    @Value("${dbo.url}")
+    @Value("${new.dbo.url}")
     private String URL;
 
     //数据库连接地址
@@ -82,14 +82,11 @@ public class GeneralProductionTemporaryService  extends AbstractService <General
         Date startDateWithoutTime = sdf.parse(startDateString);
         Date endDateWithoutTime = sdf.parse(endDateString);
 
-
         //days for judging startDate and endDate is in same day or not;
         Integer days = (int) ((endDateWithoutTime.getTime() - startDateWithoutTime.getTime()) / (1000 * 3600 * 24));
 
-
         Integer startrecordno = input.getStartRecord();
         Integer endrecordno = input.getEndRecord();
-
         List<GeneralProductionTemporaryInput> list = new ArrayList<>();
         if (days == 0) {
             //1 same day
@@ -103,8 +100,6 @@ public class GeneralProductionTemporaryService  extends AbstractService <General
                 input4list.setDateString(startDateString);
                 input4list.setIsProduction(0);
                 input4list.setMark(0);
-
-
                 list.add(input4list);
             }
         } else if (days == 1) {
@@ -299,8 +294,6 @@ public class GeneralProductionTemporaryService  extends AbstractService <General
             }
 
             pageData.put("inList",inList);
-
-
         }
         List<GeneralProductionTemporary> quertList  =  this.generallist(false,pageData,line,device);
 
@@ -308,9 +301,7 @@ public class GeneralProductionTemporaryService  extends AbstractService <General
         if(quertList.size()>=1){
             return true;
         }
-
         return false;
-
     }
 
 
@@ -413,7 +404,7 @@ public class GeneralProductionTemporaryService  extends AbstractService <General
         }
 
         if (pageData.containsKey("mark")) {
-            sb.append(" AND mark = "  + pageData.getMap().get("mark"));
+                sb.append(" AND mark = "  + pageData.getMap().get("mark"));
         }
 
 
@@ -431,29 +422,18 @@ public class GeneralProductionTemporaryService  extends AbstractService <General
 
         sb.append(new PageData().where(pageData));
         if (isPager) {
-
             Integer pagesize = pageData.getRows();
             Integer page = pageData.getPageIndex();
             PageHelper.startPage(page, pagesize);
             PageData sqlModel = new PageData();
             sqlModel.put("retrieveSql",sb.toString());
             Page<GeneralImpressive> dataList = (Page<GeneralImpressive>) daoImp.findForListSql(mapperName + "impressive",sqlModel);
-
             return dataList;
         }
         PageData sqlModel = new PageData();
         sqlModel.put("retrieveSql", sb.toString());
         return (List<GeneralImpressive>) daoImp.findForListSql(mapperName+"impressive",sqlModel);
     }
-
-
-
-
-
-
-
-
-
 
 
     /**
@@ -550,21 +530,12 @@ public class GeneralProductionTemporaryService  extends AbstractService <General
             }
         }
     }
-
-
-
-
-
-
-
-
     /**
      * get oee week
      * @param weekNo
      * @return
      * @throws Exception
      */
-
     public  List<Integer> getWeekOeeTarget(Integer year,Integer weekNo,String line,String device) throws Exception {
 
         PageData pageData = new PageData();
@@ -588,31 +559,21 @@ public class GeneralProductionTemporaryService  extends AbstractService <General
             if(i<7){
                 DateStringInList+=",";
             }
-
         }
         pageData.put("DateStringInList",DateStringInList);
-
         List<GeneralProductionTemporary> productionList = (List<GeneralProductionTemporary>) this.generallist(false,pageData,line,device);
-
-
         Map<Integer,String> map = new HashMap<Integer,String>();
         List<Integer> ordersFull = new ArrayList<>();
         List<Integer> orders = new ArrayList<>();
         List<Integer> resultOrders = new ArrayList<>();
         List<Integer> outList = new ArrayList<>();
         for(int i =0;i<productionList.size();i++){
-
-
             for(int j= 0;j<7;j++){
-
                 String a = productionList.get(i).getDateString();
                 String b = DateStringList.get(j);
                 if(a.equals(b)){
-
                     Integer recordNo =   productionList.get(i).getRecordno();
-
                     Integer shiftAdd = 0;
-
                     if(recordNo<=32){
                         shiftAdd= 0;
                     }else if(recordNo<=64){
@@ -620,52 +581,24 @@ public class GeneralProductionTemporaryService  extends AbstractService <General
                     }else if(recordNo<=96){
                         shiftAdd= 2;
                     }
-
                     Integer order = j*3+shiftAdd;
                     orders.add(order);
-
                 }
-
             }
-
         }
-
         for(int i =0;i<21;i++){
             ordersFull.add(i);
             outList.add(85);
         }
-
         for(Integer o:ordersFull){
             if(!orders.contains(o)){
                 resultOrders.add(o);
             }
         }
-
         for(Integer ro :resultOrders){
             Integer index =  ro;
             outList.set(index,0);
         }
-
-
-
         return outList;
-
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

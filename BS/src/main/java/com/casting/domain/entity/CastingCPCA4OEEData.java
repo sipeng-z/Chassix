@@ -2,7 +2,7 @@ package com.casting.domain.entity;
 
 import java.util.Date;
 
-public class CastingCPCA1OEEData {
+public class CastingCPCA4OEEData {
     private Integer itemno;
 
     private String dateString;

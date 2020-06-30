@@ -86,6 +86,4 @@ public class AuthorizeJwt {
 		jo.put("userId", userId);
 		return jo.toJSONString();
 	}
-	
-	
 }

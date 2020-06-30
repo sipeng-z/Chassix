@@ -550,17 +550,5 @@ public class ScrapService  extends AbstractService<ScrapValue,ScrapValue>{
 
         return list;
 
-
     }
-
-
-
-
-
-
-
-
-
-
-
 }

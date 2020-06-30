@@ -2,7 +2,7 @@ package com.casting.domain.entity;
 
 import java.util.Date;
 
-public class CastingCPCA1OEEDataTemporary {
+public class CastingCPCA4OEEDataTemporary {
     private String temporaryId;
 
     private String dateString;

@@ -108,10 +108,6 @@ public class GeneralOEEDataExplanationController {
         return ResponseResult.error(CommonConstants.EX.EXCEPTION);
     }
 
-
-
-
-
     /**
      * get single row PkId
      */
@@ -125,14 +121,4 @@ public class GeneralOEEDataExplanationController {
         }
         return ResponseResult.error(CommonConstants.EX.EXCEPTION);
     }
-
-
-
-
-
-
-
-
-
-
 }

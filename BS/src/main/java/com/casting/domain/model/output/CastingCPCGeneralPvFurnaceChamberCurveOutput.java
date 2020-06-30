@@ -12,8 +12,6 @@ public class CastingCPCGeneralPvFurnaceChamberCurveOutput extends CastingCPCGene
         if (this.getPointMatrix()!=null){
 
 
-
-
             pointMatrixString = new String(this.getPointMatrix(),"utf-16");
         }
 

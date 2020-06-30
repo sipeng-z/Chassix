@@ -22,10 +22,14 @@
     <result column="ELONGATIOND" jdbcType="VARCHAR" property="elongationd" />
     <result column="HB" jdbcType="VARCHAR" property="hb" />
     <result column="Remark" jdbcType="VARCHAR" property="remark" />
+    <result column="YSE" jdbcType="VARCHAR" property="yse" />
+    <result column="UTSE" jdbcType="VARCHAR" property="utse" />
+    <result column="ELONGATIONE" jdbcType="VARCHAR" property="elongatione" />
   </resultMap>
   <sql id="Base_Column_List">
     Detail_Id, Batch_Number, Rack, Location, Mold_Number, CastingId, YSA, UTSA, ELONGATIONA, 
-    YSB, UTSB, ELONGATIONB, YSC, UTSC, ELONGATIONC, YSD, UTSD, ELONGATIOND, HB, Remark
+    YSB, UTSB, ELONGATIONB, YSC, UTSC, ELONGATIONC, YSD, UTSD, ELONGATIOND, HB, Remark, 
+    YSE, UTSE, ELONGATIONE
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
@@ -44,14 +48,16 @@
       YSB, UTSB, ELONGATIONB, 
       YSC, UTSC, ELONGATIONC, 
       YSD, UTSD, ELONGATIOND, 
-      HB, Remark)
+      HB, Remark, YSE, UTSE, 
+      ELONGATIONE)
     values (#{detailId,jdbcType=VARCHAR}, #{batchNumber,jdbcType=VARCHAR}, #{rack,jdbcType=VARCHAR}, 
       #{location,jdbcType=VARCHAR}, #{moldNumber,jdbcType=VARCHAR}, #{castingid,jdbcType=TIMESTAMP}, 
       #{ysa,jdbcType=VARCHAR}, #{utsa,jdbcType=VARCHAR}, #{elongationa,jdbcType=VARCHAR}, 
       #{ysb,jdbcType=VARCHAR}, #{utsb,jdbcType=VARCHAR}, #{elongationb,jdbcType=VARCHAR}, 
       #{ysc,jdbcType=VARCHAR}, #{utsc,jdbcType=VARCHAR}, #{elongationc,jdbcType=VARCHAR}, 
       #{ysd,jdbcType=VARCHAR}, #{utsd,jdbcType=VARCHAR}, #{elongationd,jdbcType=VARCHAR}, 
-      #{hb,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR})
+      #{hb,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{yse,jdbcType=VARCHAR}, #{utse,jdbcType=VARCHAR}, 
+      #{elongatione,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.casting.domain.entity.MechanicalPropertiesReportDetail">
     insert into dbo.Mechanical_Properties_Report_Detail
@@ -116,6 +122,15 @@
       <if test="remark != null">
         Remark,
       </if>
+      <if test="yse != null">
+        YSE,
+      </if>
+      <if test="utse != null">
+        UTSE,
+      </if>
+      <if test="elongatione != null">
+        ELONGATIONE,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="detailId != null">
@@ -177,6 +192,15 @@
       </if>
       <if test="remark != null">
         #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="yse != null">
+        #{yse,jdbcType=VARCHAR},
+      </if>
+      <if test="utse != null">
+        #{utse,jdbcType=VARCHAR},
+      </if>
+      <if test="elongatione != null">
+        #{elongatione,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -240,6 +264,15 @@
       <if test="remark != null">
         Remark = #{remark,jdbcType=VARCHAR},
       </if>
+      <if test="yse != null">
+        YSE = #{yse,jdbcType=VARCHAR},
+      </if>
+      <if test="utse != null">
+        UTSE = #{utse,jdbcType=VARCHAR},
+      </if>
+      <if test="elongatione != null">
+        ELONGATIONE = #{elongatione,jdbcType=VARCHAR},
+      </if>
     </set>
     where Detail_Id = #{detailId,jdbcType=VARCHAR}
   </update>
@@ -263,12 +296,12 @@
       UTSD = #{utsd,jdbcType=VARCHAR},
       ELONGATIOND = #{elongationd,jdbcType=VARCHAR},
       HB = #{hb,jdbcType=VARCHAR},
-      Remark = #{remark,jdbcType=VARCHAR}
+      Remark = #{remark,jdbcType=VARCHAR},
+      YSE = #{yse,jdbcType=VARCHAR},
+      UTSE = #{utse,jdbcType=VARCHAR},
+      ELONGATIONE = #{elongatione,jdbcType=VARCHAR}
     where Detail_Id = #{detailId,jdbcType=VARCHAR}
   </update>
-
-
-
 
 
 
@@ -318,8 +351,6 @@
     and
     Batch_Number = #{batchNumber,jdbcType=VARCHAR}
   </select>
-
-
 
 
 

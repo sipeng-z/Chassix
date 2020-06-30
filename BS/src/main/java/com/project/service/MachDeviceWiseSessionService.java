@@ -26,14 +26,10 @@ public class MachDeviceWiseSessionService extends AbstractService <DeviceWiseSes
         return mapperName;
     }
 
-
-
-
     @Override
     public String getGUID(){
         return UUID.randomUUID().toString();
     }
-
 
     @Override
     public boolean add(DeviceWiseSession input)throws  Exception{
@@ -53,11 +49,6 @@ public class MachDeviceWiseSessionService extends AbstractService <DeviceWiseSes
 
         return super.update(input);
     }
-
-
-
-
-
 
     /**
      *  session id list
@@ -84,8 +75,6 @@ public class MachDeviceWiseSessionService extends AbstractService <DeviceWiseSes
         sqlModel.put("retrieveSql", sb.toString());
         return (List<DeviceWiseSession>) daoImp.findForListSql(getMapperName()+"list",sqlModel);
     }
-
-
     /**
      * public function for get sessionId and update activity time
      * @return
@@ -164,13 +153,4 @@ public class MachDeviceWiseSessionService extends AbstractService <DeviceWiseSes
 
 
     }
-
-
-
-
-
-
-
-
-
 }

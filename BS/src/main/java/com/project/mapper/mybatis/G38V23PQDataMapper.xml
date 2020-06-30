@@ -35,15 +35,15 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from dbo.G38_V23_PQ_Data
+    from dbo.Machining_V23_PQ_Data
     where ItemNO = #{itemno,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from dbo.G38_V23_PQ_Data
+    delete from dbo.Machining_V23_PQ_Data
     where ItemNO = #{itemno,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.project.domain.entity.G38V23PQData">
-    insert into dbo.G38_V23_PQ_Data (ItemNO, SO_Number, PartStatus,
+    insert into dbo.Machining_V23_PQ_Data (ItemNO, SO_Number, PartStatus,
       VM_Time, RecordNO, Date_String, 
       TotalParts, NgParts, GoodParts
       )
@@ -53,7 +53,7 @@
       )
   </insert>
   <insert id="insertSelective" parameterType="com.project.domain.entity.G38V23PQData">
-    insert into dbo.G38_V23_PQ_Data
+    insert into dbo.Machining_V23_PQ_Data
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="itemno != null">
         ItemNO,
@@ -114,7 +114,7 @@
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.project.domain.entity.G38V23PQData">
-    update dbo.G38_V23_PQ_Data
+    update dbo.Machining_V23_PQ_Data
     <set>
       <if test="soNumber != null">
         SO_Number = #{soNumber,jdbcType=CHAR},
@@ -144,7 +144,7 @@
     where ItemNO = #{itemno,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.project.domain.entity.G38V23PQData">
-    update dbo.G38_V23_PQ_Data
+    update dbo.Machining_V23_PQ_Data
     set SO_Number = #{soNumber,jdbcType=CHAR},
       PartStatus = #{partstatus,jdbcType=INTEGER},
       VM_Time = #{vmTime,jdbcType=TIMESTAMP},
@@ -161,11 +161,11 @@
 
   <!-- tableName -->
   <sql id="tableName">
-    dbo.G38_V23_PQ_Data
+    dbo.Machining_V23_PQ_Data
   </sql>
   <!-- tableNameOut -->
   <sql id="tableNameOut">
-    <bind name="tableName" value="' dbo.G38_V23_PQ_Data'"/>
+    <bind name="tableName" value="' dbo.Machining_V23_PQ_Data'"/>
   </sql>
   <!-- pkId -->
   <sql id="pkId">

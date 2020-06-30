@@ -2,7 +2,7 @@ package com.project.domain.entity;
 
 import java.util.Date;
 
-public class C1xxV3OEEData {
+public class D2ubV20OEEData {
     private Integer itemno;
 
     private String dateString;

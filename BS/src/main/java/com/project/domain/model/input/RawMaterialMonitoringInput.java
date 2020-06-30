@@ -1,4 +1,8 @@
 package com.project.domain.model.input;
 
-public class RawMaterialMonitoringInput {
+import com.project.domain.entity.RawMaterialMonitoring;
+
+public class RawMaterialMonitoringInput extends RawMaterialMonitoring {
+
+
 }
