@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.casting.mapper.mybatis.CastingCPCA1OEEDataTemporaryMapper">
+  <resultMap id="BaseResultMap" type="com.casting.domain.entity.CastingCPCA1OEEDataTemporary">
+    <id column="Temporary_id" jdbcType="CHAR" property="temporaryId" />
+    <result column="Date_String" jdbcType="VARCHAR" property="dateString" />
+    <result column="RecordNO" jdbcType="INTEGER" property="recordno" />
+    <result column="Running_Time" jdbcType="INTEGER" property="runningTime" />
+    <result column="Planned_Run_Time" jdbcType="INTEGER" property="plannedRunTime" />
+    <result column="Lunch_Time" jdbcType="INTEGER" property="lunchTime" />
+    <result column="Break_Time" jdbcType="INTEGER" property="breakTime" />
+    <result column="Preventive_Maintenance" jdbcType="INTEGER" property="preventiveMaintenance" />
+    <result column="Setup_Preoaration" jdbcType="INTEGER" property="setupPreoaration" />
+    <result column="Change_Overs" jdbcType="INTEGER" property="changeOvers" />
+    <result column="Unplanned_Downtime" jdbcType="INTEGER" property="unplannedDowntime" />
+    <result column="Created_User_Id" jdbcType="VARCHAR" property="createdUserId" />
+    <result column="Created_Time" jdbcType="TIMESTAMP" property="createdTime" />
+    <result column="Is_Production" jdbcType="INTEGER" property="isProduction" />
+    <result column="Description" jdbcType="VARCHAR" property="description" />
+    <result column="mark" jdbcType="INTEGER" property="mark" />
+  </resultMap>
+
+  <resultMap id="GeneralResultMap" type="com.casting.domain.entity.CastingCPCGeneralOEEDataTemporary">
+    <id column="Temporary_id" jdbcType="CHAR" property="temporaryId" />
+    <result column="Date_String" jdbcType="VARCHAR" property="dateString" />
+    <result column="RecordNO" jdbcType="INTEGER" property="recordno" />
+    <result column="Running_Time" jdbcType="INTEGER" property="runningTime" />
+    <result column="Planned_Run_Time" jdbcType="INTEGER" property="plannedRunTime" />
+    <result column="Lunch_Time" jdbcType="INTEGER" property="lunchTime" />
+    <result column="Break_Time" jdbcType="INTEGER" property="breakTime" />
+    <result column="Preventive_Maintenance" jdbcType="INTEGER" property="preventiveMaintenance" />
+    <result column="Setup_Preoaration" jdbcType="INTEGER" property="setupPreoaration" />
+    <result column="Change_Overs" jdbcType="INTEGER" property="changeOvers" />
+    <result column="Unplanned_Downtime" jdbcType="INTEGER" property="unplannedDowntime" />
+    <result column="Created_User_Id" jdbcType="VARCHAR" property="createdUserId" />
+    <result column="Created_Time" jdbcType="TIMESTAMP" property="createdTime" />
+    <result column="Is_Production" jdbcType="INTEGER" property="isProduction" />
+    <result column="Description" jdbcType="VARCHAR" property="description" />
+    <result column="mark" jdbcType="INTEGER" property="mark" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    Temporary_id, Date_String, RecordNO, Running_Time, Planned_Run_Time, Lunch_Time, 
+    Break_Time, Preventive_Maintenance, Setup_Preoaration, Change_Overs, Unplanned_Downtime, 
+    Created_User_Id, Created_Time, Is_Production, Description, mark
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from dbo.Casting_CPC_A1_OEE_Data_Temporary
+    where Temporary_id = #{temporaryId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from dbo.Casting_CPC_A1_OEE_Data_Temporary
+    where Temporary_id = #{temporaryId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.casting.domain.entity.CastingCPCA1OEEDataTemporary">
+    insert into dbo.Casting_CPC_A1_OEE_Data_Temporary (Temporary_id, Date_String, RecordNO, 
+      Running_Time, Planned_Run_Time, Lunch_Time, 
+      Break_Time, Preventive_Maintenance, Setup_Preoaration, 
+      Change_Overs, Unplanned_Downtime, Created_User_Id, 
+      Created_Time, Is_Production, Description, 
+      mark)
+    values (#{temporaryId,jdbcType=CHAR}, #{dateString,jdbcType=VARCHAR}, #{recordno,jdbcType=INTEGER}, 
+      #{runningTime,jdbcType=INTEGER}, #{plannedRunTime,jdbcType=INTEGER}, #{lunchTime,jdbcType=INTEGER}, 
+      #{breakTime,jdbcType=INTEGER}, #{preventiveMaintenance,jdbcType=INTEGER}, #{setupPreoaration,jdbcType=INTEGER}, 
+      #{changeOvers,jdbcType=INTEGER}, #{unplannedDowntime,jdbcType=INTEGER}, #{createdUserId,jdbcType=VARCHAR}, 
+      #{createdTime,jdbcType=TIMESTAMP}, #{isProduction,jdbcType=INTEGER}, #{description,jdbcType=VARCHAR}, 
+      #{mark,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.casting.domain.entity.CastingCPCA1OEEDataTemporary">
+    insert into dbo.Casting_CPC_A1_OEE_Data_Temporary
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="temporaryId != null">
+        Temporary_id,
+      </if>
+      <if test="dateString != null">
+        Date_String,
+      </if>
+      <if test="recordno != null">
+        RecordNO,
+      </if>
+      <if test="runningTime != null">
+        Running_Time,
+      </if>
+      <if test="plannedRunTime != null">
+        Planned_Run_Time,
+      </if>
+      <if test="lunchTime != null">
+        Lunch_Time,
+      </if>
+      <if test="breakTime != null">
+        Break_Time,
+      </if>
+      <if test="preventiveMaintenance != null">
+        Preventive_Maintenance,
+      </if>
+      <if test="setupPreoaration != null">
+        Setup_Preoaration,
+      </if>
+      <if test="changeOvers != null">
+        Change_Overs,
+      </if>
+      <if test="unplannedDowntime != null">
+        Unplanned_Downtime,
+      </if>
+      <if test="createdUserId != null">
+        Created_User_Id,
+      </if>
+      <if test="createdTime != null">
+        Created_Time,
+      </if>
+      <if test="isProduction != null">
+        Is_Production,
+      </if>
+      <if test="description != null">
+        Description,
+      </if>
+      <if test="mark != null">
+        mark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="temporaryId != null">
+        #{temporaryId,jdbcType=CHAR},
+      </if>
+      <if test="dateString != null">
+        #{dateString,jdbcType=VARCHAR},
+      </if>
+      <if test="recordno != null">
+        #{recordno,jdbcType=INTEGER},
+      </if>
+      <if test="runningTime != null">
+        #{runningTime,jdbcType=INTEGER},
+      </if>
+      <if test="plannedRunTime != null">
+        #{plannedRunTime,jdbcType=INTEGER},
+      </if>
+      <if test="lunchTime != null">
+        #{lunchTime,jdbcType=INTEGER},
+      </if>
+      <if test="breakTime != null">
+        #{breakTime,jdbcType=INTEGER},
+      </if>
+      <if test="preventiveMaintenance != null">
+        #{preventiveMaintenance,jdbcType=INTEGER},
+      </if>
+      <if test="setupPreoaration != null">
+        #{setupPreoaration,jdbcType=INTEGER},
+      </if>
+      <if test="changeOvers != null">
+        #{changeOvers,jdbcType=INTEGER},
+      </if>
+      <if test="unplannedDowntime != null">
+        #{unplannedDowntime,jdbcType=INTEGER},
+      </if>
+      <if test="createdUserId != null">
+        #{createdUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null">
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isProduction != null">
+        #{isProduction,jdbcType=INTEGER},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="mark != null">
+        #{mark,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.casting.domain.entity.CastingCPCA1OEEDataTemporary">
+    update dbo.Casting_CPC_A1_OEE_Data_Temporary
+    <set>
+      <if test="dateString != null">
+        Date_String = #{dateString,jdbcType=VARCHAR},
+      </if>
+      <if test="recordno != null">
+        RecordNO = #{recordno,jdbcType=INTEGER},
+      </if>
+      <if test="runningTime != null">
+        Running_Time = #{runningTime,jdbcType=INTEGER},
+      </if>
+      <if test="plannedRunTime != null">
+        Planned_Run_Time = #{plannedRunTime,jdbcType=INTEGER},
+      </if>
+      <if test="lunchTime != null">
+        Lunch_Time = #{lunchTime,jdbcType=INTEGER},
+      </if>
+      <if test="breakTime != null">
+        Break_Time = #{breakTime,jdbcType=INTEGER},
+      </if>
+      <if test="preventiveMaintenance != null">
+        Preventive_Maintenance = #{preventiveMaintenance,jdbcType=INTEGER},
+      </if>
+      <if test="setupPreoaration != null">
+        Setup_Preoaration = #{setupPreoaration,jdbcType=INTEGER},
+      </if>
+      <if test="changeOvers != null">
+        Change_Overs = #{changeOvers,jdbcType=INTEGER},
+      </if>
+      <if test="unplannedDowntime != null">
+        Unplanned_Downtime = #{unplannedDowntime,jdbcType=INTEGER},
+      </if>
+      <if test="createdUserId != null">
+        Created_User_Id = #{createdUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null">
+        Created_Time = #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isProduction != null">
+        Is_Production = #{isProduction,jdbcType=INTEGER},
+      </if>
+      <if test="description != null">
+        Description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="mark != null">
+        mark = #{mark,jdbcType=INTEGER},
+      </if>
+    </set>
+    where Temporary_id = #{temporaryId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.casting.domain.entity.CastingCPCA1OEEDataTemporary">
+    update dbo.Casting_CPC_A1_OEE_Data_Temporary
+    set Date_String = #{dateString,jdbcType=VARCHAR},
+      RecordNO = #{recordno,jdbcType=INTEGER},
+      Running_Time = #{runningTime,jdbcType=INTEGER},
+      Planned_Run_Time = #{plannedRunTime,jdbcType=INTEGER},
+      Lunch_Time = #{lunchTime,jdbcType=INTEGER},
+      Break_Time = #{breakTime,jdbcType=INTEGER},
+      Preventive_Maintenance = #{preventiveMaintenance,jdbcType=INTEGER},
+      Setup_Preoaration = #{setupPreoaration,jdbcType=INTEGER},
+      Change_Overs = #{changeOvers,jdbcType=INTEGER},
+      Unplanned_Downtime = #{unplannedDowntime,jdbcType=INTEGER},
+      Created_User_Id = #{createdUserId,jdbcType=VARCHAR},
+      Created_Time = #{createdTime,jdbcType=TIMESTAMP},
+      Is_Production = #{isProduction,jdbcType=INTEGER},
+      Description = #{description,jdbcType=VARCHAR},
+      mark = #{mark,jdbcType=INTEGER}
+    where Temporary_id = #{temporaryId,jdbcType=CHAR}
+  </update>
+
+
+
+
+  <!-- tableName -->
+  <sql id="tableName">
+    dbo.Casting_CPC_A1_OEE_Data_Temporary
+  </sql>
+  <!-- tableNameOut -->
+  <sql id="tableNameOut">
+    <bind name="tableName" value="'Casting_CPC_A1_OEE_Data_Temporary'"/>
+  </sql>
+  <!-- pkId -->
+  <sql id="pkId">
+    <bind name="pkName" value="'Temporary_Id'"/>
+  </sql>
+
+  <!--list-->
+  <select id="list" resultMap="GeneralResultMap" parameterType="com.domain.model.PageData">
+    SELECT
+    <include refid="Base_Column_List"></include>
+    FROM
+    <include refid="tableName"></include>
+    WHERE 1 = 1
+    <include refid="PmBasicMapper.retrieveSql"></include>
+    order by Date_String DESC
+  </select>
+
+
+  <!--get one by id-->
+  <select id="findByPkId" parameterType="java.lang.String" resultMap="GeneralResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from <include refid="tableName"></include>
+    where Temporary_Id = #{Temporary_Id,jdbcType=VARCHAR}
+  </select>
+
+
+
+
+  <update id="updateMark" parameterType="com.domain.model.PageData">
+    update dbo.Casting_CPC_A1_OEE_Data_Temporary
+    <set>
+      <if test="mark != null">
+        mark = #{mark,jdbcType=INTEGER},
+      </if>
+    </set>
+    where Temporary_id = #{temporaryId,jdbcType=CHAR}
+  </update>
+
+
+
+  <!--get recordNO DateString-->
+  <select id="findByDateRecord" parameterType="com.domain.model.PageData" resultMap="GeneralResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from <include refid="tableName"></include>
+    where Date_String = #{DateString,jdbcType=VARCHAR}
+    and  RecordNO = #{RecordNO,jdbcType=INTEGER}
+  </select>
+
+
+
+
+
+
+</mapper>
