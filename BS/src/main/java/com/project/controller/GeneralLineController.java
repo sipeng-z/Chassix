@@ -622,15 +622,16 @@ public class GeneralLineController {
         // planned running time sum
         planedRunningsum = generalOEEDataService.getPlannedRunningTimeSum(datestring, record[0], record[1], "", lineName);
         runningSumDouble = new BigDecimal((float) planedRunningsum / 3600).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
-        Boolean flag = generalProductionTemporaryService.ifShiftInProduction("", lineName, datestring, shiftName);
+//        Boolean flag = generalProductionTemporaryService.ifShiftInProduction("", lineName, datestring, shiftName);
         Integer targetPieces = 0;
-        Integer[] Budget = {150, 120};  // cnc assy
+        Integer[] Budget = {270, 540};  // cnc
         Integer[] cyclePieces = {2, 4};
-        if (lineName.contains("V2")) {
+        if (lineName.contains("V3")) {
             targetPieces = new BigDecimal((float) cyclePieces[1] * 3600 / Budget[1] * runningSumDouble).setScale(2, BigDecimal.ROUND_HALF_UP).intValue();
         } else {
             targetPieces = new BigDecimal((float) cyclePieces[0] * 3600 / Budget[0] * runningSumDouble).setScale(2, BigDecimal.ROUND_HALF_UP).intValue();
         }
+//        targetPieces = new BigDecimal((float) cyclePieces[0] * 3600 / Budget[0] * runningSumDouble).setScale(2, BigDecimal.ROUND_HALF_UP).intValue();
         Double lineResult = 0.00;
         if (targetPieces != 0) {
             lineResult = new BigDecimal((float) quantitysum / targetPieces).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();

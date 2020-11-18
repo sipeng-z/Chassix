@@ -28,8 +28,7 @@
 
 
   <sql id="Base_Column_List">
-    ItemNO, SO_Number, PartStatus, VM_Time, RecordNO, Date_String, TotalParts, NgParts, 
-    GoodParts
+    ItemNO, SO_Number, PartStatus, VM_Time, RecordNO, Date_String, TotalParts, NgParts, GoodParts
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 

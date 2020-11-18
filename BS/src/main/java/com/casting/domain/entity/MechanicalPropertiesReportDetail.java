@@ -1,5 +1,7 @@
 package com.casting.domain.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 public class MechanicalPropertiesReportDetail {
@@ -13,6 +15,7 @@ public class MechanicalPropertiesReportDetail {
 
     private String moldNumber;
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date castingid;
 
     private String ysa;

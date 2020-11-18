@@ -67,13 +67,13 @@ public class GeneralOEEDataService extends AbstractService<GeneralOEEDataInput,G
 
         Integer lunchtime = input.getLunchTime();
         Integer breaktime = input.getBreakTime();
-        Integer preventionMaintenance = input.getPreventionMaintenance();
+        Integer preventiveMaintenance = input.getPreventiveMaintenance();
         Integer setupPreparation = input.getSetupPreparation();
         Integer changeOvers = input.getChangeOvers();
         Integer unplannedDowntime = input.getUnplannedDowntime();
         Integer plantime = 900;
 
-        plantime = 900-lunchtime-breaktime-preventionMaintenance-setupPreparation-changeOvers-unplannedDowntime;
+        plantime = 900-lunchtime-breaktime-preventiveMaintenance-setupPreparation-changeOvers-unplannedDowntime;
         input.setPlannedRunTime(plantime);
 
         int isDeleted=0;
@@ -94,11 +94,6 @@ public class GeneralOEEDataService extends AbstractService<GeneralOEEDataInput,G
 
     }
 
-
-
-
-
-
     /**
      * use different device name to get correct xml to operate db
      * update
@@ -113,7 +108,7 @@ public class GeneralOEEDataService extends AbstractService<GeneralOEEDataInput,G
 
         Integer lunchtime = input.getLunchTime();
         Integer breaktime = input.getBreakTime();
-        Integer preventionMaintenance = input.getPreventionMaintenance();
+        Integer preventiveMaintenance = input.getPreventiveMaintenance();
         Integer setupPreparation = input.getSetupPreparation();
         Integer changeOvers = input.getChangeOvers();
         Integer unplannedDowntime = input.getUnplannedDowntime();
@@ -121,7 +116,7 @@ public class GeneralOEEDataService extends AbstractService<GeneralOEEDataInput,G
         if(input.getPlannedRunTime()!=null&&!input.getPlannedRunTime().equals("")){
 
             Integer plantime = input.getPlannedRunTime();
-            plantime = 900-lunchtime-breaktime-preventionMaintenance-setupPreparation-changeOvers;
+            plantime = 900-lunchtime-breaktime-preventiveMaintenance-setupPreparation-changeOvers;
             input.setPlannedRunTime(plantime);
 
         }else {
@@ -139,15 +134,6 @@ public class GeneralOEEDataService extends AbstractService<GeneralOEEDataInput,G
 
 
     }
-
-
-
-
-
-
-
-
-
 
     /**
      * use different device name to get correct xml to operate db
@@ -258,8 +244,8 @@ public class GeneralOEEDataService extends AbstractService<GeneralOEEDataInput,G
             pageData.put("mark",input.getMark().toString());
         }
 
-        if(input.getPreventionMaintenance()!=null&&!input.getPreventionMaintenance().equals("")){
-            pageData.put("preventionMaintenance",input.getPreventionMaintenance().toString());
+        if(input.getPreventiveMaintenance()!=null&&!input.getPreventiveMaintenance().equals("")){
+            pageData.put("preventiveMaintenance",input.getPreventiveMaintenance().toString());
         }
 
         if(input.getSetupPreparation()!=null&&!input.getSetupPreparation().equals("")){
@@ -291,9 +277,6 @@ public class GeneralOEEDataService extends AbstractService<GeneralOEEDataInput,G
         }
         return false;
     }
-
-
-
 
     /**
      * get unplanned downtime
@@ -335,7 +318,7 @@ public class GeneralOEEDataService extends AbstractService<GeneralOEEDataInput,G
 
             Integer breakTime = g.getBreakTime();
             Integer lunchTime = g.getLunchTime();
-            Integer preventionMaintenance = g.getPreventionMaintenance();
+            Integer preventiveMaintenance = g.getPreventiveMaintenance();
             Integer setupPreparation = g.getSetupPreparation();
             Integer changeOvers = g.getChangeOvers();
 
@@ -346,8 +329,8 @@ public class GeneralOEEDataService extends AbstractService<GeneralOEEDataInput,G
             if(lunchTime!=null){
                 sum+=lunchTime;
             }
-            if (preventionMaintenance!=null){
-                sum+=preventionMaintenance;
+            if (preventiveMaintenance!=null){
+                sum+=preventiveMaintenance;
             }
             if(setupPreparation!=null){
                 sum+=setupPreparation;
@@ -367,10 +350,6 @@ public class GeneralOEEDataService extends AbstractService<GeneralOEEDataInput,G
         return CPCOEETime;
 
     }
-
-
-
-
 
     /**
      * getDownTimeWeek
@@ -478,10 +457,6 @@ public class GeneralOEEDataService extends AbstractService<GeneralOEEDataInput,G
 
     }
 
-
-
-
-
     /**
      * getOeeA
      * @return
@@ -572,13 +547,6 @@ public class GeneralOEEDataService extends AbstractService<GeneralOEEDataInput,G
 
     }
 
-
-
-
-
-
-
-
     /**
      * getRunningTimeSum each shift
      * Requried hour
@@ -616,16 +584,6 @@ public class GeneralOEEDataService extends AbstractService<GeneralOEEDataInput,G
         return palnnedRunningTime;
 
     }
-
-
-
-
-
-
-
-
-
-
 
     /**
      * getOeeP
@@ -908,7 +866,7 @@ public class GeneralOEEDataService extends AbstractService<GeneralOEEDataInput,G
 
             Integer breakTime = g.getBreakTime();
             Integer lunchTime = g.getLunchTime();
-            Integer preventionMaintenance = g.getPreventionMaintenance();
+            Integer preventiveMaintenance = g.getPreventiveMaintenance();
             Integer setupPreparation = g.getSetupPreparation();
             Integer changeOvers = g.getChangeOvers();
 
@@ -919,8 +877,8 @@ public class GeneralOEEDataService extends AbstractService<GeneralOEEDataInput,G
             if(lunchTime!=null){
                 lunchTimeSum+=lunchTime;
             }
-            if (preventionMaintenance!=null){
-                pmSum+=preventionMaintenance;
+            if (preventiveMaintenance!=null){
+                pmSum+=preventiveMaintenance;
             }
             if(setupPreparation!=null){
                 spSum+=setupPreparation;

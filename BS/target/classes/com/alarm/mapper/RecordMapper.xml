@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.alarm.mapper.RecordMapper">
+
+    <insert id="save" parameterType="com.alarm.domain.entity.CastingChemistryUse">
+
+        INSERT  INTO dbo.Casting_Chemistry_use (inspector,operator,line,station,crucible_id,density,temperature,kmold,silicon,titanium,copper,iron,stronium,manganese,magnesium,zinc,insert_time,date_string,batch_id,used,Used_Station,Used_Time)
+        values (#{inspector,jdbcType=INTEGER},#{operator,jdbcType=INTEGER}, #{line,jdbcType=VARCHAR}, #{station,jdbcType=INTEGER},#{crucibleId,jdbcType=VARCHAR},#{density,jdbcType=REAL},
+        #{temperature,jdbcType=REAL},#{kmold,jdbcType=INTEGER},#{silicon,jdbcType=REAL},#{titanium,jdbcType=REAL},#{copper,jdbcType=REAL},
+        #{iron,jdbcType=REAL},#{stronium,jdbcType=REAL},#{manganese,jdbcType=REAL},#{magnesium,jdbcType=REAL},#{zinc,jdbcType=REAL},
+        #{insertTime,jdbcType=VARCHAR},#{dateString,  jdbcType=VARCHAR},#{batchId,  jdbcType=VARCHAR},#{used,jdbcType=INTEGER},#{usedStation,  jdbcType=VARCHAR},#{usedTime,  jdbcType=VARCHAR})
+
+    </insert>
+
+    <select id="getDailyCount" resultType="INTEGER">
+        SELECT COUNT (*) FROM dbo.Casting_Chemistry_use where crucible_id = #{crucible} and date_string = #{dateString}
+    </select>
+
+    <select id="getBatchIdCount" resultType="INTEGER">
+        SELECT COUNT (*) FROM dbo.Casting_Chemistry_use where batch_id = #{batchId}
+    </select>
+
+    <select id="findByBatchId" resultType="com.alarm.domain.entity.CastingChemistryUse">
+        select batch_id as batchId from dbo.Casting_Chemistry_use where used = #{used} and date_string = #{dateString} order by insert_time desc
+    </select>
+
+    <update id="updateState" parameterType="com.alarm.domain.entity.CastingChemistryUse">
+        update dbo.Casting_Chemistry_use set used = 0 where batch_id = #{batchId}
+    </update>
+</mapper>

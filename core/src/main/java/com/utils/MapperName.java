@@ -35,6 +35,8 @@ public class MapperName {
         public static  final  String  SystemDataLogsName ="com.system.mapper.mybatis.SystemDataLogsMapper.";
 
         public static  final  String  UserRoleName ="com.system.mapper.mybatis.UserRoleMapper.";
+        public static  final  String  QueryHistoryName ="com.system.mapper.mybatis.LaserMarkerPrintedPNMapper.";
+        public static  final  String  QueryBatchIdName ="com.system.mapper.mybatis.RecordMapper.";
 
 
         public static  final  String  G38ASSYOEEDataName ="com.project.mapper.mybatis.G38ASSYOEEDataMapper.";

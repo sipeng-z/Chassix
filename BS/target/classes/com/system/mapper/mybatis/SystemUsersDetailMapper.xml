@@ -22,12 +22,12 @@
 
   </resultMap>
   <sql id="Base_Column_List">
-    system_users_detail_id, user_id, landline, certificate_type, certificate, amount, 
-    created_user_id, created_user_name, created_date_time, last_updated_user_id, last_updated_user_name, 
+    system_users_detail_id, user_id, landline, certificate_type, certificate, amount,
+    created_user_id, created_user_name, created_date_time, last_updated_user_id, last_updated_user_name,
     last_updated_date_time, is_deleted
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from system_users_detail
     where system_users_detail_id = #{systemUsersDetailId,jdbcType=CHAR}
@@ -37,15 +37,15 @@
     where system_users_detail_id = #{systemUsersDetailId,jdbcType=CHAR}
   </delete>
   <insert id="insert" parameterType="com.system.domain.entity.SystemUsersDetail">
-    insert into system_users_detail (system_users_detail_id, user_id, landline, 
-      certificate_type, certificate, amount, 
-      created_user_id, created_user_name, created_date_time, 
-      last_updated_user_id, last_updated_user_name, last_updated_date_time, 
+    insert into system_users_detail (system_users_detail_id, user_id, landline,
+      certificate_type, certificate, amount,
+      created_user_id, created_user_name, created_date_time,
+      last_updated_user_id, last_updated_user_name, last_updated_date_time,
       is_deleted)
-    values (#{systemUsersDetailId,jdbcType=CHAR}, #{userId,jdbcType=CHAR}, #{landline,jdbcType=VARCHAR}, 
-      #{certificateType,jdbcType=INTEGER}, #{certificate,jdbcType=INTEGER}, #{amount,jdbcType=DECIMAL}, 
-      #{createdUserId,jdbcType=CHAR}, #{createdUserName,jdbcType=VARCHAR}, #{createdDateTime,jdbcType=TIMESTAMP}, 
-      #{lastUpdatedUserId,jdbcType=CHAR}, #{lastUpdatedUserName,jdbcType=VARCHAR}, #{lastUpdatedDateTime,jdbcType=TIMESTAMP}, 
+    values (#{systemUsersDetailId,jdbcType=CHAR}, #{userId,jdbcType=CHAR}, #{landline,jdbcType=VARCHAR},
+      #{certificateType,jdbcType=INTEGER}, #{certificate,jdbcType=INTEGER}, #{amount,jdbcType=DECIMAL},
+      #{createdUserId,jdbcType=CHAR}, #{createdUserName,jdbcType=VARCHAR}, #{createdDateTime,jdbcType=TIMESTAMP},
+      #{lastUpdatedUserId,jdbcType=CHAR}, #{lastUpdatedUserName,jdbcType=VARCHAR}, #{lastUpdatedDateTime,jdbcType=TIMESTAMP},
       #{isDeleted,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.system.domain.entity.SystemUsersDetail">

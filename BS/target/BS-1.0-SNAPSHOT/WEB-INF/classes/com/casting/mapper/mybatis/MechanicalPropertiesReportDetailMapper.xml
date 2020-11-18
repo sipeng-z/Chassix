@@ -352,12 +352,4 @@
     Batch_Number = #{batchNumber,jdbcType=VARCHAR}
   </select>
 
-
-
-
-
-
-
-
-
 </mapper>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.alarm.mapper.MaintenanceAlarmsMapper">
+
+  <select id="findAll" resultType="com.alarm.domain.AlarmResponse">
+    select
+    top(5) sum(Duration) as timeSum,AlarmCode
+    from dbo.Maintenance_alarms
+    group by AlarmCode order by timeSum desc
+  </select>
+
+  <select id="findByDeviceAndEquipment" parameterType="com.alarm.domain.AlarmRequest" resultType="com.alarm.domain.AlarmResponse">
+    select
+    top(5) sum(Duration) as timeSum,AlarmCode
+    from dbo.Maintenance_alarms
+    where Equipment_ID like concat('%',#{device},'%') and Equipment_type like concat('%',#{equipment},'%') group by AlarmCode order by timeSum desc
+  </select>
+
+  <select id="findByEquipment" parameterType="com.alarm.domain.AlarmRequest" resultType="com.alarm.domain.AlarmResponse">
+    select
+    top(5) sum(Duration) as timeSum,AlarmCode
+    from dbo.Maintenance_alarms
+    where Equipment_type like concat('%',#{equipment},'%') group by AlarmCode order by timeSum desc
+  </select>
+
+  <select id="findByTimeAndEquipment" parameterType="com.alarm.domain.AlarmRequest" resultType="com.alarm.domain.AlarmResponse">
+    select
+    top(5) sum(Duration) as timeSum,AlarmCode
+    from dbo.Maintenance_alarms
+    Where Equipment_type like concat('%',#{equipment},'%') and DateDiff(DD,VM_Time,GETDATE()) <![CDATA[ <= ]]> #{type} group by AlarmCode order by timeSum desc
+  </select>
+
+  <select id="findByType" parameterType="com.alarm.domain.AlarmRequest" resultType="com.alarm.domain.AlarmResponse">
+    select
+    top(5) sum(Duration) as timeSum,AlarmCode
+    from dbo.Maintenance_alarms
+    Where DateDiff(DD,VM_Time,GETDATE()) <![CDATA[ <= ]]> #{type} group by AlarmCode order by timeSum desc
+  </select>
+
+  <select id="findByAll" parameterType="com.alarm.domain.AlarmRequest" resultType="com.alarm.domain.AlarmResponse">
+    select
+    top(5) sum(Duration) as timeSum,AlarmCode
+    from dbo.Maintenance_alarms
+    Where Equipment_ID like concat('%',#{device},'%') and Equipment_type like concat('%',#{equipment},'%') and DateDiff(DD,VM_Time,GETDATE()) <![CDATA[ <= ]]> #{type} group by AlarmCode order by timeSum desc
+  </select>
+
+  <select id="findTop5" resultType="com.alarm.domain.entity.MaintenanceAlarms">
+    select
+    top(5) ItemNO, Equipment_ID as equipmentId , Equipment_type, VM_Time, Start_time, End_time, Duration, AlarmCode,
+    Date_String, Description
+    from dbo.Maintenance_alarms
+    Where DateDiff(DD,VM_Time,GETDATE()) <![CDATA[ <= ]]> 1 order by Duration desc
+  </select>
+
+  <select id="findCategoryAll" resultType="com.alarm.domain.CategoryResponse">
+    select
+    count(1) as number,category as kind
+    from dbo.Maintenance_alarms
+    group by Category order by number desc
+  </select>
+
+  <select id="findCategoryByDeviceAndEquipment" parameterType="com.alarm.domain.AlarmRequest" resultType="com.alarm.domain.CategoryResponse">
+    select
+    count(1) as number,category as kind
+    from dbo.Maintenance_alarms
+    where Equipment_ID =#{device} and Equipment_type = #{equipment} group by Category order by number desc
+  </select>
+
+  <select id="findCategoryByTimeAndEquipment" parameterType="com.alarm.domain.AlarmRequest" resultType="com.alarm.domain.CategoryResponse">
+    select
+    count(1) as number,category as kind
+    from dbo.Maintenance_alarms
+     Where Equipment_type = #{equipment} and DateDiff(DD,VM_Time,GETDATE()) <![CDATA[ <= ]]> #{type} group by Category order by number desc
+  </select>
+
+  <select id="findCategoryByEquipment" parameterType="com.alarm.domain.AlarmRequest" resultType="com.alarm.domain.CategoryResponse">
+    select
+    count(1) as number,category as kind
+    from dbo.Maintenance_alarms
+    Where Equipment_type = #{equipment} group by Category order by number desc
+  </select>
+
+  <select id="findCategoryByAll" parameterType="com.alarm.domain.AlarmRequest" resultType="com.alarm.domain.CategoryResponse">
+    select
+    count(1) as number,category as kind
+    from dbo.Maintenance_alarms
+    Where Equipment_ID =#{device} and Equipment_type = #{equipment} and DateDiff(DD,VM_Time,GETDATE()) <![CDATA[ <= ]]> #{type} group by Category order by number desc
+  </select>
+
+  <select id="findCategoryByType" parameterType="com.alarm.domain.AlarmRequest" resultType="com.alarm.domain.CategoryResponse">
+    select
+    count(1) as number,category as kind
+    from dbo.Maintenance_alarms
+    Where DateDiff(DD,VM_Time,GETDATE()) <![CDATA[ <= ]]> #{type} group by Category order by number desc
+  </select>
+
+
+</mapper>

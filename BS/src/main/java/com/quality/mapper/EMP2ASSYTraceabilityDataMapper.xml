@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.quality.mapper.EMP2ASSYTraceabilityDataMapper">
+  <resultMap id="BaseResultMap" type="com.quality.model.EMP2ASSYTraceabilityData">
+    <result column="ItemNO" jdbcType="INTEGER" property="itemno" />
+    <result column="Part_Type_NO" jdbcType="INTEGER" property="partTypeNo" />
+    <result column="MachineNO" jdbcType="CHAR" property="machineno" />
+    <result column="SO_Number" jdbcType="CHAR" property="soNumber" />
+    <result column="Part_Type" jdbcType="CHAR" property="partType" />
+    <result column="PartNO" jdbcType="CHAR" property="partno" />
+    <result column="PartNO_Abbr" jdbcType="CHAR" property="partnoAbbr" />
+    <result column="PartStatus" jdbcType="INTEGER" property="partstatus" />
+    <result column="E1_Press_Force" jdbcType="REAL" property="e1PressForce" />
+    <result column="E1_End_Postion" jdbcType="REAL" property="e1EndPostion" />
+    <result column="E1_Final_Force" jdbcType="REAL" property="e1FinalForce" />
+    <result column="E2_Press_Force" jdbcType="REAL" property="e2PressForce" />
+    <result column="E2_End_Postion" jdbcType="REAL" property="e2EndPostion" />
+    <result column="E2_Final_Force" jdbcType="REAL" property="e2FinalForce" />
+    <result column="Stud1_Press_Force" jdbcType="REAL" property="stud1PressForce" />
+    <result column="Stud1_End_Postion" jdbcType="REAL" property="stud1EndPostion" />
+    <result column="Stud1_Final_Force" jdbcType="REAL" property="stud1FinalForce" />
+    <result column="Stud2_Press_Force" jdbcType="REAL" property="stud2PressForce" />
+    <result column="Stud2_End_Postion" jdbcType="REAL" property="stud2EndPostion" />
+    <result column="Stud2_Final_Force" jdbcType="REAL" property="stud2FinalForce" />
+    <result column="Stud3_Press_Force" jdbcType="REAL" property="stud3PressForce" />
+    <result column="Stud3_End_Postion" jdbcType="REAL" property="stud3EndPostion" />
+    <result column="Stud3_Final_Force" jdbcType="REAL" property="stud3FinalForce" />
+    <result column="E1_E2_Completed_Time" jdbcType="TIMESTAMP" property="e1E2CompletedTime" />
+    <result column="Label_Stick_Time" jdbcType="TIMESTAMP" property="labelStickTime" />
+    <result column="Stud_Assemble_Status" jdbcType="INTEGER" property="studAssembleStatus" />
+    <result column="Part_Completed_Time" jdbcType="TIMESTAMP" property="partCompletedTime" />
+    <result column="Last_Cycle_Spent_Time" jdbcType="INTEGER" property="lastCycleSpentTime" />
+    <result column="RecordNO" jdbcType="INTEGER" property="recordno" />
+    <result column="Date_String" jdbcType="CHAR" property="dateString" />
+  </resultMap>
+  <select id="selectBySearch" parameterType="com.quality.model.EMP2ASSYTraceabilityData" resultMap="BaseResultMap">
+    select
+    ItemNO, Part_Type_NO, MachineNO, SO_Number, Part_Type, PartNO, PartNO_Abbr, PartStatus,
+    E1_Press_Force, E1_End_Postion, E1_Final_Force, E2_Press_Force, E2_End_Postion, E2_Final_Force,
+    Stud1_Press_Force, Stud1_End_Postion, Stud1_Final_Force, Stud2_Press_Force, Stud2_End_Postion,
+    Stud2_Final_Force, Stud3_Press_Force, Stud3_End_Postion, Stud3_Final_Force, E1_E2_Completed_Time,
+    Label_Stick_Time, Stud_Assemble_Status, Part_Completed_Time, Last_Cycle_Spent_Time,
+    RecordNO, Date_String
+    from dbo.EMP2_ASSY_Traceability_Data
+    where PartNO LIKE concat(#{partno},'%')
+  </select>
+  <select id="countBySearch" parameterType="com.quality.model.EMP2ASSYTraceabilityData" resultType="java.lang.Integer">
+    select count(*) from dbo.EMP2_ASSY_Traceability_Data
+      where PartNO LIKE concat(#{partno},'%')
+  </select>
+</mapper>

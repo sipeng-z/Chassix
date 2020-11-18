@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.board.mapper.MachiningTableMapper">
+    <resultMap id="BaseResultMap" type="com.board.model.MachiningTable">
+        <result column="id" jdbcType="INTEGER" property="id" />
+        <result column="equipment" jdbcType="CHAR" property="equipment" />
+        <result column="product" jdbcType="CHAR" property="product" />
+        <result column="planproduct" jdbcType="CHAR" property="planProduct" />
+        <result column="badproduct" jdbcType="CHAR" property="badProduct" />
+    </resultMap>
+    <select id="findByEquipment" parameterType="com.board.model.MachiningTable" resultMap="BaseResultMap">
+        select * from dbo.Machining_table where equipment = #{equipment}
+    </select>
+</mapper>

@@ -319,7 +319,7 @@ public class CastingCPCGeneralOEEDataController extends GenericController<Castin
         castingOEE.setA(a);
         castingOEE.setP(p);
         castingOEE.setQ(q);
-        castingOEE.setOEE(oeeLimit2);
+//        castingOEE.setOEE(oeeLimit2);
 
                 // param to get quantity and  target , getTargetQuantity();
         CastingQT qt = castingCPCGeneralOEEDataService.getTargetQuantity(dateString,record[0],record[1],device);

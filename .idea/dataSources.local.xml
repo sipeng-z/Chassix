@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="chassix_suzhou" uuid="14f1ccf2-030b-49c1-b9f4-28ed42de1e32">
+    <data-source name="suzhou_plant" uuid="6cd812ca-d747-4c34-93d2-28719a12906b">
       <database-info product="Microsoft SQL Server" version="11.00.2100" jdbc-version="4.2" driver-name="Microsoft JDBC Driver 7.4 for SQL Server" driver-version="7.4.1.0" dbms="MSSQL" exact-version="11.0.2100" exact-driver-version="7.4">
         <extra-name-characters>$#@</extra-name-characters>
         <identifier-quote-string>&quot;</identifier-quote-string>
@@ -9,17 +9,7 @@
       <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
       <secret-storage>master_key</secret-storage>
       <user-name>SZ_user</user-name>
-      <introspection-schemas>ERP_MES:@|SZ_001:dbo</introspection-schemas>
-    </data-source>
-    <data-source name="suzhou_new_plant" uuid="e3ed922e-26d6-4602-956b-3820007039f6">
-      <database-info product="Microsoft SQL Server" version="11.00.2100" jdbc-version="4.2" driver-name="Microsoft JDBC Driver 7.4 for SQL Server" driver-version="7.4.1.0" dbms="MSSQL" exact-version="11.0.2100" exact-driver-version="7.4">
-        <extra-name-characters>$#@</extra-name-characters>
-        <identifier-quote-string>&quot;</identifier-quote-string>
-      </database-info>
-      <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
-      <secret-storage>master_key</secret-storage>
-      <user-name>SZ_user</user-name>
-      <introspection-schemas>ERP_MES:@|SZ_001:@</introspection-schemas>
+      <introspection-schemas>SZ_001:dbo</introspection-schemas>
     </data-source>
   </component>
 </project>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.alarm.mapper.MTTRMapper">
+    <resultMap id="BaseResultMap" type="com.alarm.domain.entity.MaintenanceAlarms">
+        <id column="ItemNO" jdbcType="INTEGER" property="itemno" />
+        <result column="Equipment_ID" jdbcType="VARCHAR" property="equipmentId" />
+        <result column="Equipment_type" jdbcType="VARCHAR" property="equipmentType" />
+        <result column="VM_Time" jdbcType="TIMESTAMP" property="vmTime" />
+        <result column="Start_time" jdbcType="TIMESTAMP" property="startTime" />
+        <result column="End_time" jdbcType="TIMESTAMP" property="endTime" />
+        <result column="Duration" jdbcType="INTEGER" property="duration" />
+        <result column="AlarmCode" jdbcType="VARCHAR" property="alarmcode" />
+        <result column="Category" jdbcType="VARCHAR" property="category" />
+        <result column="Date_String" jdbcType="CHAR" property="dateString" />
+        <result column="Description" jdbcType="VARCHAR" property="description" />
+    </resultMap>
+    <sql id="Base_Column_List">
+    ItemNO, Equipment_ID, Equipment_type, VM_Time, Start_time, End_time, Duration, AlarmCode,Category
+    Date_String, Description
+  </sql>
+
+    <select id="findAll" resultType="com.alarm.domain.MTTRResponse">
+    select
+    avg(Duration) as MTTR,COUNT(*) as AlarmTimes
+    from dbo.Maintenance_alarms
+  </select>
+
+    <select id="findByDeviceAndEquipment" parameterType="com.alarm.domain.AlarmRequest" resultType="com.alarm.domain.MTTRResponse">
+    select
+    avg(Duration) as MTTR,COUNT(*) as AlarmTimes
+    from dbo.Maintenance_alarms
+    where Equipment_ID =#{device} and Equipment_type = #{equipment}
+  </select>
+
+    <select id="findByEquipment" parameterType="com.alarm.domain.AlarmRequest" resultType="com.alarm.domain.MTTRResponse">
+    select
+    avg(Duration) as MTTR,COUNT(*) as AlarmTimes
+    from dbo.Maintenance_alarms
+    where Equipment_type = #{equipment}
+  </select>
+
+    <select id="findByTimeAndEquipment" parameterType="com.alarm.domain.AlarmRequest" resultType="com.alarm.domain.MTTRResponse">
+    select
+    avg(Duration) as MTTR,COUNT(*) as AlarmTimes
+    from dbo.Maintenance_alarms
+    Where Equipment_type = #{equipment} and DateDiff(DD,VM_Time,GETDATE()) <![CDATA[ <= ]]> #{type}
+  </select>
+
+    <select id="findByType" parameterType="com.alarm.domain.AlarmRequest" resultType="com.alarm.domain.MTTRResponse">
+    select
+    avg(Duration) as MTTR,COUNT(*) as AlarmTimes
+    from dbo.Maintenance_alarms
+    Where DateDiff(DD,VM_Time,GETDATE()) <![CDATA[ <= ]]> #{type}
+  </select>
+
+    <select id="findByAll" parameterType="com.alarm.domain.AlarmRequest" resultType="com.alarm.domain.MTTRResponse">
+    select
+    avg(Duration) as MTTR,COUNT(*) as AlarmTimes
+    from dbo.Maintenance_alarms
+    Where Equipment_ID = #{device} and Equipment_type = #{equipment} and DateDiff(DD,VM_Time,GETDATE()) <![CDATA[ <= ]]> #{type}
+  </select>
+</mapper>

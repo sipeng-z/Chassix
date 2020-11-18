@@ -27,7 +27,7 @@
     <result column="Planned_Run_Time" jdbcType="INTEGER" property="plannedRunTime" />
     <result column="Lunch_time" jdbcType="INTEGER" property="lunchTime" />
     <result column="Break_Time" jdbcType="INTEGER" property="breakTime" />
-    <result column="Preventive_Maintenance" jdbcType="INTEGER" property="preventionMaintenance" />
+    <result column="Preventive_Maintenance" jdbcType="INTEGER" property="preventiveMaintenance" />
     <result column="Setup_Preparation" jdbcType="INTEGER" property="setupPreparation" />
     <result column="Change_Overs" jdbcType="INTEGER" property="changeOvers" />
     <result column="Unplanned_Downtime" jdbcType="INTEGER" property="unplannedDowntime" />

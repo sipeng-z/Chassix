@@ -107,7 +107,7 @@ public class CastingCPCGeneralPvFurnaceChamberCurveService extends AbstractServi
             if(pageData.containsKey("Flag")&&pageData.containsKey("TimeString")){
                 String timeString = pageData.getMap().get("TimeString");
 
-                if(pageData.getMap().get("Flag").equals("0")){ //next , time string < time model
+                if(pageData.getMap().get("Flag").equals("0")){ //next , time string < time domain
 
                     sql = "select top 2 * from  "+db+" where Time_String < '"+timeString+" 'order by Time_String desc";
                 }else if(pageData.getMap().get("Flag").equals("1")) { //before

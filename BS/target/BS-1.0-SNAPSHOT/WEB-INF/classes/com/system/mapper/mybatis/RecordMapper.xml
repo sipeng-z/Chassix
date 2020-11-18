@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.system.mapper.mybatis.RecordMapper">
+
+    <resultMap id="BaseResultMap" type="com.system.domain.entity.CastingChemistryUse">
+        <result column="checkno" jdbcType="INTEGER" property="checkno" />
+        <result column="inspector" jdbcType="INTEGER" property="inspector" />
+        <result column="operator" jdbcType="INTEGER" property="operator" />
+        <result column="line" jdbcType="VARCHAR" property="line" />
+        <result column="station" jdbcType="INTEGER" property="station" />
+        <result column="crucible_id" jdbcType="VARCHAR" property="crucibleId" />
+        <result column="density" jdbcType="REAL" property="density" />
+        <result column="temperature" jdbcType="REAL" property="temperature" />
+        <result column="kmold" jdbcType="INTEGER" property="kmold" />
+        <result column="silicon" jdbcType="REAL" property="silicon" />
+        <result column="titanium" jdbcType="REAL" property="titanium" />
+        <result column="copper" jdbcType="REAL" property="copper" />
+        <result column="iron" jdbcType="REAL" property="iron" />
+        <result column="stronium" jdbcType="REAL" property="stronium" />
+        <result column="manganese" jdbcType="REAL" property="manganese" />
+        <result column="magnesium" jdbcType="REAL" property="magnesium" />
+        <result column="zinc" jdbcType="REAL" property="zinc" />
+        <result column="insert_time" jdbcType="VARCHAR" property="insertTime" />
+        <result column="date_string" jdbcType="VARCHAR" property="dateString" />
+        <result column="batch_id" jdbcType="VARCHAR" property="batchId" />
+        <result column="used" jdbcType="INTEGER" property="used" />
+        <result column="Used_Station" jdbcType="VARCHAR" property="usedStation" />
+        <result column="Used_Time" jdbcType="VARCHAR" property="usedTime" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+    checkno,inspector,operator,line,station,crucible_id,round(density, 4) AS density,temperature,kmold,round(silicon, 3) AS silicon,round(titanium, 3) AS titanium,round(copper, 3) AS copper,round(iron, 3) AS iron,round(stronium, 3) AS stronium,round(manganese, 3) AS manganese,round(magnesium, 3) AS magnesium,round(zinc, 3) AS zinc,insert_time,date_string,batch_id,used,Used_Station,Used_Time
+    </sql>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from Casting_Chemistry_use
+        where checkno = #{checkno,jdbcType=INTEGER}
+    </select>
+    <!-- 表名 -->
+    <sql id="tableName">
+    Casting_Chemistry_use
+    </sql>
+    <!-- 表名对外引用 -->
+    <sql id="tableNameOut">
+        <bind name="tableName" value="'Casting_Chemistry_use'"/>
+    </sql>
+    <!-- 主键 -->
+    <sql id="pkId">
+        <bind name="pkName" value="'checkno'"/>
+    </sql>
+
+    <!--动态sql分页列表-->
+    <select id="list" resultMap="BaseResultMap" parameterType="com.domain.model.PageData">
+        SELECT
+        <include refid="Base_Column_List"></include>
+        FROM
+        <include refid="tableName"></include>
+        WHERE 1=1
+
+        <include refid="SystemBasicMapper.retrieveSql"></include>
+        ORDER BY Insert_Time DESC
+    </select>
+
+</mapper>

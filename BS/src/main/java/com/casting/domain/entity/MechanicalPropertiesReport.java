@@ -1,5 +1,8 @@
 package com.casting.domain.entity;
 
+import com.alibaba.fastjson.annotation.JSONField;
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 public class MechanicalPropertiesReport {
@@ -13,6 +16,7 @@ public class MechanicalPropertiesReport {
 
     private Integer state;
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date lastUpdateTime;
 
     private String lastUpdateUser;

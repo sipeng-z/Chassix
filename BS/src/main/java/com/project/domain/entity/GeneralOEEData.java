@@ -19,7 +19,7 @@ public class GeneralOEEData {
 
     private Integer breakTime;
 
-    private Integer preventionMaintenance;
+    private Integer preventiveMaintenance;
 
     private Integer setupPreparation;
 
@@ -48,10 +48,6 @@ public class GeneralOEEData {
     public void setUnplannedDowntimeMin(Integer unplannedDowntimeMin) {
         this.unplannedDowntimeMin = unplannedDowntimeMin;
     }
-
-
-
-
 
     public String getTime() {
         return time;
@@ -133,12 +129,12 @@ public class GeneralOEEData {
         this.breakTime = breakTime;
     }
 
-    public Integer getPreventionMaintenance() {
-        return preventionMaintenance;
+    public Integer getPreventiveMaintenance() {
+        return preventiveMaintenance;
     }
 
-    public void setPreventionMaintenance(Integer preventionMaintenance) {
-        this.preventionMaintenance = preventionMaintenance;
+    public void setPreventiveMaintenance(Integer preventiveMaintenance) {
+        this.preventiveMaintenance = preventiveMaintenance;
     }
 
     public Integer getSetupPreparation() {

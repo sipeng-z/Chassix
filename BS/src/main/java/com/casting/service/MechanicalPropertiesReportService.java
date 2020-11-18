@@ -88,6 +88,14 @@ public class MechanicalPropertiesReportService extends AbstractService<Mechanica
         return (MechanicalPropertiesReportOutput) daoImp.findForObject(getMapperName()+"findByPkId",pageData);
     }
 
+    public boolean deleteByBatchNumber(String batchNumber) throws Exception {
+        PageData pageData = new PageData();
+        pageData.put("batchNumber",batchNumber);
+        if(daoImp.delete(getMapperName()+"deleteByPrimaryKey",pageData)>0){
+            return true;
+        }
+        return false;
+    }
 
 
 

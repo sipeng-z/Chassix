@@ -10,11 +10,5 @@
         <module name="core" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="1.8">
-      <module name="BS" target="1.8" />
-      <module name="core" target="1.8" />
-      <module name="Data Acquisition" target="1.8" />
-      <module name="Data-Acquisition" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.quality.mapper.XRayBatchNOMapper">
+  <resultMap id="BaseResultMap" type="com.quality.model.XRayBatchNO">
+    <result column="ItemNO" jdbcType="INTEGER" property="itemno" />
+    <result column="Machine_NO" jdbcType="INTEGER" property="machineNo" />
+    <result column="PartType_Quantity" jdbcType="INTEGER" property="parttypeQuantity" />
+    <result column="SO_Number" jdbcType="VARCHAR" property="soNumber" />
+    <result column="Part_Type" jdbcType="VARCHAR" property="partType" />
+    <result column="DM_Content_Abbreviation" jdbcType="VARCHAR" property="dmContentAbbreviation" />
+    <result column="DM_Content" jdbcType="VARCHAR" property="dmContent" />
+    <result column="Rack_NO" jdbcType="VARCHAR" property="rackNo" />
+    <result column="Batch_NO" jdbcType="VARCHAR" property="batchNo" />
+    <result column="Insert_Time" jdbcType="TIMESTAMP" property="insertTime" />
+    <result column="HT_Status" jdbcType="INTEGER" property="htStatus" />
+  </resultMap>
+  <select id="selectBySearch" parameterType="com.quality.model.XRayBatchNO" resultMap="BaseResultMap">
+    select
+    ItemNO, Machine_NO, PartType_Quantity, SO_Number, Part_Type, DM_Content_Abbreviation,
+    DM_Content, Rack_NO, Batch_NO, Insert_Time, HT_Status
+    from dbo.X_Ray_Batch_NO
+    where DM_Content LIKE concat(#{dmContent},'%')
+  </select>
+  <select id="countBySearch" parameterType="com.quality.model.XRayBatchNO" resultType="java.lang.Integer">
+    select count(*) from dbo.X_Ray_Batch_NO
+    where DM_Content LIKE concat(#{dmContent},'%')
+  </select>
+</mapper>

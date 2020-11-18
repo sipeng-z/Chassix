@@ -3,6 +3,7 @@ package com.casting.controller;
 import com.casting.domain.model.input.MechanicalPropertiesReportInput;
 import com.casting.domain.model.output.MechanicalPropertiesReportOutput;
 import com.casting.service.MechanicalPropertiesReportService;
+import com.casting.service.MechanicalTestSpecService;
 import com.core.controller.GenericController;
 import com.core.service.AbstractService;
 import com.domain.model.PageData;
@@ -12,10 +13,7 @@ import com.utils.CommonConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -31,6 +29,9 @@ public class MechanicalPropertiesReportController extends GenericController<Mech
 
     @Autowired
     private MechanicalPropertiesReportService mechanicalPropertiesReportService  ;
+
+    @Autowired
+    private MechanicalTestSpecService mechanicalTestSpecService;
 
     @Override
     protected void OnActionExecuting() {
@@ -132,6 +133,28 @@ public class MechanicalPropertiesReportController extends GenericController<Mech
             logger.error("-----------------------getByNumber------"+e);
         }
         return ResponseResult.error(CommonConstants.EX.EXCEPTION);
+    }
+
+    @RequestMapping(value = "deleteByNumber",method = RequestMethod.GET)
+    public ResponseResult deleteByNumber(String batchNumber) {
+        try{
+
+            return ResponseResult.success(mechanicalPropertiesReportService.deleteByBatchNumber(batchNumber));
+        }catch (Exception e){
+            logger.error("-----------------------getByNumber------"+e);
+        }
+        return ResponseResult.error(CommonConstants.EX.EXCEPTION);
+    }
+
+
+    @RequestMapping(value = "getData",method = RequestMethod.GET)
+    public ResponseResult getData(){
+        return ResponseResult.success(mechanicalTestSpecService.getData());
+    }
+
+    @RequestMapping(value = "getDataByPartName",method = RequestMethod.GET)
+    public ResponseResult getDataByPartName(String partname){
+        return ResponseResult.success(mechanicalTestSpecService.getDataByPartName(partname));
     }
 
 

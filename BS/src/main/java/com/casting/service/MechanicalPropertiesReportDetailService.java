@@ -24,13 +24,9 @@ public class MechanicalPropertiesReportDetailService extends AbstractService<Mec
     @Override
     public boolean add(MechanicalPropertiesReportDetailInput input) throws Exception{
 
-
-
-
         if(input.getBatchNumber()==null||input.getBatchNumber().equals("")){
             return false;
         }
-
 
         if(input.getDetailId()==null||input.getDetailId().equals("")){
             input.setDetailId(super.getGUID());

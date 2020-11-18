@@ -8,6 +8,7 @@ import com.casting.domain.model.output.CastingCPCGeneralPvFurnaceChamberCurveOut
 import com.core.service.AbstractService;
 import com.domain.model.PageData;
 import com.model.AppConsts;
+import com.project.domain.entity.GeneralPQData;
 import com.utils.MapperName;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -834,8 +835,14 @@ public class CastingCPCGeneralOEEDataService extends AbstractService<CastingCPCG
             }
             plannedRunningTime+=g.getPlannedRunTime();
         }
-
-        Double targetpieces = new BigDecimal((float)  plannedRunningTime/(20)).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+        Double targetpieces ;
+        if (device.contains("A4")){
+            targetpieces = new BigDecimal((float)  plannedRunningTime/(100)).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+        }else if (device.contains("A6")){
+            targetpieces = new BigDecimal((float) plannedRunningTime / (200)).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+        }else {
+            targetpieces = new BigDecimal((float) plannedRunningTime / (230)).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+        }
         //for per part costs  expect value
         if(targetpieces==0.00){
             qt.setTarget(0.00);
@@ -846,7 +853,16 @@ public class CastingCPCGeneralOEEDataService extends AbstractService<CastingCPCG
         List<CastingCPCGeneralPQDataOutput>  tralist = castingCPCGeneralPQDataService.generallist(false,pageData4tra,device);
         Integer Lh = 0;
         Integer Rh = 0;
-        Integer actuallypieces = tralist.size();
+        Integer totalPer = 0;
+        for(CastingCPCGeneralPQData pq : tralist){
+            if(pq.getTotalParts()!=null){
+                totalPer = pq.getTotalParts();
+            }
+            if(totalPer!=0){
+                break;
+            }
+        }
+        Integer actuallypieces = tralist.size()*totalPer;
         Lh=actuallypieces/2;
         Rh= actuallypieces-Lh;
         qt.setQuantity(actuallypieces.doubleValue());

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.quality.mapper.XRayInspectionResultMapper">
+  <resultMap id="BaseResultMap" type="com.quality.model.XRayInspectionResult">
+    <result column="ItemNO" jdbcType="INTEGER" property="itemno" />
+    <result column="Machine_NO" jdbcType="INTEGER" property="machineNo" />
+    <result column="Program_Code" jdbcType="INTEGER" property="programCode" />
+    <result column="DM_Content_Abbreviation" jdbcType="VARCHAR" property="dmContentAbbreviation" />
+    <result column="DM_Content" jdbcType="VARCHAR" property="dmContent" />
+    <result column="Part_Inspection_Status" jdbcType="INTEGER" property="partInspectionStatus" />
+    <result column="Insert_Time" jdbcType="TIMESTAMP" property="insertTime" />
+    <result column="Part_Validation_Type" jdbcType="INTEGER" property="partValidationType" />
+  </resultMap>
+  <select id="selectBySearch" parameterType="com.quality.model.XRayInspectionResult" resultMap="BaseResultMap">
+    select
+    ItemNO, Machine_NO, Program_Code, DM_Content_Abbreviation, DM_Content, Part_Inspection_Status,
+    Insert_Time, Part_Validation_Type
+    from dbo.X_Ray_Inspection_Result
+    where DM_Content = #{dmContent}
+  </select>
+  <select id="countBySearch" parameterType="com.quality.model.XRayInspectionResult" resultType="java.lang.Integer">
+    select count(*) from dbo.X_Ray_Inspection_Result
+    where DM_Content = #{dmContent}
+  </select>
+</mapper>

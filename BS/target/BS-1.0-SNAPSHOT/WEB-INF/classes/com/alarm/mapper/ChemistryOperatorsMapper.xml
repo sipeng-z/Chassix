@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.alarm.mapper.ChemistryOperatorsMapper">
+    <resultMap id="BaseResultMap" type="com.alarm.domain.entity.ChemistryOperators">
+        <id column="Operator_id" jdbcType="INTEGER" property="operatorId" />
+        <result column="Operator_name" jdbcType="VARCHAR" property="operatorName" />
+        <result column="Job_type" jdbcType="INTEGER" property="jobType" />
+    </resultMap>
+    <sql id="Base_Column_List">
+    Operator_id,Operator_name,Job_type
+    </sql>
+    <select id="findAllInspector" resultType="com.alarm.domain.entity.ChemistryOperators">
+        select Operator_id as operatorId, Operator_name as operatorName
+        from dbo.Chemistry_Operators
+        where Job_type = 0
+    </select>
+
+    <select id="findAllOperator" resultType="com.alarm.domain.entity.ChemistryOperators">
+        select Operator_id as operatorId, Operator_name as operatorName
+        from dbo.Chemistry_Operators
+        where Job_type = 1
+    </select>
+
+</mapper>

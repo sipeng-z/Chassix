@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.quality.mapper.PackingStationAndCLPIMapper">
+  <resultMap id="BaseResultMap" type="com.quality.model.PackingStationAndCLPI">
+    <result column="ItemNO" jdbcType="INTEGER" property="itemno" />
+    <result column="Part_Type" jdbcType="VARCHAR" property="partType" />
+    <result column="SO_Number" jdbcType="VARCHAR" property="soNumber" />
+    <result column="DM_Content" jdbcType="VARCHAR" property="dmContent" />
+    <result column="LOT_NO" jdbcType="VARCHAR" property="lotNo" />
+    <result column="Count_Base_on_Box" jdbcType="INTEGER" property="countBaseOnBox" />
+    <result column="Layer_NO" jdbcType="INTEGER" property="layerNo" />
+    <result column="Insert_Time" jdbcType="TIMESTAMP" property="insertTime" />
+    <result column="Updated_Time" jdbcType="TIMESTAMP" property="updatedTime" />
+    <result column="Data_Source" jdbcType="VARCHAR" property="dataSource" />
+    <result column="Reader_NO" jdbcType="INTEGER" property="readerNo" />
+    <result column="Last_Process_State" jdbcType="INTEGER" property="lastProcessState" />
+  </resultMap>
+  <select id="selectBySearch" parameterType="com.quality.model.PackingStationAndCLPI" resultMap="BaseResultMap">
+    select
+    ItemNO, Part_Type, SO_Number, DM_Content, LOT_NO, Count_Base_on_Box, Layer_NO, Insert_Time,
+    Updated_Time, Data_Source, Reader_NO, Last_Process_State
+    from dbo.Packing_Station_and_CLPI
+    where DM_Content = #{dmContent}
+  </select>
+  <select id="countBySearch" parameterType="com.quality.model.PackingStationAndCLPI" resultType="java.lang.Integer">
+    select count(*) from dbo.Packing_Station_and_CLPI
+    where DM_Content = #{dmContent}
+  </select>
+</mapper>

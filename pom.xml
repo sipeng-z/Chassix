@@ -189,14 +189,6 @@
 			<version>6.4.0.jre8</version>
 		</dependency>
 
-
-
-
-
-
-
-
-
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -235,19 +227,6 @@
 		</dependency>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 	</dependencies>
 
 	<build>
@@ -271,11 +250,14 @@
 			<plugin>
 				<groupId>org.mybatis.generator</groupId>
 				<artifactId>mybatis-generator-maven-plugin</artifactId>
-				<version>1.3.5</version>
-				<configuration>
-					<verbose>true</verbose>
-					<overwrite>true</overwrite>
-				</configuration>
+				<version>1.3.7</version>
+				<dependencies>
+					<dependency>
+						<groupId>com.microsoft.sqlserver</groupId>
+						<artifactId>mssql-jdbc</artifactId>
+						<version>6.4.0.jre8</version>
+					</dependency>
+				</dependencies>
 			</plugin>
 		</plugins>
 	</build>

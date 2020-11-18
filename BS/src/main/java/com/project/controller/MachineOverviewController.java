@@ -170,32 +170,32 @@ public class MachineOverviewController extends GenericController<GeneralOEEDataI
 
                     }
                 }
-                if (lineDeviceName.contains("ASSY")){
-                    List<Integer> cycleTimeList = generalPQDataService.cycleTimeAverageASSY(DateString,"",lineDeviceName);
-                    Integer AverageSum = 0; //sum of latest 6 value;
-                    for (int i = 0; i < 6; i++) {
-                        AverageSum += cycleTimeList.get(i);  //for the normal latest 6 cycle time sum , divided by  / 6
-                    }
-                    Integer resultAverage = AverageSum / 6;
-                    if (resultAverage!=null){
-                        machineOverviewValue.setCycleTime(resultAverage.toString());
-                    }
-                    else{
-                        machineOverviewValue.setCycleTime("0");
-                    }
-                }else{
-                    List<Integer> cycleTime =generalPQDataService.cycleTimeAverage(DateString,"",lineDeviceName);
-                    Integer AverageSum = 0; //sum of latest 6 value;
-                    for (int i = 0; i < 6; i++) {
-                        AverageSum += cycleTime.get(i);  //for the normal latest 6 cycle time sum , divided by  / 6
-                    }
-                    Integer resultAverage = AverageSum / 6;
-                    if (resultAverage!=null){
-                        machineOverviewValue.setCycleTime(resultAverage.toString());
-                    }
-                    else{
-                        machineOverviewValue.setCycleTime("0");
-                    }
+//                if (lineDeviceName.contains("ASSY")){
+//                    List<Integer> cycleTimeList = generalPQDataService.cycleTimeAverageASSY(DateString,"",lineDeviceName);
+//                    Integer AverageSum = 0; //sum of latest 6 value;
+//                    for (int i = 0; i < 6; i++) {
+//                        AverageSum += cycleTimeList.get(i);  //for the normal latest 6 cycle time sum , divided by  / 6
+//                    }
+//                    Integer resultAverage = AverageSum / 6;
+//                    if (resultAverage!=null){
+//                        machineOverviewValue.setCycleTime(resultAverage.toString());
+//                    }
+//                    else{
+//                        machineOverviewValue.setCycleTime("0");
+//                    }
+//                }else{
+//                    List<Integer> cycleTime =generalPQDataService.cycleTimeAverage(DateString,"",lineDeviceName);
+//                    Integer AverageSum = 0; //sum of latest 6 value;
+//                    for (int i = 0; i < 6; i++) {
+//                        AverageSum += cycleTime.get(i);  //for the normal latest 6 cycle time sum , divided by  / 6
+//                    }
+//                    Integer resultAverage = AverageSum / 6;
+//                    if (resultAverage!=null){
+//                        machineOverviewValue.setCycleTime(resultAverage.toString());
+//                    }
+//                    else{
+//                        machineOverviewValue.setCycleTime("0");
+//                    }
                     /*List<Integer> cycleTimeList = generalPQDataService.cycleTimeAverage(DateString, "", lineDeviceName);
                     Integer AverageSum = 0; //sum of latest 6 value;
                     for (int i = 0; i < 6; i++) {
@@ -206,7 +206,7 @@ public class MachineOverviewController extends GenericController<GeneralOEEDataI
 
                 }
 
-            }/* else if (lineDeviceName.contains("EMP2ASSY")){
+            /* else if (lineDeviceName.contains("EMP2ASSY")){
                 for (int j = 0; j < 3; j++) {
                     if (j == 0) {
                         record = shift1;

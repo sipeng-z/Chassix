@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.quality.mapper.StandardASSY2TraceabilityDataMapper">
+  <resultMap id="BaseResultMap" type="com.quality.model.StandardASSY2TraceabilityData">
+    <result column="ItemNO" jdbcType="INTEGER" property="itemno" />
+    <result column="Machine_NO" jdbcType="NCHAR" property="machineNo" />
+    <result column="SO_Number" jdbcType="CHAR" property="soNumber" />
+    <result column="Part_Type" jdbcType="NCHAR" property="partType" />
+    <result column="Part_NO" jdbcType="NCHAR" property="partNo" />
+    <result column="Part_NO_Abbreviation" jdbcType="NCHAR" property="partNoAbbreviation" />
+    <result column="Code_Level" jdbcType="INTEGER" property="codeLevel" />
+    <result column="Part_Status" jdbcType="INTEGER" property="partStatus" />
+    <result column="Complete_Distance_Press1" jdbcType="REAL" property="completeDistancePress1" />
+    <result column="Insert_Force_Press1" jdbcType="REAL" property="insertForcePress1" />
+    <result column="Insert_Force_Min_Press1" jdbcType="REAL" property="insertForceMinPress1" />
+    <result column="Insert_Force_Max_Press1" jdbcType="REAL" property="insertForceMaxPress1" />
+    <result column="Insert_Position_Press1" jdbcType="REAL" property="insertPositionPress1" />
+    <result column="Insert_Position_Min_Press1" jdbcType="REAL" property="insertPositionMinPress1" />
+    <result column="Insert_Position_Max_Press1" jdbcType="REAL" property="insertPositionMaxPress1" />
+    <result column="Press_in_Force_Press1" jdbcType="REAL" property="pressInForcePress1" />
+    <result column="Press_in_Force_Min_Press1" jdbcType="REAL" property="pressInForceMinPress1" />
+    <result column="Press_in_Force_Max_Press1" jdbcType="REAL" property="pressInForceMaxPress1" />
+    <result column="Press_in_Position_Press1" jdbcType="REAL" property="pressInPositionPress1" />
+    <result column="Press_in_Position_Min_Press1" jdbcType="REAL" property="pressInPositionMinPress1" />
+    <result column="Press_in_Position_Max_Press1" jdbcType="REAL" property="pressInPositionMaxPress1" />
+    <result column="Final_Force_Press1" jdbcType="REAL" property="finalForcePress1" />
+    <result column="Final_Force_Min_Press1" jdbcType="REAL" property="finalForceMinPress1" />
+    <result column="Final_Force_Max_Press1" jdbcType="REAL" property="finalForceMaxPress1" />
+    <result column="Final_Position_Press1" jdbcType="REAL" property="finalPositionPress1" />
+    <result column="Final_Position_Min_Press1" jdbcType="REAL" property="finalPositionMinPress1" />
+    <result column="Final_Position_Max_Press1" jdbcType="REAL" property="finalPositionMaxPress1" />
+    <result column="Press_in_Speed_Press1" jdbcType="REAL" property="pressInSpeedPress1" />
+    <result column="Press_in_Speed_Min_Press1" jdbcType="REAL" property="pressInSpeedMinPress1" />
+    <result column="Press_in_Spedd_Max_Press1" jdbcType="REAL" property="pressInSpeddMaxPress1" />
+    <result column="Slope_Press1" jdbcType="REAL" property="slopePress1" />
+    <result column="Slope_Min_Press1" jdbcType="REAL" property="slopeMinPress1" />
+    <result column="Slope_Max_Press1" jdbcType="REAL" property="slopeMaxPress1" />
+    <result column="Component_BatchNO_Press1" jdbcType="NCHAR" property="componentBatchnoPress1" />
+    <result column="Complete_Distance_Press2" jdbcType="REAL" property="completeDistancePress2" />
+    <result column="Insert_Force_Press2" jdbcType="REAL" property="insertForcePress2" />
+    <result column="Insert_Force_Min_Press2" jdbcType="REAL" property="insertForceMinPress2" />
+    <result column="Insert_Force_Max_Press2" jdbcType="REAL" property="insertForceMaxPress2" />
+    <result column="Insert_Position_Press2" jdbcType="REAL" property="insertPositionPress2" />
+    <result column="Insert_Position_Min_Press2" jdbcType="REAL" property="insertPositionMinPress2" />
+    <result column="Insert_Position_Max_Press2" jdbcType="REAL" property="insertPositionMaxPress2" />
+    <result column="Press_in_Force_Press2" jdbcType="REAL" property="pressInForcePress2" />
+    <result column="Press_in_Force_Min_Press2" jdbcType="REAL" property="pressInForceMinPress2" />
+    <result column="Press_in_Force_Max_Press2" jdbcType="REAL" property="pressInForceMaxPress2" />
+    <result column="Press_in_Position_Press2" jdbcType="REAL" property="pressInPositionPress2" />
+    <result column="Press_in_Position_Min_Press2" jdbcType="REAL" property="pressInPositionMinPress2" />
+    <result column="Press_in_Position_Max_Press2" jdbcType="REAL" property="pressInPositionMaxPress2" />
+    <result column="Final_Force_Press2" jdbcType="REAL" property="finalForcePress2" />
+    <result column="Final_Force_Min_Press2" jdbcType="REAL" property="finalForceMinPress2" />
+    <result column="Final_Force_Max_Press2" jdbcType="REAL" property="finalForceMaxPress2" />
+    <result column="Final_Position_Press2" jdbcType="REAL" property="finalPositionPress2" />
+    <result column="Final_Position_Min_Press2" jdbcType="REAL" property="finalPositionMinPress2" />
+    <result column="Final_Position_Max_Press2" jdbcType="REAL" property="finalPositionMaxPress2" />
+    <result column="Press_in_Speed_Press2" jdbcType="REAL" property="pressInSpeedPress2" />
+    <result column="Press_in_Speed_Min_Press2" jdbcType="REAL" property="pressInSpeedMinPress2" />
+    <result column="Press_in_Spedd_Max_Press2" jdbcType="REAL" property="pressInSpeddMaxPress2" />
+    <result column="Slope_Press2" jdbcType="REAL" property="slopePress2" />
+    <result column="Slope_Min_Press2" jdbcType="REAL" property="slopeMinPress2" />
+    <result column="Slope_Max_Press2" jdbcType="REAL" property="slopeMaxPress2" />
+    <result column="Component_BatchNO_Press2" jdbcType="NCHAR" property="componentBatchnoPress2" />
+    <result column="Complete_Distance_Press3" jdbcType="REAL" property="completeDistancePress3" />
+    <result column="Insert_Force_Press3" jdbcType="REAL" property="insertForcePress3" />
+    <result column="Insert_Force_Min_Press3" jdbcType="REAL" property="insertForceMinPress3" />
+    <result column="Insert_Force_Max_Press3" jdbcType="REAL" property="insertForceMaxPress3" />
+    <result column="Insert_Position_Press3" jdbcType="REAL" property="insertPositionPress3" />
+    <result column="Insert_Position_Min_Press3" jdbcType="REAL" property="insertPositionMinPress3" />
+    <result column="Insert_Position_Max_Press3" jdbcType="REAL" property="insertPositionMaxPress3" />
+    <result column="Press_in_Force_Press3" jdbcType="REAL" property="pressInForcePress3" />
+    <result column="Press_in_Force_Min_Press3" jdbcType="REAL" property="pressInForceMinPress3" />
+    <result column="Press_in_Force_Max_Press3" jdbcType="REAL" property="pressInForceMaxPress3" />
+    <result column="Press_in_Position_Press3" jdbcType="REAL" property="pressInPositionPress3" />
+    <result column="Press_in_Position_Min_Press3" jdbcType="REAL" property="pressInPositionMinPress3" />
+    <result column="Press_in_Position_Max_Press3" jdbcType="REAL" property="pressInPositionMaxPress3" />
+    <result column="Final_Force_Press3" jdbcType="REAL" property="finalForcePress3" />
+    <result column="Final_Force_Min_Press3" jdbcType="REAL" property="finalForceMinPress3" />
+    <result column="Final_Force_Max_Press3" jdbcType="REAL" property="finalForceMaxPress3" />
+    <result column="Final_Position_Press3" jdbcType="REAL" property="finalPositionPress3" />
+    <result column="Final_Position_Min_Press3" jdbcType="REAL" property="finalPositionMinPress3" />
+    <result column="Final_Position_Max_Press3" jdbcType="REAL" property="finalPositionMaxPress3" />
+    <result column="Press_in_Speed_Press3" jdbcType="REAL" property="pressInSpeedPress3" />
+    <result column="Press_in_Speed_Min_Press3" jdbcType="REAL" property="pressInSpeedMinPress3" />
+    <result column="Press_in_Spedd_Max_Press3" jdbcType="REAL" property="pressInSpeddMaxPress3" />
+    <result column="Slope_Press3" jdbcType="REAL" property="slopePress3" />
+    <result column="Slope_Min_Press3" jdbcType="REAL" property="slopeMinPress3" />
+    <result column="Slope_Max_Press3" jdbcType="REAL" property="slopeMaxPress3" />
+    <result column="Component_BatchNO_Press3" jdbcType="NCHAR" property="componentBatchnoPress3" />
+    <result column="Complete_Distance_Press4" jdbcType="REAL" property="completeDistancePress4" />
+    <result column="Insert_Force_Press4" jdbcType="REAL" property="insertForcePress4" />
+    <result column="Insert_Force_Min_Press4" jdbcType="REAL" property="insertForceMinPress4" />
+    <result column="Insert_Force_Max_Press4" jdbcType="REAL" property="insertForceMaxPress4" />
+    <result column="Insert_Position_Press4" jdbcType="REAL" property="insertPositionPress4" />
+    <result column="Insert_Position_Min_Press4" jdbcType="REAL" property="insertPositionMinPress4" />
+    <result column="Insert_Position_Max_Press4" jdbcType="REAL" property="insertPositionMaxPress4" />
+    <result column="Press_in_Force_Press4" jdbcType="REAL" property="pressInForcePress4" />
+    <result column="Press_in_Force_Min_Press4" jdbcType="REAL" property="pressInForceMinPress4" />
+    <result column="Press_in_Force_Max_Press4" jdbcType="REAL" property="pressInForceMaxPress4" />
+    <result column="Press_in_Position_Press4" jdbcType="REAL" property="pressInPositionPress4" />
+    <result column="Press_in_Position_Min_Press4" jdbcType="REAL" property="pressInPositionMinPress4" />
+    <result column="Press_in_Position_Max_Press4" jdbcType="REAL" property="pressInPositionMaxPress4" />
+    <result column="Final_Force_Press4" jdbcType="REAL" property="finalForcePress4" />
+    <result column="Final_Force_Min_Press4" jdbcType="REAL" property="finalForceMinPress4" />
+    <result column="Final_Force_Max_Press4" jdbcType="REAL" property="finalForceMaxPress4" />
+    <result column="Final_Position_Press4" jdbcType="REAL" property="finalPositionPress4" />
+    <result column="Final_Position_Min_Press4" jdbcType="REAL" property="finalPositionMinPress4" />
+    <result column="Final_Position_Max_Press4" jdbcType="REAL" property="finalPositionMaxPress4" />
+    <result column="Press_in_Speed_Press4" jdbcType="REAL" property="pressInSpeedPress4" />
+    <result column="Press_in_Speed_Min_Press4" jdbcType="REAL" property="pressInSpeedMinPress4" />
+    <result column="Press_in_Spedd_Max_Press4" jdbcType="REAL" property="pressInSpeddMaxPress4" />
+    <result column="Slope_Press4" jdbcType="REAL" property="slopePress4" />
+    <result column="Slope_Min_Press4" jdbcType="REAL" property="slopeMinPress4" />
+    <result column="Slope_Max_Press4" jdbcType="REAL" property="slopeMaxPress4" />
+    <result column="Component_BatchNO_Press4" jdbcType="NCHAR" property="componentBatchnoPress4" />
+    <result column="Part_Completed_Time" jdbcType="TIMESTAMP" property="partCompletedTime" />
+    <result column="Date_String" jdbcType="CHAR" property="dateString" />
+    <result column="Record_NO" jdbcType="INTEGER" property="recordNo" />
+    <result column="VM_Time" jdbcType="TIMESTAMP" property="vmTime" />
+  </resultMap>
+  <select id="selectBySearch" parameterType="com.quality.model.StandardASSY2TraceabilityData" resultMap="BaseResultMap">
+    select
+    ItemNO, Machine_NO, SO_Number, Part_Type, Part_NO, Part_NO_Abbreviation, Code_Level,
+    Part_Status, Complete_Distance_Press1, Insert_Force_Press1, Insert_Force_Min_Press1,
+    Insert_Force_Max_Press1, Insert_Position_Press1, Insert_Position_Min_Press1, Insert_Position_Max_Press1,
+    Press_in_Force_Press1, Press_in_Force_Min_Press1, Press_in_Force_Max_Press1, Press_in_Position_Press1,
+    Press_in_Position_Min_Press1, Press_in_Position_Max_Press1, Final_Force_Press1, Final_Force_Min_Press1,
+    Final_Force_Max_Press1, Final_Position_Press1, Final_Position_Min_Press1, Final_Position_Max_Press1,
+    Press_in_Speed_Press1, Press_in_Speed_Min_Press1, Press_in_Spedd_Max_Press1, Slope_Press1,
+    Slope_Min_Press1, Slope_Max_Press1, Component_BatchNO_Press1, Complete_Distance_Press2,
+    Insert_Force_Press2, Insert_Force_Min_Press2, Insert_Force_Max_Press2, Insert_Position_Press2,
+    Insert_Position_Min_Press2, Insert_Position_Max_Press2, Press_in_Force_Press2, Press_in_Force_Min_Press2,
+    Press_in_Force_Max_Press2, Press_in_Position_Press2, Press_in_Position_Min_Press2,
+    Press_in_Position_Max_Press2, Final_Force_Press2, Final_Force_Min_Press2, Final_Force_Max_Press2,
+    Final_Position_Press2, Final_Position_Min_Press2, Final_Position_Max_Press2, Press_in_Speed_Press2,
+    Press_in_Speed_Min_Press2, Press_in_Spedd_Max_Press2, Slope_Press2, Slope_Min_Press2,
+    Slope_Max_Press2, Component_BatchNO_Press2, Complete_Distance_Press3, Insert_Force_Press3,
+    Insert_Force_Min_Press3, Insert_Force_Max_Press3, Insert_Position_Press3, Insert_Position_Min_Press3,
+    Insert_Position_Max_Press3, Press_in_Force_Press3, Press_in_Force_Min_Press3, Press_in_Force_Max_Press3,
+    Press_in_Position_Press3, Press_in_Position_Min_Press3, Press_in_Position_Max_Press3,
+    Final_Force_Press3, Final_Force_Min_Press3, Final_Force_Max_Press3, Final_Position_Press3,
+    Final_Position_Min_Press3, Final_Position_Max_Press3, Press_in_Speed_Press3, Press_in_Speed_Min_Press3,
+    Press_in_Spedd_Max_Press3, Slope_Press3, Slope_Min_Press3, Slope_Max_Press3, Component_BatchNO_Press3,
+    Complete_Distance_Press4, Insert_Force_Press4, Insert_Force_Min_Press4, Insert_Force_Max_Press4,
+    Insert_Position_Press4, Insert_Position_Min_Press4, Insert_Position_Max_Press4, Press_in_Force_Press4,
+    Press_in_Force_Min_Press4, Press_in_Force_Max_Press4, Press_in_Position_Press4, Press_in_Position_Min_Press4,
+    Press_in_Position_Max_Press4, Final_Force_Press4, Final_Force_Min_Press4, Final_Force_Max_Press4,
+    Final_Position_Press4, Final_Position_Min_Press4, Final_Position_Max_Press4, Press_in_Speed_Press4,
+    Press_in_Speed_Min_Press4, Press_in_Spedd_Max_Press4, Slope_Press4, Slope_Min_Press4,
+    Slope_Max_Press4, Component_BatchNO_Press4, Part_Completed_Time, Date_String, Record_NO,
+    VM_Time
+    from dbo.Standard_ASSY_2_Traceability_Data
+    where Part_NO LIKE concat(#{partNo},'%')
+  </select>
+  <select id="countBySearch" parameterType="com.quality.model.StandardASSY2TraceabilityData" resultType="java.lang.Integer">
+    select count(*) from dbo.Standard_ASSY_2_Traceability_Data
+    where Part_NO LIKE concat(#{partNo},'%')
+  </select>
+</mapper>

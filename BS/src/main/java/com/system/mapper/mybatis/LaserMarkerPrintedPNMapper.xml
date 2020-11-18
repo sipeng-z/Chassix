@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.system.mapper.mybatis.LaserMarkerPrintedPNMapper">
+  <resultMap id="BaseResultMap" type="com.system.domain.entity.LaserMarkerPrintedPN">
+    <result column="ItemNO" jdbcType="INTEGER" property="itemno" />
+    <result column="Machine_NO" jdbcType="VARCHAR" property="machineNo" />
+    <result column="SO_Number" jdbcType="VARCHAR" property="soNumber" />
+    <result column="Hand_Sign" jdbcType="CHAR" property="handSign" />
+    <result column="DM_Content" jdbcType="VARCHAR" property="dmContent" />
+    <result column="Daily_Count" jdbcType="INTEGER" property="dailyCount" />
+    <result column="FLC_Count" jdbcType="INTEGER" property="flcCount" />
+    <result column="Part_Type" jdbcType="VARCHAR" property="partType"/>
+    <result column="Asked_Time" jdbcType="TIMESTAMP" property="askedTime"/>
+    <result column="Insert_Time" jdbcType="TIMESTAMP" property="insertTime"/>
+    <result column="Code_Level" jdbcType="INTEGER" property="codeLevel"/>
+    <result column="Matching_Level" jdbcType="INTEGER" property="matchingLevel"/>
+    <result column="VC_Content" jdbcType="VARCHAR" property="vcContent" />
+    <result column="Batch_ID" jdbcType="VARCHAR" property="batchId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ItemNO, Machine_NO, SO_Number, Hand_Sign, DM_Content, Daily_Count, FLC_Count, Part_Type,
+    Asked_Time, Insert_Time, VC_Content,Batch_ID
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from Laser_marker_printed_PN
+    where ItemNO = #{itemno,jdbcType=INTEGER}
+  </select>
+  <!-- 表名 -->
+  <sql id="tableName">
+    Laser_marker_printed_PN
+  </sql>
+  <!-- 表名对外引用 -->
+  <sql id="tableNameOut">
+    <bind name="tableName" value="'Laser_marker_printed_PN'"/>
+  </sql>
+  <!-- 主键 -->
+  <sql id="pkId">
+    <bind name="pkName" value="'ItemNO'"/>
+  </sql>
+
+  <!--动态sql分页列表-->
+  <select id="list" resultMap="BaseResultMap" parameterType="com.domain.model.PageData">
+    SELECT
+    <include refid="Base_Column_List"></include>
+    FROM
+    <include refid="tableName"></include>
+    WHERE DateDiff(DD,Insert_Time,GETDATE()) <![CDATA[ <= ]]> 7
+
+    <include refid="SystemBasicMapper.retrieveSql"></include>
+    ORDER BY Insert_Time DESC
+  </select>
+</mapper>

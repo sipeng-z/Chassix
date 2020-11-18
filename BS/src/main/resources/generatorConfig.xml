@@ -5,9 +5,9 @@
 
 <generatorConfiguration>
     <!--  驱动jar包路径.用了绝对路径 DRIVER FOR DATABASE CONNECTION-->
-    <classPathEntry location="C:\Users\yyhuan\Desktop\sqljdbc_2.0\chs\sqljdbc4.jar" />
+    <!--<classPathEntry location="C:\Users\yyhuan\Desktop\sqljdbc_2.0\chs\sqljdbc4.jar" />-->
 
-    <context id="chassix_tables" targetRuntime="MyBatis3">
+    <context id="suzhou_new_plant" targetRuntime="MyBatis3">
         <!-- 防止生成的代码中有很多注释，加入下面的配置控制 -->
         <commentGenerator>
             <property name="suppressAllComments" value="true" />
@@ -24,13 +24,13 @@
         </javaTypeResolver>
 
         <!-- 数据表对应的model层 domain entity description -->
-        <javaModelGenerator targetPackage="com.casting.domain.entity" targetProject="./src/main/java/">
+        <javaModelGenerator targetPackage="com.quality.model" targetProject="./src/main/java/">
             <property name="enableSubPackages" value="false" />
             <property name="trimStrings" value="true" />
         </javaModelGenerator>
 
         <!-- sql mapper 映射配置文件 -->
-        <sqlMapGenerator targetPackage="com.casting.mapper.mybatis"  targetProject="./src/main/java/">
+        <sqlMapGenerator targetPackage="com.quality.mapper"  targetProject="./src/main/java/">
             <property name="enableSubPackages" value="false" />
         </sqlMapGenerator>
 
@@ -40,7 +40,7 @@
         <!--</javaClientGenerator>-->
 
         <!-- 数据表进行生成操作 schema:相当于库名; tableName:表名; domainObjectName:对应的DO -->
-        <table schema="dbo" tableName="Mechanical_Properties_Location_Requirement" domainObjectName="MechanicalPropertiesLocationRequirement"
+        <table schema="dbo" tableName="Laser_marker_printed_PN" domainObjectName="LaserMarkerPrintedPN"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
